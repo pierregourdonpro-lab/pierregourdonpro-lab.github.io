@@ -201,6 +201,7 @@ html { scroll-behavior: smooth; }
 .film { padding-block: 0 clamp(2rem, 6vw, 4rem); border-top: 0; }
 .film video { width: 100%; display: block; border-radius: 8px; box-shadow: 0 40px 120px -40px var(--glow), 0 0 0 1px var(--line); background: var(--surface); }
 .film .v-port { display: none; max-width: 26rem; margin: 0 auto; }
+.film.tour { padding: 0; margin: 1.6rem 0 2.4rem; }
 @media (max-width: 700px) { .film .v-land { display: none; } .film .v-port { display: block; } }
 /* ===== Animations au défilement (activées seulement si le JS tourne) ===== */
 .js .rv { opacity: 0; transform: translateY(28px); filter: blur(6px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1), filter .8s ease; transition-delay: var(--d, 0s); }
@@ -256,9 +257,9 @@ html { scroll-behavior: smooth; }
   <div class="brand"><b>Pierre Gourdon · PG Protocol</b><span>Biohacking · Performance masculine</span></div>
   <div class="hero-grid">
   <div class="hero-text">
-  <span class="eyebrow">Accompagnement individuel de 6 mois, piloté par tes données</span>
+  <span class="eyebrow">Accompagnement individuel, piloté par tes données</span>
   <h1>Tu t'entraînes sérieusement. <span>Ton corps ne suit plus.</span></h1>
-  <p class="lead">6 mois pour transformer ton physique et retrouver ton énergie et ta concentration, avec un plan piloté par tes données et ajusté chaque semaine. <b class="gold">Optimise ton corps. Sans jouer avec ta santé.</b></p>
+  <p class="lead">Un accompagnement pour transformer ton physique et retrouver ton énergie et ta concentration, avec un plan piloté par tes données et ajusté chaque semaine. <b class="gold">Optimise ton corps. Sans jouer avec ta santé.</b></p>
   <div class="cta-row">
     <a class="btn" href="#reserver">Réserver mon appel →</a>
     <span class="btn-note">45 min en visio · gratuit · sans engagement</span>
@@ -317,7 +318,7 @@ html { scroll-behavior: smooth; }
       <li>J'ai peur de faire une connerie avec ma santé, et je n'ai personne de sérieux à qui poser la question.</li>
       <li>J'ai déjà payé un coach. J'ai reçu un PDF, puis plus de nouvelles.</li>
     </ul>
-    <h2 style="margin-top:3.5rem">Dans 6 mois, ça ressemble à ça</h2>
+    <h2 style="margin-top:3.5rem">Dans quelques mois, ça ressemble à ça</h2>
     <div class="dream">
       <div><b>Un physique qui se voit</b><p>Plus de muscle, moins de gras, et des gens autour de toi qui te demandent ce que tu as fait.</p></div>
       <div><b>De l'énergie toute la journée</b><p>Plus de coup de massue l'après-midi. Un sommeil qui récupère vraiment.</p></div>
@@ -364,7 +365,7 @@ html { scroll-behavior: smooth; }
   <div class="wrap">
     <span class="eyebrow">La méthode PG · le pilotage par la data</span>
     <h2>Une méthode que tu ne trouveras nulle part ailleurs.</h2>
-    <p class="lead">Le fitness classique te donne un programme et te souhaite bonne chance. Ici, chaque décision part de tes propres chiffres, et on ajuste chaque semaine. 6 mois, en trois temps : construire les bases, accélérer, puis verrouiller tes résultats.</p>
+    <p class="lead">Le fitness classique te donne un programme et te souhaite bonne chance. Ici, chaque décision part de tes propres chiffres, et on ajuste chaque semaine. Trois temps : construire les bases, accélérer, puis verrouiller tes résultats.</p>
     <ul class="mirror" style="margin:2rem 0 2.5rem">
       <li style="list-style:none">Moi je suis quelqu'un de très méfiant, et en plus là on joue avec la santé. J'ai beaucoup cherché et je suis revenu à un constat simple : c'était toi le plus expérimenté sur le sujet.</li>
     </ul>
@@ -398,7 +399,7 @@ html { scroll-behavior: smooth; }
     <h2>Tes chiffres, semaine après semaine.</h2>
     <p class="lead">Chaque bilan de la semaine alimente ton tableau de bord. Tu vois ta courbe avancer, et on ajuste dès qu'elle ralentit.</p>
     <div class="evo">
-      <div class="evo-head"><b>Thomas · accompagnement 6 mois</b><span class="evo-legend"><span><i style="background:var(--gold)"></i>Poids (kg)</span><span><i style="background:var(--fg);opacity:.7"></i>Énergie (/10)</span></span></div>
+      <div class="evo-head"><b>Thomas · exemple fictif</b><span class="evo-legend"><span><i style="background:var(--gold)"></i>Poids (kg)</span><span><i style="background:var(--fg);opacity:.7"></i>Énergie (/10)</span></span></div>
       <svg viewBox="0 0 720 280" role="img" aria-label="Exemple : le poids passe de 78 à 82,4 kg et l'énergie de 5 à 8,5 sur 10 en 24 semaines">
         <defs><linearGradient id="evoFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#C9A45C" stop-opacity=".28"></stop><stop offset="1" stop-color="#C9A45C" stop-opacity="0"></stop></linearGradient></defs>
         <g class="grid"><line x1="42" x2="702" y1="211.0" y2="211.0"></line><line x1="42" x2="702" y1="133.0" y2="133.0"></line><line x1="42" x2="702" y1="55.0" y2="55.0"></line></g>
@@ -505,11 +506,11 @@ html { scroll-behavior: smooth; }
       </article>
 
       <article class="card">
-        <header><h3>Julien</h3><span class="who">Client 6 mois · anonyme à sa demande</span></header>
+        <header><h3>Julien</h3><span class="who">Client · anonyme à sa demande</span></header>
         <dl class="lab">
           <div><dt>Poids</dt><dd>72,0 kg → <em>83,8 kg</em></dd></div>
           <div><dt>Sommeil profond</dt><dd>16 min → <em>1h12</em> par nuit</dd></div>
-          <div><dt>Durée</dt><dd>6 mois</dd></div>
+          <div><dt>Durée</dt><dd>Calée sur ton objectif</dd></div>
         </dl>
         <cite>Appel de suivi, 15/05/2026</cite>
       </article>
@@ -529,10 +530,10 @@ html { scroll-behavior: smooth; }
 <!-- CE QUE TU REÇOIS -->
 <section>
   <div class="wrap">
-    <span class="eyebrow">L'accompagnement PG Protocol · 6 mois</span>
+    <span class="eyebrow">L'accompagnement PG Protocol</span>
     <h2>Tout ce que tu reçois</h2>
     <ul class="stack">
-      <li><span class="tag core">Le cœur</span><div><h3>Ton protocole sur mesure</h3><p>Entraînement, nutrition, sommeil, récupération et supplémentation, construits sur tes données et ajustés chaque semaine pendant 6 mois.</p></div></li>
+      <li><span class="tag core">Le cœur</span><div><h3>Ton protocole sur mesure</h3><p>Entraînement, nutrition, sommeil, récupération et supplémentation, construits sur tes données et ajustés chaque semaine, du premier jour au dernier.</p></div></li>
       <li><span class="tag core">Le cœur</span><div><h3>Moi, en direct sur WhatsApp</h3><p>7 jours sur 7. Réponse en général dans la journée, 48 h au maximum. Un doute, un effet inattendu, une question au rayon : tu m'écris.</p></div></li>
       <li><span class="tag core">Le cœur</span><div><h3>Une visio à chaque moment clé, et dès que tu bloques</h3><p>Lancement, lecture de chaque bilan sanguin, changement de phase, bilan de fin : on se voit, on regarde tes chiffres, on décide. Et dès qu'un point bloque ou qu'il faut revoir la stratégie en profondeur, on s'appelle. Tu n'attends jamais un rendez-vous fixe.</p></div></li>
       <li><span class="tag core">Le cœur</span><div><h3>La lecture de chacun de tes bilans sanguins</h3><p>Départ et contrôles, lus avec des repères de performance. Si un marqueur bouge, on agit tout de suite.</p></div></li>
@@ -547,7 +548,7 @@ html { scroll-behavior: smooth; }
       <svg width="64" height="64" viewBox="0 0 100 100" aria-hidden="true" style="margin-bottom:.2rem"><circle class="seal-ring" cx="50" cy="50" r="44" pathLength="100" fill="none" stroke="var(--gold)" stroke-width="2.5"></circle><path d="M32 52 L45 64 L69 38" fill="none" stroke="var(--gold)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       <span class="seal">Garantie de résultat</span>
       <h3>Je t'accompagne jusqu'au résultat.</h3>
-      <p>On fixe ensemble ton objectif chiffré dès le départ. Tu fais ta part, je fais la mienne. Si ton objectif n'est pas atteint au bout des 6 mois, je continue à te suivre sans surcoût jusqu'à ce qu'il le soit.</p>
+      <p>On fixe ensemble ton objectif chiffré dès le départ. Tu fais ta part, je fais la mienne. Si ton objectif n'est pas atteint à la fin de ton accompagnement, je continue à te suivre sans surcoût jusqu'à ce qu'il le soit.</p>
       <small>On travaille à l'objectif, pas à la séance. Modalités précisées dans ton contrat.</small>
     </div>
     <p class="muted" style="margin-top:2rem">Je suis chaque client moi-même. Le nombre de personnes que j'accompagne en même temps est donc limité par mon temps.</p>
@@ -582,9 +583,9 @@ html { scroll-behavior: smooth; }
     <details><summary>Je n'ai pas de bilan sanguin récent. Je peux quand même réserver ?</summary><p>Oui. Si on travaille ensemble, je te donne la liste exacte des marqueurs à faire, avec une version à montrer à ton médecin. Aucun protocole ne démarre sans ce bilan.</p></details>
     <details><summary>Je ne veux rien prendre. C'est quand même pour moi ?</summary><p>Oui. Les outils avancés ne sont proposés que si ton bilan et ton objectif le justifient. Entraînement, nutrition, sommeil et récupération bien réglés suffisent déjà à débloquer beaucoup de plateaux.</p></details>
     <details><summary>Et mon médecin dans tout ça ?</summary><p>Il reste ton premier interlocuteur pour ta santé. Je ne suis pas médecin et je ne remplace pas un avis médical : je travaille avec ses analyses, jamais dans son dos.</p></details>
-    <details><summary>Ça dure combien de temps ?</summary><p>L'accompagnement dure 6 mois. Le temps de transformer ton physique, puis de stabiliser tes résultats pour les garder seul. On vérifie ensemble à l'appel si ce format te correspond.</p></details>
+    <details><summary>Ça dure combien de temps ?</summary><p>La durée dépend de ton objectif et de ton point de départ. On la fixe ensemble à l'appel, avec le temps qu'il faut pour transformer ton physique, puis stabiliser tes résultats pour les garder seul.</p></details>
     <details><summary>Qui assure mon suivi ?</summary><p>Moi. Le suivi est 100 % humain : je lis tes bilans, je réponds à tes messages et je fais tes appels. Tu as accès à moi en direct sur WhatsApp, 7 jours sur 7, avec une réponse en général dans la journée, 48 h au maximum.</p></details>
-    <details><summary>Et si je n'atteins pas mon objectif ?</summary><p>On fixe ensemble un objectif chiffré au départ. Si tu fais ta part et qu'il n'est pas atteint au bout des 6 mois, je continue à te suivre sans surcoût jusqu'à ce qu'il le soit. Les modalités sont précisées dans ton contrat.</p></details>
+    <details><summary>Et si je n'atteins pas mon objectif ?</summary><p>On fixe ensemble un objectif chiffré au départ. Si tu fais ta part et qu'il n'est pas atteint à la fin de ton accompagnement, je continue à te suivre sans surcoût jusqu'à ce qu'il le soit. Les modalités sont précisées dans ton contrat.</p></details>
     <details><summary>Combien ça coûte ?</summary><p>Ça dépend de ton objectif et du niveau de suivi dont tu as besoin. Je préfère te donner un tarif exact plutôt qu'une fourchette : on en parle pendant l'appel, une fois qu'on a regardé ton cas.</p></details>
     <details><summary>J'ai peu de temps. Ça tient dans un agenda chargé ?</summary><p>C'est le principe. La plupart de mes clients sont cadres, entrepreneurs, policiers ou militaires en horaires décalés. Ton bilan de la semaine prend 2 minutes, et le protocole s'adapte à ta vie, pas l'inverse.</p></details>
     <details><summary>J'habite en Belgique, en Suisse ou ailleurs.</summary><p>Tout se fait à distance : appels en visio, espace client en ligne, échanges écrits. Plusieurs clients sont en Belgique.</p></details>
@@ -671,6 +672,21 @@ html { scroll-behavior: smooth; }
     if (sticky && hero && book) { var past = hero.getBoundingClientRect().bottom < 0; var near = book.getBoundingClientRect().top < innerHeight * 1.1; var show = past && !near; sticky.classList.toggle('show', show); sticky.setAttribute('aria-hidden', show ? 'false' : 'true'); sticky.querySelector('a').tabIndex = show ? 0 : -1; }
   }
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
+})();
+</script>
+<script>
+(function () {
+  var vids = document.querySelectorAll('.tour video');
+  if (!('IntersectionObserver' in window)) { vids.forEach(function (v) { v.play && v.play().catch(function () {}); }); return; }
+  var seen = new WeakSet();
+  var obs = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      var v = e.target;
+      if (e.isIntersecting) { if (!seen.has(v)) { seen.add(v); try { v.currentTime = 0; } catch (x) {} } var pr = v.play(); if (pr) pr.catch(function () {}); }
+      else v.pause();
+    });
+  }, { threshold: 0.35 });
+  vids.forEach(function (v) { obs.observe(v); });
 })();
 </script>
 </body>
