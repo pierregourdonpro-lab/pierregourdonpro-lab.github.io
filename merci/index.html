@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Appel confirmé · PG Protocol</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: une colonne de lecture étroite, interrompue par des « fiches de résultats » façon compte rendu de laboratoire. Identité noir et or PG. */
+:root {
+  --bg: #0E0D0B;
+  --surface: #17140F;
+  --line: #2A251C;
+  --fg: #EFE8DC;
+  --muted: #A0978A;
+  --gold: #C9A45C;
+  --gold-hi: #E2C285;
+  --on-gold: #0B0B0B;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --glow: rgba(214, 150, 62, .17);
+  --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: radial-gradient(ellipse 70% 45% at 72% 0%, var(--glow), transparent 70%) no-repeat, radial-gradient(ellipse 60% 40% at 15% 100%, rgba(214,150,62,.07), transparent 70%) no-repeat, var(--bg); color: var(--fg);
+  font-family: var(--body); font-size: 1.0625rem; line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--gold-hi); }
+.wrap {
+  max-width: 44rem; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wide { max-width: 64rem; }
+section { padding-block: clamp(4.5rem, 10vw, 8rem); border-top: 1px solid var(--line); }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; letter-spacing: -.025em; line-height: 1.04; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2.5rem, 6.4vw, 4.4rem); }
+h2 { font-size: clamp(1.9rem, 4.4vw, 2.8rem); margin-bottom: 1.5rem; }
+h3 { font-size: 1.35rem; font-weight: 600; letter-spacing: -.015em; }
+p { margin: 0 0 1.1rem; max-width: 65ch; }
+.eyebrow { font-family: var(--mono); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; display: block; }
+.gold { color: var(--gold); }
+.lead { font-size: 1.22rem; color: var(--fg); }
+.muted { color: var(--muted); }
+
+/* Hero */
+.hero { padding-block: clamp(2.5rem, 7vw, 5rem) clamp(3rem, 7vw, 5rem); border-top: 0; }
+.brand { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: clamp(2.5rem, 7vw, 4.5rem); font-family: var(--mono); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.brand b { color: var(--fg); font-weight: 500; }
+.hero h1 span { color: var(--gold); display: block; }
+.hero .lead { margin-top: 1.6rem; }
+.cta-row { display: flex; flex-wrap: wrap; gap: .9rem 1.4rem; align-items: center; margin-top: 2rem; }
+.btn {
+  display: inline-flex; align-items: center; gap: .6rem;
+  background: var(--gold); color: var(--on-gold); text-decoration: none;
+  font-family: var(--display); font-weight: 600; font-size: 1.08rem; letter-spacing: -.01em;
+  padding: 1.05rem 1.7rem; border-radius: 4px; box-shadow: 0 10px 40px -12px var(--glow);
+  transition: background .15s ease, transform .15s ease;
+}
+.btn:hover { background: var(--gold-hi); }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: 3px; }
+.btn-note { font-size: .9rem; color: var(--muted); }
+
+.proof { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 3rem; }
+.proof div { background: var(--bg); padding: 1rem 1.1rem; min-width: 0; }
+.proof b { display: block; font-family: var(--mono); font-weight: 500; font-size: 1.15rem; color: var(--gold); font-variant-numeric: tabular-nums; }
+.proof span { font-size: .88rem; color: var(--muted); }
+@media (max-width: 560px) { .proof { grid-template-columns: 1fr; } }
+
+/* Pour qui */
+.fit { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; }
+.fit ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .85rem; }
+.fit li { padding-left: 1.6rem; position: relative; }
+.fit li::before { position: absolute; left: 0; top: 0; font-family: var(--mono); }
+.yes li::before { content: "+"; color: var(--gold); }
+.no li::before { content: "–"; color: var(--muted); }
+.no li { color: var(--muted); }
+@media (max-width: 640px) { .fit { grid-template-columns: 1fr; } }
+
+/* Histoire */
+.story p { font-size: 1.12rem; }
+.pull { font-family: var(--display); font-weight: 500; font-size: clamp(1.5rem, 3.6vw, 2rem); line-height: 1.2; letter-spacing: -.02em; color: var(--gold); border-left: 2px solid var(--gold); padding-left: 1.2rem; margin: 2.2rem 0; max-width: 30ch; text-wrap: balance; }
+
+/* Pièges */
+.traps { display: grid; gap: 1.6rem; margin-top: .5rem; }
+.trap { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1.2rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
+.trap h3 { font-size: 1.15rem; color: var(--gold); }
+.trap p { margin: 0; }
+@media (max-width: 560px) { .trap { grid-template-columns: 1fr; gap: .4rem; } }
+
+/* Méthode */
+.steps { list-style: none; padding: 0; margin: 0; counter-reset: s; display: grid; gap: 0; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 4.2rem minmax(0, 1fr); gap: 1rem; padding-block: 1.6rem; border-top: 1px solid var(--line); }
+.steps li::before { content: "0" counter(s); font-family: var(--display); font-weight: 500; font-size: 2.2rem; line-height: 1; color: var(--gold); }
+.steps h3 { margin-bottom: .5rem; }
+.steps p { margin: 0; color: var(--muted); }
+.steps p b { color: var(--fg); font-weight: 600; }
+.diff { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 2.5rem; }
+.diff div { background: var(--surface); padding: 1.1rem; font-size: .95rem; min-width: 0; }
+.diff b { display: block; font-family: var(--mono); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: .35rem; font-weight: 500; }
+@media (max-width: 700px) { .diff { grid-template-columns: 1fr; } }
+
+/* Résultats : fiches façon compte rendu */
+.results { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; margin-top: 2rem; }
+@media (max-width: 760px) { .results { grid-template-columns: 1fr; } }
+.card { background: var(--surface); border: 1px solid var(--line); padding: 1.4rem 1.4rem 1.5rem; display: flex; flex-direction: column; gap: 1rem; min-width: 0; }
+.card header { display: flex; justify-content: space-between; align-items: baseline; gap: .8rem; flex-wrap: wrap; }
+.card h3 { font-size: 1.55rem; }
+.card .who { font-family: var(--mono); font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.lab { font-family: var(--mono); font-size: .88rem; font-variant-numeric: tabular-nums; border-top: 1px dashed var(--line); border-bottom: 1px dashed var(--line); padding-block: .6rem; display: grid; gap: .3rem; }
+.lab div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .8rem; }
+.lab dt, .lab dd { margin: 0; }
+.lab dt { color: var(--muted); text-transform: uppercase; font-size: .76rem; letter-spacing: .06em; align-self: center; }
+.lab dd { color: var(--fg); text-align: right; }
+.lab dd em { font-style: normal; color: var(--gold); }
+.card blockquote { margin: 0; font-size: 1.02rem; line-height: 1.55; }
+.card blockquote::before { content: "« "; color: var(--gold); }
+.card blockquote::after { content: " »"; color: var(--gold); }
+.card cite { font-style: normal; font-family: var(--mono); font-size: .74rem; color: var(--muted); letter-spacing: .04em; }
+.card.feature { grid-column: 1 / -1; }
+.card.feature blockquote { font-size: 1.2rem; }
+.quotes { display: grid; gap: 1.6rem; margin-top: 3rem; }
+.quotes blockquote { margin: 0; padding-left: 1.2rem; border-left: 1px solid var(--gold); }
+.quotes p { margin: 0 0 .4rem; font-size: 1.08rem; }
+.quotes cite { font-style: normal; font-family: var(--mono); font-size: .76rem; color: var(--muted); letter-spacing: .04em; }
+.disclaim { font-size: .88rem; color: var(--muted); margin-top: 2.2rem; max-width: 70ch; }
+
+/* Appel */
+.call { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; margin: 1.5rem 0 2rem; }
+.call div { border-top: 2px solid var(--gold); padding-top: .9rem; min-width: 0; }
+.call b { display: block; font-family: var(--mono); font-weight: 500; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: .3rem; }
+.call p { margin: 0; font-size: .98rem; }
+@media (max-width: 640px) { .call { grid-template-columns: 1fr; } }
+
+/* FAQ */
+.faq details { border-top: 1px solid var(--line); }
+.faq details:last-child { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; list-style: none; padding-block: 1.15rem; padding-right: 2rem; position: relative; font-weight: 600; font-size: 1.08rem; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 0; top: 1rem; font-family: var(--mono); color: var(--gold); font-size: 1.2rem; }
+.faq details[open] summary::after { content: "–"; }
+.faq details p { color: var(--muted); padding-bottom: .4rem; }
+
+/* CTA final */
+.final { text-align: left; background: var(--surface); }
+.final h2 span { color: var(--gold); display: block; }
+footer { border-top: 1px solid var(--line); padding-block: 2.5rem; font-size: .82rem; color: var(--muted); }
+footer p { max-width: 75ch; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+.alert { border: 1px solid color-mix(in srgb, var(--gold) 60%, transparent); background: radial-gradient(120% 140% at 0% 0%, var(--glow), transparent 65%); border-radius: 6px; padding: 1.2rem 1.3rem; margin-top: 1.8rem; display: grid; gap: .35rem; max-width: 40rem; }
+.alert > b { font-family: var(--mono); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+.alert p { margin: 0; }
+.qs { counter-reset: q; list-style: none; padding: 0; margin: 1.2rem 0 0; display: grid; gap: .7rem; }
+.qs li { counter-increment: q; padding-left: 2.2rem; position: relative; font-size: 1.08rem; }
+.qs li::before { content: counter(q); position: absolute; left: 0; top: .05rem; font-family: var(--mono); color: var(--gold); }
+</style>
+<style>
+.check { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: 1.2rem; }
+.check li { display: grid; grid-template-columns: 2.2rem minmax(0,1fr); gap: .9rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+.check li::before { content: ""; width: 1.3rem; height: 1.3rem; border: 1.5px solid var(--gold); margin-top: .25rem; }
+.check b { display: block; font-size: 1.08rem; margin-bottom: .2rem; }
+.check p { margin: 0; color: var(--muted); }
+.confirm { border-radius: 3px; display: inline-flex; align-items: center; gap: .6rem; font-family: var(--mono); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--on-gold); background: var(--gold); padding: .35rem .7rem; margin-bottom: 1.4rem; }
+</style>
+</head>
+<body>
+<header class="wrap hero">
+  <div class="brand"><b>Pierre Gourdon · PG Protocol</b><span>Biohacking · Performance masculine</span></div>
+  <span class="confirm">✓ Appel réservé</span>
+  <h1>C'est noté. <span>On se parle bientôt.</span></h1>
+  <p class="lead">Ton appel stratégique de 45 minutes est réservé. Tu viens de recevoir un mail de confirmation avec un lien Google Meet, et tu recevras des rappels avant le rendez-vous.</p>
+  <div class="alert">
+    <b>Important · garde un œil sur WhatsApp</b>
+    <p>Un membre de l'équipe PG Protocol va te confirmer ton rendez-vous sur WhatsApp, avec le <strong style="color:var(--fg)">lien Google Meet définitif</strong>. C'est ce lien qui fait foi.</p>
+  </div>
+  <p class="muted" style="margin-top:1.2rem">Tu ne vois pas le mail ? Regarde dans tes spams ou dans l'onglet « Promotions ».</p>
+</header>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Avant l'appel</span>
+    <h2>Prépare ton rendez-vous</h2>
+    <ul class="check">
+      <li><div><b>45 minutes au calme</b><p>Une connexion stable, la caméra si possible, et WhatsApp à portée de main.</p></div></li>
+      <li><div><b>Tes chiffres et ce que tu prends déjà</b><p>Ton poids, ton tour de taille si tu l'as, tes charges principales, ton dernier bilan sanguin si tu en as un, et tout ce que tu prends aujourd'hui. Tout reste confidentiel, rien n'est jugé.</p></div></li>
+      <li><div><b>La personne qui décide avec toi</b><p>Si quelqu'un participe à la décision financière, parles-en avant l'appel ou invite-le au rendez-vous.</p></div></li>
+    </ul>
+    <h3 style="margin-top:2.6rem">4 questions à te poser avant l'appel</h3>
+    <ol class="qs">
+      <li>Quel résultat compte le plus pour moi ?</li>
+      <li>Qu'est-ce que j'ai déjà essayé, et qu'est-ce qui m'a manqué ?</li>
+      <li>Quelles contraintes la solution doit-elle respecter ?</li>
+      <li>Qu'est-ce que j'ai besoin de savoir pour me décider ?</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Pendant l'appel</span>
+    <h2>Ce qu'on va faire ensemble</h2>
+    <ol class="steps">
+      <li><div><h3>Ton point de départ</h3><p>Ton objectif, ton historique, ce que tu as déjà essayé.</p></div></li>
+      <li><div><h3>Ce qui bloque vraiment</h3><p>Entraînement, nutrition, sommeil, récupération, tes chiffres et ton bilan si tu l'as.</p></div></li>
+      <li><div><h3>La suite possible</h3><p>Si l'accompagnement a du sens pour toi, on te montre concrètement comment il se déroulerait dans ton cas, et on en parle tarif.</p></div></li>
+      <li><div><h3>Tes questions</h3><p>Sécurité, médecin, temps à y consacrer : tu repars avec des réponses claires.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Un appel pour avancer</span>
+    <h2>L'objectif : une décision claire</h2>
+    <p>On réserve ce temps pour comprendre ta situation et te faire une recommandation précise. À la fin, l'idée est de savoir si on avance ensemble ou non. Un « non » clair est tout à fait acceptable.</p>
+    <p>Viens avec tes hésitations : on est là pour les traiter pendant l'échange. S'il te manque une information concrète pour décider, on l'identifie et on fixe une prochaine étape précise.</p>
+    <p class="muted">Tu sais déjà que tu ne veux rien commencer avant plusieurs mois ? Reporte ton rendez-vous à une période où tu pourras passer à l'action.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Si on travaille ensemble</span>
+    <h2>Ce qui t'attend</h2>
+    <div class="call">
+      <div><b>100 % humain</b><p>C'est Pierre qui te suit, du premier bilan au dernier appel.</p></div>
+      <div><b>WhatsApp direct, 7 j/7</b><p>Réponse en général dans la journée, 48 h au maximum.</p></div>
+      <div><b>Jusqu'au résultat</b><p>Objectif chiffré fixé ensemble. S'il n'est pas atteint au bout des 6 mois, le suivi continue sans surcoût.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">En avant-première</span>
+    <h2>Découvre ton futur espace client</h2>
+    <p>Feuille de route semaine par semaine, chiffres, documents, suivi : voici à quoi ressemble l'espace personnel de chaque client, sur un exemple fictif.</p>
+    <div class="cta-row">
+      <a class="btn" href="https://www.notion.so/3fd461f779be81a3826ee2743e039b10" target="_blank" rel="noopener">Voir l'exemple d'espace client →</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Ils sont passés par cet appel</span>
+    <h2>Ce qu'ils en disent</h2>
+    <div class="quotes">
+      <blockquote><p>« Moi je suis quelqu'un de très méfiant, et en plus là on joue avec la santé. J'ai beaucoup cherché et je suis revenu à un constat simple : c'était toi le plus expérimenté sur le sujet. »</p><cite>Jonathan · entrepreneur · 77,5 → 71,5 kg</cite></blockquote>
+      <blockquote><p>« J'en ai vraiment pour mon argent. Ils m'ont pas vendu du rêve. C'était tellement bien organisé, tellement bien structuré. »</p><cite>Kevin · 35 ans · 71,1 → 80 kg</cite></blockquote>
+      <blockquote><p>« Les prises de sang et tout, si j'ai personne pour les contrôler, il y a moyen que j'arrête. C'est quand même une sécurité. »</p><cite>Tom · client depuis 2024</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <span class="eyebrow">Questions pratiques</span>
+    <h2>Avant ton rendez-vous</h2>
+    <details><summary>Je ne peux plus venir. Comment je décale ?</summary><p>Utilise le lien de modification dans ton mail de confirmation, si possible au moins 24 h avant. Ton créneau est réservé pour toi : préviens-nous, ça libère la place pour quelqu'un d'autre.</p></details>
+    <details><summary>Je préfère un appel WhatsApp plutôt que Google Meet.</summary><p>Aucun souci. Dis-le simplement en réponse au message de confirmation sur WhatsApp.</p></details>
+    <details><summary>Qui va m'appeler ?</summary><p>Un membre de l'équipe PG Protocol. Il te confirme ton rendez-vous et le lien Google Meet sur WhatsApp avant l'appel.</p></details>
+    <details><summary>Je vais recevoir mon protocole pendant l'appel ?</summary><p>Non. L'appel sert à comprendre ta situation et à voir si l'accompagnement te correspond. Ton protocole se construit ensuite, à partir de toutes tes données.</p></details>
+    <details><summary>Je dois déjà utiliser des produits avancés ?</summary><p>Non. Ce n'est pas une condition, et être accompagné ne t'engage pas à en utiliser.</p></details>
+    <details><summary>Je n'ai pas de bilan sanguin récent.</summary><p>Viens comme tu es : si on travaille ensemble, tu recevras la liste exacte des marqueurs à faire.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Pierre Gourdon · PG Protocol. Pierre Gourdon n'est pas médecin : l'accompagnement ne remplace pas un avis, un diagnostic ou un traitement médical. Réservé aux personnes majeures.</p>
+  </div>
+</footer>
+</body>
+</html>
