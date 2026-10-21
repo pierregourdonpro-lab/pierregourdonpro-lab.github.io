@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>PG Protocol IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#0E0D0B;--surface:#17140F;--surface-2:#1E1A13;--line:#2A251C;--fg:#EFE8DC;--muted:#A0978A;--gold:#C9A45C;--gold-hi:#E2C285;--on-gold:#0B0B0B;--danger:#E07A5F}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--fg);font:16px/1.55 "Instrument Sans",system-ui,sans-serif;display:flex;flex-direction:column;
+  background-image:radial-gradient(60% 40% at 50% -5%,rgba(201,164,92,.16),transparent 70%)}
+a{color:var(--gold-hi)}
+header{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line);background:rgba(14,13,11,.85);backdrop-filter:blur(8px);position:sticky;top:0;z-index:2}
+.logo{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(145deg,var(--gold-hi),var(--gold));color:var(--on-gold);font:700 14px "Archivo",sans-serif}
+header h1{font:600 17px "Archivo",sans-serif;margin:0;letter-spacing:-.01em}
+header p{margin:0;font-size:12.5px;color:var(--muted)}
+header button{margin-left:auto}
+main{flex:1;overflow-y:auto;padding:20px 16px 8px}
+.wrap{max-width:720px;margin:0 auto}
+.login{max-width:420px;margin:12vh auto 0;text-align:center}
+.login h2{font:600 26px/1.2 "Archivo",sans-serif;margin:0 0 8px;letter-spacing:-.02em}
+.login p{color:var(--muted);margin:0 0 22px}
+input,textarea{width:100%;background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:14px;padding:13px 15px;font:inherit;outline:none}
+input:focus,textarea:focus{border-color:var(--gold)}
+input{text-align:center;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.btn{background:linear-gradient(145deg,var(--gold-hi),var(--gold));color:var(--on-gold);border:0;border-radius:999px;padding:12px 22px;font:600 15px "Archivo",sans-serif;cursor:pointer}
+.btn:disabled{opacity:.5;cursor:default}
+.ghost{background:transparent;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:7px 13px;font:500 13px inherit;cursor:pointer}
+.err{color:var(--danger);min-height:1.4em;margin-top:10px;font-size:14px}
+.msg{margin:0 0 16px;display:flex}
+.msg.user{justify-content:flex-end}
+.bubble{max-width:88%;padding:12px 15px;border-radius:18px;word-wrap:break-word}
+.user .bubble{background:var(--surface-2);border:1px solid var(--line);border-bottom-right-radius:6px;white-space:pre-wrap}
+.bot .bubble{background:transparent;padding-left:2px}
+.bot .bubble p{margin:0 0 .6em}.bot .bubble p:last-child{margin:0}
+.bot .bubble ul,.bot .bubble ol{margin:.2em 0 .6em;padding-left:1.25em}
+.bot .bubble strong{color:var(--gold-hi);font-weight:600}
+.status{color:var(--muted);font-size:13.5px;display:flex;align-items:center;gap:8px;margin-top:6px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 1.1s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.sources{margin-top:10px;font-size:13px;color:var(--muted)}
+.sources a{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hello h2{font:600 24px/1.25 "Archivo",sans-serif;margin:8px 0 6px;letter-spacing:-.02em}
+.hello p{color:var(--muted);margin:0 0 18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--surface);border:1px solid var(--line);color:var(--fg);border-radius:999px;padding:9px 14px;font:500 14px inherit;cursor:pointer;text-align:left}
+.chip:hover{border-color:var(--gold)}
+footer{padding:10px 16px calc(12px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:var(--bg)}
+form.ask{display:flex;gap:8px;align-items:flex-end}
+form.ask textarea{resize:none;max-height:140px;text-align:left;letter-spacing:normal;text-transform:none;font-weight:400}
+.note{font-size:11.5px;color:var(--muted);text-align:center;margin:8px 0 0}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){.dot{animation:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">PG</div>
+  <div><h1>PG Protocol IA</h1><p>Ta bibliothèque, les fiches molécules et la méthode de Pierre</p></div>
+  <button class="ghost" id="logout" hidden>Changer de code</button>
+</header>
+
+<main id="main"><div class="wrap">
+  <section class="login" id="login">
+    <h2>Ton assistant PG Protocol</h2>
+    <p>Réservé aux clients. Entre le code d'accès que Pierre t'a envoyé.</p>
+    <form id="loginForm">
+      <input id="code" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="PG-XXXX-XXXX" aria-label="Code d'accès">
+      <div class="err" id="loginErr"></div>
+      <button class="btn" id="loginBtn">Entrer</button>
+    </form>
+  </section>
+
+  <section id="chat" hidden>
+    <div class="hello" id="hello">
+      <h2 id="helloTitle">Salut.</h2>
+      <p>Pose ta question : je cherche dans ta bibliothèque, les 154 fiches Molécules décodées et, si besoin, les études publiées. Pour une décision sur ton protocole, c'est Pierre.</p>
+      <div class="chips" id="chips">
+        <button class="chip">Comment j'envoie mon bilan de la semaine ?</button>
+        <button class="chip">Mon colis a du retard, je fais quoi ?</button>
+        <button class="chip">J'ai oublié une prise, quelle fiche je lis ?</button>
+        <button class="chip">Quand est-ce que je demande une visio à Pierre ?</button>
+      </div>
+    </div>
+    <div id="thread"></div>
+  </section>
+</div></main>
+
+<footer id="composer" hidden>
+  <div class="wrap">
+    <form class="ask" id="askForm">
+      <textarea id="q" rows="1" placeholder="Écris ta question…" aria-label="Ta question"></textarea>
+      <button class="btn" id="send" aria-label="Envoyer">Envoyer</button>
+    </form>
+    <p class="note">Information éducative, pas un avis médical. Urgence : 15 ou 112 · Détresse : 3114. Ne colle ni ton nom complet ni tes documents médicaux.</p>
+  </div>
+</footer>
+
+<script>
+// Adresse du serveur PG Protocol IA (Cloudflare Worker).
+const API = "https://pg-protocol-ia.REMPLACER.workers.dev";
+
+const $ = (id) => document.getElementById(id);
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+  del(k) { try { localStorage.removeItem(k); } catch {} },
+};
+let code = store.get("pgia_code");
+let history = [];
+let busy = false;
+
+function esc(s) { return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]); }
+function inline(s) {
+  return esc(s)
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+}
+function md(text) {
+  const out = []; let list = null;
+  for (const raw of text.split("\n")) {
+    const line = raw.trimEnd();
+    const li = line.match(/^\s*(?:[-*•]|\d+[.)])\s+(.*)$/);
+    if (li) { const tag = /^\s*\d/.test(line) ? "ol" : "ul"; if (!list || list.tag !== tag) { if (list) out.push(`</${list.tag}>`); list = { tag }; out.push(`<${tag}>`); } out.push(`<li>${inline(li[1])}</li>`); continue; }
+    if (list) { out.push(`</${list.tag}>`); list = null; }
+    if (line.trim()) out.push(`<p>${inline(line.replace(/^#+\s*/, ""))}</p>`);
+  }
+  if (list) out.push(`</${list.tag}>`);
+  return out.join("");
+}
+
+function showChat(prenom) {
+  $("login").hidden = true; $("chat").hidden = false; $("composer").hidden = false; $("logout").hidden = false;
+  $("helloTitle").textContent = prenom ? `Salut ${prenom}.` : "Salut.";
+}
+function showLogin(msg) {
+  $("login").hidden = false; $("chat").hidden = true; $("composer").hidden = true; $("logout").hidden = true;
+  $("loginErr").textContent = msg || "";
+}
+
+async function login(c) {
+  const r = await fetch(API + "/api/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code: c }) });
+  const d = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(d.error || "Connexion impossible.");
+  return d.prenom;
+}
+
+$("loginForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const c = $("code").value.trim().toUpperCase();
+  if (!c) return;
+  $("loginBtn").disabled = true; $("loginErr").textContent = "";
+  try { const p = await login(c); code = c; store.set("pgia_code", c); store.set("pgia_prenom", p); showChat(p); $("q").focus(); }
+  catch (err) { $("loginErr").textContent = err.message; }
+  finally { $("loginBtn").disabled = false; }
+});
+$("logout").addEventListener("click", () => { store.del("pgia_code"); store.del("pgia_prenom"); code = null; history = []; $("thread").innerHTML = ""; $("hello").hidden = false; showLogin(); });
+
+function addMsg(role, html) {
+  const m = document.createElement("div"); m.className = "msg " + (role === "user" ? "user" : "bot");
+  const b = document.createElement("div"); b.className = "bubble"; b.innerHTML = html; m.appendChild(b);
+  $("thread").appendChild(m); scrollDown(); return b;
+}
+function scrollDown() { const el = $("main"); el.scrollTop = el.scrollHeight; }
+
+async function ask(question) {
+  if (busy || !question.trim()) return;
+  busy = true; $("send").disabled = true; $("hello").hidden = true;
+  history.push({ role: "user", content: question });
+  addMsg("user", esc(question));
+  const bubble = addMsg("bot", '<div class="status"><span class="dot"></span><span>Je cherche…</span></div>');
+  let text = "", status = "Je cherche…", sources = [], final = null;
+  const render = () => {
+    let html = text ? md(text) : "";
+    if (!final) html += `<div class="status"><span class="dot"></span><span>${esc(status)}</span></div>`;
+    if (sources.length) html += '<div class="sources">Sources :' + sources.map((s) => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join("") + "</div>";
+    bubble.innerHTML = html; scrollDown();
+  };
+  try {
+    const r = await fetch(API + "/api/chat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code, messages: history }) });
+    if (!r.ok) { const d = await r.json().catch(() => ({})); if (r.status === 401) { store.del("pgia_code"); showLogin(d.error); } throw new Error(d.error || "L'IA est indisponible pour le moment."); }
+    const reader = r.body.getReader(); const dec = new TextDecoder(); let buf = "";
+    while (true) {
+      const { value, done } = await reader.read(); if (done) break;
+      buf += dec.decode(value, { stream: true });
+      let i;
+      while ((i = buf.indexOf("\n")) >= 0) {
+        const line = buf.slice(0, i); buf = buf.slice(i + 1); if (!line.trim()) continue;
+        const ev = JSON.parse(line);
+        if (ev.t === "text") text += ev.v;
+        else if (ev.t === "status") status = ev.v;
+        else if (ev.t === "sources") sources = ev.v;
+        else if (ev.t === "refusal" || ev.t === "error") { text = ev.v; final = ev.t; }
+        else if (ev.t === "done") final = final || "done";
+        render();
+      }
+    }
+    final = final || "done"; render();
+    if (final === "done" && text.trim()) history.push({ role: "assistant", content: text.trim() });
+    else history.pop();
+  } catch (err) {
+    final = "error"; text = err.message; render(); history.pop();
+  } finally {
+    busy = false; $("send").disabled = false;
+  }
+}
+
+$("askForm").addEventListener("submit", (e) => { e.preventDefault(); const q = $("q").value; $("q").value = ""; autoGrow(); ask(q); });
+$("q").addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.shiftKey && !matchMedia("(pointer:coarse)").matches) { e.preventDefault(); $("askForm").requestSubmit(); } });
+function autoGrow() { const t = $("q"); t.style.height = "auto"; t.style.height = Math.min(t.scrollHeight, 140) + "px"; }
+$("q").addEventListener("input", autoGrow);
+$("chips").addEventListener("click", (e) => { if (e.target.classList.contains("chip")) ask(e.target.textContent); });
+
+if (code) showChat(store.get("pgia_prenom")); else showLogin();
+</script>
+</body>
+</html>
