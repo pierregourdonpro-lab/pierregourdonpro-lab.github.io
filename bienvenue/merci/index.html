@@ -19,6 +19,11 @@ h1 { font-family: "Archivo",Arial,sans-serif; font-weight: 600; letter-spacing: 
 h1 span { color: var(--gold); }
 ul { padding-left: 1.2rem; color: var(--muted); } li { margin-bottom: .5rem; }
 .muted { color: var(--muted); font-size: .9rem; margin-top: 2.5rem; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.4rem 1.4rem 1.6rem; margin: 1.8rem 0 1.4rem; }
+.card h2 { font-family: "Archivo",Arial,sans-serif; font-weight: 600; letter-spacing: -.015em; font-size: 1.35rem; margin: 0 0 .5rem; }
+.card p { margin: 0 0 .4rem; color: var(--muted); }
+.btn { display: inline-flex; align-items: center; gap: .5rem; background: var(--gold); color: #0B0B0B; text-decoration: none; font-weight: 600; padding: 1rem 1.4rem; border-radius: 999px; margin-top: .8rem; }
+.btn:hover { background: #D6B575; } .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
 /* Audit : charte inversée (même que la page de vente /audit/) */
 :root[data-theme="audit"] { --bg:#EFE8DC; --surface:#FBF8F2; --line:#D6CBB7; --fg:#0E0D0B; --muted:#4F473B; --gold:#7A5A1C; --gold-hi:#6A4E16; color-scheme: light; }
@@ -32,13 +37,21 @@ ul { padding-left: 1.2rem; color: var(--muted); } li { margin-bottom: .5rem; }
 <main class="wrap">
   <span class="eyebrow">Questionnaire reçu</span>
   <h1>Merci. <span>Je prends le relais.</span></h1>
-  <p>J'ai bien reçu ton dossier. Je le reprends en détail.</p>
+  <p>J'ai bien reçu ton dossier. Je le reprends en détail avant qu'on se parle.</p>
+  <section class="card">
+    <span class="eyebrow">Étape suivante</span>
+    <h2>Réserve ta visio d'onboarding</h2>
+    <p>45 minutes en Google Meet pour approfondir ton dossier, avant de construire ta stratégie.</p>
+    <p>Les créneaux s'ouvrent 48 h à l'avance : réserve maintenant, ta stratégie arrive plus vite.</p>
+    <a class="btn" id="bookBtn" href="https://calendly.com/pgsarms/onboarding-client-pg-protocol" target="_blank" rel="noopener">Je réserve ma visio →</a>
+  </section>
   <ul>
     <li>Ton accès à ton espace PG Protocol arrive par e-mail (invitation Notion) : regarde aussi tes spams.</li>
     <li>Il manque une analyse, une mesure ou une photo ? Envoie-la quand tu l'as, sur WhatsApp.</li>
-    <li>Je reviens vers toi dès que ta stratégie avance.</li>
+    <li>Le lien Google Meet de ta visio arrive par e-mail dès que tu as réservé.</li>
   </ul>
   <p class="muted">Urgence santé : 15 ou 112. Pierre Gourdon n'est pas médecin.</p>
 </main>
+<script>try{var q=new URLSearchParams(location.search),e=q.get("email")||"",n=q.get("name")||"",u=new URL(document.getElementById("bookBtn").href);if(e&&e.indexOf("@")>0)u.searchParams.set("email",e);if(n&&n.indexOf("@")<0)u.searchParams.set("name",n);document.getElementById("bookBtn").href=u.toString()}catch(err){}</script>
 </body>
 </html>
