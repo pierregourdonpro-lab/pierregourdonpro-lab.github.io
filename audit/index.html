@@ -259,17 +259,16 @@ html { scroll-behavior: smooth; }
 .pricebox .price span { color: var(--muted); font-family: var(--mono); font-size: .85rem; }
 .pricebox .btn { width: 100%; justify-content: center; text-align: center; }
 .pricebox .btn-note { margin-top: .8rem; text-align: center; }
-/* Audit : charte claire « dossier d'expert », distincte de la page sombre de l'accompagnement. */
+/* Audit : charte de la page d'accompagnement, en couleurs inversées (fond crème = texte de l'autre page, texte charbon = son fond). Contrastes ≥ 5:1. */
 :root {
-  --bg: #F4EFE5; --surface: #FFFDF8; --line: #E2D8C6; --fg: #17140F; --muted: #6A6152;
-  --gold: #8E6A22; --gold-hi: #A57C2C; --on-gold: #FFFDF8; --glow: rgba(201,164,92,.22);
-  --ink: #0E0D0B; color-scheme: light;
+  --bg: #EFE8DC; --surface: #FBF8F2; --line: #D6CBB7; --fg: #0E0D0B; --muted: #4F473B;
+  --gold: #7A5A1C; --gold-hi: #6A4E16; --on-gold: #0B0B0B; --glow: rgba(201,164,92,.28);
+  --ink: #0E0D0B; --brand-gold: #C9A45C; color-scheme: light;
 }
 body { background: radial-gradient(ellipse 70% 40% at 78% 0%, var(--glow), transparent 70%) no-repeat, var(--bg); }
 a { color: var(--gold); }
-.btn { background: var(--ink); color: var(--surface); box-shadow: 0 14px 34px -18px rgba(14,13,11,.55); }
-.btn:hover { background: #2A251C; }
-.btn::after { color: var(--gold-hi); }
+.btn { background: var(--brand-gold); color: var(--on-gold); box-shadow: 0 14px 34px -18px rgba(122,90,28,.6); }
+.btn:hover { background: #D6B575; }
 .hero { padding-bottom: clamp(3rem, 7vw, 5rem); }
 .promises li { background: var(--surface); }
 .stack > li, .trap, .faq details, .quotes blockquote, .pricebox, .guarantee { background: var(--surface); }
@@ -328,6 +327,9 @@ footer p { color: #A0978A; }
 .pricebox .vs b { color: var(--gold); }
 .stack .val s, .valtab s { color: var(--muted); text-decoration-thickness: 1.5px; }
 .valtab em { font-style: normal; color: var(--gold); margin-left: .3rem; }
+.eyebrow, .stack .tag, .promises li { font-weight: 500; }
+.stack .val { font-size: .8rem; }
+.lead, .stack p, .trap p, .steps p, .faq p { color: #2A251C; }
 </style>
 </head>
 <body>
