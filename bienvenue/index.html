@@ -70,11 +70,12 @@ footer { margin-top: 3rem; font-size: .85rem; color: var(--muted); }
 </main>
 <script>
 (function () {
-  // Lien du questionnaire Tally (à renseigner une fois le formulaire créé)
-  var TALLY_URL = '';
+  // Questionnaire d'onboarding Tally
+  var TALLY_URL = 'https://tally.so/r/WJOv1e';
   var q = new URLSearchParams(location.search);
   var offre = (q.get('offre') || '').toLowerCase();
   var email = q.get('email') || '';
+  try { if (offre) localStorage.setItem('pg_offre', offre); } catch (e) {}
   var copy = {
     audit: { t: 'Ton Audit démarre.', s3t: 'Ta visio d\'onboarding, puis ta stratégie', s3: "Dès que ton dossier est complet, on cale ta visio d'onboarding (45 min) pour approfondir ton questionnaire. Ta stratégie écrite et ta feuille de route arrivent dans ton espace quelques jours après. Ensuite, tu as 30 jours pour me poser tes questions par écrit sur WhatsApp, et j'ajuste ton plan si besoin.", sp: 'ta stratégie, ta feuille de route, ton tracker et la bibliothèque PG Protocol (accès 30 jours après la livraison de ta stratégie)' },
     essentiel: { t: 'Ton accompagnement démarre.', s3t: 'Ta visio de lancement', s3: "Dès que ton dossier est complet, je l'analyse en détail et on cale ta visio de lancement. Tu repars avec ta stratégie complète, puis on avance ensemble semaine après semaine.", sp: 'ta feuille de route, tes documents, ton tracker et toute la bibliothèque PG Protocol' },

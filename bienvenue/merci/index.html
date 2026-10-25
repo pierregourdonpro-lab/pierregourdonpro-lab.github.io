@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
-<script>try{if(/[?&]offre=audit\b/i.test(location.search))document.documentElement.setAttribute("data-theme","audit")}catch(e){}</script>
+<script>try{var o=(new URLSearchParams(location.search).get("offre")||"").toLowerCase();if(!o){try{o=localStorage.getItem("pg_offre")||""}catch(e){}}if(o==="audit")document.documentElement.setAttribute("data-theme","audit")}catch(e){}</script>
 <title>Questionnaire reçu · PG Protocol</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
