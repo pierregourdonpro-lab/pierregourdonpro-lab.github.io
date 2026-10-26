@@ -43,9 +43,11 @@ footer { margin-top: 3rem; font-size: .85rem; color: var(--muted); }
 <body>
 <main class="wrap">
   <div class="brand"><b>Pierre Gourdon · PG Protocol</b></div>
-  <span class="eyebrow">Paiement confirmé</span>
+  <span class="eyebrow" id="eyebrow">Paiement confirmé</span>
   <h1>Bienvenue. <span id="offerTitle">On commence maintenant.</span></h1>
   <p id="lead">Ton reçu arrive par e-mail. Voici les 3 étapes, dans l'ordre. La première prend moins d'une heure et c'est elle qui me permet de construire une stratégie vraiment taillée pour toi.</p>
+
+  <div class="box" id="acompteBox" style="display:none"><b>Acompte reçu : ta place est réservée.</b> Le solde se règle avant ta visio de lancement, via le lien de paiement que tu reçois sur WhatsApp. En attendant, tu peux déjà remplir ton questionnaire : on gagne du temps sur ton démarrage.</div>
 
   <ol class="steps">
     <li class="now">
@@ -87,6 +89,11 @@ footer { margin-top: 3rem; font-size: .85rem; color: var(--muted); }
     document.getElementById('step3Title').textContent = c.s3t;
     document.getElementById('step3Text').textContent = c.s3;
     document.getElementById('spaceContent').textContent = c.sp;
+  }
+  if (/^(1|oui|true)$/i.test(q.get('acompte') || '')) {
+    document.getElementById('eyebrow').textContent = 'Acompte confirmé';
+    document.getElementById('acompteBox').style.display = 'block';
+    document.getElementById('lead').textContent = "Ton reçu arrive par e-mail. Voici les 3 étapes, dans l'ordre. La première prend moins d'une heure et c'est elle qui me permet de construire une stratégie vraiment taillée pour toi.";
   }
   var btn = document.getElementById('formBtn');
   if (TALLY_URL) {
