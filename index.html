@@ -248,6 +248,14 @@ html { scroll-behavior: smooth; }
   .js .evo path.draw { stroke-dashoffset: 0 !important; transition: none !important; }
   .js .evo circle, .js .evo path.area { opacity: 1 !important; transform: none !important; }
 }
+.yt{position:relative;display:block;width:100%;aspect-ratio:16/9;margin:0 0 1.1rem;border:0;border-radius:12px;background:#000 center/cover no-repeat;cursor:pointer;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.yt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.65))}
+.yt-play{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:var(--gold);z-index:1;transition:transform .2s}
+.yt-play::before{content:"";position:absolute;left:26px;top:20px;border-style:solid;border-width:12px 0 12px 19px;border-color:transparent transparent transparent #0E0D0B}
+.yt:hover .yt-play,.yt:focus-visible .yt-play{transform:scale(1.08)}
+.yt-lbl{position:absolute;left:14px;bottom:12px;z-index:1;font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:#fff}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:2}
+.yt-soon{display:inline-block;width:fit-content;justify-self:start;margin:0 0 1rem;padding:.3rem .7rem;border:1px solid var(--gold);border-radius:999px;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
 </style>
 </head>
 <body>
@@ -429,6 +437,7 @@ html { scroll-behavior: smooth; }
     <div class="results">
       <article class="card feature">
         <header><h3>Kevin</h3><span class="who">35 ans · frigoriste</span></header>
+        <button class="yt" type="button" data-yt="K8AqpLDQbZk" aria-label="Lire le témoignage vidéo de Kevin" style="background-image:url('https://i.ytimg.com/vi/K8AqpLDQbZk/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir son témoignage vidéo</span></button>
         <dl class="lab">
           <div><dt>Poids</dt><dd>71,1 kg → <em>80,0 kg</em></dd></div>
           <div><dt>Développé couché (séries de 5)</dt><dd>80 kg → <em>90 kg</em></dd></div>
@@ -440,7 +449,18 @@ html { scroll-behavior: smooth; }
       </article>
 
       <article class="card">
+        <header><h3>Gary</h3><span class="who">31 ans · entrepreneur</span></header>
+        <button class="yt" type="button" data-yt="pVwwktBHAAw" aria-label="Lire le témoignage vidéo de Gary" style="background-image:url('https://i.ytimg.com/vi/pVwwktBHAAw/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir son témoignage vidéo</span></button>
+        <dl class="lab">
+          <div><dt>Poids</dt><dd>73,5 kg → <em>79 kg</em></dd></div>
+          <div><dt>Développé couché</dt><dd>60 kg → <em>100 kg</em></dd></div>
+        </dl>
+        <cite>Témoignage vidéo · Gary est aujourd'hui associé de Pierre sur l'app PG Protocol</cite>
+      </article>
+
+      <article class="card">
         <header><h3>Edgar</h3><span class="who">Hyrox</span></header>
+        <p class="yt-soon">Témoignage vidéo à venir</p>
         <dl class="lab">
           <div><dt>Poids</dt><dd><em>−12 kg</em>, muscle préservé</dd></div>
           <div><dt>Temps Hyrox</dt><dd>1h15 → <em>1h09</em></dd></div>
@@ -452,6 +472,7 @@ html { scroll-behavior: smooth; }
 
       <article class="card">
         <header><h3>Jean-François</h3><span class="who">51 ans</span></header>
+        <button class="yt" type="button" data-yt="Wde0vIMTZ4A" aria-label="Lire le témoignage vidéo de Jean-François" style="background-image:url('https://i.ytimg.com/vi/Wde0vIMTZ4A/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir son témoignage vidéo</span></button>
         <dl class="lab">
           <div><dt>Poids</dt><dd>86,7 kg → <em>80,9 kg</em></dd></div>
           <div><dt>Élévations latérales</dt><dd>10-12 kg → <em>18 kg</em></dd></div>
@@ -464,6 +485,7 @@ html { scroll-behavior: smooth; }
 
       <article class="card">
         <header><h3>Jonathan</h3><span class="who">Entrepreneur</span></header>
+        <p class="yt-soon">Témoignage vidéo à venir</p>
         <dl class="lab">
           <div><dt>Poids</dt><dd>77,5 kg → <em>71,5 kg</em></dd></div>
           <div><dt>Durée</dt><dd>environ 2 mois</dd></div>
@@ -475,6 +497,7 @@ html { scroll-behavior: smooth; }
 
       <article class="card">
         <header><h3>Sébastien</h3><span class="who">Manager audit en banque</span></header>
+        <p class="yt-soon">Témoignage vidéo à venir</p>
         <dl class="lab">
           <div><dt>Poids</dt><dd>94,4 kg → <em>86,0 kg</em></dd></div>
           <div><dt>Développé couché</dt><dd>record à <em>106 kg</em></dd></div>
@@ -486,6 +509,7 @@ html { scroll-behavior: smooth; }
 
       <article class="card">
         <header><h3>Tanguy</h3><span class="who">Policier de nuit</span></header>
+        <p class="yt-soon">Témoignage vidéo à venir</p>
         <dl class="lab">
           <div><dt>Poids</dt><dd>70,0 kg → <em>77,7 kg</em></dd></div>
           <div><dt>Développé incliné</dt><dd>objectif <em>atteint</em></dd></div>
@@ -497,6 +521,7 @@ html { scroll-behavior: smooth; }
 
       <article class="card">
         <header><h3>Alexandre</h3><span class="who">Grenoble</span></header>
+        <p class="yt-soon">Témoignage vidéo à venir</p>
         <dl class="lab">
           <div><dt>Poids</dt><dd>98,6 kg → <em>91,5 kg</em></dd></div>
           <div><dt>Durée</dt><dd>4 mois</dd></div>
@@ -694,6 +719,9 @@ html { scroll-behavior: smooth; }
   }, { threshold: 0.35 });
   vids.forEach(function (v) { obs.observe(v); });
 })();
+</script>
+<script>
+document.querySelectorAll('.yt').forEach(function(b){b.addEventListener('click',function(){if(b.querySelector('iframe'))return;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?autoplay=1&rel=0&modestbranding=1&playsinline=1';f.title=b.getAttribute('aria-label');f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;b.appendChild(f);});});
 </script>
 </body>
 </html>
