@@ -330,6 +330,17 @@ footer p { color: #A0978A; }
 .eyebrow, .stack .tag, .promises li { font-weight: 500; }
 .stack .val { font-size: .8rem; }
 .lead, .stack p, .trap p, .steps p, .faq p { color: #2A251C; }
+.ytgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:2.2rem}
+.ytf{margin:0}
+.ytf figcaption{margin-top:.6rem;font-size:.92rem;line-height:1.4}
+.ytf figcaption b{color:var(--gold)}
+.yt{position:relative;display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000 center/cover no-repeat;cursor:pointer;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.yt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.65))}
+.yt-play{position:absolute;left:50%;top:50%;width:60px;height:60px;margin:-30px 0 0 -30px;border-radius:50%;background:#C9A45C;z-index:1;transition:transform .2s}
+.yt-play::before{content:"";position:absolute;left:24px;top:18px;border-style:solid;border-width:12px 0 12px 19px;border-color:transparent transparent transparent #0E0D0B}
+.yt:hover .yt-play,.yt:focus-visible .yt-play{transform:scale(1.08)}
+.yt-lbl{position:absolute;left:14px;bottom:12px;z-index:1;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#fff}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:2}
 </style>
 </head>
 <body>
@@ -459,6 +470,13 @@ footer p { color: #A0978A; }
       <blockquote><p>« Ça m'a permis de sortir de la boucle infernale. »</p><cite>Client · Audit PG Protocol</cite></blockquote>
       <blockquote><p>« Moi je suis quelqu'un de très méfiant, et en plus là on joue avec la santé. J'ai beaucoup cherché et je suis revenu à un constat simple : c'était toi le plus expérimenté sur le sujet. »</p><cite>Jonathan · entrepreneur · client accompagné</cite></blockquote>
     </div>
+    <div class="ytgrid">
+      <figure class="ytf"><button class="yt" type="button" data-yt="K8AqpLDQbZk" aria-label="Lire le témoignage vidéo de Kevin" style="background-image:url('https://i.ytimg.com/vi/K8AqpLDQbZk/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir la vidéo</span></button><figcaption><b>Kevin</b> · 35 ans, +10 kg de muscle</figcaption></figure>
+      <figure class="ytf"><button class="yt" type="button" data-yt="Wde0vIMTZ4A" aria-label="Lire le témoignage vidéo de Jean-François" style="background-image:url('https://i.ytimg.com/vi/Wde0vIMTZ4A/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir la vidéo</span></button><figcaption><b>Jean-François</b> · 51 ans, sa transformation</figcaption></figure>
+      <figure class="ytf"><button class="yt" type="button" data-yt="SIWLD5gcavw" aria-label="Lire le témoignage vidéo de Jonathan" style="background-image:url('https://i.ytimg.com/vi/SIWLD5gcavw/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir la vidéo</span></button><figcaption><b>Jonathan</b> · entrepreneur investisseur</figcaption></figure>
+      <figure class="ytf"><button class="yt" type="button" data-yt="pVwwktBHAAw" aria-label="Lire le témoignage vidéo de Gary" style="background-image:url('https://i.ytimg.com/vi/pVwwktBHAAw/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir la vidéo</span></button><figcaption><b>Gary</b> · 31 ans · aujourd'hui associé de Pierre sur l'app PG Protocol</figcaption></figure>
+    </div>
+    <p class="disclaim">Témoignages vidéo de clients accompagnés sur plusieurs mois.</p>
     <p class="disclaim">Résultats et ressentis individuels. Chaque corps réagit différemment.</p>
   </div>
 </section>
@@ -570,6 +588,9 @@ footer p { color: #A0978A; }
   }
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
 })();
+</script>
+<script>
+document.querySelectorAll('.yt').forEach(function(b){b.addEventListener('click',function(){if(b.querySelector('iframe'))return;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?autoplay=1&rel=0&modestbranding=1&playsinline=1';f.title=b.getAttribute('aria-label');f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;b.appendChild(f);});});
 </script>
 </body>
 </html>
