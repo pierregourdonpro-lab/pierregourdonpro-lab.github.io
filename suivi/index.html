@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Visio de suivi confirmée · PG Protocol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root { --bg:#0E0D0B; --surface:#17140F; --line:#2A251C; --fg:#EFE8DC; --muted:#A0978A; --gold:#C9A45C; color-scheme: dark; }
+* { box-sizing: border-box; } html, body { margin: 0; }
+body { background: radial-gradient(ellipse 70% 45% at 72% 0%, rgba(214,150,62,.17), transparent 70%) no-repeat, var(--bg); color: var(--fg); font-family: "Instrument Sans","Helvetica Neue",Arial,sans-serif; font-size: 1.0625rem; line-height: 1.65; }
+.wrap { max-width: 38rem; margin: 0 auto; padding: clamp(3rem,9vw,6rem) max(16px, env(safe-area-inset-right,0px)) 4rem max(16px, env(safe-area-inset-left,0px)); }
+.eyebrow { font-family: "IBM Plex Mono",monospace; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 1rem; }
+h1 { font-family: "Archivo",Arial,sans-serif; font-weight: 600; letter-spacing: -.025em; line-height: 1.05; font-size: clamp(2.2rem,7vw,3.4rem); margin: 0 0 1.2rem; }
+h1 span { color: var(--gold); }
+ul { padding-left: 1.2rem; color: var(--muted); } li { margin-bottom: .5rem; }
+.muted { color: var(--muted); font-size: .9rem; margin-top: 2.5rem; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.4rem 1.4rem 1.6rem; margin: 1.8rem 0 1.4rem; }
+.card h2 { font-family: "Archivo",Arial,sans-serif; font-weight: 600; letter-spacing: -.015em; font-size: 1.35rem; margin: 0 0 .5rem; }
+.card p { margin: 0 0 .4rem; color: var(--muted); }
+.btn { display: inline-flex; align-items: center; gap: .5rem; background: var(--gold); color: #0B0B0B; text-decoration: none; font-weight: 600; padding: 1rem 1.4rem; border-radius: 999px; margin-top: .8rem; }
+.btn:hover { background: #D6B575; } .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.when { font-family: "IBM Plex Mono",monospace; color: var(--gold); font-size: .95rem; margin: -.4rem 0 1.4rem; }
+.when:empty { display: none; }
+.steps { list-style: none; padding: 0; margin: 0; counter-reset: s; color: var(--fg); }
+.steps li { counter-increment: s; position: relative; padding: 0 0 1.1rem 2.6rem; margin: 0; }
+.steps li::before { content: counter(s); position: absolute; left: 0; top: .05rem; width: 1.8rem; height: 1.8rem; border: 1px solid var(--gold); border-radius: 50%; display: grid; place-items: center; font-family: "IBM Plex Mono",monospace; font-size: .8rem; color: var(--gold); }
+.steps b { display: block; }
+.steps span { color: var(--muted); font-size: .97rem; }
+.after p { color: var(--muted); }
+a { color: var(--gold); }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <span class="eyebrow">Visio de suivi confirmée</span>
+  <h1><span id="hi">C'est calé.</span> On prépare ça bien.</h1>
+  <p class="when" id="when"></p>
+  <p>Tu vas recevoir un <b>e-mail de confirmation</b> avec le lien Google Meet et l'invitation pour ton agenda. Regarde aussi tes spams.</p>
+
+  <section class="card">
+    <span class="eyebrow">D'ici la veille</span>
+    <h2>Pour aller droit à l'essentiel</h2>
+    <ol class="steps">
+      <li><b>Ton bilan de la semaine à jour</b><span>S'il n'est pas déjà fait : <a href="https://certain-bassoon-0fe.notion.site/4577dac5ae76464f842c21d5e5e1c9a7?pvs=105" target="_blank" rel="noopener">je fais mon bilan</a>.</span></li>
+      <li><b>Tes documents sur WhatsApp</b><span>Bilan sanguin, photos, captures : tout ce qui concerne le sujet de la visio.</span></li>
+      <li><b>Ton tracker à jour</b><span>Poids, mesures, séances : c'est ce que je lis en premier.</span></li>
+      <li><b>Tes 2 ou 3 points prioritaires</b><span>Note-les avant l'appel. Ce sont eux qu'on traite en premier.</span></li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <span class="eyebrow">Le jour J</span>
+    <h2>30 minutes, avec Pierre</h2>
+    <p>Connecte-toi 2 minutes avant depuis le lien de ton e-mail, dans un endroit calme, avec de quoi noter.</p>
+    <p>Un empêchement ? Reprogramme ou annule depuis ton e-mail de confirmation, au plus tard 24 h avant.</p>
+  </section>
+
+  <section class="card after">
+    <span class="eyebrow">Après la visio</span>
+    <h2>Rien ne se perd</h2>
+    <p>Tu reçois ton <b>compte rendu sous 48 h</b> : les décisions prises et tes prochaines actions.</p>
+    <p>Ton <b>espace PG Protocol est mis à jour</b> en même temps : « Cette semaine », tes retours de Pierre et tes documents en vigueur.</p>
+    <p>D'ici là, tu continues ton plan actuel.</p>
+  </section>
+
+  <p class="muted">Urgence santé : 15 ou 112, n'attends pas la visio. Pierre Gourdon n'est pas médecin.</p>
+</main>
+<script>
+try{var q=new URLSearchParams(location.search);var n=(q.get("invitee_first_name")||"").trim();if(n&&n.length<40){document.getElementById("hi").textContent="C'est calé, "+n+".";}
+var t=q.get("event_start_time");if(t){var d=new Date(t);if(!isNaN(d)){var s=d.toLocaleString("fr-FR",{weekday:"long",day:"numeric",month:"long",hour:"2-digit",minute:"2-digit"});document.getElementById("when").textContent="📅 "+s;}}}catch(e){}
+</script>
+</body>
+</html>
