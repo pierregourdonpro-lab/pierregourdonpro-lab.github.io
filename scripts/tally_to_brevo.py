@@ -4,6 +4,9 @@ from datetime import datetime, timedelta, timezone
 
 FORM = "QooEAY"
 Q_PRENOM, Q_EMAIL = "P275Xd", "EB2QJq"
+if not all(os.environ.get(k) for k in ("TALLY_API_KEY", "BREVO_API_KEY", "BREVO_LIST_ID")):
+    print("Secrets manquants : rien à faire.")
+    sys.exit(0)
 TALLY = os.environ["TALLY_API_KEY"]
 BREVO = os.environ["BREVO_API_KEY"]
 LIST_ID = int(os.environ["BREVO_LIST_ID"])
