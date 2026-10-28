@@ -15,9 +15,13 @@ SINCE = datetime.now(timezone.utc) - timedelta(hours=int(os.environ.get("HOURS",
 
 def call(url, headers, data=None):
     req = urllib.request.Request(url, data=json.dumps(data).encode() if data else None, headers=headers, method="POST" if data else "GET")
-    with urllib.request.urlopen(req, timeout=30) as r:
-        body = r.read()
-        return json.loads(body) if body else {}
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            body = r.read()
+            return json.loads(body) if body else {}
+    except urllib.error.HTTPError as e:
+        print(f"Erreur {e.code} sur {url.split('?')[0]} : {e.read().decode(errors='replace')[:300]}", file=sys.stderr)
+        raise
 
 def submissions():
     page = 1
@@ -61,6 +65,6 @@ for s in submissions():
         added += 1
     except urllib.error.HTTPError as e:
         errors += 1
-        print(f"Erreur Brevo pour {email}: {e.code} {e.read().decode()[:200]}", file=sys.stderr)
+        print(f"Contact non envoyé : {email}", file=sys.stderr)
 print(f"{added} contact(s) envoyé(s) à Brevo, {errors} erreur(s)")
 sys.exit(1 if errors and not added else 0)
