@@ -161,6 +161,17 @@ footer p { max-width: 75ch; }
 .qs { counter-reset: q; list-style: none; padding: 0; margin: 1.2rem 0 0; display: grid; gap: .7rem; }
 .qs li { counter-increment: q; padding-left: 2.2rem; position: relative; font-size: 1.08rem; }
 .qs li::before { content: counter(q); position: absolute; left: 0; top: .05rem; font-family: var(--mono); color: var(--gold); }
+.ytgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.6rem}
+.ytgrid figure{margin:0}
+@media (max-width:640px){.ytgrid{grid-template-columns:1fr}}
+.yt{position:relative;display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000 center/cover no-repeat;cursor:pointer;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.yt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.65))}
+.yt-play{position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:var(--gold);z-index:1}
+.yt-play::before{content:"";position:absolute;left:22px;top:17px;border-style:solid;border-width:11px 0 11px 17px;border-color:transparent transparent transparent #0E0D0B}
+.yt-lbl{position:absolute;left:12px;bottom:10px;z-index:1;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#fff}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:2}
+.note{margin-top:1.6rem;color:var(--muted);font-size:.98rem}
+.note a{color:var(--gold)}
 </style>
 <style>
 .check { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: 1.2rem; }
@@ -256,12 +267,19 @@ footer p { max-width: 75ch; }
 <section>
   <div class="wrap">
     <span class="eyebrow">Ils sont passés par cet appel</span>
-    <h2>Ce qu'ils en disent</h2>
+    <h2>Regarde leurs témoignages</h2>
+    <p class="muted">En attendant ton rendez-vous, prends 5 minutes pour écouter des clients raconter leur accompagnement, avec leurs mots.</p>
+    <div class="ytgrid">
+      <figure><button class="yt" type="button" data-yt="K8AqpLDQbZk" aria-label="Lire le témoignage vidéo de Kevin" style="background-image:url('https://i.ytimg.com/vi/K8AqpLDQbZk/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Kevin · 71,1 → 80 kg</span></button></figure>
+      <figure><button class="yt" type="button" data-yt="Wde0vIMTZ4A" aria-label="Lire le témoignage vidéo de Jean-François" style="background-image:url('https://i.ytimg.com/vi/Wde0vIMTZ4A/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Jean-François · 51 ans</span></button></figure>
+      <figure><button class="yt" type="button" data-yt="SIWLD5gcavw" aria-label="Lire le témoignage vidéo de Jonathan" style="background-image:url('https://i.ytimg.com/vi/SIWLD5gcavw/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Jonathan · entrepreneur</span></button></figure>
+      <figure><button class="yt" type="button" data-yt="pVwwktBHAAw" aria-label="Lire le témoignage vidéo de Gary" style="background-image:url('https://i.ytimg.com/vi/pVwwktBHAAw/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Gary · 60 → 100 kg au développé</span></button></figure>
+    </div>
     <div class="quotes">
       <blockquote><p>« Moi je suis quelqu'un de très méfiant, et en plus là on joue avec la santé. J'ai beaucoup cherché et je suis revenu à un constat simple : c'était toi le plus expérimenté sur le sujet. »</p><cite>Jonathan · entrepreneur · 77,5 → 71,5 kg</cite></blockquote>
-      <blockquote><p>« J'en ai vraiment pour mon argent. Ils m'ont pas vendu du rêve. C'était tellement bien organisé, tellement bien structuré. »</p><cite>Kevin · 35 ans · 71,1 → 80 kg</cite></blockquote>
-      <blockquote><p>« Les prises de sang et tout, si j'ai personne pour les contrôler, il y a moyen que j'arrête. C'est quand même une sécurité. »</p><cite>Tom · client depuis 2024</cite></blockquote>
+      <blockquote><p>« Les prises de sang et tout, si j'ai personne pour les contrôler, il y a moyen que j'arrête. C'est quand même une sécurité. »</p><cite>Tom · client depuis 2024 · 83,5 → 97,4 kg, puis sèche à 90,7 kg</cite></blockquote>
     </div>
+    <p class="note">Ces témoignages ne sont qu'une petite partie des clients accompagnés : beaucoup préfèrent rester discrets, et d'autres témoignages arrivent. Tu en trouves d'autres sur la <a href="https://www.youtube.com/@pgsarms" target="_blank" rel="noopener">chaîne YouTube</a>.</p>
   </div>
 </section>
 
@@ -283,5 +301,6 @@ footer p { max-width: 75ch; }
     <p>Pierre Gourdon · PG Protocol. Pierre Gourdon n'est pas médecin : l'accompagnement ne remplace pas un avis, un diagnostic ou un traitement médical. Réservé aux personnes majeures.</p>
   </div>
 </footer>
+<script>document.querySelectorAll('.yt').forEach(function(b){b.addEventListener('click',function(){if(b.querySelector('iframe'))return;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?autoplay=1&rel=0&modestbranding=1&playsinline=1';f.title=b.getAttribute('aria-label');f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;b.appendChild(f);});});</script>
 </body>
 </html>

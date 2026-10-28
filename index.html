@@ -126,6 +126,7 @@ p { margin: 0 0 1.1rem; max-width: 65ch; }
 .card blockquote::after { content: " »"; color: var(--gold); }
 .card cite { font-style: normal; font-family: var(--mono); font-size: .74rem; color: var(--muted); letter-spacing: .04em; }
 .card.feature { grid-column: 1 / -1; }
+.ages { margin: 1rem 0 0; padding: .8rem 1rem; border-left: 2px solid var(--gold); font-size: 1.02rem; }
 .card.feature blockquote { font-size: 1.2rem; }
 .quotes { display: grid; gap: 1.6rem; margin-top: 3rem; }
 .quotes blockquote { margin: 0; padding-left: 1.2rem; border-left: 1px solid var(--gold); }
@@ -433,6 +434,7 @@ html { scroll-behavior: smooth; }
     <span class="eyebrow">Résultats clients</span>
     <h2>Leurs chiffres. Leurs mots.</h2>
     <p class="muted">Pesées et performances relevées pendant le suivi. Citations reprises mot pour mot des appels et des messages.</p>
+    <p class="ages">Nos clients ont de 21 à 51 ans : étudiants, salariés, sportifs, entrepreneurs. Ce qui compte, c'est ton point de départ, pas ton âge.</p>
 
     <div class="results">
       <article class="card feature">
@@ -497,6 +499,19 @@ html { scroll-behavior: smooth; }
       </article>
 
       <article class="card">
+        <header><h3>Tom</h3><span class="who">Client depuis 2024</span></header>
+        <p class="yt-soon">Photos avant / après à venir</p>
+        <dl class="lab">
+          <div><dt>Prise de masse</dt><dd>83,5 kg → <em>97,4 kg</em></dd></div>
+          <div><dt>Après la sèche</dt><dd><em>90,7 kg</em> (+7 kg)</dd></div>
+          <div><dt>Tour de taille</dt><dd>85 → <em>84,5 cm</em></dd></div>
+          <div><dt>Durée</dt><dd>7 mois</dd></div>
+        </dl>
+        <blockquote>Les prises de sang et tout, si j'ai personne pour les contrôler, il y a moyen que j'arrête. C'est quand même une sécurité.</blockquote>
+        <cite>Appel du 24/06/2026</cite>
+      </article>
+
+      <article class="card">
         <header><h3>Sébastien</h3><span class="who">Manager audit en banque</span></header>
         <p class="yt-soon">Témoignage vidéo à venir</p>
         <dl class="lab">
@@ -543,7 +558,6 @@ html { scroll-behavior: smooth; }
     </div>
 
     <div class="quotes">
-      <blockquote><p>« Les prises de sang et tout, si j'ai personne pour les contrôler, il y a moyen que j'arrête. C'est quand même une sécurité. Tu m'aurais pas dit ça en prise de sang, j'aurais pas fait. Puis ça se trouve, on aurait vu un problème. »</p><cite>Tom · client depuis 2024 · appel du 24/06/2026</cite></blockquote>
       <blockquote><p>« Au moins une fois dans sa vie, se rendre compte que c'est possible sans passer par des trucs complètement dingues où on s'en rend malade. Je sais qu'il est possible de faire plus, sans se détruire. »</p><cite>Florian · militaire, Hyrox · appel du 23/09/2026</cite></blockquote>
       <blockquote><p>« Les gens depuis 2 semaines me disent : tu as pris, tu as les bras. Les gens voient aussi la carrure. »</p><cite>Michael · 43 ans · appel du 24/07/2026</cite></blockquote>
       <blockquote><p>« Physiquement, c'est visible de tout le monde, même pas que de moi. Autour de moi tout le monde l'a remarqué. À poser des questions, à dire qu'est-ce que tu as fait. »</p><cite>Jean-François · 51 ans · appel du 11/10/2026</cite></blockquote>
