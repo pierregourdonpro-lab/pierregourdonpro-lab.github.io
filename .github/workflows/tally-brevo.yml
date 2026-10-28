@@ -1,0 +1,21 @@
+name: Inscrits Molécules décodées → Brevo
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+    inputs:
+      hours:
+        description: "Remonter combien d'heures en arrière"
+        default: "2"
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/tally_to_brevo.py
+        env:
+          TALLY_API_KEY: ${{ secrets.TALLY_API_KEY }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          BREVO_LIST_ID: ${{ secrets.BREVO_LIST_ID }}
+          BREVO_FIRSTNAME_ATTR: ${{ vars.BREVO_FIRSTNAME_ATTR }}
+          HOURS: ${{ github.event.inputs.hours || '2' }}
