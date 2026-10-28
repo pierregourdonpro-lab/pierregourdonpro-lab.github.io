@@ -14,6 +14,7 @@ ATTR = os.environ.get("BREVO_FIRSTNAME_ATTR") or "PRENOM"
 SINCE = datetime.now(timezone.utc) - timedelta(hours=int(os.environ.get("HOURS", "2")))
 
 def call(url, headers, data=None):
+    headers = {"User-Agent": "pg-protocol-sync/1.0", **headers}
     req = urllib.request.Request(url, data=json.dumps(data).encode() if data else None, headers=headers, method="POST" if data else "GET")
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
