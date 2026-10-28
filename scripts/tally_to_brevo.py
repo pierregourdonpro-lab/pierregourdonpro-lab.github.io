@@ -1,5 +1,5 @@
 """Copie les inscrits du formulaire Tally « Molécules décodées » dans une liste Brevo."""
-import json, os, sys, urllib.request, urllib.error
+import json, os, re, sys, urllib.request, urllib.error
 from datetime import datetime, timedelta, timezone
 
 FORM = "QooEAY"
@@ -9,7 +9,7 @@ if not all(os.environ.get(k) for k in ("TALLY_API_KEY", "BREVO_API_KEY", "BREVO_
     sys.exit(0)
 TALLY = os.environ["TALLY_API_KEY"]
 BREVO = os.environ["BREVO_API_KEY"]
-LIST_ID = int(os.environ["BREVO_LIST_ID"])
+LIST_RAW = os.environ["BREVO_LIST_ID"].strip()
 ATTR = os.environ.get("BREVO_FIRSTNAME_ATTR") or "PRENOM"
 SINCE = datetime.now(timezone.utc) - timedelta(hours=int(os.environ.get("HOURS", "2")))
 
@@ -30,6 +30,22 @@ def submissions():
             return
         page += 1
 
+def list_id():
+    """Accepte « 3 », « #3 » ou le nom de la liste (ex. « Molécules décodées »)."""
+    if re.fullmatch(r"#?\s*\d+", LIST_RAW):
+        return int(re.sub(r"\D", "", LIST_RAW))
+    offset = 0
+    while True:
+        d = call(f"https://api.brevo.com/v3/contacts/lists?limit=50&offset={offset}", {"api-key": BREVO, "accept": "application/json"})
+        for l in d.get("lists", []):
+            if l["name"].strip().lower() == LIST_RAW.lower():
+                return l["id"]
+        if len(d.get("lists", [])) < 50:
+            sys.exit(f"Liste Brevo introuvable : vérifie le secret BREVO_LIST_ID (n° ou nom exact de la liste).")
+        offset += 50
+
+LIST_ID = list_id()
+print(f"Liste Brevo n° {LIST_ID}")
 added = errors = 0
 for s in submissions():
     if datetime.fromisoformat(s["submittedAt"].replace("Z", "+00:00")) < SINCE:
