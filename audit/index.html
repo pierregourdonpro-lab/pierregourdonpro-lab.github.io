@@ -329,6 +329,19 @@ footer p { color: #A0978A; }
 .seats-bar { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
 .seats-bar i { display: block; height: 100%; width: 100%; background: var(--gold); }
 .seats p { margin: .6rem 0 0; font-size: .95rem; }
+.cmp-wrap { margin-top: 2.2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.cmp { width: 100%; min-width: 34rem; border-collapse: collapse; font-size: .95rem; }
+.cmp th, .cmp td { padding: .85rem .9rem; border-top: 1px solid var(--line); text-align: left; vertical-align: top; }
+.cmp thead th { font-family: var(--display); font-size: 1.1rem; border-top: 0; }
+.cmp tbody th { font-weight: 500; width: 40%; }
+.cmp td { color: var(--muted); }
+.cmp .hl, .cmp tbody td:last-child { color: var(--fg); background: rgba(201,164,92,.08); }
+.cmp thead .hl { color: var(--gold); }
+.cmp tfoot td { border-top: 1px solid var(--line); padding-top: 1.1rem; }
+.btn-sm { padding: .7rem 1rem; font-size: .9rem; }
+.btn-ghost { background: transparent; color: var(--fg); box-shadow: inset 0 0 0 1px var(--gold); }
+.cmp-note { margin-top: 1rem; }
+@media (max-width: 620px) { .cmp { min-width: 0; font-size: .84rem; table-layout: fixed; } .cmp th, .cmp td { padding: .7rem .45rem; hyphens: auto; -webkit-hyphens: auto; } .cmp thead th { font-size: .8rem; letter-spacing: -.01em; hyphens: none; } .cmp tbody th { width: 34%; } .cmp tfoot th { width: 34%; } .btn-sm { padding: .6rem .55rem; font-size: .78rem; display: block; text-align: center; } }
 .stack .val s, .valtab s { color: var(--muted); text-decoration-thickness: 1.5px; }
 .valtab em { font-style: normal; color: var(--gold); margin-left: .3rem; }
 .eyebrow, .stack .tag, .promises li { font-weight: 500; }
@@ -483,6 +496,36 @@ footer p { color: #A0978A; }
     </div>
     <p class="disclaim">Témoignages vidéo de clients accompagnés sur plusieurs mois.</p>
     <p class="disclaim">Résultats et ressentis individuels. Chaque corps réagit différemment.</p>
+  </div>
+</section>
+
+<section class="cmp-sec">
+  <div class="wrap">
+    <span class="eyebrow">Audit ou accompagnement ?</span>
+    <h2>Tu appliques seul, ou tu veux être suivi jusqu'au résultat ?</h2>
+    <p class="lead">L'Audit te donne la bonne stratégie et tu l'appliques seul. L'accompagnement, c'est la même stratégie, avec moi à tes côtés chaque semaine pour l'ajuster jusqu'à ton objectif.</p>
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead><tr><th scope="col"></th><th scope="col">Audit</th><th scope="col" class="hl">Accompagnement</th></tr></thead>
+        <tbody>
+        <tr><th scope="row">Analyse de ton dossier et de ton bilan sanguin</th><td>✓</td><td>✓</td></tr>
+        <tr><th scope="row">Stratégie écrite sur mesure + feuille de route</th><td>✓ livrée une fois</td><td>✓ mise à jour à chaque étape</td></tr>
+        <tr><th scope="row">Visios</th><td>1 visio d'onboarding</td><td>Illimitées, dès que c'est utile</td></tr>
+        <tr><th scope="row">Questions par écrit</th><td>30 jours</td><td>Tout le suivi, WhatsApp direct 7 j/7</td></tr>
+        <tr><th scope="row">Ajustements du plan</th><td>Retouches pendant 30 jours</td><td>Chaque semaine, selon ton bilan</td></tr>
+        <tr><th scope="row">Bilan de la semaine avec ma réponse</th><td>—</td><td>✓</td></tr>
+        <tr><th scope="row">Lecture de tes bilans sanguins de contrôle</th><td>—</td><td>✓</td></tr>
+        <tr><th scope="row">Espace client, bibliothèque et tracker</th><td>30 jours</td><td>À vie</td></tr>
+        <tr><th scope="row">Plan d'autonomie pour la suite</th><td>—</td><td>✓</td></tr>
+        <tr><th scope="row">Garantie de résultat</th><td>—</td><td>✓ selon la formule</td></tr>
+        </tbody>
+        <tfoot><tr><th scope="row"></th>
+          <td><a class="btn btn-sm" href="#commander">Voir l'Audit →</a></td>
+          <td class="hl"><a class="btn btn-sm btn-ghost" href="https://pierregourdonpro-lab.github.io/">Réserver mon appel →</a></td>
+        </tr></tfoot>
+      </table>
+    </div>
+    <p class="btn-note cmp-note">L'accompagnement se construit à l'appel, selon ton objectif. Si tu fais l'Audit puis que tu démarres un accompagnement dans les 30 jours, son prix est entièrement déduit.</p>
   </div>
 </section>
 
