@@ -340,6 +340,10 @@ footer p { color: #A0978A; }
 .cmp tfoot td { border-top: 1px solid var(--line); padding-top: 1.1rem; }
 .btn-sm { padding: .7rem 1rem; font-size: .9rem; }
 .btn-ghost { background: transparent; color: var(--fg); box-shadow: inset 0 0 0 1px var(--gold); }
+.ic { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; font-weight: 700; font-size: .95rem; line-height: 1; }
+.ic.ok { background: #C9A45C; color: #0E0D0B; }
+.ic.no { background: transparent; color: #B4553F; box-shadow: inset 0 0 0 1.5px #B4553F; }
+.cmp td small { display: block; margin-top: .35rem; font-size: .85em; line-height: 1.35; }
 .cmp-note { margin-top: 1rem; }
 @media (max-width: 620px) { .cmp { min-width: 0; font-size: .84rem; table-layout: fixed; } .cmp th, .cmp td { padding: .7rem .45rem; hyphens: auto; -webkit-hyphens: auto; } .cmp thead th { font-size: .8rem; letter-spacing: -.01em; hyphens: none; } .cmp tbody th { width: 34%; } .cmp tfoot th { width: 34%; } .btn-sm { padding: .6rem .55rem; font-size: .78rem; display: block; text-align: center; } }
 .stack .val s, .valtab s { color: var(--muted); text-decoration-thickness: 1.5px; }
@@ -508,16 +512,16 @@ footer p { color: #A0978A; }
       <table class="cmp">
         <thead><tr><th scope="col"></th><th scope="col">Audit</th><th scope="col" class="hl">Accompagnement</th></tr></thead>
         <tbody>
-        <tr><th scope="row">Analyse de ton dossier et de ton bilan sanguin</th><td>✓</td><td>✓</td></tr>
-        <tr><th scope="row">Stratégie écrite sur mesure + feuille de route</th><td>✓ livrée une fois</td><td>✓ mise à jour à chaque étape</td></tr>
-        <tr><th scope="row">Visios</th><td>1 visio d'onboarding</td><td>Illimitées, dès que c'est utile</td></tr>
-        <tr><th scope="row">Questions par écrit</th><td>30 jours</td><td>Tout le suivi, WhatsApp direct 7 j/7</td></tr>
-        <tr><th scope="row">Ajustements du plan</th><td>Retouches pendant 30 jours</td><td>Chaque semaine, selon ton bilan</td></tr>
-        <tr><th scope="row">Bilan de la semaine avec ma réponse</th><td>—</td><td>✓</td></tr>
-        <tr><th scope="row">Lecture de tes bilans sanguins de contrôle</th><td>—</td><td>✓</td></tr>
-        <tr><th scope="row">Espace client, bibliothèque et tracker</th><td>30 jours</td><td>À vie</td></tr>
-        <tr><th scope="row">Plan d'autonomie pour la suite</th><td>—</td><td>✓</td></tr>
-        <tr><th scope="row">Garantie de résultat</th><td>—</td><td>✓ selon la formule</td></tr>
+        <tr><th scope="row">Analyse de ton dossier et de ton bilan sanguin</th><td><span class="ic ok" aria-label="Inclus">✓</span></td><td><span class="ic ok" aria-label="Inclus">✓</span></td></tr>
+        <tr><th scope="row">Stratégie écrite sur mesure + feuille de route</th><td><span class="ic ok" aria-label="Inclus">✓</span><small>livrée une fois</small></td><td><span class="ic ok" aria-label="Inclus">✓</span><small>mise à jour à chaque étape</small></td></tr>
+        <tr><th scope="row">Visios</th><td><span class="ic ok" aria-label="Inclus">✓</span><small>1 visio d'onboarding</small></td><td><span class="ic ok" aria-label="Inclus">✓</span><small>illimitées, dès que c'est utile</small></td></tr>
+        <tr><th scope="row">Questions par écrit</th><td><span class="ic ok" aria-label="Inclus">✓</span><small>30 jours</small></td><td><span class="ic ok" aria-label="Inclus">✓</span><small>tout le suivi, WhatsApp direct 7 j/7</small></td></tr>
+        <tr><th scope="row">Ajustements du plan</th><td><span class="ic ok" aria-label="Inclus">✓</span><small>pendant 30 jours</small></td><td><span class="ic ok" aria-label="Inclus">✓</span><small>chaque semaine, selon ton bilan</small></td></tr>
+        <tr><th scope="row">Bilan de la semaine avec ma réponse</th><td><span class="ic no" aria-label="Non inclus">✕</span></td><td><span class="ic ok" aria-label="Inclus">✓</span></td></tr>
+        <tr><th scope="row">Lecture de tes bilans sanguins de contrôle</th><td><span class="ic no" aria-label="Non inclus">✕</span></td><td><span class="ic ok" aria-label="Inclus">✓</span></td></tr>
+        <tr><th scope="row">Espace client, bibliothèque et tracker</th><td><span class="ic ok" aria-label="Inclus">✓</span><small>30 jours</small></td><td><span class="ic ok" aria-label="Inclus">✓</span><small>à vie</small></td></tr>
+        <tr><th scope="row">Plan d'autonomie pour la suite</th><td><span class="ic no" aria-label="Non inclus">✕</span></td><td><span class="ic ok" aria-label="Inclus">✓</span></td></tr>
+        <tr><th scope="row">Garantie de résultat</th><td><span class="ic no" aria-label="Non inclus">✕</span></td><td><span class="ic ok" aria-label="Inclus">✓</span><small>selon la formule</small></td></tr>
         </tbody>
         <tfoot><tr><th scope="row"></th>
           <td><a class="btn btn-sm" href="#commander">Voir l'Audit →</a></td>
