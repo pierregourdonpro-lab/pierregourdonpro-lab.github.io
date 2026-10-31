@@ -93,6 +93,13 @@ body.show-price #reveal { display: none; }
 .cmp th { text-align: left; color: var(--gold); font-family: var(--mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; padding: .5rem .4rem; border-bottom: 1px solid var(--gold); }
 .cmp td { padding: .55rem .4rem; border-bottom: 1px solid var(--line); color: var(--muted); }
 .cmp td:first-child { color: var(--fg); }
+.yt{position:relative;display:block;width:100%;aspect-ratio:16/9;margin:0 0 1.1rem;border:0;border-radius:12px;background:#000 center/cover no-repeat;cursor:pointer;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.yt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.65))}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:2}
+.yt-play{position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:var(--gold);z-index:1}
+.yt-play::before{content:"";position:absolute;left:22px;top:17px;border-style:solid;border-width:11px 0 11px 17px;border-color:transparent transparent transparent #0E0D0B}
+.yt-lbl{position:absolute;left:12px;right:12px;bottom:10px;z-index:1;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#fff;text-align:left}
+.yt-soon{display:table;margin:0 0 1rem;padding:.3rem .7rem;border:1px solid var(--gold);border-radius:999px;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
 .after { margin-top: 2rem; }
 .foot { padding: 2.5rem 0 4rem; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); }
 .hint { position: fixed; bottom: 12px; right: 14px; font-family: var(--mono); font-size: .7rem; color: #4A4339; }
@@ -174,11 +181,18 @@ body.show-price #reveal { display: none; }
     <span class="eyebrow">04 · Ils l'ont fait</span>
     <h2>Des résultats mesurés, pas des promesses.</h2>
     <div class="grid two">
-      <div class="card"><span class="who">Kevin</span><span class="tag">35 ans · frigoriste</span><span class="big">71,1 → 80,0 kg</span><span class="muted">Développé couché 80 → 90 kg</span><blockquote>J'en ai vraiment pour mon argent. Ils m'ont pas vendu du rêve. C'était tellement bien organisé, tellement bien structuré.</blockquote></div>
-      <div class="card"><span class="who">Jean-François</span><span class="tag">51 ans</span><span class="big">86,7 → 80,9 kg</span><span class="muted">2 tailles en moins, force doublée</span><blockquote>Un bien-être comme j'avais rarement connu. Une fatigue qui a disparu. Et une force doublée.</blockquote></div>
-      <div class="card"><span class="who">Edgar</span><span class="tag">Infirmier et investisseur · a commencé par l'Audit, puis l'accompagnement</span><span class="big">−12 kg, muscle préservé</span><span class="muted">Hyrox 1h15 → 1h09</span><blockquote>J'ai quand même pas mal séché. J'ai gardé de la masse musculaire et perdu pas mal de gras.</blockquote></div>
-      <div class="card"><span class="who">Tanguy</span><span class="tag">Policier de nuit</span><span class="big">70,0 → 77,7 kg</span><span class="muted">en 7 semaines</span><blockquote>Depuis le début de l'accompagnement, j'en ai aucune, mais vraiment aucune [douleur]. Physiquement, je me sens vraiment bien et fort.</blockquote></div>
+      <div class="card"><button class="yt" type="button" data-yt="K8AqpLDQbZk" aria-label="Lire le témoignage vidéo de Kevin" style="background-image:url('https://i.ytimg.com/vi/K8AqpLDQbZk/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir son témoignage vidéo</span></button><span class="who">Kevin</span><span class="tag">35 ans · frigoriste</span><span class="big">71,1 → 80,0 kg</span><span class="muted">Développé couché 80 → 90 kg</span><blockquote>J'en ai vraiment pour mon argent. Ils m'ont pas vendu du rêve. C'était tellement bien organisé, tellement bien structuré.</blockquote></div>
+      <div class="card"><button class="yt" type="button" data-yt="Wde0vIMTZ4A" aria-label="Lire le témoignage vidéo de Jean-François" style="background-image:url('https://i.ytimg.com/vi/Wde0vIMTZ4A/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir son témoignage vidéo</span></button><span class="who">Jean-François</span><span class="tag">51 ans</span><span class="big">86,7 → 80,9 kg</span><span class="muted">2 tailles en moins, force doublée</span><blockquote>Un bien-être comme j'avais rarement connu. Une fatigue qui a disparu. Et une force doublée.</blockquote></div>
+      <div class="card"><p class="yt-soon">Témoignage vidéo à venir</p><span class="who">Edgar</span><span class="tag">Infirmier et investisseur · a commencé par l'Audit, puis l'accompagnement</span><span class="big">−12 kg, muscle préservé</span><span class="muted">Hyrox 1h15 → 1h09</span><blockquote>J'ai quand même pas mal séché. J'ai gardé de la masse musculaire et perdu pas mal de gras.</blockquote></div>
+      <div class="card"><p class="yt-soon">Témoignage vidéo à venir</p><span class="who">Tanguy</span><span class="tag">Policier de nuit</span><span class="big">70,0 → 77,7 kg</span><span class="muted">en 7 semaines</span><blockquote>Depuis le début de l'accompagnement, j'en ai aucune, mais vraiment aucune [douleur]. Physiquement, je me sens vraiment bien et fort.</blockquote></div>
     </div>
+    <h3 style="margin-top:2.5rem">D'autres témoignages vidéo</h3>
+    <div class="grid two vids">
+      <div><button class="yt" type="button" data-yt="d7djbxG919Y" aria-label="Lire la vidéo de Jean-François" style="background-image:url('https://i.ytimg.com/vi/d7djbxG919Y/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Jean-François · sa transformation à 51 ans</span></button></div>
+      <div><button class="yt" type="button" data-yt="SIWLD5gcavw" aria-label="Lire le témoignage vidéo de Jonathan" style="background-image:url('https://i.ytimg.com/vi/SIWLD5gcavw/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Jonathan · entrepreneur</span></button></div>
+      <div><button class="yt" type="button" data-yt="pVwwktBHAAw" aria-label="Lire le témoignage vidéo de Gary" style="background-image:url('https://i.ytimg.com/vi/pVwwktBHAAw/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Gary · associé de Pierre sur l’app PG Protocol</span></button></div>
+    </div>
+    <a class="pay" href="https://www.youtube.com/playlist?list=PLdZmN2tL_oBJ4onvgqzEkSYXYWkPBkgSq" target="_blank" rel="noopener">Voir tous les témoignages sur YouTube</a>
   </div>
 </section>
 
@@ -302,6 +316,7 @@ body.show-price #reveal { display: none; }
     if (e.key === 'p' || e.key === 'P') document.body.classList.toggle('show-price');
   });
 })();
+  document.querySelectorAll('.yt').forEach(function(b){b.addEventListener('click',function(){if(b.querySelector('iframe'))return;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?autoplay=1&rel=0&modestbranding=1&playsinline=1';f.title=b.getAttribute('aria-label');f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;b.appendChild(f);});});
 </script>
 </body>
 </html>
