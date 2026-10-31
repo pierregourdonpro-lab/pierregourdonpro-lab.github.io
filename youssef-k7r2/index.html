@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ta proposition · Youssef · PG Protocol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #0E0D0B; --surface: #17140F; --surface2: #1D1913; --line: #2A251C;
+  --fg: #EFE8DC; --muted: #A0978A; --gold: #C9A45C; --gold-hi: #E2C285; --on-gold: #0B0B0B;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: radial-gradient(ellipse 70% 45% at 72% 0%, rgba(214,150,62,.17), transparent 70%) no-repeat,
+              radial-gradient(ellipse 60% 40% at 15% 100%, rgba(214,150,62,.07), transparent 70%) no-repeat, var(--bg);
+  color: var(--fg); font-family: var(--body); font-size: 1.125rem; line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 60rem; margin: 0 auto; padding: 0 max(16px, 4vw); }
+section { padding: 4.5rem 0; border-top: 1px solid var(--line); }
+.eyebrow { font-family: var(--mono); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; letter-spacing: -.02em; line-height: 1.12; margin: .4rem 0 1rem; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+h2 { font-size: clamp(1.7rem, 3.6vw, 2.5rem); }
+h3 { font-size: 1.2rem; margin: 0 0 .35rem; }
+p { margin: 0 0 1rem; }
+.muted { color: var(--muted); }
+.gold { color: var(--gold-hi); }
+
+/* Haut */
+.top { display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 0; font-family: var(--mono); font-size: .8rem; color: var(--muted); letter-spacing: .08em; }
+.hero { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: center; padding: 3rem 0 4.5rem; }
+.hero img { width: 100%; border-radius: 22px; box-shadow: 0 30px 80px rgba(214,150,62,.18); }
+.lead { font-size: 1.25rem; color: #D9D0C2; }
+
+/* Objectif remplissable */
+.goal { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+.goal > div { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 1rem 1.1rem; }
+.goal label { display: block; font-family: var(--mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .3rem; }
+.goal input { width: 100%; background: transparent; border: 0; border-bottom: 1px dashed var(--line); color: var(--fg); font-family: var(--display); font-size: 1.5rem; font-weight: 600; padding: .1rem 0; outline: none; }
+.goal input:focus { border-bottom-color: var(--gold); }
+.goal input::placeholder { color: #5E564A; }
+.goal > div.target { border-color: var(--gold); }
+
+/* Cartes */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.grid.two { grid-template-columns: repeat(2, 1fr); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.4rem; }
+.card p { color: var(--muted); margin: 0; font-size: 1rem; }
+.num { font-family: var(--mono); color: var(--gold); font-size: .85rem; display: block; margin-bottom: .6rem; }
+
+/* Étapes */
+.steps { list-style: none; padding: 0; margin: 0; counter-reset: s; display: grid; gap: .8rem; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 1.1rem 1.2rem; }
+.steps li::before { content: counter(s, decimal-leading-zero); font-family: var(--mono); color: var(--gold); font-size: 1.1rem; padding-top: .1rem; }
+.steps p { margin: 0; color: var(--muted); font-size: 1rem; }
+
+/* Preuves */
+.proof .card .who { font-family: var(--display); font-weight: 600; font-size: 1.15rem; }
+.proof .card .tag { color: var(--muted); font-size: .9rem; display: block; margin-bottom: .9rem; }
+.proof .big { font-family: var(--display); font-weight: 600; font-size: 1.35rem; color: var(--gold-hi); display: block; margin: .2rem 0; }
+.proof blockquote { margin: .9rem 0 0; padding-left: .9rem; border-left: 1px solid var(--gold); color: #D9D0C2; font-size: .98rem; }
+
+/* Garantie */
+.guarantee { background: linear-gradient(180deg, rgba(201,164,92,.12), rgba(201,164,92,.03)); border: 1px solid var(--gold); border-radius: 22px; padding: 2.2rem; }
+.guarantee .obj { font-family: var(--display); font-size: 1.6rem; font-weight: 600; color: var(--gold-hi); }
+
+/* Investissement */
+#prix { display: none; }
+body.show-price #prix { display: block; }
+body.show-price #reveal { display: none; }
+.reveal-btn { display: inline-block; background: var(--gold); color: var(--on-gold); border: 0; border-radius: 999px; padding: 1rem 1.8rem; font-family: var(--body); font-weight: 600; font-size: 1.05rem; cursor: pointer; }
+.price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+.price { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 1.8rem; }
+.price.main { border-color: var(--gold); background: var(--surface2); }
+.price .amount { font-family: var(--display); font-weight: 700; font-size: clamp(2.4rem, 5vw, 3.2rem); letter-spacing: -.02em; display: block; margin: .3rem 0; }
+.price .amount small { display: block; font-size: 1rem; color: var(--muted); font-weight: 500; letter-spacing: 0; margin-top: .2rem; }
+.price ul { margin: 1rem 0 0; padding-left: 1.1rem; color: var(--muted); font-size: .98rem; }
+.tier { margin-top: 1.2rem; }
+.tier.hidden { display: none; }
+.pay { display: inline-block; margin-top: 1.4rem; background: var(--gold); color: var(--on-gold); border-radius: 999px; padding: .95rem 1.6rem; font-weight: 600; text-decoration: none; }
+.more { display: block; margin-top: 1rem; background: none; border: 0; padding: 0; color: var(--muted); font-family: var(--body); font-size: .95rem; text-decoration: underline; cursor: pointer; }
+.note { color: var(--muted); font-size: .95rem; margin: 1rem 0 0; }
+.cmp { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: .95rem; }
+.cmp th { text-align: left; color: var(--gold); font-family: var(--mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; padding: .5rem .4rem; border-bottom: 1px solid var(--gold); }
+.cmp td { padding: .55rem .4rem; border-bottom: 1px solid var(--line); color: var(--muted); }
+.cmp td:first-child { color: var(--fg); }
+.after { margin-top: 2rem; }
+.foot { padding: 2.5rem 0 4rem; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); }
+.hint { position: fixed; bottom: 12px; right: 14px; font-family: var(--mono); font-size: .7rem; color: #4A4339; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; gap: 1.5rem; }
+  .hero img { max-width: 260px; }
+  .grid, .grid.two, .goal, .price-grid { grid-template-columns: 1fr; }
+  section { padding: 3rem 0; }
+}
+</style>
+</head>
+<body class="show-price">
+<div class="wrap">
+  <div class="top"><span>Pierre Gourdon · PG Protocol</span><span id="who-top"></span></div>
+
+  <div class="hero">
+    <div>
+      <span class="eyebrow">L'accompagnement PG Protocol</span>
+      <h1>Youssef, voici ton plan <span class="gold">jusqu'en juin.</span></h1>
+      <p class="lead">Tu as fait le plus dur : −22 kg en 3 mois, seul. La suite, c'est perdre le gras qui reste sans perdre ton muscle, pour un physique sec et tracé, et un corps qui performe en boxe. Voici comment on le ferait ensemble, et ce que ça représente.</p>
+      <div class="goal">
+        <div><label for="g-now">Aujourd'hui</label><input id="g-now" placeholder="ex. 69 kg"></div>
+        <div class="target"><label for="g-goal">Ton objectif</label><input id="g-goal" placeholder="ex. 75 kg"></div>
+        <div><label for="g-date">Pour quand</label><input id="g-date" placeholder="ex. avril"></div>
+      </div>
+    </div>
+    <img src="../offre/img/pierre.jpg" alt="Pierre Gourdon">
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">01 · La méthode</span>
+    <h2>On part de toi, pas d'un modèle.</h2>
+    <p class="muted">Ta stratégie commence avant tout produit : entraînement, nutrition, sommeil, récupération et bilans. Chaque décision s'appuie sur tes chiffres.</p>
+    <ol class="steps">
+      <li><div><h3>Questionnaire détaillé, puis visio d'onboarding de 45 min</h3><p>Ton historique, tes bilans, ton rythme de vie, tes contraintes. On fixe ensemble ton objectif chiffré et daté.</p></div></li>
+      <li><div><h3>Ta stratégie et tes plans, livrés dans ton espace</h3><p>Entraînement, nutrition, repas et courses, supplémentation, récupération et sommeil, restaurant, voyages et imprévus.</p></div></li>
+      <li><div><h3>Le pilotage par la data, chaque semaine</h3><p>Poids, mensurations, photos, charges, sommeil, énergie, ressentis et bilans sanguins. Tu fais ton bilan, je te réponds par écrit et j'ajuste.</p></div></li>
+      <li><div><h3>Bilans sanguins lus et expliqués</h3><p>La liste des marqueurs à faire, l'analyse écrite de chaque bilan et une liste prête à montrer à ton médecin.</p></div></li>
+      <li><div><h3>Ta sortie préparée</h3><p>Un bilan de parcours et un plan d'autonomie : tu repars avec tes résultats et tu sais les garder.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">02 · Le suivi</span>
+    <h2>Un humain, pas un programme.</h2>
+    <div class="grid">
+      <div class="card"><span class="num">100 % humain</span><h3>C'est moi qui suis ton dossier</h3><p>Du premier au dernier jour.</p></div>
+      <div class="card"><span class="num">WhatsApp 7 j/7</span><h3>Accès direct</h3><p>Réponse en général dans la journée, 48 h maximum.</p></div>
+      <div class="card"><span class="num">Visios illimitées</span><h3>Dès que c'est utile</h3><p>Lancement, bilans sanguins, changement de phase, blocage. Le reste se règle par écrit, à ton rythme.</p></div>
+      <div class="card"><span class="num">Chaque semaine</span><h3>Ton bilan, mon retour écrit</h3><p>Depuis ton téléphone. Mon retour est publié sur ta page.</p></div>
+      <div class="card"><span class="num">Ton espace privé</span><h3>Tout au même endroit</h3><p>Chiffres clés, feuille de route, « Cette semaine », documents en vigueur, tracker.</p></div>
+      <div class="card"><span class="num">Plans évolutifs</span><h3>Jamais figés</h3><p>Ils bougent avec tes résultats : à chaque bilan, chaque visio, chaque étape.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">03 · Inclus en plus</span>
+    <h2>Tout ce qu'il te faut pour réussir, et ensuite pour tenir.</h2>
+    <div class="grid">
+      <div class="card"><h3>Mon Tracker PG</h3><p>Ton journal, tes mesures et tes graphiques, en 30 secondes par jour.</p></div>
+      <div class="card"><h3>Mon protocole, toujours à jour</h3><p>La version en vigueur, consultable à tout moment.</p></div>
+      <div class="card"><h3>Bibliothèque de 39 fiches</h3><p>Une réponse pour chaque situation, dont la méthode pour ajuster seul tes calories et ton entraînement.</p></div>
+      <div class="card"><h3>Molécules décodées</h3><p>Près de 200 fiches : bénéfices, risques, suivi à faire.</p></div>
+      <div class="card"><h3>Accès à vie</h3><p>À ton espace et à toutes les ressources, même après l'accompagnement.</p></div>
+      <div class="card"><h3>Parrainage</h3><p>10 % en virement + 10 % en crédit d'accompagnement pour chaque proche qui signe.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <span class="eyebrow">04 · Ils l'ont fait</span>
+    <h2>Des résultats mesurés, pas des promesses.</h2>
+    <div class="grid two">
+      <div class="card"><span class="who">Kevin</span><span class="tag">35 ans · frigoriste</span><span class="big">71,1 → 80,0 kg</span><span class="muted">Développé couché 80 → 90 kg</span><blockquote>J'en ai vraiment pour mon argent. Ils m'ont pas vendu du rêve. C'était tellement bien organisé, tellement bien structuré.</blockquote></div>
+      <div class="card"><span class="who">Jean-François</span><span class="tag">51 ans</span><span class="big">86,7 → 80,9 kg</span><span class="muted">2 tailles en moins, force doublée</span><blockquote>Un bien-être comme j'avais rarement connu. Une fatigue qui a disparu. Et une force doublée.</blockquote></div>
+      <div class="card"><span class="who">Edgar</span><span class="tag">Infirmier et investisseur · a commencé par l'Audit, puis l'accompagnement</span><span class="big">−12 kg, muscle préservé</span><span class="muted">Hyrox 1h15 → 1h09</span><blockquote>J'ai quand même pas mal séché. J'ai gardé de la masse musculaire et perdu pas mal de gras.</blockquote></div>
+      <div class="card"><span class="who">Tanguy</span><span class="tag">Policier de nuit</span><span class="big">70,0 → 77,7 kg</span><span class="muted">en 7 semaines</span><blockquote>Depuis le début de l'accompagnement, j'en ai aucune, mais vraiment aucune [douleur]. Physiquement, je me sens vraiment bien et fort.</blockquote></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">05 · La garantie</span>
+    <div class="guarantee">
+      <h2>Je t'accompagne jusqu'au résultat.</h2>
+      <p>Ton objectif, écrit au départ :</p>
+      <p class="obj" id="g-obj">ton objectif chiffré</p>
+      <p>S'il n'est pas atteint à la fin de ton accompagnement, je continue à t'accompagner sans surcoût jusqu'à ce qu'il le soit.</p>
+      <p class="muted" style="margin:0">Modalités dans ton contrat : bilans de la semaine envoyés, plan appliqué, bilans sanguins faits.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Ton espace client</span>
+    <h2>Tout ton accompagnement, au même endroit.</h2>
+    <p class="muted">Dès ton inscription, tu reçois ton espace personnel PG Protocol. Il se remplit au fil de l'accompagnement et se met à jour après chaque bilan.</p>
+    <ol class="steps">
+      <li><div><h3>Ta stratégie et tes plans</h3><p>Entraînement calé sur ta boxe, nutrition, repas et courses, récupération et sommeil, protocole toujours à jour.</p></div></li>
+      <li><div><h3>Ton tracker</h3><p>Poids, mensurations, photos, charges, sommeil, énergie : tes graphiques se dessinent tout seuls, semaine après semaine.</p></div></li>
+      <li><div><h3>Mes retours et ta bibliothèque</h3><p>Mon retour écrit sur chaque bilan, plus de 40 fiches pratiques et près de 200 fiches « Molécules décodées ».</p></div></li>
+    </ol>
+    <a class="pay" href="https://www.notion.so/3fd461f779be81a3826ee2743e039b10" target="_blank" rel="noopener">Voir un exemple d'espace client</a>
+    <p class="note">Exemple réel avec un profil fictif (Thomas). Ton espace à toi est privé : toi seul y as accès.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">06 · Ton investissement</span>
+    <h2>L'accompagnement PG Protocol · 6 mois</h2>
+    
+    <div id="prix">
+      <div class="price main tier">
+        <span class="eyebrow">L'accompagnement complet · 6 mois</span>
+        <span class="amount">5 000 € <small>en une fois</small></span>
+        <ul><li>Suivi complet, ajustements à chaque étape, visios dès que c'est utile</li><li>Garantie : je t'accompagne jusqu'à ton objectif écrit au contrat</li><li>Espace client, tracker et ressources à vie</li></ul>
+        <a class="pay" href="https://buy.stripe.com/aFa8wQ89c2kN2U40nVgYU2q" target="_blank" rel="noopener">Je démarre · 5 000 €</a>
+        <button class="more" type="button" data-show="t2">Voir le paiement en plusieurs fois</button>
+      </div>
+
+      <div class="price tier hidden" id="t2">
+        <span class="eyebrow">Le même accompagnement, en plusieurs fois</span>
+        <span class="amount">2 × 3 000 € <small>chaque partie payable en 3 × 1 000 € sans frais avec Klarna</small></span>
+        <ul><li>1re partie au démarrage, 2e partie à mi-parcours</li><li>Soit environ 1 000 € par mois pendant 6 mois</li><li>Klarna, si tu es éligible au moment du paiement</li></ul>
+        <a class="pay" href="https://buy.stripe.com/14A8wQ6146B3bqA6MjgYU2r" target="_blank" rel="noopener">Je démarre · 1re partie 3 000 €</a>
+        <button class="more" type="button" data-show="t3">Voir une formule plus courte</button>
+      </div>
+
+      <div class="price tier hidden" id="t3">
+        <span class="eyebrow">Essentiel · 3 mois</span>
+        <span class="amount">3 000 € <small>ou 3 × 1 000 € sans frais avec Klarna</small></span>
+        <table class="cmp">
+          <tr><th></th><th>Essentiel</th><th>Complet</th></tr>
+          <tr><td>Durée</td><td>3 mois</td><td>6 mois</td></tr>
+          <tr><td>Suivi, bilans et ajustements</td><td>Oui</td><td>Oui</td></tr>
+          <tr><td>WhatsApp direct, visios dès que c'est utile</td><td>Oui</td><td>Oui</td></tr>
+          <tr><td>Garantie jusqu'à ton objectif</td><td>Non</td><td>Oui</td></tr>
+        </table>
+        <p class="note">Tu testes la stratégie sur 3 mois. Si tu continues ensuite avec l'accompagnement complet, ce que tu as payé est déduit.</p>
+        <a class="pay" href="https://buy.stripe.com/aFadRa1KO5wZ8eo6MjgYU2p" target="_blank" rel="noopener">Je démarre l'Essentiel · 3 000 €</a>
+        <button class="more" type="button" data-show="t4">Voir l'option en autonomie</button>
+      </div>
+
+      <div class="price tier hidden" id="t4">
+        <span class="eyebrow">Audit stratégique · en autonomie</span>
+        <span class="amount">1 497 € <small>ou 3 × 499 € sans frais avec Klarna</small></span>
+        <ul><li>Analyse de ton dossier et de ton bilan sanguin</li><li>Une visio d'onboarding de 45 minutes</li><li>Ta stratégie écrite et ta feuille de route sur 6 mois</li><li>30 jours de questions par écrit sur ton plan</li></ul>
+        <p class="note">Pas de suivi ni d'ajustements ensuite : tu appliques seul. Si tu passes à l'accompagnement dans les 30 jours, l'Audit est déduit.</p>
+        <a class="pay" href="https://buy.stripe.com/bJedRacps0cFdyIeeLgYU2o" target="_blank" rel="noopener">Je prends l'Audit · 1 497 €</a>
+      </div>
+
+      <div class="after">
+        <span class="eyebrow">Ce qui se passe juste après</span>
+        <ol class="steps" style="margin-top:1rem">
+          <li><div><h3>Paiement sécurisé par carte</h3><p>Tu reçois ton reçu tout de suite.</p></div></li>
+          <li><div><h3>Ton questionnaire d'onboarding</h3><p>Il s'ouvre directement après le paiement.</p></div></li>
+          <li><div><h3>Ton espace client sous 24 h</h3><p>Puis tu réserves ta visio d'onboarding.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section><div class="wrap"><h2>Une question avant de te lancer ?</h2><p class="muted">Écris-moi directement sur WhatsApp, je te réponds personnellement. Et si tu préfères en parler de vive voix, on se recale un créneau.</p></div></section>
+
+<div class="foot"><div class="wrap">Pierre Gourdon · PG Protocol. Accompagnement réservé aux adultes (18 ans et plus). Je ne suis pas médecin : ton médecin reste ton premier interlocuteur pour ta santé.</div></div>
+
+
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var ids = { now: 'g-now', goal: 'g-goal', date: 'g-date' };
+  var store = {};
+  try { store = JSON.parse(sessionStorage.getItem('pg_offre') || '{}'); } catch (e) {}
+  Object.keys(ids).forEach(function (k) {
+    var el = document.getElementById(ids[k]);
+    el.value = q.get(k) || ({now:'104 kg', goal:'87-92 kg, sec et tracé', date:'juin 2027'})[k];
+    el.addEventListener('input', update);
+  });
+  var name = q.get('p') || 'Youssef';
+  if (name) document.getElementById('who-top').textContent = 'Pour ' + name;
+  function update() {
+    var now = document.getElementById('g-now').value.trim();
+    var goal = document.getElementById('g-goal').value.trim();
+    var date = document.getElementById('g-date').value.trim();
+    var o = document.getElementById('g-obj');
+    o.textContent = goal ? (goal + (date ? ' · ' + date : '') + (now ? '  (départ : ' + now + ')' : '')) : 'ton objectif chiffré';
+    try { sessionStorage.setItem('pg_offre', JSON.stringify({ now: now, goal: goal, date: date })); } catch (e) {}
+  }
+  update();
+  document.querySelectorAll('.more').forEach(function (b) {
+    b.addEventListener('click', function () { var t = document.getElementById(b.dataset.show); t.classList.remove('hidden'); b.style.display = 'none'; t.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.target.tagName === 'INPUT') return;
+    if (e.key === 'p' || e.key === 'P') document.body.classList.toggle('show-price');
+  });
+})();
+</script>
+</body>
+</html>
