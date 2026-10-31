@@ -84,6 +84,15 @@ body.show-price #reveal { display: none; }
 .price .amount { font-family: var(--display); font-weight: 700; font-size: clamp(2.4rem, 5vw, 3.2rem); letter-spacing: -.02em; display: block; margin: .3rem 0; }
 .price .amount small { display: block; font-size: 1rem; color: var(--muted); font-weight: 500; letter-spacing: 0; margin-top: .2rem; }
 .price ul { margin: 1rem 0 0; padding-left: 1.1rem; color: var(--muted); font-size: .98rem; }
+.tier { margin-top: 1.2rem; }
+.tier.hidden { display: none; }
+.pay { display: inline-block; margin-top: 1.4rem; background: var(--gold); color: var(--on-gold); border-radius: 999px; padding: .95rem 1.6rem; font-weight: 600; text-decoration: none; }
+.more { display: block; margin-top: 1rem; background: none; border: 0; padding: 0; color: var(--muted); font-family: var(--body); font-size: .95rem; text-decoration: underline; cursor: pointer; }
+.note { color: var(--muted); font-size: .95rem; margin: 1rem 0 0; }
+.cmp { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: .95rem; }
+.cmp th { text-align: left; color: var(--gold); font-family: var(--mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; padding: .5rem .4rem; border-bottom: 1px solid var(--gold); }
+.cmp td { padding: .55rem .4rem; border-bottom: 1px solid var(--line); color: var(--muted); }
+.cmp td:first-child { color: var(--fg); }
 .after { margin-top: 2rem; }
 .foot { padding: 2.5rem 0 4rem; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); }
 .hint { position: fixed; bottom: 12px; right: 14px; font-family: var(--mono); font-size: .7rem; color: #4A4339; }
@@ -192,18 +201,45 @@ body.show-price #reveal { display: none; }
     <h2>L'accompagnement PG Protocol · 6 mois</h2>
     <div id="reveal"><button class="reveal-btn" type="button" onclick="document.body.classList.add('show-price')">Voir l'investissement</button></div>
     <div id="prix">
-      <div class="price-grid">
-        <div class="price main">
-          <span class="eyebrow">En une fois</span>
-          <span class="amount">5 000 €</span>
-          <ul><li>Tout est réglé, on n'en parle plus</li><li>Tu démarres ton onboarding cette semaine</li></ul>
-        </div>
-        <div class="price">
-          <span class="eyebrow">En deux fois</span>
-          <span class="amount">2 × 3 000 € <small>sans frais avec Klarna</small></span>
-          <ul><li>3 000 € au démarrage</li><li>3 000 € à mi-parcours</li><li>Si tu es éligible au moment du paiement</li></ul>
-        </div>
+      <div class="price main tier">
+        <span class="eyebrow">L'accompagnement complet · 6 mois</span>
+        <span class="amount">5 000 € <small>en une fois</small></span>
+        <ul><li>Suivi complet, ajustements à chaque étape, visios dès que c'est utile</li><li>Garantie : je t'accompagne jusqu'à ton objectif écrit au contrat</li><li>Espace client, tracker et ressources à vie</li></ul>
+        <a class="pay" href="https://buy.stripe.com/aFa8wQ89c2kN2U40nVgYU2q" target="_blank" rel="noopener">Je démarre · 5 000 €</a>
+        <button class="more" type="button" data-show="t2">Voir le paiement en plusieurs fois</button>
       </div>
+
+      <div class="price tier hidden" id="t2">
+        <span class="eyebrow">Le même accompagnement, en plusieurs fois</span>
+        <span class="amount">2 × 3 000 € <small>chaque partie payable en 3 × 1 000 € sans frais avec Klarna</small></span>
+        <ul><li>1re partie au démarrage, 2e partie à mi-parcours</li><li>Soit environ 1 000 € par mois pendant 6 mois</li><li>Klarna, si tu es éligible au moment du paiement</li></ul>
+        <a class="pay" href="https://buy.stripe.com/14A8wQ6146B3bqA6MjgYU2r" target="_blank" rel="noopener">Je démarre · 1re partie 3 000 €</a>
+        <button class="more" type="button" data-show="t3">Voir une formule plus courte</button>
+      </div>
+
+      <div class="price tier hidden" id="t3">
+        <span class="eyebrow">Essentiel · 3 mois</span>
+        <span class="amount">3 000 € <small>ou 3 × 1 000 € sans frais avec Klarna</small></span>
+        <table class="cmp">
+          <tr><th></th><th>Essentiel</th><th>Complet</th></tr>
+          <tr><td>Durée</td><td>3 mois</td><td>6 mois</td></tr>
+          <tr><td>Suivi, bilans et ajustements</td><td>Oui</td><td>Oui</td></tr>
+          <tr><td>WhatsApp direct, visios dès que c'est utile</td><td>Oui</td><td>Oui</td></tr>
+          <tr><td>Garantie jusqu'à ton objectif</td><td>Non</td><td>Oui</td></tr>
+        </table>
+        <p class="note">Tu testes la stratégie sur 3 mois. Si tu continues ensuite avec l'accompagnement complet, ce que tu as payé est déduit.</p>
+        <a class="pay" href="https://buy.stripe.com/aFadRa1KO5wZ8eo6MjgYU2p" target="_blank" rel="noopener">Je démarre l'Essentiel · 3 000 €</a>
+        <button class="more" type="button" data-show="t4">Voir l'option en autonomie</button>
+      </div>
+
+      <div class="price tier hidden" id="t4">
+        <span class="eyebrow">Audit stratégique · en autonomie</span>
+        <span class="amount">1 497 € <small>ou 3 × 499 € sans frais avec Klarna</small></span>
+        <ul><li>Analyse de ton dossier et de ton bilan sanguin</li><li>Une visio d'onboarding de 45 minutes</li><li>Ta stratégie écrite et ta feuille de route sur 6 mois</li><li>30 jours de questions par écrit sur ton plan</li></ul>
+        <p class="note">Pas de suivi ni d'ajustements ensuite : tu appliques seul. Si tu passes à l'accompagnement dans les 30 jours, l'Audit est déduit.</p>
+        <a class="pay" href="https://buy.stripe.com/bJedRacps0cFdyIeeLgYU2o" target="_blank" rel="noopener">Je prends l'Audit · 1 497 €</a>
+      </div>
+
       <div class="after">
         <span class="eyebrow">Ce qui se passe juste après</span>
         <ol class="steps" style="margin-top:1rem">
@@ -241,6 +277,9 @@ body.show-price #reveal { display: none; }
     try { sessionStorage.setItem('pg_offre', JSON.stringify({ now: now, goal: goal, date: date })); } catch (e) {}
   }
   update();
+  document.querySelectorAll('.more').forEach(function (b) {
+    b.addEventListener('click', function () { var t = document.getElementById(b.dataset.show); t.classList.remove('hidden'); b.style.display = 'none'; t.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+  });
   document.addEventListener('keydown', function (e) {
     if (e.target.tagName === 'INPUT') return;
     if (e.key === 'p' || e.key === 'P') document.body.classList.toggle('show-price');
