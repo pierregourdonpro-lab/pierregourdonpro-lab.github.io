@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ton Pilotage · Youssef · PG Protocol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #0E0D0B; --surface: #17140F; --surface2: #1D1913; --line: #2A251C;
+  --fg: #EFE8DC; --muted: #A0978A; --gold: #C9A45C; --gold-hi: #E2C285; --on-gold: #0B0B0B;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: radial-gradient(ellipse 70% 45% at 72% 0%, rgba(214,150,62,.17), transparent 70%) no-repeat,
+              radial-gradient(ellipse 60% 40% at 15% 100%, rgba(214,150,62,.07), transparent 70%) no-repeat, var(--bg);
+  color: var(--fg); font-family: var(--body); font-size: 1.125rem; line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 60rem; margin: 0 auto; padding: 0 max(16px, 4vw); }
+section { padding: 4.5rem 0; border-top: 1px solid var(--line); }
+.eyebrow { font-family: var(--mono); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; letter-spacing: -.02em; line-height: 1.12; margin: .4rem 0 1rem; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+h2 { font-size: clamp(1.7rem, 3.6vw, 2.5rem); }
+h3 { font-size: 1.2rem; margin: 0 0 .35rem; }
+p { margin: 0 0 1rem; }
+.muted { color: var(--muted); }
+.gold { color: var(--gold-hi); }
+
+/* Haut */
+.top { display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 0; font-family: var(--mono); font-size: .8rem; color: var(--muted); letter-spacing: .08em; }
+.hero { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: center; padding: 3rem 0 4.5rem; }
+.hero img { width: 100%; border-radius: 22px; box-shadow: 0 30px 80px rgba(214,150,62,.18); }
+.lead { font-size: 1.25rem; color: #D9D0C2; }
+
+/* Objectif remplissable */
+.goal { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+.goal > div { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 1rem 1.1rem; }
+.goal label { display: block; font-family: var(--mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .3rem; }
+.goal input { width: 100%; background: transparent; border: 0; border-bottom: 1px dashed var(--line); color: var(--fg); font-family: var(--display); font-size: 1.5rem; font-weight: 600; padding: .1rem 0; outline: none; }
+.goal input:focus { border-bottom-color: var(--gold); }
+.goal input::placeholder { color: #5E564A; }
+.goal > div.target { border-color: var(--gold); }
+
+/* Cartes */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.grid.two { grid-template-columns: repeat(2, 1fr); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.4rem; }
+.card p { color: var(--muted); margin: 0; font-size: 1rem; }
+.num { font-family: var(--mono); color: var(--gold); font-size: .85rem; display: block; margin-bottom: .6rem; }
+
+/* Étapes */
+.steps { list-style: none; padding: 0; margin: 0; counter-reset: s; display: grid; gap: .8rem; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 1.1rem 1.2rem; }
+.steps li::before { content: counter(s, decimal-leading-zero); font-family: var(--mono); color: var(--gold); font-size: 1.1rem; padding-top: .1rem; }
+.steps p { margin: 0; color: var(--muted); font-size: 1rem; }
+
+/* Preuves */
+.proof .card .who { font-family: var(--display); font-weight: 600; font-size: 1.15rem; }
+.proof .card .tag { color: var(--muted); font-size: .9rem; display: block; margin-bottom: .9rem; }
+.proof .big { font-family: var(--display); font-weight: 600; font-size: 1.35rem; color: var(--gold-hi); display: block; margin: .2rem 0; }
+.proof blockquote { margin: .9rem 0 0; padding-left: .9rem; border-left: 1px solid var(--gold); color: #D9D0C2; font-size: .98rem; }
+
+/* Garantie */
+.guarantee { background: linear-gradient(180deg, rgba(201,164,92,.12), rgba(201,164,92,.03)); border: 1px solid var(--gold); border-radius: 22px; padding: 2.2rem; }
+.guarantee .obj { font-family: var(--display); font-size: 1.6rem; font-weight: 600; color: var(--gold-hi); }
+
+/* Investissement */
+#prix { display: none; }
+body.show-price #prix { display: block; }
+body.show-price #reveal { display: none; }
+.reveal-btn { display: inline-block; background: var(--gold); color: var(--on-gold); border: 0; border-radius: 999px; padding: 1rem 1.8rem; font-family: var(--body); font-weight: 600; font-size: 1.05rem; cursor: pointer; }
+.price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+.price { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 1.8rem; }
+.price.main { border-color: var(--gold); background: var(--surface2); }
+.price .amount { font-family: var(--display); font-weight: 700; font-size: clamp(2.4rem, 5vw, 3.2rem); letter-spacing: -.02em; display: block; margin: .3rem 0; }
+.price .amount small { display: block; font-size: 1rem; color: var(--muted); font-weight: 500; letter-spacing: 0; margin-top: .2rem; }
+.price ul { margin: 1rem 0 0; padding-left: 1.1rem; color: var(--muted); font-size: .98rem; }
+.tier { margin-top: 1.2rem; }
+.tier.hidden { display: none; }
+.pay { display: inline-block; margin-top: 1.4rem; background: var(--gold); color: var(--on-gold); border-radius: 999px; padding: .95rem 1.6rem; font-weight: 600; text-decoration: none; }
+.more { display: block; margin-top: 1rem; background: none; border: 0; padding: 0; color: var(--muted); font-family: var(--body); font-size: .95rem; text-decoration: underline; cursor: pointer; }
+.note { color: var(--muted); font-size: .95rem; margin: 1rem 0 0; }
+.cmp { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: .95rem; }
+.cmp th { text-align: left; color: var(--gold); font-family: var(--mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; padding: .5rem .4rem; border-bottom: 1px solid var(--gold); }
+.cmp td { padding: .55rem .4rem; border-bottom: 1px solid var(--line); color: var(--muted); }
+.cmp td:first-child { color: var(--fg); }
+.yt{position:relative;display:block;width:100%;aspect-ratio:16/9;margin:0 0 1.1rem;border:0;border-radius:12px;background:#000 center/cover no-repeat;cursor:pointer;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.yt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.65))}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:2}
+.yt-play{position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:var(--gold);z-index:1}
+.yt-play::before{content:"";position:absolute;left:22px;top:17px;border-style:solid;border-width:11px 0 11px 17px;border-color:transparent transparent transparent #0E0D0B}
+.yt-lbl{position:absolute;left:12px;right:12px;bottom:10px;z-index:1;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#fff;text-align:left}
+.yt-soon{display:table;margin:0 0 1rem;padding:.3rem .7rem;border:1px solid var(--gold);border-radius:999px;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.after { margin-top: 2rem; }
+.foot { padding: 2.5rem 0 4rem; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); }
+.hint { position: fixed; bottom: 12px; right: 14px; font-family: var(--mono); font-size: .7rem; color: #4A4339; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; gap: 1.5rem; }
+  .hero img { max-width: 260px; }
+  .grid, .grid.two, .goal, .price-grid { grid-template-columns: 1fr; }
+  section { padding: 3rem 0; }
+}
+</style>
+</head>
+<body class="show-price">
+<div class="wrap">
+  <div class="top"><span>Pierre Gourdon · PG Protocol</span><span>Pour Youssef</span></div>
+  <div class="hero">
+    <div>
+      <span class="eyebrow">Le Pilotage PG Protocol · 3 mois</span>
+      <h1>Youssef, ton plan <span class="gold">pour les 3 prochains mois.</span></h1>
+      <p class="lead">Tu as fait le plus dur : −22 kg en 3 mois, seul. La suite, c'est perdre le gras qui reste sans perdre ton muscle, pour un physique sec et tracé et un corps qui performe en boxe. Le Pilotage, c'est une stratégie faite pour toi et quelqu'un qui l'ajuste avec toi, à un budget qui colle au tien.</p>
+      <div class="goal">
+        <div><label for="g-now">Aujourd'hui</label><input id="g-now" value="104 kg"></div>
+        <div class="target"><label for="g-goal">Ton objectif</label><input id="g-goal" value="Sec et tracé"></div>
+        <div><label for="g-date">En 3 mois</label><input id="g-date" value="Février 2027"></div>
+      </div>
+    </div>
+    <img src="../offre/img/pierre.jpg" alt="Pierre Gourdon">
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">01 · Comment ça se passe</span>
+    <h2>Tu n'es pas seul avec un document. Je te suis.</h2>
+    <ol class="steps">
+      <li><div><h3>Questionnaire détaillé, puis visio de lancement</h3><p>Ton historique, ta boxe, tes bilans, ton rythme de vie et ce que tu as déjà. On fixe ensemble ton objectif chiffré.</p></div></li>
+      <li><div><h3>Ta stratégie complète, livrée dans ton espace</h3><p>Entraînement calé sur ta boxe, nutrition, récupération, sommeil et protocole, construits à partir de ce que tu as déjà et de tes contraintes.</p></div></li>
+      <li><div><h3>Tes bilans sanguins lus et expliqués</h3><p>La liste des marqueurs à faire, l'analyse écrite de chaque bilan et ce qu'on ajuste en conséquence.</p></div></li>
+      <li><div><h3>J'ajuste le plan au fur et à mesure</h3><p>Tu m'envoies tes chiffres et tes questions, je te réponds par écrit et je mets ta stratégie à jour quand c'est nécessaire.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">02 · Ce qui est inclus</span>
+    <h2>L'essentiel pour avancer vite, et sans erreur.</h2>
+    <div class="grid">
+      <div class="card"><span class="num">100 % humain</span><h3>C'est moi qui suis ton dossier</h3><p>Pas de coach junior, pas de modèle copié-collé.</p></div>
+      <div class="card"><span class="num">WhatsApp</span><h3>Tu m'écris quand tu en as besoin</h3><p>Réponse en général dans la journée, 48 h maximum.</p></div>
+      <div class="card"><span class="num">Visio</span><h3>Une visio de lancement</h3><p>Puis une visio quand l'écrit ne suffit pas. Le reste se règle par écrit, à ton rythme.</p></div>
+      <div class="card"><span class="num">Ton espace privé</span><h3>Tout au même endroit</h3><p>Ta stratégie, tes plans, ton protocole à jour et ton tracker, sur ton téléphone.</p></div>
+      <div class="card"><span class="num">Ressources</span><h3>Bibliothèque + Molécules décodées</h3><p>Plus de 40 fiches pratiques et près de 200 fiches molécules : bénéfices, risques, suivi à faire.</p></div>
+      <div class="card"><span class="num">Boxe</span><h3>Compatible avec ton projet</h3><p>On tient compte de ton cadre sportif et des contrôles : tu sais clairement ce qui est compatible ou non.</p></div>
+    </div>
+    <p class="note">Les produits ne sont compris dans aucune formule : c'est toi qui gères ça de ton côté. Ce que je t'apporte, c'est la stratégie, le suivi et la sécurité autour.</p>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <span class="eyebrow">03 · Ils l'ont fait</span>
+    <h2>Des résultats mesurés, pas des promesses.</h2>
+    <div class="grid">
+      <div class="card"><button class="yt" type="button" data-yt="6SNguWBrQ0Y" aria-label="Lire le témoignage vidéo" style="background-image:url('https://i.ytimg.com/vi/6SNguWBrQ0Y/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Edgar · −12 kg en 3 mois</span></button><span class="who">Edgar</span><span class="tag">36 ans · infirmier et investisseur</span><span class="big">−12 kg, muscle préservé</span><span class="muted">Hyrox 1h15 → 1h09</span></div>
+      <div class="card"><button class="yt" type="button" data-yt="K8AqpLDQbZk" aria-label="Lire le témoignage vidéo" style="background-image:url('https://i.ytimg.com/vi/K8AqpLDQbZk/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Kevin · 71,1 → 80 kg</span></button><span class="who">Kevin</span><span class="tag">35 ans · frigoriste</span><span class="big">71,1 → 80,0 kg</span><span class="muted">Développé couché 80 → 90 kg</span></div>
+      <div class="card"><button class="yt" type="button" data-yt="Wde0vIMTZ4A" aria-label="Lire le témoignage vidéo" style="background-image:url('https://i.ytimg.com/vi/Wde0vIMTZ4A/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Jean-François · 51 ans</span></button><span class="who">Jean-François</span><span class="tag">51 ans</span><span class="big">86,7 → 80,9 kg</span><span class="muted">2 tailles en moins, force doublée</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="prix">
+  <div class="wrap">
+    <span class="eyebrow">04 · Ton investissement</span>
+    <h2>Le Pilotage PG Protocol · 3&nbsp;mois</h2>
+    <div class="price main">
+      <span class="amount">1 500 €<small>ou 3 × 500 € sans frais avec Klarna, si tu es éligible au moment du paiement</small></span>
+      <ul>
+        <li>Stratégie complète faite pour toi, à partir de ce que tu as déjà</li>
+        <li>Lecture et analyse de tes bilans sanguins</li>
+        <li>WhatsApp direct, réponse en général dans la journée, 48 h maximum</li>
+        <li>Visio de lancement, puis dès que l'écrit ne suffit pas</li>
+        <li>Espace client, tracker et ressources</li>
+        <li>Renouvelable 3 mois de plus au même prix, si tu veux continuer</li>
+      </ul>
+      <a class="pay" href="https://buy.stripe.com/3cIdRadtwcZr3Y8b2zgYU2y" target="_blank" rel="noopener">Je démarre mon Pilotage</a>
+      <p class="note">Après le paiement, tu reçois ton questionnaire, puis ton accès à ton espace et ta visio de lancement. On démarre cette semaine.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap foot">Pierre Gourdon · PG Protocol. Pierre Gourdon n'est pas médecin : l'accompagnement ne remplace pas un avis, un diagnostic ou un traitement médical. Réservé aux personnes majeures. <a href="../cgv/" style="color:var(--muted)">Conditions générales de vente</a>.</div>
+
+<script>
+  document.querySelectorAll('.yt').forEach(function(b){b.addEventListener('click',function(){if(b.querySelector('iframe'))return;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?autoplay=1&rel=0&modestbranding=1&playsinline=1';f.title=b.getAttribute('aria-label');f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;b.appendChild(f);});});
+
+</script>
+</body>
+</html>
