@@ -104,102 +104,202 @@ body.show-price #reveal { display: none; }
   section { padding: 3rem 0; }
 }
 </style>
+<style>
+/* V2 · présentation en écrans */
+html { scroll-snap-type: y proximity; scroll-behavior: smooth; }
+.slide { min-height: 100vh; display: flex; align-items: center; padding: 5rem 0; border-top: 1px solid var(--line); scroll-snap-align: start; }
+.slide > .wrap { width: 100%; }
+.slide.first { border-top: 0; padding-top: 2rem; }
+.big-line { font-family: var(--display); font-weight: 600; font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.25; letter-spacing: -.01em; margin: 2rem 0 0; }
+.stake { margin-top: 1rem; }
+.stake input { font-size: 1.15rem; font-family: var(--body); font-weight: 500; }
+.tried { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem; }
+.tried .card { position: relative; }
+.tried .card h3 { font-size: 1.05rem; }
+.tried .x { font-family: var(--mono); color: #8A6A5A; font-size: .8rem; display: block; margin-bottom: .5rem; letter-spacing: .1em; }
+.pillars { display: grid; grid-template-columns: repeat(5, 1fr); gap: .8rem; margin-top: 1.5rem; }
+.pillars .card { text-align: center; padding: 1.2rem .8rem; }
+.pillars .card h3 { font-size: 1rem; margin: 0; }
+.pillars .card.mol { border-color: rgba(201,164,92,.5); }
+.data { margin-top: 1rem; background: var(--surface2); border: 1px solid var(--gold); border-radius: 18px; padding: 1.1rem 1.4rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+.data b { font-family: var(--display); color: var(--gold-hi); font-size: 1.15rem; }
+.data span { color: var(--muted); font-size: .98rem; }
+.week { display: grid; gap: .8rem; margin-top: 1.5rem; }
+.week .row { display: grid; grid-template-columns: 11rem 1fr; gap: 1.2rem; align-items: baseline; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 1rem 1.3rem; }
+.week .when { font-family: var(--mono); color: var(--gold); font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; }
+.week h3 { margin: 0; font-size: 1.1rem; }
+.week p { margin: .2rem 0 0; color: var(--muted); font-size: 1rem; }
+.vs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
+.vs .card.me { border-color: var(--gold); background: var(--surface2); }
+.vs .card h3 { font-size: 1.05rem; }
+.signals { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .8rem; }
+.chip { font-family: var(--mono); font-size: .8rem; letter-spacing: .06em; border: 1px solid var(--line); border-radius: 999px; padding: .35rem .8rem; color: #D9D0C2; }
+.chip.on { border-color: var(--gold); color: var(--gold-hi); }
+.recap { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.4rem; }
+.notes { display: none; margin-top: 2rem; background: #11100D; border: 1px dashed #5E564A; border-radius: 14px; padding: 1.2rem 1.4rem; font-size: 1rem; color: #CFC6B8; }
+.notes b { color: var(--gold-hi); }
+body.show-notes .notes { display: block; }
+.dots { position: fixed; right: 14px; top: 50%; transform: translateY(-50%); display: grid; gap: 10px; z-index: 5; }
+.dots a { width: 9px; height: 9px; border-radius: 50%; background: #3A332A; display: block; }
+.dots a.on { background: var(--gold); }
+@media (max-width: 900px) {
+  .tried { grid-template-columns: 1fr 1fr; }
+  .pillars { grid-template-columns: 1fr 1fr; }
+  .vs { grid-template-columns: 1fr; }
+  .week .row { grid-template-columns: 1fr; gap: .2rem; }
+  .dots { display: none; }
+  .slide { min-height: auto; }
+}
+</style>
 </head>
 <body>
+<nav class="dots" aria-label="Écrans"></nav>
+
+<!-- 01 · TON OBJECTIF -->
+<section class="slide first" id="s1">
 <div class="wrap">
   <div class="top"><span>Pierre Gourdon · PG Protocol</span><span id="who-top"></span></div>
-
   <div class="hero">
     <div>
-      <span class="eyebrow">L'accompagnement PG Protocol</span>
-      <h1>Ton plan pour aller de là où tu es <span class="gold">à ton objectif.</span></h1>
-      <p class="lead">Une stratégie sur mesure, construite à partir de tes données, pilotée chaque semaine avec toi. Le plus vite possible, sans jouer avec ta santé.</p>
+      <span class="eyebrow">01 · Ton objectif</span>
+      <h1>De là où tu es <span class="gold">à là où tu veux être.</span></h1>
       <div class="goal">
-        <div><label for="g-now">Aujourd'hui</label><input id="g-now" placeholder="ex. 69 kg"></div>
-        <div class="target"><label for="g-goal">Ton objectif</label><input id="g-goal" placeholder="ex. 75 kg"></div>
+        <div><label for="g-now">Aujourd'hui</label><input id="g-now" placeholder="ex. 64 kg"></div>
+        <div class="target"><label for="g-goal">Ton objectif</label><input id="g-goal" placeholder="ex. 74 kg, sec"></div>
         <div><label for="g-date">Pour quand</label><input id="g-date" placeholder="ex. avril"></div>
       </div>
+      <div class="goal stake" style="grid-template-columns:1fr">
+        <div><label for="g-why">Ce que ça change dans ta vie</label><input id="g-why" placeholder="ex. retrouver l'assurance, l'énergie, la confiance"></div>
+      </div>
+      <p class="big-line">Une transformation physique. <span class="gold">Et derrière, un changement de vie.</span></p>
     </div>
     <img src="img/pierre.jpg" alt="Pierre Gourdon">
   </div>
+  <aside class="notes"><b>Script (≈ 1 min)</b><br>
+  « Avant de te montrer comment je travaille, je pose ce que tu m'as dit, pour qu'on parle de la même chose. Aujourd'hui tu es à <b>[X]</b>. Ton objectif, c'est <b>[Y]</b>, pour <b>[date]</b>. Et derrière, ce qui compte vraiment pour toi, c'est <b>[ses mots]</b>.<br>
+  C'est pour ça que ce que je fais, ce n'est pas juste une transformation physique. Le physique, c'est la porte d'entrée. Ce que les gens viennent chercher en vrai, c'est ce que ça change dans leur vie. C'est bien ça, ton objectif ? »<br>
+  <i>(Attends son oui.)</i> → « Alors avant de te dire comment on y va, je veux te montrer pourquoi tu n'y es pas déjà. »</aside>
 </div>
-
-<section>
-  <div class="wrap">
-    <span class="eyebrow">01 · La méthode</span>
-    <h2>On part de toi, pas d'un modèle.</h2>
-    <p class="muted">Ta stratégie commence avant tout produit : entraînement, nutrition, sommeil, récupération et bilans. Chaque décision s'appuie sur tes chiffres.</p>
-    <ol class="steps">
-      <li><div><h3>Questionnaire détaillé, puis visio d'onboarding de 45 min</h3><p>Ton historique, tes bilans, ton rythme de vie, tes contraintes. On fixe ensemble ton objectif chiffré et daté.</p></div></li>
-      <li><div><h3>Ta stratégie et tes plans, livrés dans ton espace</h3><p>Entraînement, nutrition, repas et courses, supplémentation, récupération et sommeil, restaurant, voyages et imprévus.</p></div></li>
-      <li><div><h3>Le pilotage par la data, chaque semaine</h3><p>Poids, mensurations, photos, charges, sommeil, énergie, ressentis et bilans sanguins. Tu fais ton bilan, je te réponds par écrit et j'ajuste.</p></div></li>
-      <li><div><h3>Bilans sanguins lus et expliqués</h3><p>La liste des marqueurs à faire, l'analyse écrite de chaque bilan et une liste prête à montrer à ton médecin.</p></div></li>
-      <li><div><h3>Ta sortie préparée</h3><p>Un bilan de parcours et un plan d'autonomie : tu repars avec tes résultats et tu sais les garder.</p></div></li>
-    </ol>
-  </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <span class="eyebrow">02 · Le suivi</span>
-    <h2>Un humain, pas un programme.</h2>
-    <div class="grid">
-      <div class="card"><span class="num">100 % humain</span><h3>C'est moi qui suis ton dossier</h3><p>Du premier au dernier jour.</p></div>
-      <div class="card"><span class="num">WhatsApp 7 j/7</span><h3>Accès direct</h3><p>Réponse en général dans la journée.</p></div>
-      <div class="card"><span class="num">Visios illimitées</span><h3>Dès que c'est utile</h3><p>Lancement, bilans sanguins, changement de phase, blocage. Le reste se règle par écrit, à ton rythme.</p></div>
-      <div class="card"><span class="num">Chaque semaine</span><h3>Ton bilan, mon retour écrit</h3><p>Depuis ton téléphone. Mon retour est publié sur ta page.</p></div>
-      <div class="card"><span class="num">Ton espace privé</span><h3>Tout au même endroit</h3><p>Chiffres clés, feuille de route, « Cette semaine », documents en vigueur, tracker.</p></div>
-      <div class="card"><span class="num">Plans évolutifs</span><h3>Jamais figés</h3><p>Ils bougent avec tes résultats : à chaque bilan, chaque visio, chaque étape.</p></div>
-    </div>
+<!-- 02 · POURQUOI TU BLOQUES -->
+<section class="slide" id="s2">
+<div class="wrap">
+  <span class="eyebrow">02 · Pourquoi tu bloques</span>
+  <h2>Tu as déjà essayé. Une pièce du puzzle à chaque fois.</h2>
+  <div class="tried">
+    <div class="card"><span class="x">01</span><h3>Des conseils à droite à gauche</h3><p>Chacun dit l'inverse du précédent.</p></div>
+    <div class="card"><span class="x">02</span><h3>Un protocole trouvé sur internet</h3><p>Fait pour quelqu'un d'autre que toi.</p></div>
+    <div class="card"><span class="x">03</span><h3>Un coach classique</h3><p>Un programme, mais pas la vue d'ensemble.</p></div>
+    <div class="card"><span class="x">04</span><h3>Un suivi médical</h3><p>Ta santé, oui. Ta performance, rarement.</p></div>
   </div>
+  <p class="big-line">Tu ne manques pas d'effort. <span class="gold">Il te manque un système construit pour toi.</span></p>
+  <aside class="notes"><b>Script (≈ 1 min)</b><br>
+  « Ce que je vois chez quasiment tous ceux qui arrivent : ils ont essayé. Des conseils à droite à gauche, un protocole trouvé sur internet, un coach classique, parfois un suivi médical. Et à chaque fois, c'est une pièce du puzzle, jamais le puzzle entier. Et c'est fait pour quelqu'un d'autre.<br>
+  Toi, tu me l'as dit : <b>[son vécu : ex. le produit sans résultat, il reprend puis décroche]</b>. Ce n'est pas un problème de motivation. C'est qu'il n'y a jamais eu de système construit pour toi. »<br>
+  → « Et c'est exactement ce que je fais. »</aside>
+</div>
 </section>
 
-<section>
-  <div class="wrap">
-    <span class="eyebrow">03 · Inclus en plus</span>
-    <h2>Tout ce qu'il te faut pour réussir, et ensuite pour tenir.</h2>
-    <div class="grid">
-      <div class="card"><h3>Mon Tracker PG</h3><p>Ton journal, tes mesures et tes graphiques, en 30 secondes par jour.</p></div>
-      <div class="card"><h3>Mon protocole, toujours à jour</h3><p>La version en vigueur, consultable à tout moment.</p></div>
-      <div class="card"><h3>Bibliothèque de 39 fiches</h3><p>Une réponse pour chaque situation, dont la méthode pour ajuster seul tes calories et ton entraînement.</p></div>
-      <div class="card"><h3>Molécules décodées</h3><p>Près de 200 fiches : bénéfices, risques, suivi à faire.</p></div>
-      <div class="card"><h3>Accès à vie</h3><p>À ton espace et à toutes les ressources, même après l'accompagnement.</p></div>
-      <div class="card"><h3>Parrainage</h3><p>10 % en virement + 10 % en crédit d'accompagnement pour chaque proche qui signe.</p></div>
-    </div>
+<!-- 03 · LA MÉTHODE -->
+<section class="slide" id="s3">
+<div class="wrap">
+  <span class="eyebrow">03 · La méthode</span>
+  <h2>Un système construit sur toi. <span class="gold">Tous les piliers, au même endroit.</span></h2>
+  <div class="pillars">
+    <div class="card"><h3>Entraînement</h3></div>
+    <div class="card"><h3>Nutrition</h3></div>
+    <div class="card"><h3>Récupération et sommeil</h3></div>
+    <div class="card"><h3>Supplémentation</h3></div>
+    <div class="card mol"><h3>Biohacking et protocole</h3></div>
   </div>
+  <div class="data"><b>Piloté par tes chiffres</b><span>Poids · mensurations · photos · charges · sommeil · énergie · bilans sanguins</span></div>
+  <p class="big-line">On adapte le système à ta vie. <span class="gold">Pas l'inverse.</span></p>
+  <aside class="notes"><b>Script (≈ 1 min 30)</b><br>
+  « Ce que je mets en place, c'est un système. On part de toi : ta physiologie, tes mensurations, ton bilan sanguin, ton emploi du temps, tes contraintes.<br>
+  Et on travaille tous les piliers qui font le résultat : l'entraînement, la nutrition, la récup et le sommeil, la supplémentation, et le biohacking avec le protocole quand c'est pertinent pour toi. Le protocole, c'est une pièce du système. Pas le système.<br>
+  La règle : on adapte le système à ta vie, pas l'inverse. Tu gagnes du temps pour arriver au résultat, et du temps dans ton quotidien.<br>
+  Et tout est piloté par tes chiffres. On ne devine pas : on mesure, et on ajuste. »<br>
+  → « Concrètement, comment ça se passe, semaine après semaine ? »</aside>
+</div>
 </section>
 
-<section class="proof">
-  <div class="wrap">
-    <span class="eyebrow">04 · Ils l'ont fait</span>
-    <h2>Des résultats mesurés, pas des promesses.</h2>
-    <div class="grid two">
-      <div class="card"><span class="who">Kevin</span><span class="tag">35 ans · frigoriste</span><span class="big">71,1 → 80,0 kg</span><span class="muted">Développé couché 80 → 90 kg</span><blockquote>J'en ai vraiment pour mon argent. Ils m'ont pas vendu du rêve. C'était tellement bien organisé, tellement bien structuré.</blockquote></div>
-      <div class="card"><span class="who">Jean-François</span><span class="tag">51 ans</span><span class="big">86,7 → 80,9 kg</span><span class="muted">2 tailles en moins, force doublée</span><blockquote>Un bien-être comme j'avais rarement connu. Une fatigue qui a disparu. Et une force doublée.</blockquote></div>
-      <div class="card"><span class="who">Edgar</span><span class="tag">Infirmier et investisseur · a commencé par l'Audit, puis l'accompagnement</span><span class="big">−12 kg, muscle préservé</span><span class="muted">Hyrox 1h15 → 1h09</span><blockquote>J'ai quand même pas mal séché. J'ai gardé de la masse musculaire et perdu pas mal de gras.</blockquote></div>
-      <div class="card"><span class="who">Tanguy</span><span class="tag">Policier de nuit</span><span class="big">70,0 → 77,7 kg</span><span class="muted">en 7 semaines</span><blockquote>Depuis le début de l'accompagnement, j'en ai aucune, mais vraiment aucune [douleur]. Physiquement, je me sens vraiment bien et fort.</blockquote></div>
-    </div>
+<!-- 04 · TA SEMAINE -->
+<section class="slide" id="s4">
+<div class="wrap">
+  <span class="eyebrow">04 · Le suivi</span>
+  <h2>Concrètement, avec moi, ça se passe comme ça.</h2>
+  <div class="week">
+    <div class="row"><span class="when">Au démarrage</span><div><h3>Questionnaire détaillé, puis visio d'onboarding</h3><p>On fixe ton objectif chiffré et daté. Je construis ta stratégie et tes plans, livrés dans ton espace.</p></div></div>
+    <div class="row"><span class="when">Chaque semaine</span><div><h3>Ton bilan, mon retour écrit, les ajustements</h3><p>Depuis ton téléphone. Tes plans évoluent avec tes résultats.</p></div></div>
+    <div class="row"><span class="when">Tous les jours</span><div><h3>WhatsApp direct avec moi, 7 j/7</h3><p>Une question, un blocage : réponse en général dans la journée.</p></div></div>
+    <div class="row"><span class="when">Dès que c'est utile</span><div><h3>Visios illimitées</h3><p>Lecture de tes bilans sanguins, changement de phase, blocage.</p></div></div>
+    <div class="row"><span class="when">Tout le temps</span><div><h3>Ton espace privé</h3><p>Ta stratégie, tes plans, ton tracker, ton protocole toujours à jour.</p></div></div>
   </div>
+  <aside class="notes"><b>Script (≈ 1 min)</b><br>
+  « Au démarrage, tu remplis un questionnaire très détaillé, puis on fait une visio d'onboarding : on fixe ton objectif chiffré et daté, et je construis ta stratégie et tes plans.<br>
+  Ensuite, chaque semaine, tu m'envoies ton bilan depuis ton téléphone. Je te réponds par écrit, et j'ajuste.<br>
+  Entre deux, tu as accès à moi directement sur WhatsApp, 7 jours sur 7. Je réponds en général dans la journée.<br>
+  Dès qu'une visio est utile (un bilan sanguin, un changement de phase, un blocage), on la fait. Sans limite.<br>
+  Et tout est rangé dans ton espace : ta stratégie, tes plans, ton tracker, ton protocole à jour. »<br>
+  → « Maintenant, pourquoi moi et pas un autre coach ? »</aside>
+</div>
 </section>
 
-<section>
-  <div class="wrap">
-    <span class="eyebrow">05 · La garantie</span>
-    <div class="guarantee">
-      <h2>Je t'accompagne jusqu'au résultat.</h2>
-      <p>Ton objectif, écrit au départ :</p>
-      <p class="obj" id="g-obj">ton objectif chiffré</p>
-      <p>S'il n'est pas atteint à la fin de ton accompagnement, je continue à t'accompagner sans surcoût jusqu'à ce qu'il le soit.</p>
-      <p class="muted" style="margin:0">Modalités dans ton contrat : bilans de la semaine envoyés, plan appliqué, bilans sanguins faits.</p>
-    </div>
+<!-- 05 · POURQUOI MOI -->
+<section class="slide" id="s5">
+<div class="wrap">
+  <span class="eyebrow">05 · Pourquoi c'est différent</span>
+  <h2>Une solution complète, <span class="gold">pour des gens qui ont une vraie vie.</span></h2>
+  <div class="vs">
+    <div class="card"><span class="num">Le coach classique</span><h3>L'entraînement et la nutrition</h3><p>Sans le biohacking ni la lecture de tes bilans.</p></div>
+    <div class="card"><span class="num">Le coach produit</span><h3>Le protocole</h3><p>Pensé pour le bodybuilding, pas pour ta vie.</p></div>
+    <div class="card me"><span class="num">PG Protocol</span><h3>Tous les piliers + l'expertise biohacking</h3><p>Pour des entrepreneurs, des cadres, des pères de famille. Rien n'est laissé au hasard.</p></div>
   </div>
+  <div class="grid two" style="margin-top:1rem">
+    <div class="card"><span class="who" style="font-family:var(--display);font-weight:600">Edgar · 36 ans</span><p>Infirmier et investisseur, deux boulots, papa.</p><span class="big" style="font-family:var(--display);font-weight:600;font-size:1.3rem;color:var(--gold-hi);display:block;margin:.4rem 0">−12 kg, muscle gardé · Hyrox 1h15 → 1h09</span></div>
+    <div class="card"><span class="who" style="font-family:var(--display);font-weight:600">Jean-François · 51 ans</span><p>Deux tailles en moins, force doublée.</p><span class="big" style="font-family:var(--display);font-weight:600;font-size:1.3rem;color:var(--gold-hi);display:block;margin:.4rem 0">86,7 → 80,9 kg · « une fatigue qui a disparu »</span></div>
+  </div>
+  <p class="muted" style="margin:1.4rem 0 0">Ce que tu sens en premier, souvent avant la balance :</p>
+  <div class="signals"><span class="chip on">Énergie</span><span class="chip on">Sommeil</span><span class="chip on">Récupération</span><span class="chip on">Humeur</span><span class="chip">Le miroir</span><span class="chip">La balance</span></div>
+  <aside class="notes"><b>Script (≈ 1 min 30)</b><br>
+  « Il y a les coachs classiques : entraînement, nutrition, mais pas le biohacking. Il y a les coachs produits et les préparateurs : eux, c'est le bodybuilding.<br>
+  Moi, j'accompagne des gens de tous les jours : des entrepreneurs, des cadres, des gens avec une vie de famille et peu de temps. Je travaille tous les aspects de la transformation, avec une vraie expertise du biohacking. Avec moi, rien n'est laissé au hasard.<br>
+  Deux exemples. Edgar, 36 ans, infirmier et investisseur, deux boulots, papa : moins 12 kilos en gardant son muscle, et son Hyrox de 1h15 à 1h09. Jean-François, 51 ans : de 86,7 à 80,9 kilos, deux tailles en moins, et il te dirait lui-même que sa fatigue a disparu.<br>
+  Et ce que mes clients sentent en premier, souvent avant la balance : l'énergie, le sommeil, la récup, l'humeur. »<br>
+  → « Et comme je travaille au résultat, je m'engage dessus. »</aside>
+</div>
 </section>
 
-<section>
-  <div class="wrap">
-    <span class="eyebrow">06 · Ton investissement</span>
-    <h2>L'accompagnement PG Protocol · 6 mois</h2>
-    <div id="reveal"><button class="reveal-btn" type="button" onclick="document.body.classList.add('show-price')">Voir l'investissement</button></div>
+<!-- 06 · GARANTIE + RÉCAP -->
+<section class="slide" id="s6">
+<div class="wrap">
+  <span class="eyebrow">06 · Mon engagement</span>
+  <div class="guarantee">
+    <h2>Je t'accompagne jusqu'au résultat.</h2>
+    <p>Ton objectif, écrit dans ton contrat :</p>
+    <p class="obj" id="g-obj">ton objectif chiffré</p>
+    <p>S'il n'est pas atteint à la fin de ton accompagnement, je continue à t'accompagner sans surcoût jusqu'à ce qu'il le soit.</p>
+    <p class="muted" style="margin:0">Ta part : bilans de la semaine envoyés, plan appliqué, bilans sanguins faits. Modalités dans ton contrat.</p>
+  </div>
+  <p class="muted" style="margin:2rem 0 0">Tout ce que tu as :</p>
+  <div class="recap">
+    <span class="chip on">Stratégie et plans sur mesure</span><span class="chip on">Bilan chaque semaine + ajustements</span><span class="chip on">WhatsApp 7 j/7</span><span class="chip on">Visios illimitées dès que c'est utile</span><span class="chip">Espace privé, tracker, protocole à jour</span><span class="chip">39 fiches + près de 200 fiches molécules</span><span class="chip">Accès à vie</span><span class="chip">Plan d'autonomie à la fin</span>
+  </div>
+  <aside class="notes"><b>Script (≈ 1 min)</b><br>
+  « On écrit ton objectif dans ton contrat : <b>[Y, date]</b>. Si à la fin de l'accompagnement on n'y est pas, alors que tu as fait ta part (tes bilans envoyés, le plan appliqué, tes bilans sanguins faits), je continue à t'accompagner sans surcoût jusqu'à ce qu'on y soit.<br>
+  Pour résumer, tu as : une stratégie et des plans faits pour toi, un bilan chaque semaine avec mes ajustements, WhatsApp avec moi 7 jours sur 7, des visios dès que c'est utile, ton espace avec tout dedans, à vie, et un plan d'autonomie à la fin pour garder tes résultats. »<br>
+  <b>Puis 2 questions, et tu attends les réponses :</b><br>
+  « Est-ce que tu vois comment ça t'amène à <b>[Y]</b> ? » → « Tu veux que je te montre l'investissement ? »</aside>
+</div>
+</section>
+
+<!-- 07 · INVESTISSEMENT -->
+<section class="slide" id="s7">
+<div class="wrap">
+  <span class="eyebrow">07 · Ton investissement</span>
+  <h2>L'accompagnement PG Protocol · 6 mois</h2>
+  <div id="reveal"><button class="reveal-btn" type="button" onclick="document.body.classList.add('show-price')">Voir l'investissement</button></div>
     <div id="prix">
       <div class="price main tier">
         <span class="eyebrow">L'accompagnement complet · 6 mois</span>
@@ -250,15 +350,24 @@ body.show-price #reveal { display: none; }
       </div>
     </div>
   </div>
+
+  <aside class="notes"><b>Script</b><br>
+  « L'accompagnement complet, c'est 5 000 €. » <b>Puis silence.</b> C'est lui qui parle en premier.<br>
+  · « En plusieurs fois ? » → bouton suivant : 2 × 3 000 € avec Klarna.<br>
+  · « Devis / contrat / virement » → « Tu auras ton contrat et ta facture. Je t'envoie le RIB maintenant, tu programmes le virement pendant qu'on est ensemble, et je t'envoie le contrat dans l'heure. »<br>
+  · « Je pense que oui » → « Sur 10, tu en es où pour démarrer ? Qu'est-ce qui manque pour être à 10 ? »<br>
+  · Essentiel puis Audit : seulement après un non clair.</aside>
+</div>
 </section>
 
 <div class="foot"><div class="wrap">Pierre Gourdon · PG Protocol. Accompagnement réservé aux adultes (18 ans et plus). Je ne suis pas médecin : ton médecin reste ton premier interlocuteur pour ta santé.</div></div>
-<div class="hint">P = investissement</div>
+<div class="hint">← → écrans · P = investissement · N = notes</div>
 
 <script>
 (function () {
   var q = new URLSearchParams(location.search);
-  var ids = { now: 'g-now', goal: 'g-goal', date: 'g-date' };
+  if (q.get('notes') === '1') document.body.classList.add('show-notes');
+  var ids = { now: 'g-now', goal: 'g-goal', date: 'g-date', why: 'g-why' };
   var store = {};
   try { store = JSON.parse(sessionStorage.getItem('pg_offre') || '{}'); } catch (e) {}
   Object.keys(ids).forEach(function (k) {
@@ -268,21 +377,35 @@ body.show-price #reveal { display: none; }
   });
   var name = q.get('p') || '';
   if (name) document.getElementById('who-top').textContent = 'Pour ' + name;
+  function val(id) { return document.getElementById(id).value.trim(); }
   function update() {
-    var now = document.getElementById('g-now').value.trim();
-    var goal = document.getElementById('g-goal').value.trim();
-    var date = document.getElementById('g-date').value.trim();
+    var now = val('g-now'), goal = val('g-goal'), date = val('g-date'), why = val('g-why');
     var o = document.getElementById('g-obj');
     o.textContent = goal ? (goal + (date ? ' · ' + date : '') + (now ? '  (départ : ' + now + ')' : '')) : 'ton objectif chiffré';
-    try { sessionStorage.setItem('pg_offre', JSON.stringify({ now: now, goal: goal, date: date })); } catch (e) {}
+    try { sessionStorage.setItem('pg_offre', JSON.stringify({ now: now, goal: goal, date: date, why: why })); } catch (e) {}
   }
   update();
   document.querySelectorAll('.more').forEach(function (b) {
     b.addEventListener('click', function () { var t = document.getElementById(b.dataset.show); t.classList.remove('hidden'); b.style.display = 'none'; t.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
   });
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var dots = document.querySelector('.dots');
+  slides.forEach(function (s) { var a = document.createElement('a'); a.href = '#' + s.id; a.setAttribute('aria-label', s.id); dots.appendChild(a); });
+  var dotEls = dots.querySelectorAll('a');
+  function current() {
+    var mid = window.innerHeight / 2, idx = 0;
+    slides.forEach(function (s, i) { if (s.getBoundingClientRect().top <= mid) idx = i; });
+    return idx;
+  }
+  function paint() { var i = current(); dotEls.forEach(function (d, j) { d.classList.toggle('on', i === j); }); }
+  window.addEventListener('scroll', paint, { passive: true }); paint();
+  function go(d) { var i = Math.max(0, Math.min(slides.length - 1, current() + d)); slides[i].scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   document.addEventListener('keydown', function (e) {
     if (e.target.tagName === 'INPUT') return;
     if (e.key === 'p' || e.key === 'P') document.body.classList.toggle('show-price');
+    else if (e.key === 'n' || e.key === 'N') document.body.classList.toggle('show-notes');
+    else if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown') { e.preventDefault(); go(1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') { e.preventDefault(); go(-1); }
   });
 })();
 </script>
