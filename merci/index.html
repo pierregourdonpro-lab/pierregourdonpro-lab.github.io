@@ -158,7 +158,7 @@ footer p { max-width: 75ch; }
 .alert { border: 1px solid color-mix(in srgb, var(--gold) 60%, transparent); background: radial-gradient(120% 140% at 0% 0%, var(--glow), transparent 65%); border-radius: 6px; padding: 1.2rem 1.3rem; margin-top: 1.8rem; display: grid; gap: .35rem; max-width: 40rem; }
 .alert > b { font-family: var(--mono); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
 .alert p { margin: 0; }
-.wa-btn { display: inline-block; justify-self: start; margin: .5rem 0 .2rem; background: #25D366; color: #0B0B0B; font-weight: 600; text-decoration: none; border-radius: 999px; padding: .85rem 1.4rem; }
+.wa-btn { display: inline-block; justify-self: start; margin: .5rem 0 .2rem; background: var(--gold); color: #0B0B0B; font-weight: 600; text-decoration: none; border-radius: 999px; padding: .85rem 1.4rem; }
 .wa-btn.off { display: none; }
 .qs { counter-reset: q; list-style: none; padding: 0; margin: 1.2rem 0 0; display: grid; gap: .7rem; }
 .qs li { counter-increment: q; padding-left: 2.2rem; position: relative; font-size: 1.08rem; }
@@ -366,7 +366,7 @@ var WA_NUMBER = '33762612321';
   var when = '';
   var t = q.get('event_start_time');
   if (t) { try { when = new Date(t).toLocaleString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Paris' }); } catch (e) {} }
-  var msg = 'Salut Pierre' + (name ? ", c'est " + name : '') + ' ! Je te confirme ma présence à notre appel' + (when ? ' du ' + when : '') + '.';
+  var msg = "Salut Pierre, c'est " + (name || '[ton prénom]') + ' ! Je te confirme ma présence à notre appel' + (when ? ' du ' + when : '') + '.';
   a.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
 })();
 </script>
