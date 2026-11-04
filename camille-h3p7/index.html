@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Audit ou accompagnement · Camille · PG Protocol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #0E0D0B; --surface: #17140F; --surface2: #1D1913; --line: #2A251C;
+  --fg: #EFE8DC; --muted: #A0978A; --gold: #C9A45C; --gold-hi: #E2C285; --on-gold: #0B0B0B;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: radial-gradient(ellipse 70% 45% at 72% 0%, rgba(214,150,62,.17), transparent 70%) no-repeat,
+              radial-gradient(ellipse 60% 40% at 15% 100%, rgba(214,150,62,.07), transparent 70%) no-repeat, var(--bg);
+  color: var(--fg); font-family: var(--body); font-size: 1.125rem; line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 60rem; margin: 0 auto; padding: 0 max(16px, 4vw); }
+section { padding: 4.5rem 0; border-top: 1px solid var(--line); }
+.eyebrow { font-family: var(--mono); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; letter-spacing: -.02em; line-height: 1.12; margin: .4rem 0 1rem; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+h2 { font-size: clamp(1.7rem, 3.6vw, 2.5rem); }
+h3 { font-size: 1.2rem; margin: 0 0 .35rem; }
+p { margin: 0 0 1rem; }
+.muted { color: var(--muted); }
+.gold { color: var(--gold-hi); }
+
+/* Haut */
+.top { display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 0; font-family: var(--mono); font-size: .8rem; color: var(--muted); letter-spacing: .08em; }
+.hero { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: center; padding: 3rem 0 4.5rem; }
+.hero img { width: 100%; border-radius: 22px; box-shadow: 0 30px 80px rgba(214,150,62,.18); }
+.lead { font-size: 1.25rem; color: #D9D0C2; }
+
+/* Objectif remplissable */
+.goal { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+.goal > div { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 1rem 1.1rem; }
+.goal label { display: block; font-family: var(--mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .3rem; }
+.goal input { width: 100%; background: transparent; border: 0; border-bottom: 1px dashed var(--line); color: var(--fg); font-family: var(--display); font-size: 1.5rem; font-weight: 600; padding: .1rem 0; outline: none; }
+.goal input:focus { border-bottom-color: var(--gold); }
+.goal input::placeholder { color: #5E564A; }
+.goal > div.target { border-color: var(--gold); }
+
+/* Cartes */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.grid.two { grid-template-columns: repeat(2, 1fr); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.4rem; }
+.card p { color: var(--muted); margin: 0; font-size: 1rem; }
+.num { font-family: var(--mono); color: var(--gold); font-size: .85rem; display: block; margin-bottom: .6rem; }
+
+/* Étapes */
+.steps { list-style: none; padding: 0; margin: 0; counter-reset: s; display: grid; gap: .8rem; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 1.1rem 1.2rem; }
+.steps li::before { content: counter(s, decimal-leading-zero); font-family: var(--mono); color: var(--gold); font-size: 1.1rem; padding-top: .1rem; }
+.steps p { margin: 0; color: var(--muted); font-size: 1rem; }
+
+/* Preuves */
+.proof .card .who { font-family: var(--display); font-weight: 600; font-size: 1.15rem; }
+.proof .card .tag { color: var(--muted); font-size: .9rem; display: block; margin-bottom: .9rem; }
+.proof .big { font-family: var(--display); font-weight: 600; font-size: 1.35rem; color: var(--gold-hi); display: block; margin: .2rem 0; }
+.proof blockquote { margin: .9rem 0 0; padding-left: .9rem; border-left: 1px solid var(--gold); color: #D9D0C2; font-size: .98rem; }
+
+/* Garantie */
+.guarantee { background: linear-gradient(180deg, rgba(201,164,92,.12), rgba(201,164,92,.03)); border: 1px solid var(--gold); border-radius: 22px; padding: 2.2rem; }
+.guarantee .obj { font-family: var(--display); font-size: 1.6rem; font-weight: 600; color: var(--gold-hi); }
+
+/* Investissement */
+#prix { display: none; }
+body.show-price #prix { display: block; }
+body.show-price #reveal { display: none; }
+.reveal-btn { display: inline-block; background: var(--gold); color: var(--on-gold); border: 0; border-radius: 999px; padding: 1rem 1.8rem; font-family: var(--body); font-weight: 600; font-size: 1.05rem; cursor: pointer; }
+.price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+.price { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 1.8rem; }
+.price.main { border-color: var(--gold); background: var(--surface2); }
+.price .amount { font-family: var(--display); font-weight: 700; font-size: clamp(2.4rem, 5vw, 3.2rem); letter-spacing: -.02em; display: block; margin: .3rem 0; }
+.price .amount small { display: block; font-size: 1rem; color: var(--muted); font-weight: 500; letter-spacing: 0; margin-top: .2rem; }
+.price ul { margin: 1rem 0 0; padding-left: 1.1rem; color: var(--muted); font-size: .98rem; }
+.tier { margin-top: 1.2rem; }
+.tier.hidden { display: none; }
+.pay { display: inline-block; margin-top: 1.4rem; background: var(--gold); color: var(--on-gold); border-radius: 999px; padding: .95rem 1.6rem; font-weight: 600; text-decoration: none; }
+.more { display: block; margin-top: 1rem; background: none; border: 0; padding: 0; color: var(--muted); font-family: var(--body); font-size: .95rem; text-decoration: underline; cursor: pointer; }
+.note { color: var(--muted); font-size: .95rem; margin: 1rem 0 0; }
+.cmp { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: .95rem; }
+.cmp th { text-align: left; color: var(--gold); font-family: var(--mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; padding: .5rem .4rem; border-bottom: 1px solid var(--gold); }
+.cmp td { padding: .55rem .4rem; border-bottom: 1px solid var(--line); color: var(--muted); }
+.cmp td:first-child { color: var(--fg); }
+.yt{position:relative;display:block;width:100%;aspect-ratio:16/9;margin:0 0 1.1rem;border:0;border-radius:12px;background:#000 center/cover no-repeat;cursor:pointer;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.yt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.65))}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:2}
+.yt-play{position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:var(--gold);z-index:1}
+.yt-play::before{content:"";position:absolute;left:22px;top:17px;border-style:solid;border-width:11px 0 11px 17px;border-color:transparent transparent transparent #0E0D0B}
+.yt-lbl{position:absolute;left:12px;right:12px;bottom:10px;z-index:1;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#fff;text-align:left}
+.yt-soon{display:table;margin:0 0 1rem;padding:.3rem .7rem;border:1px solid var(--gold);border-radius:999px;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.after { margin-top: 2rem; }
+.foot { padding: 2.5rem 0 4rem; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); }
+.hint { position: fixed; bottom: 12px; right: 14px; font-family: var(--mono); font-size: .7rem; color: #4A4339; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; gap: 1.5rem; }
+  .hero img { max-width: 260px; }
+  .grid, .grid.two, .goal, .price-grid { grid-template-columns: 1fr; }
+  section { padding: 3rem 0; }
+}
+</style>
+<style>
+.ok{color:var(--gold-hi);font-weight:600}.no{color:#6B6357}
+.cmp td,.cmp th{vertical-align:top}.cmp th:nth-child(3){color:var(--gold-hi)}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.choice .card.main{border-color:var(--gold);background:var(--surface2)}
+.pay.ghost{background:transparent;color:var(--gold-hi);border:1px solid var(--gold)}
+.tablewrap{overflow-x:auto}
+@media (max-width:760px){.choice{grid-template-columns:1fr}.cmp{font-size:.85rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><span>Pierre Gourdon · PG Protocol</span><span>Pour Camille</span></div>
+  <div class="hero">
+    <div>
+      <span class="eyebrow">Avant notre appel de mercredi 14 h</span>
+      <h1>Camille, l'Audit ou l'accompagnement : <span class="gold">tout pour choisir.</span></h1>
+      <p class="lead">Tu m'as demandé s'il existe un suivi chaque mois ou tous les 2 mois. Réponse franche : je ne fais pas de suivi « à la carte ». Je propose deux formats, et je préfère que tu choisisses celui qui te correspond vraiment plutôt que celui qui me rapporte le plus.</p>
+    </div>
+    <img src="../offre/img/pierre.jpg" alt="Pierre Gourdon">
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">01 · Les deux formats</span>
+    <h2>Une stratégie à appliquer seul, ou un suivi jusqu'au résultat.</h2>
+    <div class="tablewrap"><table class="cmp">
+      <tr><th></th><th>Audit PG Protocol</th><th>Accompagnement</th></tr>
+      <tr><td>Questionnaire détaillé</td><td class="ok">Oui</td><td class="ok">Oui</td></tr>
+      <tr><td>Visio avec moi</td><td>1 visio d'onboarding de 45 min</td><td class="ok">Visio de lancement, puis visios illimitées dès que c'est utile</td></tr>
+      <tr><td>Analyse de tes bilans sanguins</td><td>Ceux que tu as au départ</td><td class="ok">Chaque nouveau bilan, pendant tout le suivi</td></tr>
+      <tr><td>Stratégie écrite + feuille de route</td><td class="ok">Oui, sur mesure</td><td class="ok">Oui, sur mesure et mise à jour en continu</td></tr>
+      <tr><td>Questions par écrit</td><td>30 jours, sur le plan livré</td><td class="ok">WhatsApp direct 7 j/7, réponse en général dans la journée</td></tr>
+      <tr><td>Bilan de la semaine + mon retour écrit</td><td class="no">Non</td><td class="ok">Chaque semaine</td></tr>
+      <tr><td>Ajustements selon tes résultats</td><td class="no">Non : tu appliques seul</td><td class="ok">À chaque étape</td></tr>
+      <tr><td>Espace client, tracker, bibliothèque</td><td>Pendant 30 jours</td><td class="ok">À vie</td></tr>
+      <tr><td>Garantie jusqu'au résultat</td><td class="no">Non</td><td class="ok">Oui, objectif chiffré écrit au contrat</td></tr>
+      <tr><td>Investissement</td><td>Le format le plus accessible (détail sur la page Audit)</td><td>Nettement plus élevé que l'Audit</td></tr>
+    </table></div>
+    <p class="note">Bonus : si tu commences par l'Audit et que tu passes à l'accompagnement dans les 30 jours, le prix de l'Audit est entièrement déduit. C'est exactement le parcours d'Edgar (son témoignage plus bas).</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">02 · Lequel pour toi ?</span>
+    <h2>Mon avis honnête.</h2>
+    <p class="muted">Avec le budget que tu m'as indiqué, l'accompagnement n'est sans doute pas le format qui te correspond aujourd'hui : il coûte nettement plus cher que l'Audit. Je préfère te le dire franchement.</p>
+    <div class="choice">
+      <div class="card main"><span class="num">Audit · le plus adapté à ton budget</span><h3>Si tu veux une direction claire et avancer seul</h3><p>Tu repars avec ta stratégie complète, ta feuille de route étape par étape et 30 jours pour me poser toutes tes questions sur le plan. Ensuite, c'est toi qui pilotes.</p><a class="pay" href="../audit/" target="_blank" rel="noopener">Voir ce que contient l'Audit</a></div>
+      <div class="card"><span class="num">Accompagnement</span><h3>Si tu veux quelqu'un qui ajuste avec toi, semaine après semaine</h3><p>Tes bilans relus à chaque étape, mes retours chaque semaine, les visios quand tu bloques, et la garantie jusqu'au résultat.</p><a class="pay ghost" href="../" target="_blank" rel="noopener">Voir la page de l'accompagnement</a></div>
+    </div>
+    <div class="grid two" style="margin-top:1rem">
+      <div class="card"><h3>Ta santé d'abord, quel que soit le format</h3><p>On part de tes 3 bilans (juillet 2025, juin et octobre 2026). Avant toute nouvelle phase, ton dernier bilan doit être relu par un médecin : je t'aide à préparer la liste des questions à lui poser.</p></div>
+      <div class="card"><h3>Ce qui n'est pas inclus</h3><p>Les analyses sanguines et les produits. Le budget produits se décide après la stratégie, jamais avant : sinon on calcule à l'aveugle.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">03 · Ton espace client</span>
+    <h2>Ce à quoi tu aurais accès.</h2>
+    <p class="muted">Ta stratégie, tes plans, ton tracker, mes retours, la bibliothèque de fiches et près de 200 fiches « Molécules décodées », au même endroit, sur ton téléphone. Avec l'Audit : 30 jours. Avec l'accompagnement : à vie.</p>
+    <video src="../motion/pg-visite-16x9-web-v5.mp4" poster="../motion/poster-visite-16x9-v4.jpg" controls muted playsinline preload="metadata" style="width:100%;border-radius:18px;margin:1.2rem 0;box-shadow:0 20px 60px rgba(214,150,62,.15)"></video>
+    <a class="pay" href="https://www.notion.so/3fd461f779be81a3826ee2743e039b10" target="_blank" rel="noopener">Voir un exemple d'espace client</a>
+    <p class="note">Exemple réel avec un profil fictif (Thomas). Ton espace à toi est privé : toi seul y as accès.</p>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <span class="eyebrow">04 · Ils l'ont fait</span>
+    <h2>Des résultats mesurés, pas des promesses.</h2>
+    <div class="grid two">
+      <div class="card"><button class="yt" type="button" data-yt="K8AqpLDQbZk" aria-label="Lire le témoignage vidéo de Kevin" style="background-image:url('https://i.ytimg.com/vi/K8AqpLDQbZk/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir son témoignage vidéo</span></button><span class="who">Kevin</span><span class="tag">35 ans · frigoriste</span><span class="big">71,1 → 80,0 kg</span><span class="muted">Développé couché 80 → 90 kg</span><blockquote>J'en ai vraiment pour mon argent. Ils m'ont pas vendu du rêve. C'était tellement bien organisé, tellement bien structuré.</blockquote></div>
+      <div class="card"><button class="yt" type="button" data-yt="Wde0vIMTZ4A" aria-label="Lire le témoignage vidéo de Jean-François" style="background-image:url('https://i.ytimg.com/vi/Wde0vIMTZ4A/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir son témoignage vidéo</span></button><span class="who">Jean-François</span><span class="tag">51 ans</span><span class="big">86,7 → 80,9 kg</span><span class="muted">2 tailles en moins, force doublée</span><blockquote>Un bien-être comme j'avais rarement connu. Une fatigue qui a disparu. Et une force doublée.</blockquote></div>
+      <div class="card"><button class="yt" type="button" data-yt="6SNguWBrQ0Y" aria-label="Lire le témoignage vidéo d'Edgar" style="background-image:url('https://i.ytimg.com/vi/6SNguWBrQ0Y/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir son témoignage vidéo</span></button><span class="who">Edgar</span><span class="tag">Infirmier et investisseur · a commencé par l'Audit, puis l'accompagnement</span><span class="big">−12 kg, muscle préservé</span><span class="muted">Hyrox 1h15 → 1h09</span><blockquote>J'ai quand même pas mal séché. J'ai gardé de la masse musculaire et perdu pas mal de gras.</blockquote></div>
+      <div class="card"><p class="yt-soon">Témoignage vidéo à venir</p><span class="who">Tanguy</span><span class="tag">Policier de nuit</span><span class="big">70,0 → 77,7 kg</span><span class="muted">en 7 semaines</span><blockquote>Depuis le début de l'accompagnement, j'en ai aucune, mais vraiment aucune [douleur]. Physiquement, je me sens vraiment bien et fort.</blockquote></div>
+    </div>
+    <h3 style="margin-top:2.5rem">D'autres témoignages vidéo</h3>
+    <div class="grid two vids">
+      <div><button class="yt" type="button" data-yt="d7djbxG919Y" aria-label="Lire la vidéo de Jean-François" style="background-image:url('https://i.ytimg.com/vi/d7djbxG919Y/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Jean-François · sa transformation à 51 ans</span></button></div>
+      <div><button class="yt" type="button" data-yt="SIWLD5gcavw" aria-label="Lire le témoignage vidéo de Jonathan" style="background-image:url('https://i.ytimg.com/vi/SIWLD5gcavw/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Jonathan · entrepreneur</span></button></div>
+      <div><button class="yt" type="button" data-yt="pVwwktBHAAw" aria-label="Lire le témoignage vidéo de Gary" style="background-image:url('https://i.ytimg.com/vi/pVwwktBHAAw/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Gary · associé de Pierre sur l’app PG Protocol</span></button></div>
+    </div>
+    <a class="pay" href="https://www.youtube.com/playlist?list=PLdZmN2tL_oBJ4onvgqzEkSYXYWkPBkgSq" target="_blank" rel="noopener">Voir tous les témoignages sur YouTube</a>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">05 · La suite</span>
+    <h2>Tu choisis, on en parle à 14 h.</h2>
+    <ol class="steps">
+      <li><div><h3>Regarde la page de l'Audit et celle de l'accompagnement</h3><p>Prends 10 minutes, note tes questions.</p></div></li>
+      <li><div><h3>À l'appel, on regarde ta situation et on tranche ensemble</h3><p>Si l'Audit te suffit, je te le dis. Si l'accompagnement a vraiment du sens pour toi, je te le dis aussi.</p></div></li>
+      <li><div><h3>Une question avant ?</h3><p>Écris-moi directement sur WhatsApp, je te réponds personnellement.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<div class="foot"><div class="wrap">Pierre Gourdon · PG Protocol. Accompagnement réservé aux adultes (18 ans et plus). Je ne suis pas médecin : ton médecin reste ton premier interlocuteur pour ta santé.</div></div>
+<script>
+document.querySelectorAll('.yt').forEach(function(b){b.addEventListener('click',function(){if(b.querySelector('iframe'))return;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?autoplay=1&rel=0&modestbranding=1&playsinline=1';f.title=b.getAttribute('aria-label');f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;b.appendChild(f);});});
+</script>
+</body>
+</html>
