@@ -1,0 +1,196 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<title>Brief appel · Samy · PG Protocol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #0E0D0B; --surface: #17140F; --surface2: #1D1913; --line: #2A251C;
+  --fg: #EFE8DC; --muted: #A0978A; --gold: #C9A45C; --gold-hi: #E2C285; --on-gold: #0B0B0B;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: radial-gradient(ellipse 70% 45% at 72% 0%, rgba(214,150,62,.17), transparent 70%) no-repeat,
+              radial-gradient(ellipse 60% 40% at 15% 100%, rgba(214,150,62,.07), transparent 70%) no-repeat, var(--bg);
+  color: var(--fg); font-family: var(--body); font-size: 1.125rem; line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 60rem; margin: 0 auto; padding: 0 max(16px, 4vw); }
+section { padding: 4.5rem 0; border-top: 1px solid var(--line); }
+.eyebrow { font-family: var(--mono); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; letter-spacing: -.02em; line-height: 1.12; margin: .4rem 0 1rem; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+h2 { font-size: clamp(1.7rem, 3.6vw, 2.5rem); }
+h3 { font-size: 1.2rem; margin: 0 0 .35rem; }
+p { margin: 0 0 1rem; }
+.muted { color: var(--muted); }
+.gold { color: var(--gold-hi); }
+
+/* Haut */
+.top { display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 0; font-family: var(--mono); font-size: .8rem; color: var(--muted); letter-spacing: .08em; }
+.hero { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: center; padding: 3rem 0 4.5rem; }
+.hero img { width: 100%; border-radius: 22px; box-shadow: 0 30px 80px rgba(214,150,62,.18); }
+.lead { font-size: 1.25rem; color: #D9D0C2; }
+
+/* Objectif remplissable */
+.goal { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+.goal > div { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 1rem 1.1rem; }
+.goal label { display: block; font-family: var(--mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .3rem; }
+.goal input { width: 100%; background: transparent; border: 0; border-bottom: 1px dashed var(--line); color: var(--fg); font-family: var(--display); font-size: 1.5rem; font-weight: 600; padding: .1rem 0; outline: none; }
+.goal input:focus { border-bottom-color: var(--gold); }
+.goal input::placeholder { color: #5E564A; }
+.goal > div.target { border-color: var(--gold); }
+
+/* Cartes */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.grid.two { grid-template-columns: repeat(2, 1fr); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.4rem; }
+.card p { color: var(--muted); margin: 0; font-size: 1rem; }
+.num { font-family: var(--mono); color: var(--gold); font-size: .85rem; display: block; margin-bottom: .6rem; }
+
+/* Étapes */
+.steps { list-style: none; padding: 0; margin: 0; counter-reset: s; display: grid; gap: .8rem; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 1.1rem 1.2rem; }
+.steps li::before { content: counter(s, decimal-leading-zero); font-family: var(--mono); color: var(--gold); font-size: 1.1rem; padding-top: .1rem; }
+.steps p { margin: 0; color: var(--muted); font-size: 1rem; }
+
+/* Preuves */
+.proof .card .who { font-family: var(--display); font-weight: 600; font-size: 1.15rem; }
+.proof .card .tag { color: var(--muted); font-size: .9rem; display: block; margin-bottom: .9rem; }
+.proof .big { font-family: var(--display); font-weight: 600; font-size: 1.35rem; color: var(--gold-hi); display: block; margin: .2rem 0; }
+.proof blockquote { margin: .9rem 0 0; padding-left: .9rem; border-left: 1px solid var(--gold); color: #D9D0C2; font-size: .98rem; }
+
+/* Garantie */
+.guarantee { background: linear-gradient(180deg, rgba(201,164,92,.12), rgba(201,164,92,.03)); border: 1px solid var(--gold); border-radius: 22px; padding: 2.2rem; }
+.guarantee .obj { font-family: var(--display); font-size: 1.6rem; font-weight: 600; color: var(--gold-hi); }
+
+/* Investissement */
+#prix { display: none; }
+body.show-price #prix { display: block; }
+body.show-price #reveal { display: none; }
+.reveal-btn { display: inline-block; background: var(--gold); color: var(--on-gold); border: 0; border-radius: 999px; padding: 1rem 1.8rem; font-family: var(--body); font-weight: 600; font-size: 1.05rem; cursor: pointer; }
+.price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+.price { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 1.8rem; }
+.price.main { border-color: var(--gold); background: var(--surface2); }
+.price .amount { font-family: var(--display); font-weight: 700; font-size: clamp(2.4rem, 5vw, 3.2rem); letter-spacing: -.02em; display: block; margin: .3rem 0; }
+.price .amount small { display: block; font-size: 1rem; color: var(--muted); font-weight: 500; letter-spacing: 0; margin-top: .2rem; }
+.price ul { margin: 1rem 0 0; padding-left: 1.1rem; color: var(--muted); font-size: .98rem; }
+.tier { margin-top: 1.2rem; }
+.tier.hidden { display: none; }
+.pay { display: inline-block; margin-top: 1.4rem; background: var(--gold); color: var(--on-gold); border-radius: 999px; padding: .95rem 1.6rem; font-weight: 600; text-decoration: none; }
+.more { display: block; margin-top: 1rem; background: none; border: 0; padding: 0; color: var(--muted); font-family: var(--body); font-size: .95rem; text-decoration: underline; cursor: pointer; }
+.note { color: var(--muted); font-size: .95rem; margin: 1rem 0 0; }
+.cmp { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: .95rem; }
+.cmp th { text-align: left; color: var(--gold); font-family: var(--mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; padding: .5rem .4rem; border-bottom: 1px solid var(--gold); }
+.cmp td { padding: .55rem .4rem; border-bottom: 1px solid var(--line); color: var(--muted); }
+.cmp td:first-child { color: var(--fg); }
+.yt{position:relative;display:block;width:100%;aspect-ratio:16/9;margin:0 0 1.1rem;border:0;border-radius:12px;background:#000 center/cover no-repeat;cursor:pointer;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.yt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.65))}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:2}
+.yt-play{position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:var(--gold);z-index:1}
+.yt-play::before{content:"";position:absolute;left:22px;top:17px;border-style:solid;border-width:11px 0 11px 17px;border-color:transparent transparent transparent #0E0D0B}
+.yt-lbl{position:absolute;left:12px;right:12px;bottom:10px;z-index:1;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#fff;text-align:left}
+.yt-soon{display:table;margin:0 0 1rem;padding:.3rem .7rem;border:1px solid var(--gold);border-radius:999px;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.after { margin-top: 2rem; }
+.foot { padding: 2.5rem 0 4rem; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); }
+.hint { position: fixed; bottom: 12px; right: 14px; font-family: var(--mono); font-size: .7rem; color: #4A4339; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; gap: 1.5rem; }
+  .hero img { max-width: 260px; }
+  .grid, .grid.two, .goal, .price-grid { grid-template-columns: 1fr; }
+  section { padding: 3rem 0; }
+}
+</style>
+<style>.links a{color:var(--gold-hi)} table.g{width:100%;border-collapse:collapse;font-size:1rem} table.g td,table.g th{padding:.6rem .5rem;border-bottom:1px solid var(--line);text-align:left;vertical-align:top} table.g th{color:var(--gold);font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase} .copy{font-family:var(--mono);font-size:.85rem;word-break:break-all;color:var(--muted)} details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1rem 1.2rem;margin:.6rem 0} summary{cursor:pointer;font-weight:600} .red{border-color:#8a3b2e}</style>
+</head><body><div class="wrap">
+<div class="top"><span>Pierre Gourdon · PG Protocol</span><span>Brief interne · ne jamais partager à l'écran</span></div>
+
+<section style="border-top:0;padding-top:1rem">
+<span class="eyebrow">Brief d'appel · Samy</span>
+<h1>Ton appel de ce soir, <span class="gold">tout sur une page.</span></h1>
+<p class="lead">Ce brief est pour toi seul. À l'écran, tu partages uniquement la page de présentation (sans aucun prix). Les prix, tu les donnes à l'oral, au bon moment.</p>
+<div class="grid two">
+<div class="card"><span class="num">À partager à l'écran</span><h3><a class="pay" style="margin-top:.4rem" href="../presentation/" target="_blank">Page de présentation</a></h3><p>Écran 1 : tape en direct l'objectif du prospect (aujourd'hui, objectif, date, ce que ça change). Il est repris dans la garantie. Flèches ← → pour avancer.</p></div>
+<div class="card"><span class="num">À montrer en live</span><h3><a class="pay" style="margin-top:.4rem" href="https://app.notion.com/p/3fd461f779be81a3826ee2743e039b10" target="_blank">Exemple d'espace client</a></h3><p>Profil fictif « Thomas ». S'il ne s'ouvre pas chez toi : montre la vidéo de l'écran 07 de la présentation, elle fait la visite complète.</p></div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<span class="eyebrow">01 · Le déroulé (45 min)</span>
+<ol class="steps">
+<li><div><h3>Cadre (1 min)</h3><p>« On a 45 minutes. Je vais te poser des questions sur ta situation, puis si je pense qu'on peut t'aider, je te montre comment. Ça te va ? »</p></div></li>
+<li><div><h3>Situation (10 min)</h3><p>Où il en est, ce qu'il a déjà essayé, qui l'a suivi avant, son rythme de vie, son métier. Produits déjà pris ou envisagés : tu écoutes, tu ne conseilles rien.</p></div></li>
+<li><div><h3>Objectif chiffré + enjeu (8 min)</h3><p>Poids ou tour de taille visé, pour quand, et surtout « qu'est-ce que ça change dans ta vie ? ». Tu le tapes dans l'écran 1.</p></div></li>
+<li><div><h3>Blocage + santé (5 min)</h3><p>« Pourquoi tu n'y es pas déjà ? » Puis : bilan sanguin récent ? traitement ? antécédent cardiaque ? (pour cadrer, pas pour diagnostiquer)</p></div></li>
+<li><div><h3>Reformulation + permission (2 min)</h3><p>« Si je résume : … C'est bien ça ? Tu veux que je te montre comment on travaille ? »</p></div></li>
+<li><div><h3>Présentation (10 min)</h3><p>Écrans 2 à 8 : pourquoi il bloque → la méthode → le suivi → pourquoi c'est différent → la garantie → l'espace client → la suite. Termine par : « Est-ce que tu vois comment ça t'amène à [objectif] ? »</p></div></li>
+<li><div><h3>UN prix, puis silence (voir grille)</h3><p>« L'accompagnement complet, c'est 5 000 €. » Tu te tais. C'est lui qui parle en premier.</p></div></li>
+<li><div><h3>Objections → paiement pendant l'appel</h3><p>Tu envoies le lien Stripe sur WhatsApp pendant l'appel et tu restes en ligne pendant qu'il paie. Jamais « je t'envoie ça demain ».</p></div></li>
+</ol>
+</div></section>
+
+<section><div class="wrap">
+<span class="eyebrow">02 · La grille (à dire à l'oral, jamais à l'écran)</span>
+<p class="muted">Ordre strict : on descend d'une marche seulement après un non clair à la précédente.</p>
+<table class="g">
+<tr><th>Offre</th><th>Prix</th><th>Lien de paiement</th></tr>
+<tr><td><b>1 · Standard 6 mois</b><br><span class="muted">avec garantie jusqu'au résultat</span></td><td>5 000 € en une fois</td><td class="copy"><a href="https://buy.stripe.com/aFa8wQ89c2kN2U40nVgYU2q">buy.stripe.com/aFa8wQ89c2kN2U40nVgYU2q</a></td></tr>
+<tr><td><b>2 · Standard en plusieurs fois</b><br><span class="muted">s'il demande « en plusieurs fois ? »</span></td><td>2 × 3 000 € = 6 000 €<br><span class="muted">chaque partie en 3 × 1 000 € sans frais avec Klarna (si éligible)</span></td><td class="copy">1re partie (démarrage) : <a href="https://buy.stripe.com/14A8wQ6146B3bqA6MjgYU2r">buy.stripe.com/14A8wQ6146B3bqA6MjgYU2r</a><br>2e partie (à mi-parcours, envoyée par Pierre) : <a href="https://buy.stripe.com/00w6oI89c4sV1Q09YvgYU2s">buy.stripe.com/00w6oI89c4sV1Q09YvgYU2s</a></td></tr>
+<tr><td><b>3 · Essentiel 3 mois</b><br><span class="muted">après un non clair au Standard</span></td><td>3 000 €<br><span class="muted">ou 3 × 1 000 € avec Klarna</span></td><td class="copy"><a href="https://buy.stripe.com/aFadRa1KO5wZ8eo6MjgYU2p">buy.stripe.com/aFadRa1KO5wZ8eo6MjgYU2p</a></td></tr>
+<tr><td><b>4 · Audit sur mesure</b><br><span class="muted">dernier recours : il veut appliquer seul</span></td><td>1 497 €<br><span class="muted">ou 3 × 499 € avec Klarna</span></td><td class="copy"><a href="https://buy.stripe.com/bJedRacps0cFdyIeeLgYU2o">buy.stripe.com/bJedRacps0cFdyIeeLgYU2o</a></td></tr>
+</table>
+<div class="grid two" style="margin-top:1.2rem">
+<div class="card"><h3>Comment présenter le paiement en plusieurs fois</h3><p>« Le prix de référence en plusieurs fois, c'est 6 000 € : 3 000 € au démarrage, 3 000 € à mi-parcours, et chaque partie peut se payer en 3 fois sans frais avec Klarna. Soit environ 1 000 € par mois. En une fois, c'est 5 000 €. » Jamais « les 1 000 € de plus, ce sont les frais Klarna ».</p></div>
+<div class="card"><h3>Essentiel ou Audit : ce qui change</h3><p>Essentiel = même suivi que le Standard, sur 3 mois, sans la garantie ; s'il passe au Standard ensuite, ce qu'il a payé est déduit. Audit = questionnaire + 1 visio d'onboarding + stratégie écrite et feuille de route + 30 jours de questions par écrit, puis il applique seul (pas d'ajustements) ; déduit s'il passe à l'accompagnement sous 30 jours.</p></div>
+</div>
+<p class="muted" style="margin-top:1rem">Klarna refuse ? Il paie par carte en une fois, ou tu notes et Pierre le rappelle pour une autre solution. Klarna n'offre pas le 3 fois en Belgique. Pas de virement promis « plus tard » sans date.</p>
+</div></section>
+
+<section><div class="wrap">
+<span class="eyebrow">03 · Les objections</span>
+<details><summary>« C'est cher. »</summary><p>« Cher par rapport à quoi ? » Puis ramène à son objectif et à ce que ça change dans sa vie, et au temps déjà perdu à essayer seul. S'il demande plusieurs fois → ligne 2 de la grille. Non clair et budget réel → Essentiel.</p></details>
+<details><summary>« Je dois réfléchir. »</summary><p>« Bien sûr. Sur 10, tu en es où pour démarrer ? Qu'est-ce qui manque pour être à 10 ? » Traite ce point précis. Si c'est l'argent : grille. Si c'est la peur : la garantie et le suivi.</p></details>
+<details><summary>« Je dois en parler à ma femme / mon associé. »</summary><p>« Logique. Qu'est-ce qu'elle va te demander, à ton avis ? » Réponds à ces questions maintenant. Propose un 2e appel court avec la personne, avec une date, ou un message récap ce soir.</p></details>
+<details><summary>« Je veux commencer plus tard. »</summary><p>« Qu'est-ce qui change d'ici là ? » Chaque semaine d'attente = une semaine de résultats en moins. Aucune fausse urgence, aucune hausse de prix annoncée.</p></details>
+<details><summary>« Combien coûtent les produits / les analyses ? »</summary><p>« Les analyses, compte en général 100 à 250 € par bilan. Ce dont tu as besoin en produits se décide après ton bilan sanguin et ta stratégie, pas avant : avant, ce serait calculer à l'aveugle. On le chiffre ensemble à ta visio de lancement. »</p></details>
+<details><summary>« Tu peux me donner des sites / fournisseurs ? »</summary><p>« Non. Pierre ne vend rien et ne recommande aucun vendeur. Son rôle : ta stratégie, la lecture de tes bilans et ton suivi. » Si c'est tout ce qu'il cherche : ce n'est pas le bon prospect, ne force pas.</p></details>
+<details><summary>« Et si ça ne marche pas ? »</summary><p>La garantie : l'objectif est écrit au contrat ; s'il n'est pas atteint à la fin, l'accompagnement continue sans surcoût jusqu'à ce qu'il le soit, à condition qu'il ait fait sa part (bilans envoyés, plan appliqué, bilans sanguins faits). Modalités dans le contrat.</p></details>
+</div></section>
+
+<section><div class="wrap">
+<span class="eyebrow">04 · FAQ du prospect</span>
+<details><summary>Qui va me suivre ?</summary><p>Pierre, personnellement, du premier au dernier jour. 100 % humain.</p></details>
+<details><summary>Comment je contacte Pierre ?</summary><p>WhatsApp direct, 7 jours sur 7, réponse en général dans la journée. Un bilan chaque semaine depuis son téléphone, avec un retour écrit.</p></details>
+<details><summary>Combien de visios ?</summary><p>Visios illimitées dès que c'est utile : lancement, lecture des bilans sanguins, changement de phase, blocage. Tout ce qui se règle par écrit se règle par écrit, à son rythme.</p></details>
+<details><summary>Combien de temps ça me prend ?</summary><p>Son entraînement et ses repas, plus 30 secondes par jour pour son tracker et quelques minutes par semaine pour son bilan. Le plan est construit sur sa vie, pas l'inverse.</p></details>
+<details><summary>Je suis obligé de prendre des produits ?</summary><p>Non. Le protocole n'est qu'un des 5 piliers (entraînement, nutrition, récupération, supplémentation, biohacking). On ne l'ajoute que s'il est pertinent pour lui, et après son bilan sanguin.</p></details>
+<details><summary>C'est risqué pour ma santé ?</summary><p>Le risque zéro n'existe pas. Le cadre est fait pour le réduire au maximum : bilans sanguins avant et pendant, démarrage progressif, ajustements. Pierre n'est pas médecin : son médecin reste son premier interlocuteur.</p></details>
+<details><summary>Et si je dois voyager / j'ai un imprévu ?</summary><p>Le plan s'adapte : déplacements, restaurant, semaines chargées. Il a des fiches pour chaque situation dans son espace.</p></details>
+<details><summary>Qu'est-ce qui se passe après le paiement ?</summary><p>Questionnaire d'onboarding juste après le paiement, espace client sous 24 h, visio d'onboarding avec Pierre, puis sa stratégie livrée dans son espace.</p></details>
+<details><summary>Et à la fin de l'accompagnement ?</summary><p>Un bilan de parcours et un plan d'autonomie pour garder ses résultats. Il garde l'accès à son espace et aux ressources à vie (Essentiel et Standard).</p></details>
+<details><summary>Mes données sont confidentielles ?</summary><p>Oui. Son espace est privé, lui seul y a accès avec Pierre. Rien n'est jamais publié sans son accord écrit.</p></details>
+</div></section>
+
+<section><div class="wrap">
+<span class="eyebrow">05 · Les lignes rouges</span>
+<div class="card red"><ul style="margin:0;padding-left:1.1rem;color:#D9D0C2">
+<li>Jamais de fournisseur, de site, de code promo, ni « on te redirige vers les bons vendeurs ».</li>
+<li>Jamais de dose, de cycle ni de conseil sur un produit.</li>
+<li>Jamais de prix à l'écran, jamais de hausse de prix annoncée, jamais de fausse rareté (« plus que 2 places »).</li>
+<li>Jamais « résultat garanti à 100 % » ni « personne n'a jamais raté ». La garantie se dit avec ses conditions.</li>
+<li>Jamais « Pierre est dispo 24 h/24 ». C'est « réponse en général dans la journée ».</li>
+<li>Pas de pression pour décider : un oui sous pression devient un remboursement. Moins de 18 ans ou doute : aucune vente.</li>
+</ul></div>
+</div></section>
+
+<section><div class="wrap">
+<span class="eyebrow">06 · Après l'appel</span>
+<p>Dans les 15 minutes, envoie à Pierre sur WhatsApp : prénom, objectif, offre choisie et lien utilisé, ou objection principale et prochaine étape datée. S'il a payé : Pierre s'occupe de l'onboarding, tu n'envoies rien d'autre au client.</p>
+</div></section>
+
+<div class="foot"><div class="wrap">Document interne PG Protocol · ne pas partager.</div></div>
+</div></body></html>
