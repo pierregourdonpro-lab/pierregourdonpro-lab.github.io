@@ -373,6 +373,11 @@ var WA_NUMBER = '33762612321';
   var name = (q.get('invitee_first_name') || (q.get('invitee_full_name') || '').split(' ')[0] || '').trim();
   var when = '';
   var t = q.get('event_start_time');
+  /* Mémorise prénom et heure pour les visites suivantes (lien des rappels, sans paramètres). */
+  try {
+    if (name || t) localStorage.setItem('pg_rdv', JSON.stringify({ n: name, t: t }));
+    else { var m = JSON.parse(localStorage.getItem('pg_rdv') || '{}'); name = m.n || ''; t = m.t || null; if (t && new Date(t) < new Date(Date.now() - 3600e3)) t = null; }
+  } catch (e) {}
   if (t) { try { when = new Date(t).toLocaleString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Paris' }); } catch (e) {} }
   var msg = "Salut Pierre, c'est " + (name || '[ton prénom]') + ' ! Je te confirme ma présence à notre appel' + (when ? ' du ' + when : '') + '.';
   a.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
