@@ -158,6 +158,8 @@ footer p { max-width: 75ch; }
 .alert { border: 1px solid color-mix(in srgb, var(--gold) 60%, transparent); background: radial-gradient(120% 140% at 0% 0%, var(--glow), transparent 65%); border-radius: 6px; padding: 1.2rem 1.3rem; margin-top: 1.8rem; display: grid; gap: .35rem; max-width: 40rem; }
 .alert > b { font-family: var(--mono); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
 .alert p { margin: 0; }
+.wa-btn { display: inline-block; justify-self: start; margin: .5rem 0 .2rem; background: #25D366; color: #0B0B0B; font-weight: 600; text-decoration: none; border-radius: 999px; padding: .85rem 1.4rem; }
+.wa-btn.off { display: none; }
 .qs { counter-reset: q; list-style: none; padding: 0; margin: 1.2rem 0 0; display: grid; gap: .7rem; }
 .qs li { counter-increment: q; padding-left: 2.2rem; position: relative; font-size: 1.08rem; }
 .qs li::before { content: counter(q); position: absolute; left: 0; top: .05rem; font-family: var(--mono); color: var(--gold); }
@@ -187,10 +189,12 @@ footer p { max-width: 75ch; }
   <div class="brand"><b>Pierre Gourdon · PG Protocol</b><span>Biohacking · Performance masculine</span></div>
   <span class="confirm">✓ Appel réservé</span>
   <h1>C'est noté. <span>On se parle bientôt.</span></h1>
-  <p class="lead">Ton appel stratégique de 45 minutes est réservé. Tu viens de recevoir un mail de confirmation avec un lien Google Meet, et tu recevras des rappels avant le rendez-vous.</p>
+  <p class="lead">Ton appel stratégique de 45 minutes est réservé. Tu viens de recevoir un mail de confirmation avec le lien Google Meet de ton appel, et tu recevras des rappels avant le rendez-vous.</p>
   <div class="alert">
-    <b>Important · garde un œil sur WhatsApp</b>
-    <p>Pierre ou un membre de l'équipe PG Protocol va te contacter sur <strong style="color:var(--fg)">WhatsApp</strong> avant ton rendez-vous. Toute la communication passe par là : confirmation, points à éclaircir, changement d'horaire. <strong style="color:var(--fg)">Pense à répondre au message</strong> : sans réponse de ta part, ton créneau risque d'être libéré. Enregistre ce numéro dans tes contacts pour ne pas rater le message.</p>
+    <b>Dernière étape · confirme ta présence sur WhatsApp</b>
+    <p>Envoie-moi un message sur WhatsApp pour confirmer ta présence à l'appel. Un clic suffit, le message est déjà écrit. <strong style="color:var(--fg)">Sans confirmation de ta part, ton créneau risque d'être libéré</strong> pour quelqu'un d'autre.</p>
+    <a class="wa-btn" id="wa-confirm" href="#" target="_blank" rel="noopener">✓ Je confirme ma présence sur WhatsApp</a>
+    <p class="muted" style="font-size:.95rem">Le jour J : le lien Google Meet est dans ton mail de confirmation (et dans l'invitation de ton agenda). Connecte-toi directement à l'heure indiquée, c'est tout.</p>
   </div>
   <p class="muted" style="margin-top:1.2rem">Tu ne vois pas le mail ? Regarde dans tes spams ou dans l'onglet « Promotions ».</p>
 </header>
@@ -322,7 +326,7 @@ footer p { max-width: 75ch; }
     <h2>Toutes les questions qu'on nous pose avant l'appel</h2>
     <details><summary>Je ne peux plus venir. Comment je décale ?</summary><p>Utilise le lien de modification dans ton mail de confirmation, si possible au moins 24 h avant. Ton créneau est réservé pour toi : préviens-nous, ça libère la place pour quelqu'un d'autre.</p></details>
     <details><summary>Je préfère un appel WhatsApp plutôt que Google Meet.</summary><p>L'appel se fait normalement sur Google Meet : c'est ce qui nous permet de récolter un maximum d'informations pendant l'échange (on prend des notes en direct) pour vraiment approfondir ton suivi. Si c'est un vrai frein pour toi, on peut en discuter sur WhatsApp : réponds simplement au message de confirmation et on t'explique tout.</p></details>
-    <details><summary>Qui va m'appeler ?</summary><p>Pierre ou un membre de l'équipe PG Protocol. Tu reçois un message sur WhatsApp avant l'appel pour confirmer ton rendez-vous : pense à y répondre.</p></details>
+    <details><summary>Qui va m'appeler ?</summary><p>C'est moi, Pierre. Il n'y a pas d'appel téléphonique : tu te connectes au lien Google Meet de ton mail de confirmation, à l'heure indiquée. Pense juste à me confirmer ta présence sur WhatsApp (bouton en haut de cette page).</p></details>
     <details><summary>Je vais recevoir mon protocole pendant l'appel ?</summary><p>Non. L'appel sert à comprendre ta situation et à voir si l'accompagnement te correspond. Si on travaille ensemble, tu remplis un questionnaire d'onboarding détaillé, on fait ta visio de lancement, et ta stratégie se construit à partir de toutes tes données.</p></details>
     <details><summary>Je dois déjà utiliser des produits avancés ?</summary><p>Non. Ce n'est pas une condition, et être accompagné ne t'engage pas à en utiliser.</p></details>
     <details><summary>Je n'ai pas de bilan sanguin récent.</summary><p>Viens comme tu es : si on travaille ensemble, tu recevras la liste exacte des marqueurs à faire.</p></details>
@@ -351,5 +355,20 @@ footer p { max-width: 75ch; }
   </div>
 </footer>
 <script>document.querySelectorAll('.yt').forEach(function(b){b.addEventListener('click',function(){if(b.querySelector('iframe'))return;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?autoplay=1&rel=0&modestbranding=1&playsinline=1';f.title=b.getAttribute('aria-label');f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;b.appendChild(f);});});</script>
+<script>
+/* Numéro WhatsApp de Pierre, format international sans + ni espaces (ex. 33612345678). */
+var WA_NUMBER = '33762612321';
+(function () {
+  var a = document.getElementById('wa-confirm'); if (!a) return;
+  if (!WA_NUMBER) { a.classList.add('off'); return; }
+  var q = new URLSearchParams(location.search);
+  var name = (q.get('invitee_first_name') || (q.get('invitee_full_name') || '').split(' ')[0] || '').trim();
+  var when = '';
+  var t = q.get('event_start_time');
+  if (t) { try { when = new Date(t).toLocaleString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Paris' }); } catch (e) {} }
+  var msg = 'Salut Pierre' + (name ? ", c'est " + name : '') + ' ! Je te confirme ma présence à notre appel' + (when ? ' du ' + when : '') + '.';
+  a.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+})();
+</script>
 </body>
 </html>
