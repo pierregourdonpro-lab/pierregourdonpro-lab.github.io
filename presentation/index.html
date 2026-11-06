@@ -196,15 +196,12 @@ body.show-notes .notes { display: block; }
   <div class="top"><span>Pierre Gourdon · PG Protocol</span><span id="who-top"></span></div>
   <div class="hero">
     <div>
-      <span class="eyebrow">01 · Ton objectif</span>
+      <span class="eyebrow">01 · Le PG Protocol</span>
       <h1>De là où tu es <span class="gold">à là où tu veux être.</span></h1>
       <div class="goal">
-        <div><label for="g-now">Aujourd'hui</label><input id="g-now" placeholder="ex. 64 kg"></div>
-        <div class="target"><label for="g-goal">Ton objectif</label><input id="g-goal" placeholder="ex. 74 kg, sec"></div>
-        <div><label for="g-date">Pour quand</label><input id="g-date" placeholder="ex. avril"></div>
-      </div>
-      <div class="goal stake" style="grid-template-columns:1fr">
-        <div><label for="g-why">Ce que ça change dans ta vie</label><input id="g-why" placeholder="ex. retrouver l'assurance, l'énergie, la confiance"></div>
+        <div><label>Sur mesure</label><p style="margin:0;font-family:var(--display);font-size:1.15rem;font-weight:600">Un système construit autour de ta vie</p></div>
+        <div class="target"><label>Piloté par la data</label><p style="margin:0;font-family:var(--display);font-size:1.15rem;font-weight:600">Ajusté à chaque bilan</p></div>
+        <div><label>Suivi humain</label><p style="margin:0;font-family:var(--display);font-size:1.15rem;font-weight:600">Pierre, en direct, jusqu'au résultat</p></div>
       </div>
       <p class="big-line">Une transformation physique. <span class="gold">Et derrière, un changement de vie.</span></p>
     </div>
@@ -430,8 +427,7 @@ body.show-notes .notes { display: block; }
   <span class="eyebrow">07 · Mon engagement</span>
   <div class="guarantee">
     <h2>Un accompagnement jusqu'au résultat.</h2>
-    <p>Ton objectif, écrit dans ton contrat :</p>
-    <p class="obj" id="g-obj">ton objectif chiffré</p>
+    <p class="obj">Ton objectif chiffré, écrit dans ton contrat.</p>
     <p>S'il n'est pas atteint à la fin de ton accompagnement, l'accompagnement continue sans surcoût jusqu'à ce qu'il le soit.</p>
     <p class="muted" style="margin:0">Ta part : bilans de la semaine envoyés, plan appliqué, bilans sanguins faits. Modalités dans ton contrat.</p>
   </div>
@@ -480,24 +476,8 @@ body.show-notes .notes { display: block; }
 (function () {
   var q = new URLSearchParams(location.search);
   if (q.get('notes') === '1') document.body.classList.add('show-notes');
-  var ids = { now: 'g-now', goal: 'g-goal', date: 'g-date', why: 'g-why' };
-  var store = {};
-  try { store = JSON.parse(sessionStorage.getItem('pg_offre') || '{}'); } catch (e) {}
-  Object.keys(ids).forEach(function (k) {
-    var el = document.getElementById(ids[k]);
-    el.value = q.get(k) || store[k] || '';
-    el.addEventListener('input', update);
-  });
   var name = q.get('p') || '';
   if (name) document.getElementById('who-top').textContent = 'Pour ' + name;
-  function val(id) { return document.getElementById(id).value.trim(); }
-  function update() {
-    var now = val('g-now'), goal = val('g-goal'), date = val('g-date'), why = val('g-why');
-    var o = document.getElementById('g-obj');
-    o.textContent = goal ? (goal + (date ? ' · ' + date : '') + (now ? '  (départ : ' + now + ')' : '')) : 'ton objectif chiffré';
-    try { sessionStorage.setItem('pg_offre', JSON.stringify({ now: now, goal: goal, date: date, why: why })); } catch (e) {}
-  }
-  update();
   document.querySelectorAll('.more').forEach(function (b) {
     b.addEventListener('click', function () { var t = document.getElementById(b.dataset.show); t.classList.remove('hidden'); b.style.display = 'none'; t.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
   });
