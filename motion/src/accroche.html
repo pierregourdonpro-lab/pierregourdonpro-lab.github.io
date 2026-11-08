@@ -75,95 +75,125 @@ html.port .cta{font-size:48px}
 .seal .k{letter-spacing:.08em}
 .br-port{display:none} html.port .dotland{display:none} html.port .br-port{display:inline}
 html.port .endh{font-size:68px}
+html.land .hook{font-size:88px} html.port .hook{font-size:96px}
+.burst .name{font-size:54px;margin:0 0 8px;color:var(--cream)} html.port .burst .name{font-size:66px}
+html.land .bb{font-size:170px} html.port .bb{font-size:150px} .bb{white-space:nowrap}
+.burstk{position:absolute;top:9%;left:0;right:0;text-align:center}
 </style></head>
-<body data-dur="26">
+<body data-dur="29.2">
 <div id="halo"></div>
 
-<!-- S1 · 0-3.6 · résultat fort -->
-<section class="scene" data-in="0" data-out="3.6" data-din="0.01" data-anim="none">
-  <div class="k" data-in="0.15">Résultat client</div>
-  <div class="name" data-in="0.3">Nelson</div>
-  <div class="big" data-in="0.4" data-anim="scale"><span data-count="123,103,0" data-cin="0.7" data-cdur="1.7">123</span><small>kg</small></div>
-  <div class="sub" data-in="1.9">Départ 123 kg · <b>−20 kg en 3 mois</b></div>
+<!-- S1 · 0-3.4 · accroche -->
+<section class="scene" data-in="0" data-out="3.4" data-din="0.01" data-anim="none">
+  <div class="h hook" data-in="0.2">Tu t'entraînes<br>sérieusement.</div>
+  <div class="h hook" data-in="1.3" style="margin-top:18px"><em>Ton corps<br class="br-port"> ne suit plus.</em></div>
 </section>
-
 <!-- S2 · 3.6-7.4 · les pièges -->
-<section class="scene" data-in="3.6" data-out="7.4" data-din="0.01" data-anim="none">
-  <div class="k" data-in="3.7">Ce que tu as déjà essayé</div>
+<section class="scene" data-in="3.4" data-out="7.2" data-din="0.01" data-anim="none">
+  <div class="k" data-in="3.5">Ce que tu as déjà essayé</div>
   <div class="traps">
-    <div class="trap" data-in="3.9" data-strike="5.0"><span>T'entraîner plus</span><span class="strike"></span></div>
-    <div class="trap" data-in="4.15" data-strike="5.3"><span>Manger au hasard</span><span class="strike"></span></div>
-    <div class="trap" data-in="4.4" data-strike="5.6"><span>Empiler sans suivi</span><span class="strike"></span></div>
+    <div class="trap" data-in="3.7" data-strike="4.8"><span>T'entraîner plus</span><span class="strike"></span></div>
+    <div class="trap" data-in="3.95" data-strike="5.1"><span>Manger au hasard</span><span class="strike"></span></div>
+    <div class="trap" data-in="4.2" data-strike="5.4"><span>Empiler sans suivi</span><span class="strike"></span></div>
   </div>
-  <div class="after" data-in="6.0">Il ne te manque pas d'effort.<br class="br-port"> <b>Il te manque un pilotage.</b></div>
+  <div class="after" data-in="5.8">Il ne te manque pas d'effort.<br class="br-port"> <b>Il te manque un pilotage.</b></div>
 </section>
 
+<!-- S3 · défilé des résultats -->
+<section class="scene" data-in="7.2" data-out="14.4" data-din="0.01" data-dout="0.2" data-anim="none">
+  <div class="k burstk" data-in="7.25">Résultats clients</div>
+</section>
+<section class="scene burst" data-in="7.3" data-out="7.9" data-din="0.12" data-dout="0.1" data-anim="scale">
+  <div class="name">Nelson</div><div class="big bb">−20 kg</div><div class="sub">en 3 mois</div>
+</section>
+<section class="scene burst" data-in="7.9" data-out="8.5" data-din="0.12" data-dout="0.1" data-anim="scale">
+  <div class="name">Thomas</div><div class="big bb">+13,9 kg</div><div class="sub">de prise de masse en 3 mois et demi</div>
+</section>
+<section class="scene burst" data-in="8.5" data-out="9.1" data-din="0.12" data-dout="0.1" data-anim="scale">
+  <div class="name">Amine</div><div class="big bb">−13 kg</div><div class="sub">en 4 mois · 0 kg repris</div>
+</section>
+<section class="scene burst" data-in="9.1" data-out="9.7" data-din="0.12" data-dout="0.1" data-anim="scale">
+  <div class="name">Edgar</div><div class="big bb">−12 kg</div><div class="sub">Hyrox 1h15 → 1h09</div>
+</section>
+<section class="scene burst" data-in="9.7" data-out="10.3" data-din="0.12" data-dout="0.1" data-anim="scale">
+  <div class="name">Julien</div><div class="big bb">+10,8 kg</div><div class="sub">en 6 mois</div>
+</section>
+<section class="scene burst" data-in="10.3" data-out="10.9" data-din="0.12" data-dout="0.1" data-anim="scale">
+  <div class="name">Alexandre</div><div class="big bb">−10 kg</div><div class="sub">et −12 cm de tour de taille</div>
+</section>
+<section class="scene burst" data-in="10.9" data-out="11.5" data-din="0.12" data-dout="0.1" data-anim="scale">
+  <div class="name">Kevin</div><div class="big bb">+10 kg</div><div class="sub">de prise de masse</div>
+</section>
+<section class="scene burst" data-in="11.5" data-out="12.1" data-din="0.12" data-dout="0.1" data-anim="scale">
+  <div class="name">Liam</div><div class="big bb">+9,5 kg</div><div class="sub">en 4 mois</div>
+</section>
+<section class="scene burst" data-in="12.1" data-out="12.7" data-din="0.12" data-dout="0.1" data-anim="scale">
+  <div class="name">Tanguy</div><div class="big bb">+9,2 kg</div><div class="sub">en 11 semaines</div>
+</section>
+<section class="scene burst" data-in="12.7" data-out="13.3" data-din="0.12" data-dout="0.1" data-anim="scale">
+  <div class="name">Sébastien</div><div class="big bb">−8,4 kg</div><div class="sub">en 4 mois</div>
+</section>
+<section class="scene burst" data-in="13.3" data-out="13.9" data-din="0.12" data-dout="0.1" data-anim="scale">
+  <div class="name">Jean-François</div><div class="big bb">−8 kg</div><div class="sub">et −7 cm de tour de taille</div>
+</section>
+<section class="scene burst" data-in="13.9" data-out="14.5" data-din="0.12" data-dout="0.1" data-anim="scale">
+  <div class="name">Gary</div><div class="big bb">+40 kg</div><div class="sub">au développé couché</div>
+</section>
 <!-- S3 · 7.4-10.4 · pilotage par la data -->
-<section class="scene" data-in="7.4" data-out="10.4" data-din="0.01" data-anim="none">
-  <div class="k" data-in="7.5">La méthode PG</div>
-  <div class="h" data-in="7.6" style="margin-top:16px">Le pilotage<br><em>par la data.</em></div>
+<section class="scene" data-in="14.4" data-out="17.4" data-din="0.01" data-anim="none">
+  <div class="k" data-in="14.5">La méthode PG</div>
+  <div class="h" data-in="14.6" style="margin-top:16px">Le pilotage<br><em>par la data.</em></div>
   <div class="chips">
-    <span class="chip" data-in="8.1" data-anim="scale"><i></i>Poids</span>
-    <span class="chip" data-in="8.25" data-anim="scale"><i></i>Mensurations</span>
-    <span class="chip" data-in="8.4" data-anim="scale"><i></i>Sommeil</span>
-    <span class="chip" data-in="8.55" data-anim="scale"><i></i>Énergie</span>
-    <span class="chip" data-in="8.7" data-anim="scale"><i></i>Bilans sanguins</span>
+    <span class="chip" data-in="15.1" data-anim="scale"><i></i>Poids</span>
+    <span class="chip" data-in="15.25" data-anim="scale"><i></i>Mensurations</span>
+    <span class="chip" data-in="15.4" data-anim="scale"><i></i>Sommeil</span>
+    <span class="chip" data-in="15.55" data-anim="scale"><i></i>Énergie</span>
+    <span class="chip" data-in="15.7" data-anim="scale"><i></i>Bilans sanguins</span>
   </div>
 </section>
 
 <!-- S4 · 10.4-14.2 · espace client (exemple fictif Alex) -->
-<section class="scene" data-in="10.4" data-out="14.2" data-din="0.01" data-anim="none">
-  <div class="k" data-in="10.5">Ton espace client</div>
-  <div class="card dash" data-in="10.65" data-anim="scale">
+<section class="scene" data-in="17.4" data-out="21.2" data-din="0.01" data-anim="none">
+  <div class="k" data-in="17.5">Ton espace client</div>
+  <div class="card dash" data-in="17.65" data-anim="scale">
     <div class="top"><span class="t">Bienvenue Alex</span><span class="tagfict">Exemple fictif</span></div>
-    <div class="bar"><div class="fill" data-fill="11.0,13.4"></div></div>
+    <div class="bar"><div class="fill" data-fill="18,20.4"></div></div>
     <div class="stats">
-      <div class="stat"><span class="k">Poids</span><b><span data-count="84.2,80.6,1" data-cin="11.0" data-cdur="2.4">84,2</span> <small>kg</small></b></div>
-      <div class="stat"><span class="k">Énergie</span><b><span data-count="5,8,0" data-cin="11.0" data-cdur="2.4">5</span><small>/10</small></b></div>
-      <div class="stat"><span class="k">Sommeil</span><b><span data-count="6,8,0" data-cin="11.0" data-cdur="2.4">6</span><small>/10</small></b></div>
+      <div class="stat"><span class="k">Poids</span><b><span data-count="84.2,80.6,1" data-cin="18" data-cdur="2.4">84,2</span> <small>kg</small></b></div>
+      <div class="stat"><span class="k">Énergie</span><b><span data-count="5,8,0" data-cin="18" data-cdur="2.4">5</span><small>/10</small></b></div>
+      <div class="stat"><span class="k">Sommeil</span><b><span data-count="6,8,0" data-cin="18" data-cdur="2.4">6</span><small>/10</small></b></div>
     </div>
   </div>
-  <div class="docs" data-in="12.4"><b>15+ documents</b> qui évoluent avec toi</div>
+  <div class="docs" data-in="19.4"><b>15+ documents</b> qui évoluent avec toi</div>
 </section>
 
 <!-- S5 · 14.2-17.8 · suivi humain -->
-<section class="scene" data-in="14.2" data-out="17.8" data-din="0.01" data-anim="none">
-  <div class="k" data-in="14.3">Suivi 100 % humain</div>
-  <div class="card chat" data-in="14.4" data-anim="scale">
-    <div class="bub c" data-in="14.7" data-anim="left"><span class="w">Client</span>Hello Pierre, petite question sur ma séance de demain.</div>
-    <div class="bub p" data-in="15.3" data-anim="right"><span class="w">Pierre</span>Vu. On ajuste le volume, la version à jour est dans ton espace.</div>
+<section class="scene" data-in="21.2" data-out="24.8" data-din="0.01" data-anim="none">
+  <div class="k" data-in="21.3">Suivi 100 % humain</div>
+  <div class="card chat" data-in="21.4" data-anim="scale">
+    <div class="bub c" data-in="21.7" data-anim="left"><span class="w">Client</span>Hello Pierre, petite question sur ma séance de demain.</div>
+    <div class="bub p" data-in="22.3" data-anim="right"><span class="w">Pierre</span>Vu. On ajuste le volume, la version à jour est dans ton espace.</div>
   </div>
   <div class="facts">
-    <div class="fact" data-in="15.9"><span class="box on"></span>WhatsApp direct, 7 j/7</div>
-    <div class="fact" data-in="16.1"><span class="box on"></span>Réponse en général dans la journée</div>
-    <div class="fact" data-in="16.3"><span class="box on"></span>Visios illimitées, dès que c'est utile</div>
-  </div>
-</section>
-
-<!-- S6 · 17.8-21.6 · résultats réels -->
-<section class="scene" data-in="17.8" data-out="21.6" data-din="0.01" data-anim="none">
-  <div class="k" data-in="17.9">Leurs résultats</div>
-  <div class="res">
-    <div class="card r" data-in="18.1"><span class="k">Nelson</span><b>123 → 103 kg</b><span>en 3 mois</span></div>
-    <div class="card r" data-in="18.3"><span class="k">Thomas</span><b>83,5 → 97,4 kg</b><span>en 3 mois et demi</span></div>
-    <div class="card r" data-in="18.5"><span class="k">Edgar</span><b>−12 kg</b><span>en 3 mois</span></div>
-    <div class="card r" data-in="18.7"><span class="k">Kevin</span><b>+10 kg</b><span>en prise de masse</span></div>
+    <div class="fact" data-in="22.9"><span class="box on"></span>WhatsApp direct, 7 j/7</div>
+    <div class="fact" data-in="23.1"><span class="box on"></span>Réponse en général dans la journée</div>
+    <div class="fact" data-in="23.3"><span class="box on"></span>Visios illimitées, dès que c'est utile</div>
   </div>
 </section>
 
 <!-- S7 · 21.6-23.6 · garantie -->
-<section class="scene" data-in="21.6" data-out="23.6" data-din="0.01" data-anim="none">
-  <div class="seal" data-in="21.7" data-anim="scale"><span class="k">Garantie<br>de résultat</span></div>
-  <div class="h" data-in="22.0" style="margin-top:36px">Je t'accompagne<br><em>jusqu'au résultat.</em></div>
+<section class="scene" data-in="24.8" data-out="26.8" data-din="0.01" data-anim="none">
+  <div class="seal" data-in="24.9" data-anim="scale"><span class="k">Garantie<br>de résultat</span></div>
+  <div class="h" data-in="25.2" style="margin-top:36px">Je t'accompagne<br><em>jusqu'au résultat.</em></div>
 </section>
 
 <!-- S8 · 23.6-26 · fin -->
-<section class="scene" data-in="23.6" data-din="0.01" data-anim="none">
-  <div class="k" data-in="23.7">Accompagnement individuel<br class="br-port"><span class="dotland"> · </span>piloté par tes données</div>
-  <div class="h endh" data-in="23.85" style="margin-top:22px">Optimise ton corps.<br><em>Sans jouer<br class="br-port"> avec ta santé.</em></div>
-  <div class="cta" data-in="24.3">Réserve ton appel</div>
+<section class="scene" data-in="26.8" data-din="0.01" data-anim="none">
+  <div class="k" data-in="26.9">Accompagnement individuel<br class="br-port"><span class="dotland"> · </span>piloté par tes données</div>
+  <div class="h endh" data-in="27.05" style="margin-top:22px">Optimise ton corps.<br><em>Sans jouer<br class="br-port"> avec ta santé.</em></div>
+  <div class="cta" data-in="27.5">Réserve ton appel</div>
 </section>
-<div class="sign k" data-in="23.9" style="z-index:3">Pierre Gourdon · PG Protocol</div>
+<div class="sign k" data-in="27.1" style="z-index:3">Pierre Gourdon · PG Protocol</div>
 
 <div id="black"></div>
 <script src="engine.js"></script>
