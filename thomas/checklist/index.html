@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Checklist Thomas · PG Protocol</title>
+<meta name="description" content="La checklist tirée de l'étude de cas de Thomas : diagnostic, entraînement, nutrition, récupération, compléments, bilans sanguins.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root { --bg:#0E0D0B; --surface:#17140F; --line:#2A251C; --fg:#EFE8DC; --muted:#A0978A; --gold:#C9A45C; color-scheme: dark; }
+* { box-sizing: border-box; } html, body { margin: 0; }
+body { background: radial-gradient(ellipse 70% 45% at 72% 0%, rgba(214,150,62,.17), transparent 70%) no-repeat, var(--bg); color: var(--fg); font-family: "Instrument Sans","Helvetica Neue",Arial,sans-serif; font-size: 1.0625rem; line-height: 1.6; }
+.wrap { max-width: 42rem; margin: 0 auto; padding: clamp(2.5rem,8vw,5rem) max(16px, env(safe-area-inset-right,0px)) 4rem max(16px, env(safe-area-inset-left,0px)); }
+.eyebrow { font-family: "IBM Plex Mono",monospace; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 1rem; }
+h1 { font-family: "Archivo",Arial,sans-serif; font-weight: 600; letter-spacing: -.025em; line-height: 1.05; font-size: clamp(2rem,6.5vw,3.1rem); margin: 0 0 1rem; }
+h1 span { color: var(--gold); }
+.lead { color: var(--muted); margin: 0 0 1.4rem; }
+.stats { display: grid; grid-template-columns: repeat(3,1fr); gap: .5rem; margin: 1.4rem 0 2rem; }
+.stats div { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: .8rem .9rem; }
+.stats b { display: block; font-family: "Archivo",Arial,sans-serif; font-size: 1.35rem; color: var(--gold); line-height: 1.1; }
+.stats span { font-size: .82rem; color: var(--muted); }
+section { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.3rem 1.3rem 1rem; margin: 0 0 1rem; break-inside: avoid; }
+h2 { font-family: "Archivo",Arial,sans-serif; font-weight: 600; font-size: 1.25rem; letter-spacing: -.01em; margin: 0 0 .25rem; }
+h2 small { font-family: "IBM Plex Mono",monospace; font-size: .75rem; color: var(--gold); letter-spacing: .1em; display: block; margin-bottom: .3rem; font-weight: 500; }
+.why { color: var(--muted); font-size: .95rem; margin: 0 0 .8rem; font-style: italic; }
+ul.check { list-style: none; padding: 0; margin: 0; }
+ul.check li { position: relative; padding: 0 0 .7rem 2rem; }
+ul.check label { cursor: pointer; display: block; }
+ul.check input { position: absolute; left: 0; top: .2rem; width: 1.15rem; height: 1.15rem; accent-color: var(--gold); margin: 0; }
+ul.check input:checked + span { color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(201,164,92,.6); }
+.alert { border-color: var(--gold); }
+.cta { background: linear-gradient(180deg, rgba(201,164,92,.14), rgba(201,164,92,.04)); border: 1px solid var(--gold); border-radius: 18px; padding: 1.4rem; margin: 1.6rem 0 1rem; }
+.cta h2 { margin-bottom: .5rem; }
+.cta p { color: var(--muted); margin: 0 0 .6rem; }
+.btn { display: inline-flex; align-items: center; gap: .5rem; background: var(--gold); color: #0B0B0B; text-decoration: none; font-weight: 600; padding: .95rem 1.35rem; border-radius: 999px; margin: .3rem .4rem 0 0; }
+.btn.ghost { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
+.btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.ok { display: none; background: var(--surface); border: 1px solid var(--gold); border-radius: 14px; padding: .8rem 1rem; margin: 0 0 1.4rem; font-size: .95rem; }
+.ok.show { display: block; }
+.muted { color: var(--muted); font-size: .85rem; margin-top: 2rem; }
+a { color: var(--gold); }
+@media (max-width: 420px) { .stats b { font-size: 1.1rem; } }
+@media print {
+  :root { --bg:#fff; --surface:#fff; --line:#d9d2c4; --fg:#111; --muted:#4F473B; --gold:#7A5A1C; color-scheme: light; }
+  body { background: #fff; font-size: 10.5pt; }
+  .wrap { padding: 0; max-width: none; }
+  .noprint, .ok { display: none !important; }
+  section { padding: .8rem 1rem .4rem; margin-bottom: .6rem; }
+  ul.check input { -webkit-appearance: none; appearance: none; border: 1.4px solid #7A5A1C; border-radius: 3px; }
+  .btn { border: 1px solid #7A5A1C; background: none; color: #7A5A1C; padding: .3rem .6rem; }
+  @page { size: A4; margin: 14mm 14mm; }
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="ok" id="ok">✅ C'est envoyé. Tu reçois aussi cette checklist par e-mail (pense à regarder tes spams).</div>
+  <span class="eyebrow">Étude de cas Thomas · la checklist</span>
+  <h1>Ce qu'on a fait pour Thomas. <span>À toi de cocher.</span></h1>
+  <p class="lead">Thomas s'entraînait 12 fois par semaine sans progresser. On a fait moins, mais mieux, on a construit avant de sécher, et on a tout piloté par la data. Voici la méthode, transformée en checklist. Coche ce qui est en place chez toi.</p>
+  <div class="stats">
+    <div><b>83,5 → 97,4 kg</b><span>en prise de masse</span></div>
+    <div><b>+3,5 cm</b><span>seulement au tour de taille</span></div>
+    <div><b>2 mois</b><span>pour régler une alerte</span></div>
+  </div>
+  <p class="noprint"><a class="btn ghost" href="checklist-thomas.pdf" download>Télécharger en PDF</a></p>
+
+  <section>
+    <h2><small>01 · AVANT DE COMMENCER</small>Ton point de départ</h2>
+    <p class="why">On ne pilote pas ce qu'on ne mesure pas.</p>
+    <ul class="check">
+      <li><label><input type="checkbox"><span>J'ai noté mon poids à jeun et mon tour de taille (au nombril, le matin).</span></label></li>
+      <li><label><input type="checkbox"><span>J'ai pris 3 photos (face, profil, dos), même lumière, même heure.</span></label></li>
+      <li><label><input type="checkbox"><span>J'ai un objectif chiffré et daté (ex. « 90 kg avec moins de 86 cm de taille d'ici juin »).</span></label></li>
+      <li><label><input type="checkbox"><span>J'ai fait un bilan sanguin récent (moins de 3 mois) et je l'ai montré à mon médecin.</span></label></li>
+      <li><label><input type="checkbox"><span>Je connais mes antécédents (foie, cœur, tension, articulations) et je les prends en compte.</span></label></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><small>02 · LA STRATÉGIE</small>Construire avant de sécher</h2>
+    <p class="why">À 1,89 m avec 8 mois de muscu, sécher tout de suite, c'était finir fin et plat.</p>
+    <ul class="check">
+      <li><label><input type="checkbox"><span>Je sais si je dois d'abord construire, sécher ou recomposer, et pourquoi.</span></label></li>
+      <li><label><input type="checkbox"><span>Mon plan a des phases claires : récupérer → construire → sécher → maintenir.</span></label></li>
+      <li><label><input type="checkbox"><span>Je sais ce qui me fera passer d'une phase à l'autre (un chiffre, pas une envie).</span></label></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><small>03 · ENTRAÎNEMENT</small>Faire moins, mais mieux</h2>
+    <p class="why">Sa fatigue était nerveuse, pas musculaire. Le volume le bloquait.</p>
+    <ul class="check">
+      <li><label><input type="checkbox"><span>Je garde 1 à 2 répétitions en réserve sur la plupart de mes séries (1 seul exercice à l'échec par séance, maximum).</span></label></li>
+      <li><label><input type="checkbox"><span>J'ai au moins 2 jours de repos complet par semaine.</span></label></li>
+      <li><label><input type="checkbox"><span>Je progresse d'abord en répétitions, puis en charge. Pas de test de force maximale à chaque séance.</span></label></li>
+      <li><label><input type="checkbox"><span>Mon cardio est court et facile, jamais juste après jambes ou dos.</span></label></li>
+      <li><label><input type="checkbox"><span>Une douleur = j'adapte l'exercice. Je ne force pas à travers.</span></label></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><small>04 · NUTRITION</small>Manger pour récupérer, pas seulement pour s'entraîner</h2>
+    <p class="why">Ce n'était pas trop peu. C'était mal réparti.</p>
+    <ul class="check">
+      <li><label><input type="checkbox"><span>Des protéines à chaque repas. Non négociable.</span></label></li>
+      <li><label><input type="checkbox"><span>J'ai observé 1 à 2 semaines pour connaître ma maintenance avant de monter.</span></label></li>
+      <li><label><input type="checkbox"><span>J'augmente mes calories par petites étapes, pas d'un coup.</span></label></li>
+      <li><label><input type="checkbox"><span>Je juge la tendance sur 2 semaines et le tour de taille, pas le poids d'un matin.</span></label></li>
+      <li><label><input type="checkbox"><span>Le grignotage automatique est remplacé par des prises calées sur ma journée.</span></label></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><small>05 · RÉCUPÉRATION</small>Casser le cercle fatigue → stimulants</h2>
+    <p class="why">Fatigue → caféine et nicotine → mauvais sommeil → encore plus de fatigue.</p>
+    <ul class="check">
+      <li><label><input type="checkbox"><span>7 heures de sommeil minimum, horaires stables.</span></label></li>
+      <li><label><input type="checkbox"><span>Pas de caféine après 14h, et pas de cumul (boisson énergisante + pré-workout + café).</span></label></li>
+      <li><label><input type="checkbox"><span>Écrans coupés 30 minutes avant de dormir.</span></label></li>
+      <li><label><input type="checkbox"><span>Si je fume, je n'augmente pas quand la fatigue monte.</span></label></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><small>06 · COMPLÉMENTS</small>Après les fondamentaux, jamais avant</h2>
+    <p class="why">Un complément ne règle rien si l'entraînement, la nutrition et le sommeil ne sont pas là.</p>
+    <ul class="check">
+      <li><label><input type="checkbox"><span>Mes fondamentaux (entraînement, nutrition, sommeil) sont en place depuis au moins 2 semaines.</span></label></li>
+      <li><label><input type="checkbox"><span>Chaque complément que je prends répond à un besoin précis (bilan, sommeil, articulations…).</span></label></li>
+      <li><label><input type="checkbox"><span>J'en ai parlé à mon médecin si je suis sous traitement.</span></label></li>
+    </ul>
+  </section>
+
+  <section class="alert">
+    <h2><small>07 · LE PILOTAGE PAR LA DATA</small>L'alerte d'avril</h2>
+    <p class="why">Au bilan d'avril, un marqueur du foie était nettement au-dessus de la norme. Décision le jour même, contrôle 8 semaines plus tard, revenu dans la norme. Seul, il ne l'aurait pas vu.</p>
+    <ul class="check">
+      <li><label><input type="checkbox"><span>Je note chaque semaine : poids moyen, tour de taille, sommeil, énergie, ressentis.</span></label></li>
+      <li><label><input type="checkbox"><span>Je refais des photos chaque mois, dans les mêmes conditions.</span></label></li>
+      <li><label><input type="checkbox"><span>J'ai un bilan sanguin de contrôle prévu dans mon calendrier, pas « quand j'y penserai ».</span></label></li>
+      <li><label><input type="checkbox"><span>Je sais lire mon bilan, ou quelqu'un le lit avec moi, et mon médecin est dans la boucle.</span></label></li>
+      <li><label><input type="checkbox"><span>Je sais à l'avance ce que je fais si un marqueur sort de la norme : j'arrête ce qui est en cause, j'en parle à mon médecin, je contrôle.</span></label></li>
+      <li><label><input type="checkbox"><span>Je ne change jamais plusieurs choses en même temps : sinon, impossible de savoir ce qui marche.</span></label></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><small>08 · TON SCORE</small>Combien de cases cochées ?</h2>
+    <ul class="check">
+      <li><span><b>26 à 31</b> : tu es structuré. Ton prochain levier, c'est la lecture fine de tes bilans.</span></li>
+      <li><span><b>15 à 25</b> : la base est là, mais il y a des trous qui te coûtent des mois.</span></li>
+      <li><span><b>Moins de 15</b> : tu fais comme Thomas au départ. Beaucoup d'efforts, peu de pilotage.</span></li>
+    </ul>
+  </section>
+
+  <div class="cta noprint">
+    <h2>Tu veux qu'on regarde ton cas ?</h2>
+    <p>Si tu t'entraînes dur sans avancer, ou si tu veux avancer sans jouer avec ta santé, réserve ton appel. On regarde ensemble où tu en es, et si je peux t'aider.</p>
+    <a class="btn" href="https://pierregourdonpro-lab.github.io/">Réserver mon appel</a>
+  </div>
+  <p class="muted">Contenu éducatif, réservé aux adultes (18+). Pierre Gourdon n'est pas médecin : parle de ta santé avec ton médecin. « Thomas » est un prénom modifié, le client a donné son accord pour partager son parcours de façon anonyme.</p>
+</main>
+<script>try{if(/[?&]ok=1/.test(location.search))document.getElementById('ok').classList.add('show');var k='pg_thomas_cl';var b=document.querySelectorAll('ul.check input');var s=[];try{s=JSON.parse(localStorage.getItem(k)||'[]')}catch(e){}b.forEach(function(x,i){if(s[i])x.checked=true;x.addEventListener('change',function(){var v=[];b.forEach(function(y){v.push(y.checked)});try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}})})}catch(e){}</script>
+</body>
+</html>

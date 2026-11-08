@@ -1,9 +1,8 @@
-"""Copie les inscrits du formulaire Tally « Molécules décodées » dans une liste Brevo."""
+"""Copie les inscrits des formulaires Tally (Molécules décodées, Checklist Thomas) dans une liste Brevo."""
 import json, os, re, sys, urllib.request, urllib.error
 from datetime import datetime, timedelta, timezone
 
-FORM = "QooEAY"
-Q_PRENOM, Q_EMAIL = "P275Xd", "EB2QJq"
+FORMS = ["QooEAY", "OQlrZ8"]  # Molécules décodées, Checklist Thomas
 if not all(os.environ.get(k) for k in ("TALLY_API_KEY", "BREVO_API_KEY", "BREVO_LIST_ID")):
     print("Secrets manquants : rien à faire.")
     sys.exit(0)
@@ -24,12 +23,14 @@ def call(url, headers, data=None):
         print(f"Erreur {e.code} sur {url.split('?')[0]} : {e.read().decode(errors='replace')[:300]}", file=sys.stderr)
         raise
 
-def submissions():
+def submissions(form):
     page = 1
     while True:
-        d = call(f"https://api.tally.so/forms/{FORM}/submissions?filter=completed&page={page}",
+        d = call(f"https://api.tally.so/forms/{form}/submissions?filter=completed&page={page}",
                  {"Authorization": f"Bearer {TALLY}"})
+        qs = {q["id"]: (q.get("title") or "").lower() for q in d.get("questions", [])}
         for s in d.get("submissions", []):
+            s["_titles"] = qs
             yield s
         if not d.get("hasMore"):
             return
@@ -52,15 +53,19 @@ def list_id():
 LIST_ID = list_id()
 print(f"Liste Brevo n° {LIST_ID}")
 added = errors = 0
-for s in submissions():
+def all_submissions():
+    for f in FORMS:
+        yield from submissions(f)
+
+for s in all_submissions():
     if datetime.fromisoformat(s["submittedAt"].replace("Z", "+00:00")) < SINCE:
         continue
-    ans = {r["questionId"]: r.get("answer") for r in s["responses"]}
-    email = (ans.get(Q_EMAIL) or "").strip().lower()
+    ans = {s["_titles"].get(r["questionId"], r["questionId"]): r.get("answer") for r in s["responses"]}
+    email = str(ans.get("ton e-mail") or "").strip().lower()
     if not email:
         continue
     contact = {"email": email, "listIds": [LIST_ID], "updateEnabled": True,
-               "attributes": {ATTR: (ans.get(Q_PRENOM) or "").strip()}}
+               "attributes": {ATTR: str(ans.get("ton prénom") or "").strip()}}
     try:
         call("https://api.brevo.com/v3/contacts", {"api-key": BREVO, "Content-Type": "application/json", "accept": "application/json"}, contact)
         added += 1
