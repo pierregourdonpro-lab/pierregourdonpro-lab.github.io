@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>PG Protocol · visite du programme</title>
+<link rel="stylesheet" href="base.css">
+<style>
+html.port .h{font-size:76px}
+.dash{width:100%;max-width:1060px;padding:26px 30px;text-align:left;margin-top:22px}
+.dash .top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.dash .t{font-family:'Archivo';font-weight:700;font-size:42px}
+html.port .dash .t{font-size:50px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.stat{padding:14px 18px;border-radius:14px;background:rgba(239,232,220,.04);border:1px solid rgba(201,164,92,.18)}
+.stat .k{display:block;margin-bottom:4px}
+.stat b{font-family:'Archivo';font-weight:700;font-size:40px}
+.stat b small{font-size:26px;color:var(--muted)}
+html.port .stats{grid-template-columns:1fr}
+html.port .stat{display:flex;justify-content:space-between;align-items:center;padding:16px 22px}
+html.port .stat .k{margin:0}
+html.port .stat b{font-size:48px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+html.port .two{grid-template-columns:1fr}
+.pane{padding:16px 18px;border-radius:14px;background:rgba(239,232,220,.03);border:1px solid rgba(201,164,92,.15)}
+.pane .k{display:block;margin-bottom:10px}
+.row{display:flex;align-items:center;gap:12px;font-size:26px;margin:7px 0}
+html.port .row{font-size:28px}
+.note{font-size:26px;margin:7px 0;line-height:1.3}
+html.port .note{font-size:28px}
+.note b{color:var(--gold);font-family:'IBM Plex Mono';font-weight:600;font-size:24px;margin-right:8px}
+/* documents */
+.blocks{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;width:100%;margin-top:22px;text-align:left}
+html.port .blocks{grid-template-columns:1fr 1fr;gap:14px}
+.blk{padding:16px 16px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.blk .k{display:block;margin-bottom:10px;font-size:24px}
+.it{display:flex;gap:10px;align-items:flex-start;font-size:26px;line-height:1.2;margin:9px 0}
+html.port .it{font-size:28px}
+.it i{width:9px;height:9px;border-radius:50%;background:var(--gold);flex:none;margin-top:12px}
+.counter{margin-top:22px;font-size:32px;color:var(--cream)}
+html.port .counter{font-size:38px;margin-top:30px}
+.counter b{font-family:'Archivo';color:var(--gold);font-size:1.25em}
+/* suivi */
+.sv{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;width:100%;max-width:1120px;text-align:left}
+html.port .sv{grid-template-columns:1fr;gap:18px}
+.svc{padding:22px 24px}
+.svc b{display:block;font-family:'Archivo';font-weight:700;font-size:44px;color:var(--gold);margin-bottom:8px;letter-spacing:-.01em}
+html.port .svc b{font-size:52px}
+.svc span{font-size:26px;line-height:1.3;color:var(--cream);display:block}
+html.port .svc span{font-size:31px}
+.evolve{margin-top:26px;font-size:30px} .evolve b{color:var(--gold);font-weight:600}
+html.port .evolve{font-size:34px}
+/* bonus */
+.bl{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;width:100%;max-width:1140px;margin-top:22px;text-align:left}
+html.port .bl{grid-template-columns:1fr;gap:12px;margin-top:28px}
+.b{display:flex;align-items:center;gap:14px;padding:10px 16px;border-radius:14px;background:var(--card);border:1px solid rgba(201,164,92,.18);font-size:26px;line-height:1.2}
+html.port .b{font-size:29px;padding:13px 18px}
+.b .n{font-family:'Archivo';font-weight:800;color:var(--gold);font-size:30px;width:28px;flex:none;text-align:center}
+.soon{font-family:'IBM Plex Mono';font-weight:600;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:#0E0D0B;background:var(--gold);padding:3px 10px;border-radius:6px;margin-left:auto;flex:none}
+/* récap */
+.nums{display:flex;gap:56px;justify-content:center;margin-top:10px}
+html.port .nums{flex-direction:column;gap:30px}
+.num b{display:block;font-family:'Archivo';font-weight:800;color:var(--gold);font-size:96px;letter-spacing:-.03em;line-height:1}
+html.port .num b{font-size:120px}
+.num span{font-family:'IBM Plex Mono';font-weight:600;font-size:24px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream)}
+html.port .num span{font-size:26px}
+.cta{margin-top:46px;font-family:'Archivo';font-weight:700;font-size:40px;color:var(--gold);border-bottom:3px solid var(--gold);padding-bottom:6px}
+html.port .cta{font-size:48px;margin-top:64px}
+.seal{width:240px;height:240px} html.port .seal{width:280px;height:280px}
+.seal .k{letter-spacing:.08em}
+.small{font-family:'IBM Plex Mono';font-weight:600;font-size:24px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:24px}
+.br-port{display:none} html.port .br-port{display:inline}
+</style></head>
+<body data-dur="38.5">
+<div id="halo"></div>
+
+<!-- V1 · 0-3.2 -->
+<section class="scene" data-in="0" data-out="3.2" data-din="0.01" data-anim="none">
+  <div class="k" data-in="0.15">Visite du programme</div>
+  <div class="h" data-in="0.35" style="margin-top:18px">Voici tout ce que<br><em>tu reçois.</em></div>
+</section>
+
+<!-- V2 · 3.2-9.2 · espace client (Alex, exemple fictif) -->
+<section class="scene" data-in="3.2" data-out="9.2" data-din="0.01" data-anim="none">
+  <div class="k" data-in="3.3">Ton espace client personnel</div>
+  <div class="card dash" data-in="3.45" data-anim="scale">
+    <div class="top"><span class="t">Bienvenue Alex</span><span class="tagfict">Exemple fictif</span></div>
+    <div class="stats">
+      <div class="stat"><span class="k">Poids</span><b><span data-count="84.2,80.6,1" data-cin="3.9" data-cdur="3">84,2</span> <small>kg</small></b></div>
+      <div class="stat"><span class="k">Énergie</span><b><span data-count="5,8,0" data-cin="3.9" data-cdur="3">5</span><small>/10</small></b></div>
+      <div class="stat"><span class="k">Sommeil</span><b><span data-count="6,8,0" data-cin="3.9" data-cdur="3">6</span><small>/10</small></b></div>
+    </div>
+    <div class="two">
+      <div class="pane" data-in="4.6"><span class="k">Cette semaine</span>
+        <div class="row"><span class="box" data-check="5.4"></span>Bilan de la semaine</div>
+        <div class="row"><span class="box" data-check="5.9"></span>Photos de progression</div>
+        <div class="row"><span class="box" data-check="6.4"></span>Rendez-vous bilan sanguin</div>
+      </div>
+      <div class="pane" data-in="5.0"><span class="k">Mes retours de Pierre</span>
+        <div class="note" data-in="6.6"><b>Bilan</b>On garde tout, on ajoute une série sur le dos.</div>
+        <div class="note" data-in="7.1"><b>Sang</b>Bilan sanguin lu : feu vert pour la suite.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- V3 · 9.2-17 · documents -->
+<section class="scene" data-in="9.2" data-out="17" data-din="0.01" data-anim="none">
+  <div class="k" data-in="9.3">Tes documents personnalisés</div>
+  <div class="blocks">
+    <div class="blk" data-in="9.5"><span class="k">Ma stratégie</span>
+      <div class="it" data-in="9.8"><i></i>Analyse de départ</div>
+      <div class="it" data-in="10.0"><i></i>Feuille de route</div>
+      <div class="it" data-in="10.2"><i></i>Protocole personnalisé</div>
+    </div>
+    <div class="blk" data-in="9.7"><span class="k">Mes plans</span>
+      <div class="it" data-in="10.5"><i></i>Entraînement</div>
+      <div class="it" data-in="10.7"><i></i>Nutrition</div>
+      <div class="it" data-in="10.9"><i></i>Repas et liste de courses</div>
+      <div class="it" data-in="11.1"><i></i>Supplémentation</div>
+      <div class="it" data-in="11.3"><i></i>Récupération et sommeil</div>
+      <div class="it" data-in="11.5"><i></i>Restaurant, voyages, imprévus</div>
+    </div>
+    <div class="blk" data-in="9.9"><span class="k">Mon suivi</span>
+      <div class="it" data-in="11.8"><i></i>Compte rendu de chaque visio</div>
+      <div class="it" data-in="12.0"><i></i>Analyse de chaque bilan sanguin</div>
+      <div class="it" data-in="12.2"><i></i>Liste prête pour ton médecin</div>
+      <div class="it" data-in="12.4"><i></i>Photos de progression</div>
+    </div>
+    <div class="blk" data-in="10.1"><span class="k">Ma sortie</span>
+      <div class="it" data-in="12.7"><i></i>Plan d'autonomie écrit</div>
+      <div class="it" data-in="12.9"><i></i>Bilan de parcours chiffré</div>
+    </div>
+  </div>
+  <div class="counter" data-in="10.3"><b><span data-count="3,15,0" data-cin="10.3" data-cdur="2.7">3</span>+</b> documents qui évoluent avec toi</div>
+</section>
+
+<!-- V4 · 17-23 · suivi humain -->
+<section class="scene" data-in="17" data-out="23" data-din="0.01" data-anim="none">
+  <div class="k" data-in="17.1">Un suivi 100 % humain</div>
+  <div class="sv">
+    <div class="card svc" data-in="17.3"><b>7 j/7</b><span>WhatsApp direct avec moi. Réponse en général dans la journée.</span></div>
+    <div class="card svc" data-in="17.6"><b>Visios illimitées</b><span>Dès que c'est utile.</span></div>
+    <div class="card svc" data-in="17.9"><b>Chaque semaine</b><span>Ton bilan de la semaine, depuis ton téléphone. Je te réponds et on ajuste.</span></div>
+  </div>
+  <div class="evolve" data-in="19.0">Ta stratégie <b>évolue avec tes résultats.</b></div>
+</section>
+
+<!-- V5 · 23-31.5 · 9 bonus -->
+<section class="scene" data-in="23" data-out="31.5" data-din="0.01" data-anim="none">
+  <div class="k" data-in="23.1">Et en bonus, dans ton espace</div>
+  <div class="bl">
+    <div class="b" data-in="23.3" data-anim="left"><span class="n">1</span>Ton espace client personnel</div>
+    <div class="b" data-in="23.6" data-anim="left"><span class="n">2</span>La bibliothèque PG : 40+ fiches pratiques</div>
+    <div class="b" data-in="23.9" data-anim="left"><span class="n">3</span>Ta liste de bilan sanguin, prête pour ton médecin</div>
+    <div class="b" data-in="24.2" data-anim="left"><span class="n">4</span>Molécules décodées : près de 200 fiches</div>
+    <div class="b" data-in="24.5" data-anim="left"><span class="n">5</span>Ton tracker PG</div>
+    <div class="b" data-in="24.8" data-anim="left"><span class="n">6</span>Ton protocole, toujours à jour</div>
+    <div class="b" data-in="25.1" data-anim="left"><span class="n">7</span>La PG Academy<span class="soon">À venir</span></div>
+    <div class="b" data-in="25.4" data-anim="left"><span class="n">8</span>Ton plan d'autonomie écrit</div>
+    <div class="b" data-in="25.7" data-anim="left"><span class="n">9</span>PG Protocol IA<span class="soon">À venir</span></div>
+  </div>
+</section>
+
+<!-- V6 · 31.5-34.8 · garantie -->
+<section class="scene" data-in="31.5" data-out="34.8" data-din="0.01" data-anim="none">
+  <div class="seal" data-in="31.6" data-anim="scale"><span class="k">Garantie<br>de résultat</span></div>
+  <div class="h" data-in="31.9" style="margin-top:34px">Tu fais ta part.<br><em>Je t'accompagne<br class="br-port"> jusqu'au résultat.</em></div>
+  <div class="small" data-in="32.5">Modalités précisées dans ton contrat</div>
+</section>
+
+<!-- V7 · 34.8-38.5 · récap -->
+<section class="scene" data-in="34.8" data-din="0.01" data-anim="none">
+  <div class="nums">
+    <div class="num" data-in="34.9"><b>15+</b><span>Documents évolutifs</span></div>
+    <div class="num" data-in="35.1"><b>100 %</b><span>Sur mesure</span></div>
+    <div class="num" data-in="35.3"><b>1</b><span>Seul interlocuteur</span></div>
+  </div>
+  <div class="cta" data-in="35.8">Réserve ton appel</div>
+</section>
+<div class="sign k" data-in="35.0">Pierre Gourdon · PG Protocol</div>
+
+<div id="black"></div>
+<script src="engine.js"></script>
+</body></html>

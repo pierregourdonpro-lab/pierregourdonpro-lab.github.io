@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>PG Protocol · accroche</title>
+<link rel="stylesheet" href="base.css">
+<style>
+.big{font-family:'Archivo';font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--gold)}
+html.land .big{font-size:150px} html.port .big{font-size:170px}
+.big small{font-size:.42em;color:var(--cream);letter-spacing:-.01em;margin-left:10px}
+.name{font-family:'Archivo';font-weight:700;font-size:48px;margin:14px 0 18px}
+.sub{font-size:34px;color:var(--cream);margin-top:22px}
+.sub b{color:var(--gold);font-weight:600}
+.traps{display:flex;flex-direction:column;gap:18px;margin-top:40px;align-items:center}
+.trap{position:relative;font-family:'Archivo';font-weight:600;font-size:46px;padding:4px 10px;opacity:var(--dim,1)}
+.trap .strike{position:absolute;left:0;top:54%;height:4px;background:var(--gold);width:0;border-radius:2px}
+.after{font-size:34px;margin-top:40px;color:var(--cream)} .after b{color:var(--gold);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:44px;max-width:900px}
+html.port .chips{max-width:600px}
+.dash{width:100%;max-width:980px;padding:30px 34px;text-align:left;margin-top:26px}
+html.port .dash{padding:30px 28px}
+.dash .top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.dash .t{font-family:'Archivo';font-weight:700;font-size:44px}
+.bar{height:8px;border-radius:4px;background:rgba(239,232,220,.1);margin:20px 0 22px;overflow:hidden}
+.bar .fill{height:100%;background:var(--gold);width:0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.stat{padding:18px 18px;border-radius:14px;background:rgba(239,232,220,.04);border:1px solid rgba(201,164,92,.18)}
+.stat .k{font-size:24px;display:block;margin-bottom:8px}
+.stat b{font-family:'Archivo';font-weight:700;font-size:44px}
+html.port .stat b{font-size:40px}
+.stat b small{font-size:26px;color:var(--muted);font-weight:600}
+.docs{margin-top:24px;font-size:30px;color:var(--cream)} .docs b{color:var(--gold)}
+.chat{width:100%;max-width:820px;padding:28px;display:flex;flex-direction:column;gap:16px;margin-top:26px}
+.bub{max-width:78%;padding:16px 22px;border-radius:22px;font-size:28px;line-height:1.3;text-align:left}
+html.land .bub{font-size:27px}
+.bub.c{align-self:flex-start;background:#2A2722;color:var(--cream);border-bottom-left-radius:6px}
+.bub.p{align-self:flex-end;background:var(--gold);color:#17140F;border-bottom-right-radius:6px;font-weight:500}
+.bub .w{display:block;font-family:'IBM Plex Mono';font-weight:600;font-size:24px;letter-spacing:.06em;margin-bottom:6px;opacity:.75}
+.facts{display:flex;flex-direction:column;gap:14px;margin-top:30px;align-items:flex-start}
+html.land .facts{flex-direction:row;gap:16px;align-items:stretch}
+.fact{display:flex;align-items:center;gap:14px;font-size:30px;text-align:left}
+html.land .fact{font-size:26px;padding:14px 18px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:18px;width:100%;margin-top:30px}
+html.land .res{max-width:1060px}
+.r{padding:24px 26px;text-align:left}
+html.port .r{padding:26px 22px}
+.r .k{display:block;font-size:24px}
+.r b{display:block;font-family:'Archivo';font-weight:800;color:var(--gold);letter-spacing:-.02em;margin:10px 0 6px;font-size:54px;white-space:nowrap}
+html.port .r b{font-size:44px}
+.r span{font-size:28px;color:var(--cream)}
+html.land .r span{font-size:26px}
+.cta{margin-top:44px;font-family:'Archivo';font-weight:700;font-size:40px;color:var(--gold);border-bottom:3px solid var(--gold);padding-bottom:6px}
+/* agrandissements 9:16 */
+html.port .h{font-size:78px}
+html.port .big{font-size:230px}
+html.port .name{font-size:62px}
+html.port .sub{font-size:38px;line-height:1.35}
+html.port .trap{font-size:62px}
+html.port .traps{gap:26px}
+html.port .after{font-size:40px;line-height:1.3}
+html.port .chip{font-size:34px;padding:14px 26px}
+html.port .dash .t{font-size:50px}
+html.port .stats{grid-template-columns:1fr;gap:14px}
+html.port .stat{display:flex;align-items:center;justify-content:space-between;padding:22px 24px}
+html.port .stat .k{margin:0}
+html.port .stat b{font-size:56px}
+html.port .docs{font-size:36px}
+html.port .bub{font-size:33px}
+html.port .fact{font-size:34px}
+html.port .facts{gap:22px;margin-top:40px}
+html.port .res{grid-template-columns:1fr;gap:16px}
+html.port .r{display:flex;flex-direction:column;padding:22px 28px}
+html.port .r b{font-size:62px;margin:6px 0 2px}
+html.port .r span{font-size:30px}
+html.port .seal{width:280px;height:280px}
+html.port .cta{font-size:48px}
+.seal{width:240px;height:240px}
+.seal .k{letter-spacing:.08em}
+.br-port{display:none} html.port .dotland{display:none} html.port .br-port{display:inline}
+html.port .endh{font-size:68px}
+</style></head>
+<body data-dur="26">
+<div id="halo"></div>
+
+<!-- S1 · 0-3.6 · résultat fort -->
+<section class="scene" data-in="0" data-out="3.6" data-din="0.01" data-anim="none">
+  <div class="k" data-in="0.15">Résultat client</div>
+  <div class="name" data-in="0.3">Nelson</div>
+  <div class="big" data-in="0.4" data-anim="scale"><span data-count="123,103,0" data-cin="0.7" data-cdur="1.7">123</span><small>kg</small></div>
+  <div class="sub" data-in="1.9">Départ 123 kg · <b>−20 kg en 3 mois</b></div>
+</section>
+
+<!-- S2 · 3.6-7.4 · les pièges -->
+<section class="scene" data-in="3.6" data-out="7.4" data-din="0.01" data-anim="none">
+  <div class="k" data-in="3.7">Ce que tu as déjà essayé</div>
+  <div class="traps">
+    <div class="trap" data-in="3.9" data-strike="5.0"><span>T'entraîner plus</span><span class="strike"></span></div>
+    <div class="trap" data-in="4.15" data-strike="5.3"><span>Manger au hasard</span><span class="strike"></span></div>
+    <div class="trap" data-in="4.4" data-strike="5.6"><span>Empiler sans suivi</span><span class="strike"></span></div>
+  </div>
+  <div class="after" data-in="6.0">Il ne te manque pas d'effort.<br class="br-port"> <b>Il te manque un pilotage.</b></div>
+</section>
+
+<!-- S3 · 7.4-10.4 · pilotage par la data -->
+<section class="scene" data-in="7.4" data-out="10.4" data-din="0.01" data-anim="none">
+  <div class="k" data-in="7.5">La méthode PG</div>
+  <div class="h" data-in="7.6" style="margin-top:16px">Le pilotage<br><em>par la data.</em></div>
+  <div class="chips">
+    <span class="chip" data-in="8.1" data-anim="scale"><i></i>Poids</span>
+    <span class="chip" data-in="8.25" data-anim="scale"><i></i>Mensurations</span>
+    <span class="chip" data-in="8.4" data-anim="scale"><i></i>Sommeil</span>
+    <span class="chip" data-in="8.55" data-anim="scale"><i></i>Énergie</span>
+    <span class="chip" data-in="8.7" data-anim="scale"><i></i>Bilans sanguins</span>
+  </div>
+</section>
+
+<!-- S4 · 10.4-14.2 · espace client (exemple fictif Alex) -->
+<section class="scene" data-in="10.4" data-out="14.2" data-din="0.01" data-anim="none">
+  <div class="k" data-in="10.5">Ton espace client</div>
+  <div class="card dash" data-in="10.65" data-anim="scale">
+    <div class="top"><span class="t">Bienvenue Alex</span><span class="tagfict">Exemple fictif</span></div>
+    <div class="bar"><div class="fill" data-fill="11.0,13.4"></div></div>
+    <div class="stats">
+      <div class="stat"><span class="k">Poids</span><b><span data-count="84.2,80.6,1" data-cin="11.0" data-cdur="2.4">84,2</span> <small>kg</small></b></div>
+      <div class="stat"><span class="k">Énergie</span><b><span data-count="5,8,0" data-cin="11.0" data-cdur="2.4">5</span><small>/10</small></b></div>
+      <div class="stat"><span class="k">Sommeil</span><b><span data-count="6,8,0" data-cin="11.0" data-cdur="2.4">6</span><small>/10</small></b></div>
+    </div>
+  </div>
+  <div class="docs" data-in="12.4"><b>15+ documents</b> qui évoluent avec toi</div>
+</section>
+
+<!-- S5 · 14.2-17.8 · suivi humain -->
+<section class="scene" data-in="14.2" data-out="17.8" data-din="0.01" data-anim="none">
+  <div class="k" data-in="14.3">Suivi 100 % humain</div>
+  <div class="card chat" data-in="14.4" data-anim="scale">
+    <div class="bub c" data-in="14.7" data-anim="left"><span class="w">Client</span>Hello Pierre, petite question sur ma séance de demain.</div>
+    <div class="bub p" data-in="15.3" data-anim="right"><span class="w">Pierre</span>Vu. On ajuste le volume, la version à jour est dans ton espace.</div>
+  </div>
+  <div class="facts">
+    <div class="fact" data-in="15.9"><span class="box on"></span>WhatsApp direct, 7 j/7</div>
+    <div class="fact" data-in="16.1"><span class="box on"></span>Réponse en général dans la journée</div>
+    <div class="fact" data-in="16.3"><span class="box on"></span>Visios illimitées, dès que c'est utile</div>
+  </div>
+</section>
+
+<!-- S6 · 17.8-21.6 · résultats réels -->
+<section class="scene" data-in="17.8" data-out="21.6" data-din="0.01" data-anim="none">
+  <div class="k" data-in="17.9">Leurs résultats</div>
+  <div class="res">
+    <div class="card r" data-in="18.1"><span class="k">Nelson</span><b>123 → 103 kg</b><span>en 3 mois</span></div>
+    <div class="card r" data-in="18.3"><span class="k">Thomas</span><b>83,5 → 97,4 kg</b><span>en 3 mois et demi</span></div>
+    <div class="card r" data-in="18.5"><span class="k">Edgar</span><b>−12 kg</b><span>en 3 mois</span></div>
+    <div class="card r" data-in="18.7"><span class="k">Kevin</span><b>+10 kg</b><span>en prise de masse</span></div>
+  </div>
+</section>
+
+<!-- S7 · 21.6-23.6 · garantie -->
+<section class="scene" data-in="21.6" data-out="23.6" data-din="0.01" data-anim="none">
+  <div class="seal" data-in="21.7" data-anim="scale"><span class="k">Garantie<br>de résultat</span></div>
+  <div class="h" data-in="22.0" style="margin-top:36px">Je t'accompagne<br><em>jusqu'au résultat.</em></div>
+</section>
+
+<!-- S8 · 23.6-26 · fin -->
+<section class="scene" data-in="23.6" data-din="0.01" data-anim="none">
+  <div class="k" data-in="23.7">Accompagnement individuel<br class="br-port"><span class="dotland"> · </span>piloté par tes données</div>
+  <div class="h endh" data-in="23.85" style="margin-top:22px">Optimise ton corps.<br><em>Sans jouer<br class="br-port"> avec ta santé.</em></div>
+  <div class="cta" data-in="24.3">Réserve ton appel</div>
+</section>
+<div class="sign k" data-in="23.9" style="z-index:3">Pierre Gourdon · PG Protocol</div>
+
+<div id="black"></div>
+<script src="engine.js"></script>
+</body></html>
