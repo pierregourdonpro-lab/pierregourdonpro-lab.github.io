@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Avant notre appel · Bastien · PG Protocol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #0E0D0B; --surface: #17140F; --surface2: #1D1913; --line: #2A251C;
+  --fg: #EFE8DC; --muted: #A0978A; --gold: #C9A45C; --gold-hi: #E2C285; --on-gold: #0B0B0B;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: radial-gradient(ellipse 70% 45% at 72% 0%, rgba(214,150,62,.17), transparent 70%) no-repeat,
+              radial-gradient(ellipse 60% 40% at 15% 100%, rgba(214,150,62,.07), transparent 70%) no-repeat, var(--bg);
+  color: var(--fg); font-family: var(--body); font-size: 1.125rem; line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 60rem; margin: 0 auto; padding: 0 max(16px, 4vw); }
+section { padding: 4.5rem 0; border-top: 1px solid var(--line); }
+.eyebrow { font-family: var(--mono); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; letter-spacing: -.02em; line-height: 1.12; margin: .4rem 0 1rem; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+h2 { font-size: clamp(1.7rem, 3.6vw, 2.5rem); }
+h3 { font-size: 1.2rem; margin: 0 0 .35rem; }
+p { margin: 0 0 1rem; }
+.muted { color: var(--muted); }
+.gold { color: var(--gold-hi); }
+.top { display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 0; font-family: var(--mono); font-size: .8rem; color: var(--muted); letter-spacing: .08em; }
+.hero { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: center; padding: 3rem 0 4.5rem; }
+.hero img { width: 100%; border-radius: 22px; box-shadow: 0 30px 80px rgba(214,150,62,.18); }
+.lead { font-size: 1.25rem; color: #D9D0C2; }
+.goal { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+.goal > div { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 1rem 1.1rem; }
+.goal label { display: block; font-family: var(--mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .3rem; }
+.goal input { width: 100%; background: transparent; border: 0; border-bottom: 1px dashed var(--line); color: var(--fg); font-family: var(--display); font-size: 1.5rem; font-weight: 600; padding: .1rem 0; outline: none; }
+.goal input:focus { border-bottom-color: var(--gold); }
+.goal input::placeholder { color: #5E564A; }
+.goal > div.target { border-color: var(--gold); }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.grid.two { grid-template-columns: repeat(2, 1fr); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.4rem; }
+.card p { color: var(--muted); margin: 0; font-size: 1rem; }
+.num { font-family: var(--mono); color: var(--gold); font-size: .85rem; display: block; margin-bottom: .6rem; }
+.steps { list-style: none; padding: 0; margin: 0; counter-reset: s; display: grid; gap: .8rem; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 1.1rem 1.2rem; }
+.steps li::before { content: counter(s, decimal-leading-zero); font-family: var(--mono); color: var(--gold); font-size: 1.1rem; padding-top: .1rem; }
+.steps p { margin: 0; color: var(--muted); font-size: 1rem; }
+.proof .card .who { font-family: var(--display); font-weight: 600; font-size: 1.15rem; }
+.proof .card .tag { color: var(--muted); font-size: .9rem; display: block; margin-bottom: .9rem; }
+.proof .big { font-family: var(--display); font-weight: 600; font-size: 1.35rem; color: var(--gold-hi); display: block; margin: .2rem 0; }
+.proof blockquote { margin: .9rem 0 0; padding-left: .9rem; border-left: 1px solid var(--gold); color: #D9D0C2; font-size: .98rem; }
+.guarantee { background: linear-gradient(180deg, rgba(201,164,92,.12), rgba(201,164,92,.03)); border: 1px solid var(--gold); border-radius: 22px; padding: 2.2rem; }
+.guarantee .obj { font-family: var(--display); font-size: 1.6rem; font-weight: 600; color: var(--gold-hi); }
+.pay { display: inline-block; margin-top: 1.4rem; background: var(--gold); color: var(--on-gold); border-radius: 999px; padding: .95rem 1.6rem; font-weight: 600; text-decoration: none; }
+.note { color: var(--muted); font-size: .95rem; margin: 1rem 0 0; }
+.callbox { background: var(--surface2); border: 1px solid var(--gold); border-radius: 22px; padding: 2.2rem; }
+.callbox .when { font-family: var(--display); font-size: 1.5rem; font-weight: 600; color: var(--gold-hi); margin: .2rem 0 .8rem; }
+.yt{position:relative;display:block;width:100%;aspect-ratio:16/9;margin:0 0 1.1rem;border:0;border-radius:12px;background:#000 center/cover no-repeat;cursor:pointer;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.yt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.65))}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:2}
+.yt-play{position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:var(--gold);z-index:1}
+.yt-play::before{content:"";position:absolute;left:22px;top:17px;border-style:solid;border-width:11px 0 11px 17px;border-color:transparent transparent transparent #0E0D0B}
+.yt-lbl{position:absolute;left:12px;right:12px;bottom:10px;z-index:1;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#fff;text-align:left}
+.yt-soon{display:table;margin:0 0 1rem;padding:.3rem .7rem;border:1px solid var(--gold);border-radius:999px;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.foot { padding: 2.5rem 0 4rem; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); }
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; gap: 1.5rem; }
+  .hero img { max-width: 260px; }
+  .grid, .grid.two, .goal { grid-template-columns: 1fr; }
+  section { padding: 3rem 0; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><span>Pierre Gourdon · PG Protocol</span><span id="who-top"></span></div>
+
+  <div class="hero">
+    <div>
+      <span class="eyebrow">Avant notre appel de demain</span>
+      <h1>Bastien, tout ce qu'il faut savoir <span class="gold">avant qu'on se parle.</span></h1>
+      <p class="lead">Tu veux passer un cap, sur des bases solides et durables. Prends 5 minutes pour parcourir ça : la méthode, le suivi, les preuves et la garantie. Comme ça, demain, on va direct à l'essentiel — ta situation et ton plan.</p>
+      <div class="goal">
+        <div><label for="g-now">Aujourd'hui</label><input id="g-now" placeholder="ton point de départ"></div>
+        <div class="target"><label for="g-goal">Ton objectif</label><input id="g-goal" placeholder="où tu veux aller"></div>
+        <div><label for="g-date">Pour quand</label><input id="g-date" placeholder="ton échéance"></div>
+      </div>
+      <p class="note">Remplis-les si tu veux : on partira de là demain.</p>
+    </div>
+    <img src="../offre/img/pierre.jpg" alt="Pierre Gourdon">
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">01 · La méthode</span>
+    <h2>On part de toi, pas d'un modèle.</h2>
+    <p class="muted">Ta stratégie commence avant tout produit : entraînement, nutrition, sommeil, récupération et bilans. Chaque décision s'appuie sur tes chiffres.</p>
+    <ol class="steps">
+      <li><div><h3>Questionnaire détaillé, puis visio d'onboarding de 45 min</h3><p>Ton historique, tes bilans, ton rythme de vie, tes contraintes. On fixe ensemble ton objectif chiffré et daté.</p></div></li>
+      <li><div><h3>Ta stratégie et tes plans, livrés dans ton espace</h3><p>Entraînement, nutrition, repas et courses, supplémentation, récupération et sommeil, restaurant, voyages et imprévus.</p></div></li>
+      <li><div><h3>Le pilotage par la data, chaque semaine</h3><p>Poids, mensurations, photos, charges, sommeil, énergie, ressentis et bilans sanguins. Tu fais ton bilan, je te réponds par écrit et j'ajuste.</p></div></li>
+      <li><div><h3>Bilans sanguins lus et expliqués</h3><p>La liste des marqueurs à faire, l'analyse écrite de chaque bilan et une liste prête à montrer à ton médecin.</p></div></li>
+      <li><div><h3>Ta sortie préparée</h3><p>Un bilan de parcours et un plan d'autonomie : tu repars avec tes résultats et tu sais les garder.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">02 · Le suivi</span>
+    <h2>Un humain, pas un programme.</h2>
+    <div class="grid">
+      <div class="card"><span class="num">100 % humain</span><h3>C'est moi qui suis ton dossier</h3><p>Du premier au dernier jour.</p></div>
+      <div class="card"><span class="num">WhatsApp 7 j/7</span><h3>Accès direct</h3><p>Réponse en général dans la journée.</p></div>
+      <div class="card"><span class="num">Visios illimitées</span><h3>Dès que c'est utile</h3><p>Lancement, bilans sanguins, changement de phase, blocage. Le reste se règle par écrit, à ton rythme.</p></div>
+      <div class="card"><span class="num">Chaque semaine</span><h3>Ton bilan, mon retour écrit</h3><p>Depuis ton téléphone. Mon retour est publié sur ta page.</p></div>
+      <div class="card"><span class="num">Ton espace privé</span><h3>Tout au même endroit</h3><p>Chiffres clés, feuille de route, « Cette semaine », documents en vigueur, tracker.</p></div>
+      <div class="card"><span class="num">Plans évolutifs</span><h3>Jamais figés</h3><p>Ils bougent avec tes résultats : à chaque bilan, chaque visio, chaque étape.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">03 · Inclus en plus</span>
+    <h2>Tout ce qu'il te faut pour réussir, et ensuite pour tenir.</h2>
+    <div class="grid">
+      <div class="card"><h3>Mon Tracker PG</h3><p>Ton journal, tes mesures et tes graphiques, en 30 secondes par jour.</p></div>
+      <div class="card"><h3>Mon protocole, toujours à jour</h3><p>La version en vigueur, consultable à tout moment.</p></div>
+      <div class="card"><h3>Bibliothèque de 39 fiches</h3><p>Une réponse pour chaque situation, dont la méthode pour ajuster seul tes calories et ton entraînement.</p></div>
+      <div class="card"><h3>Molécules décodées</h3><p>Près de 200 fiches : bénéfices, risques, suivi à faire.</p></div>
+      <div class="card"><h3>Accès à vie</h3><p>À ton espace et à toutes les ressources, même après l'accompagnement.</p></div>
+      <div class="card"><h3>Parrainage</h3><p>10 % en virement + 10 % en crédit d'accompagnement pour chaque proche qui signe.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <span class="eyebrow">04 · Ils l'ont fait</span>
+    <h2>Des résultats mesurés, pas des promesses.</h2>
+    <div class="grid two">
+      <div class="card"><button class="yt" type="button" data-yt="K8AqpLDQbZk" aria-label="Lire le témoignage vidéo de Kevin" style="background-image:url('https://i.ytimg.com/vi/K8AqpLDQbZk/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir son témoignage vidéo</span></button><span class="who">Kevin</span><span class="tag">35 ans · frigoriste</span><span class="big">71,1 → 80,0 kg</span><span class="muted">Développé couché 80 → 90 kg</span><blockquote>J'en ai vraiment pour mon argent. Ils m'ont pas vendu du rêve. C'était tellement bien organisé, tellement bien structuré.</blockquote></div>
+      <div class="card"><button class="yt" type="button" data-yt="Wde0vIMTZ4A" aria-label="Lire le témoignage vidéo de Jean-François" style="background-image:url('https://i.ytimg.com/vi/Wde0vIMTZ4A/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir son témoignage vidéo</span></button><span class="who">Jean-François</span><span class="tag">51 ans</span><span class="big">86,7 → 80,9 kg</span><span class="muted">2 tailles en moins, force doublée</span><blockquote>Un bien-être comme j'avais rarement connu. Une fatigue qui a disparu. Et une force doublée.</blockquote></div>
+      <div class="card"><button class="yt" type="button" data-yt="6SNguWBrQ0Y" aria-label="Lire le témoignage vidéo d'Edgar" style="background-image:url('https://i.ytimg.com/vi/6SNguWBrQ0Y/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir son témoignage vidéo</span></button><span class="who">Edgar</span><span class="tag">Infirmier et investisseur</span><span class="big">−12 kg, muscle préservé</span><span class="muted">Hyrox 1h15 → 1h09</span><blockquote>J'ai quand même pas mal séché. J'ai gardé de la masse musculaire et perdu pas mal de gras.</blockquote></div>
+      <div class="card"><p class="yt-soon">Témoignage vidéo à venir</p><span class="who">Tanguy</span><span class="tag">Policier de nuit</span><span class="big">70,0 → 77,7 kg</span><span class="muted">en 7 semaines</span><blockquote>Depuis le début de l'accompagnement, j'en ai aucune, mais vraiment aucune [douleur]. Physiquement, je me sens vraiment bien et fort.</blockquote></div>
+    </div>
+    <h3 style="margin-top:2.5rem">D'autres témoignages vidéo</h3>
+    <div class="grid two vids">
+      <div><button class="yt" type="button" data-yt="d7djbxG919Y" aria-label="Lire la vidéo de Jean-François" style="background-image:url('https://i.ytimg.com/vi/d7djbxG919Y/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Jean-François · sa transformation à 51 ans</span></button></div>
+      <div><button class="yt" type="button" data-yt="SIWLD5gcavw" aria-label="Lire le témoignage vidéo de Jonathan" style="background-image:url('https://i.ytimg.com/vi/SIWLD5gcavw/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Jonathan · entrepreneur</span></button></div>
+      <div><button class="yt" type="button" data-yt="pVwwktBHAAw" aria-label="Lire le témoignage vidéo de Gary" style="background-image:url('https://i.ytimg.com/vi/pVwwktBHAAw/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Gary · sa transformation</span></button></div>
+    </div>
+    <a class="pay" href="https://www.youtube.com/playlist?list=PLdZmN2tL_oBJ4onvgqzEkSYXYWkPBkgSq" target="_blank" rel="noopener">Voir tous les témoignages sur YouTube</a>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">05 · La garantie</span>
+    <div class="guarantee">
+      <h2>Je t'accompagne jusqu'au résultat.</h2>
+      <p>Ton objectif, écrit au départ :</p>
+      <p class="obj" id="g-obj">ton objectif chiffré</p>
+      <p>S'il n'est pas atteint à la fin de ton accompagnement, je continue à t'accompagner sans surcoût jusqu'à ce qu'il le soit.</p>
+      <p class="muted" style="margin:0">Modalités dans ton contrat : bilans de la semaine envoyés, plan appliqué, bilans sanguins faits.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Ton espace client</span>
+    <h2>Tout ton accompagnement, au même endroit.</h2>
+    <p class="muted">Dès ton inscription, tu reçois ton espace personnel PG Protocol. Il se remplit au fil de l'accompagnement et se met à jour après chaque bilan.</p>
+    <ol class="steps">
+      <li><div><h3>Ta stratégie et tes plans</h3><p>Entraînement calé sur ton planning, nutrition, repas et courses, récupération et sommeil, protocole toujours à jour.</p></div></li>
+      <li><div><h3>Ton tracker</h3><p>Poids, mensurations, photos, charges, sommeil, énergie : tes graphiques se dessinent tout seuls, semaine après semaine.</p></div></li>
+      <li><div><h3>Mes retours et ta bibliothèque</h3><p>Mon retour écrit sur chaque bilan, plus de 40 fiches pratiques et près de 200 fiches « Molécules décodées ».</p></div></li>
+    </ol>
+    <a class="pay" href="https://www.notion.so/3fd461f779be81a3826ee2743e039b10" target="_blank" rel="noopener">Voir un exemple d'espace client</a>
+    <p class="note">Exemple réel avec un profil fictif (Thomas). Ton espace à toi est privé : toi seul y as accès.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">06 · Les produits et ton budget</span>
+    <h2>D'abord la stratégie. Le reste en découle.</h2>
+    <div class="grid two">
+      <div class="card"><h3>Pourquoi pas de budget produits maintenant</h3><p>Aujourd'hui, personne ne sait encore de quoi tu auras besoin : ça dépend de ton bilan sanguin, de ton objectif et de la stratégie qu'on va construire. Calculer un budget avant, c'est calculer à l'aveugle. On le fait ensemble à ta visio de lancement, sur des bases réelles.</p></div>
+      <div class="card"><h3>Pourquoi je ne valide aucun site</h3><p>Je ne vends rien et je ne recommande aucun vendeur. Personne ne peut garantir le contenu d'un flacon sans analyse. Mon rôle : ta stratégie, la lecture de tes bilans et ton suivi.</p></div>
+      <div class="card"><h3>Ta prise de sang : le bon réflexe</h3><p>C'est exactement par là qu'on commence. Ta stratégie part de tes vrais chiffres.</p></div>
+      <div class="card"><h3>Le risque zéro n'existe pas</h3><p>Nulle part. Le cadre est fait pour le réduire au maximum : on part de tes bilans, on démarre progressivement et on contrôle chaque étape. C'est tout l'intérêt d'être accompagné plutôt que de faire seul.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Et maintenant</span>
+    <h2>On en parle demain.</h2>
+    <div class="callbox">
+      <span class="eyebrow">Notre appel</span>
+      <div class="when">Mardi 10 novembre · 11h30</div>
+      <p class="muted">Compte environ 45 min. On fait le point sur ta situation et ton objectif, et je te montre très concrètement comment on travaillerait ensemble. Viens avec tes questions.</p>
+      <a class="pay" href="https://meet.google.com/dba-artw-cej">Rejoindre la visio → meet.google.com/dba-artw-cej</a>
+      <p class="note">Garde ce lien pour demain. Un imprévu ? Préviens-moi sur WhatsApp.</p>
+    </div>
+  </div>
+</section>
+
+<div class="foot"><div class="wrap">Pierre Gourdon · PG Protocol. Accompagnement réservé aux adultes (18 ans et plus). Je ne suis pas médecin : ton médecin reste ton premier interlocuteur pour ta santé.</div></div>
+
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var ids = { now: 'g-now', goal: 'g-goal', date: 'g-date' };
+  Object.keys(ids).forEach(function (k) {
+    var el = document.getElementById(ids[k]);
+    var v = q.get(k); if (v) el.value = v;
+    el.addEventListener('input', update);
+  });
+  var name = q.get('p') || 'Bastien';
+  if (name) document.getElementById('who-top').textContent = 'Pour ' + name;
+  function update() {
+    var now = document.getElementById('g-now').value.trim();
+    var goal = document.getElementById('g-goal').value.trim();
+    var date = document.getElementById('g-date').value.trim();
+    var o = document.getElementById('g-obj');
+    o.textContent = goal ? (goal + (date ? ' · ' + date : '') + (now ? '  (départ : ' + now + ')' : '')) : 'ton objectif chiffré';
+  }
+  update();
+})();
+document.querySelectorAll('.yt').forEach(function(b){b.addEventListener('click',function(){if(b.querySelector('iframe'))return;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?autoplay=1&rel=0&modestbranding=1&playsinline=1';f.title=b.getAttribute('aria-label');f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;b.appendChild(f);});});
+</script>
+</body>
+</html>
