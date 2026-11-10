@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Appel Bastien</title>
+<meta name="description" content="Cockpit d'appel de vente mot pour mot pour Bastien Renault, avec liens et script.">
+<style>
+:root{
+  --bg:#0E0D0B; --surface:#17140F; --surface2:#1D1913; --line:#2A251C;
+  --fg:#EFE8DC; --muted:#A0978A; --gold:#C9A45C; --gold-hi:#E2C285; --on-gold:#0B0B0B; --red:#E06A5A; --green:#7FB37A;
+  --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:1.06rem;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:52rem;margin:0 auto;padding:0 max(16px,4vw) 5rem}
+header{padding:1.4rem 0 .6rem}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+h1{font-size:1.7rem;margin:.3rem 0 .6rem;letter-spacing:-.01em}
+.who{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;padding:.9rem 1.1rem;color:#D9D0C2;font-size:.98rem;margin:.4rem 0 1.2rem}
+.who b{color:var(--gold-hi)}
+.links{position:sticky;top:0;z-index:5;background:rgba(14,13,11,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:.6rem 0;margin-bottom:1rem}
+.links .row{display:flex;flex-wrap:wrap;gap:.4rem}
+.links a{font-family:var(--mono);font-size:.78rem;text-decoration:none;color:var(--fg);background:var(--surface2);border:1px solid var(--line);border-radius:999px;padding:.4rem .7rem;white-space:nowrap}
+.links a.pay{border-color:var(--gold);color:var(--gold-hi)}
+.links a.meet{background:var(--gold);color:var(--on-gold);border-color:var(--gold)}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.1rem 1.2rem;margin:.8rem 0}
+.step h2{font-size:1.12rem;margin:0 0 .2rem;display:flex;align-items:baseline;gap:.5rem}
+.step h2 .n{font-family:var(--mono);color:var(--gold);font-size:.95rem}
+.step h2 .t{font-family:var(--mono);color:var(--muted);font-size:.72rem;margin-left:auto;font-weight:400}
+.goal{color:var(--muted);font-size:.88rem;margin:.1rem 0 .7rem}
+.say{border-left:2px solid var(--gold);padding:.1rem 0 .1rem .8rem;margin:.55rem 0}
+.say p{margin:.3rem 0}
+.say .q{color:#F1E9DB}
+.note{color:var(--muted);font-size:.86rem;font-style:italic;margin:.5rem 0 0}
+.tag{display:inline-block;font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;padding:.12rem .45rem;border-radius:6px;margin-right:.35rem}
+.tag.red{background:rgba(224,106,90,.14);color:var(--red)}
+.tag.green{background:rgba(127,179,122,.14);color:var(--green)}
+.tag.gold{background:rgba(201,164,92,.16);color:var(--gold-hi)}
+.silence{background:rgba(201,164,92,.1);border:1px dashed var(--gold);border-radius:10px;padding:.6rem .8rem;color:var(--gold-hi);font-weight:600;margin:.5rem 0}
+.box{border-radius:14px;padding:1rem 1.1rem;margin:1rem 0}
+.box.guar{background:linear-gradient(180deg,rgba(201,164,92,.12),rgba(201,164,92,.03));border:1px solid var(--gold)}
+.box.stop{background:rgba(224,106,90,.08);border:1px solid var(--red)}
+.box h3{margin:.1rem 0 .5rem;font-size:1rem}
+.box.stop h3{color:var(--red)}
+ul{margin:.3rem 0;padding-left:1.1rem}
+li{margin:.25rem 0}
+a.inline{color:var(--gold-hi)}
+@media(max-width:620px){.step h2 .t{display:none}}
+</style>
+</head>
+<body>
+<div class="links">
+  <div class="wrap" style="padding-bottom:0;padding-top:0">
+    <div class="row">
+      <a class="meet" href="https://meet.google.com/dba-artw-cej" target="_blank" rel="noopener">▶ Meet</a>
+      <a class="pay" href="https://pierregourdonpro-lab.github.io/offre/?p=Bastien" target="_blank" rel="noopener">Offre (écran · touche P)</a>
+      <a href="https://app.notion.com/p/3fd461f779be81a3826ee2743e039b10" target="_blank" rel="noopener">Exemple Alex</a>
+      <a href="https://pierregourdonpro-lab.github.io/bastien-r7k4/" target="_blank" rel="noopener">Sa page perso</a>
+      <a class="pay" href="https://buy.stripe.com/aFa8wQ89c2kN2U40nVgYU2q" target="_blank" rel="noopener">Stripe 5 000 €</a>
+      <a class="pay" href="https://buy.stripe.com/14A8wQ6146B3bqA6MjgYU2r" target="_blank" rel="noopener">Std 1/2 · 3 000 €</a>
+      <a href="https://buy.stripe.com/00w6oI89c4sV1Q09YvgYU2s" target="_blank" rel="noopener">Std 2/2</a>
+      <a href="https://buy.stripe.com/aFadRa1KO5wZ8eo6MjgYU2p" target="_blank" rel="noopener">Essentiel 3 000 €</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<header>
+  <span class="eyebrow">Appel de vente · 11h30</span>
+  <h1>Bastien Renault</h1>
+  <div class="who"><b>Lead chaud.</b> Il te suit depuis un moment et attend un <b>prix clair</b> et de l'assurance. Son vrai enjeu = la décision et le fit. Page perso + Meet déjà envoyés.</div>
+</header>
+
+<div class="step">
+  <h2><span class="n">00</span> <span>Avant de rejoindre</span></h2>
+  <div class="goal">Onglets ouverts : Offre (prête, prix masqué), Stripe, Exemple Alex. Son objectif prêt à remplir sur /offre/.</div>
+</div>
+
+<div class="step">
+  <h2><span class="n">01</span> <span>Cadre</span> <span class="t">2 min</span></h2>
+  <div class="goal">À obtenir : accord sur le déroulé + savoir qui décide.</div>
+  <div class="say">
+    <p class="q">« Salut Bastien, content de te voir ! Écoute, on a 45 minutes. Je te propose qu'on fasse simple : je te pose des questions pour bien comprendre ta situation et ton objectif, ensuite je te montre concrètement comment on bosserait ensemble, et à la fin tu me dis si c'est fait pour toi ou pas. Y a pas de souci si c'est non. Ça te va comme ça ? »</p>
+    <p class="q">« Et juste pour que je sache : un investissement comme ça, tu le décides seul, ou y a quelqu'un avec qui t'en parles ? »</p>
+  </div>
+</div>
+
+<div class="step">
+  <h2><span class="n">02</span> <span>Pourquoi moi</span> <span class="t">2 min</span></h2>
+  <div class="say">
+    <p class="q">« Tu me suis depuis un moment maintenant. Juste par curiosité : qu'est-ce qui fait que c'est avec moi que tu veux bosser, et pas un autre ? »</p>
+  </div>
+  <p class="note">Laisse-le parler. Ce qu'il dit ici, tu le réutilises à l'étape 7.</p>
+</div>
+
+<div class="step">
+  <h2><span class="n">03</span> <span>Sa situation</span> <span class="t">5-8 min</span></h2>
+  <div class="goal">À obtenir : où il en est, ce qu'il a déjà testé, depuis quand ça bloque.</div>
+  <div class="say">
+    <p class="q">« Raconte-moi où tu en es aujourd'hui. Ton entraînement, depuis combien de temps tu t'entraînes, à quoi ressemble ta semaine, et ce que t'as déjà testé pour avancer. »</p>
+  </div>
+  <p class="note">Relances : « et ça, ça donne quoi ? » · « depuis quand tu sens que ça bloque ? »</p>
+</div>
+
+<div class="step">
+  <h2><span class="n">04</span> <span>Objectif chiffré</span> <span class="t">3 min</span></h2>
+  <div class="goal">Remplis les cases Aujourd'hui / Objectif / Pour quand sur la page Offre.</div>
+  <div class="say">
+    <p class="q">« Si on se projette : concrètement, tu veux être où dans quelques mois ? On met un chiffre et une date dessus. Aujourd'hui tu es à combien, tu veux atteindre quoi, et pour quand ? »</p>
+  </div>
+</div>
+
+<div class="step">
+  <h2><span class="n">05</span> <span>Blocage · enjeu · santé</span> <span class="t">5 min</span></h2>
+  <div class="say">
+    <p class="q">« Qu'est-ce qui t'a empêché d'y arriver tout seul jusqu'ici, à ton avis ? »</p>
+    <p class="q">« Et si tu restes exactement là où tu es aujourd'hui, dans 6 mois, un an… ça te coûte quoi, concrètement ? »</p>
+    <p class="q"><span class="tag gold">santé</span> « Avant d'aller plus loin, côté santé : t'as un traitement en cours, un antécédent, un bilan sanguin récent ? »</p>
+  </div>
+</div>
+
+<div class="step">
+  <h2><span class="n">06</span> <span>Reformule + permission</span> <span class="t">1 min</span></h2>
+  <div class="say">
+    <p class="q">« Ok, donc si je résume bien : tu veux [objectif], ce qui te bloque c'est [X], et ce que tu cherches c'est [Y]. C'est bien ça ? … Parfait. C'est bon pour toi si je te montre concrètement comment on réglerait ça ensemble ? »</p>
+  </div>
+</div>
+
+<div class="step">
+  <h2><span class="n">07</span> <span>Présentation</span> <span class="t">10 min</span></h2>
+  <div class="goal">Partage d'écran : page Offre. Montre aussi l'exemple Alex.</div>
+  <div class="say">
+    <p class="q">« Alors voilà comment je bosse. On part de toi, pas d'un modèle. Tout est piloté par tes données : poids, mensurations, photos, charges, sommeil, énergie, et tes bilans sanguins. On ajuste chaque semaine. »</p>
+    <p class="q">« Le suivi, c'est moi, en direct, 7 jours sur 7 sur WhatsApp. Des visios dès que c'est utile. Et ton espace client, où tout est centralisé. Tiens, regarde à quoi ça ressemble… » <span class="note">(ouvre Exemple Alex)</span></p>
+    <p class="q">« T'as aussi ton tracker, ton protocole toujours à jour, la bibliothèque, Molécules décodées, et un accès à vie. »</p>
+    <p class="q">« Et un de mes clients, Edgar, dit un truc que j'aime bien : "j'ai acheté du temps". C'est exactement ça. »</p>
+  </div>
+</div>
+
+<div class="box guar">
+  <h3>🛡️ La garantie (mot pour mot)</h3>
+  <p style="margin:0">« On fixe ensemble un objectif chiffré. S'il n'est pas atteint à la fin de ton accompagnement, je continue à t'accompagner sans surcoût jusqu'à ce qu'il le soit. »</p>
+</div>
+
+<div class="step">
+  <h2><span class="n">08</span> <span>Le prix — UN seul</span> <span class="t">1 min</span></h2>
+  <div class="say">
+    <p class="q" style="font-size:1.15rem">« L'accompagnement complet, c'est <b>5 000 €</b>. »</p>
+  </div>
+  <div class="silence">⏸️ SILENCE. Tu ne parles plus. C'est à lui de parler. (Il attend ce prix depuis des mois, sois direct et serein.)</div>
+</div>
+
+<div class="step">
+  <h2><span class="n">09</span> <span>Objections</span></h2>
+  <div class="say">
+    <p><span class="tag gold">« en plusieurs fois ? »</span></p>
+    <p class="q">« Oui, c'est possible : on fait 2 fois 3 000 € avec Klarna, une au démarrage et une à mi-parcours. »</p>
+    <p><span class="tag gold">« je réfléchis / je sais pas »</span></p>
+    <p class="q">« Je comprends. Juste pour qu'on soit clairs : qu'est-ce qui te retient vraiment, là, maintenant ? C'est de te lancer, ou autre chose ? » <span class="note">(désamorce, raccroche à la valeur, zéro pression)</span></p>
+    <p><span class="tag gold">« et les produits / où j'achète ? »</span></p>
+    <p class="q">« Je ne vends rien et je ne recommande aucun vendeur, ça tu le gères toi. Moi je te construis la stratégie et je lis tes bilans. »</p>
+  </div>
+</div>
+
+<div class="step">
+  <h2><span class="n">10</span> <span>Clôture = paiement pendant l'appel</span> <span class="t">2 min</span></h2>
+  <div class="say">
+    <p class="q">« Du coup, on lance ? »</p>
+    <p class="q"><span class="tag green">si oui</span> « Nickel. Je te donne le lien de paiement tout de suite, comme ça je t'enclenche tout dans la foulée. » <span class="note">(Stripe à l'écran, il paie maintenant.)</span></p>
+  </div>
+</div>
+
+<div class="box stop">
+  <h3>❌ Ne fais jamais</h3>
+  <ul>
+    <li>« Je t'envoie le contrat / le devis et tu me dis » → c'est ce qui a fait capoter les derniers appels. Le paiement se fait <b>pendant</b> l'appel.</li>
+    <li>« Les tarifs vont monter », « il te reste X places », « décide maintenant ».</li>
+    <li>Nommer un fournisseur, un site, une dose.</li>
+  </ul>
+</div>
+
+<div class="step">
+  <h2><span class="n">11</span> <span>Après paiement</span> <span class="t">2 min</span></h2>
+  <div class="say">
+    <p class="q">« Parfait, bienvenue 👊 La suite : tu remplis ton questionnaire d'onboarding, tu reçois l'accès à ton espace client, et tu réserves ta visio de lancement. On démarre. »</p>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
