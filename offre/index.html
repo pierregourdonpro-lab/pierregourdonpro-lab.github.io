@@ -34,6 +34,11 @@ h3 { font-size: 1.2rem; margin: 0 0 .35rem; }
 p { margin: 0 0 1rem; }
 .muted { color: var(--muted); }
 .gold { color: var(--gold-hi); }
+.valstack table{width:100%;border-collapse:collapse;font-size:.95rem}
+.valstack td{padding:.45rem .2rem;border-bottom:1px solid var(--line)}
+.valstack td:last-child{text-align:right;white-space:nowrap;text-decoration:line-through;opacity:.75}
+.valstack tr.tot td{font-weight:700;border-bottom:0;padding-top:.8rem}
+.valstack tr.tot td:last-child{text-decoration:none;opacity:1;color:var(--gold-hi)}
 
 /* Haut */
 .top { display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 0; font-family: var(--mono); font-size: .8rem; color: var(--muted); letter-spacing: .08em; }
@@ -284,11 +289,29 @@ body.show-notes .notes { display: block; }
   </div>
   <p class="muted" style="margin:2rem 0 0">Tout ce que tu as :</p>
   <div class="recap">
-    <span class="chip on">Stratégie et plans sur mesure</span><span class="chip on">Bilan chaque semaine + ajustements</span><span class="chip on">WhatsApp 7 j/7</span><span class="chip on">Visios illimitées dès que c'est utile</span><span class="chip">Espace privé, tracker, protocole à jour</span><span class="chip">39 fiches + près de 200 fiches molécules</span><span class="chip">Accès à vie</span><span class="chip">Plan d'autonomie à la fin</span>
+    <span class="chip on">Stratégie et plans sur mesure</span><span class="chip on">Bilan chaque semaine + ajustements</span><span class="chip on">WhatsApp 7 j/7</span><span class="chip on">Visios illimitées dès que c'est utile</span><span class="chip">Espace privé, tracker, protocole à jour</span><span class="chip">Près de 50 fiches + près de 200 fiches molécules</span><span class="chip">Accès à vie</span><span class="chip">Plan d'autonomie à la fin</span>
+  </div>
+  <div class="valstack">
+    <p class="muted" style="margin:2rem 0 .6rem">Ce que représente ce travail, élément par élément :</p>
+    <table>
+      <tr><td>Analyse complète de ton dossier (questionnaire, bilans, historique)</td><td>3 000 €</td></tr>
+      <tr><td>Visio d'onboarding + stratégie construite sur toi</td><td>7 500 €</td></tr>
+      <tr><td>Plans sur mesure, mis à jour à chaque étape</td><td>9 000 €</td></tr>
+      <tr><td>Suivi direct avec moi sur WhatsApp, réponse en général dans la journée</td><td>15 000 €</td></tr>
+      <tr><td>Ton bilan chaque semaine, lu et ajusté</td><td>7 800 €</td></tr>
+      <tr><td>Visios dès que c'est utile</td><td>5 000 €</td></tr>
+      <tr><td>Lecture de chacun de tes bilans sanguins</td><td>2 500 €</td></tr>
+      <tr><td>Tracker PG (journal, mesures, graphiques)</td><td>6 000 €</td></tr>
+      <tr><td>Espace personnel à vie + protocole toujours à jour</td><td>2 000 €</td></tr>
+      <tr><td>Bibliothèque PG + Molécules décodées</td><td>2 000 €</td></tr>
+      <tr><td>Plan d'autonomie pour la suite</td><td>1 500 €</td></tr>
+      <tr class="tot"><td>Valeur estimée du travail sur ton dossier</td><td>61 300 €</td></tr>
+    </table>
+    <p class="muted" style="margin:.6rem 0 0;font-size:.85rem">Valeurs estimées, ces éléments ne sont pas vendus séparément. Aucun produit n'est vendu : tu paies la stratégie, le suivi et la sécurité.</p>
   </div>
   <aside class="notes"><b>Script (≈ 1 min)</b><br>
   « On écrit ton objectif dans ton contrat : <b>[Y, date]</b>. Si à la fin de l'accompagnement on n'y est pas, alors que tu as fait ta part (tes bilans envoyés, le plan appliqué, tes bilans sanguins faits), je continue à t'accompagner sans surcoût jusqu'à ce qu'on y soit.<br>
-  Pour résumer, tu as : une stratégie et des plans faits pour toi, un bilan chaque semaine avec mes ajustements, WhatsApp avec moi 7 jours sur 7, des visios dès que c'est utile, ton espace avec tout dedans, à vie, et un plan d'autonomie à la fin pour garder tes résultats. »<br>
+  Je te montre ce que ça représente, élément par élément [faire défiler le tableau] : plus de 60 000 € de travail sur ton dossier. Et je le redis clairement : aucun produit n'est vendu, tu paies la stratégie, le suivi et la sécurité.<br>Pour résumer, tu as : une stratégie et des plans faits pour toi, un bilan chaque semaine avec mes ajustements, WhatsApp avec moi 7 jours sur 7, des visios dès que c'est utile, ton espace avec tout dedans, à vie, et un plan d'autonomie à la fin pour garder tes résultats. »<br>
   <b>Puis 2 questions, et tu attends les réponses :</b><br>
   « Est-ce que tu vois comment ça t'amène à <b>[Y]</b> ? » → « Tu veux que je te montre l'investissement ? »</aside>
 </div>
