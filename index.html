@@ -282,6 +282,15 @@ html { scroll-behavior: smooth; }
 .cal-loading{position:absolute;top:3rem;left:0;right:0;text-align:center;color:var(--muted);font-family:var(--mono);font-size:.85rem;letter-spacing:.08em;max-width:none}
 .calendly-inline-widget{position:relative;z-index:1}
 .yt-soon{display:inline-block;width:fit-content;justify-self:start;margin:0 0 1rem;padding:.3rem .7rem;border:1px solid var(--gold);border-radius:999px;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+
+.sante-box{margin-top:2.2rem;padding:1.6rem 1.4rem;border:1px solid var(--gold);border-radius:16px;background:linear-gradient(180deg,rgba(201,164,92,.10),rgba(201,164,92,.02))}
+.sante-lead{font-size:1.25rem;line-height:1.5;margin:0 0 .5rem;color:var(--fg,#EFE8DC)}
+.sante-lead::before{content:"« ";color:var(--gold)}.sante-lead::after{content:" »";color:var(--gold)}
+.sante-cite{display:block;font-family:var(--mono);font-size:.76rem;color:var(--muted);letter-spacing:.04em;margin-bottom:1.4rem}
+.sante-rules{list-style:none;padding:0;margin:1.8rem 0 0;display:grid;gap:.9rem}
+.sante-rules li{padding-left:1.6rem;position:relative}
+.sante-rules li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700}
+.sante-rules b{display:block}
 </style>
 </head>
 <body>
@@ -608,6 +617,32 @@ html { scroll-behavior: smooth; }
     <div class="cta-row">
       <a class="btn" href="#reserver">Réserver mon appel →</a>
     </div>
+  </div>
+</section>
+
+
+<!-- SANTÉ -->
+<section id="sante">
+  <div class="wrap">
+    <span class="eyebrow">La question que tout le monde se pose</span>
+    <h2>«&#8239;Et ma santé dans tout ça&#8239;?&#8239;»</h2>
+    <p class="muted">C'est la peur n°1 avant de commencer. Edgar, 36 ans, infirmier et investisseur, l'avait aussi. Voilà ce qu'il en dit aujourd'hui.</p>
+    <div class="sante-box">
+      <p class="sante-lead">Il y a toujours une part de risque à prendre, mais le risque, il se mesure, et il se corrige au fil du temps. Tu fais une prise de sang, tu vois si ça marche, si tu as des effets secondaires.</p>
+      <span class="sante-cite">Edgar · 36 ans · −12 kg en 3 mois</span>
+      <button class="yt" type="button" data-yt="6SNguWBrQ0Y" aria-label="Lire le témoignage vidéo d'Edgar" style="background-image:url('https://i.ytimg.com/vi/6SNguWBrQ0Y/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Écouter Edgar en entier</span></button>
+      <div class="quotes" style="margin-top:1.4rem">
+        <blockquote><p>«&#8239;Ce qui m'a surpris en positif, c'est que tu demandes les prises de sang, le suivi. J'avais peur que ce ne soit pas fait et de devoir le faire seul de mon côté. Ça achète une sécurité.&#8239;»</p><cite>Edgar</cite></blockquote>
+        <blockquote><p>«&#8239;Aujourd'hui, je fais les choses avec plus de plaisir, moins d'angoisse, moins de rumination. Et puis j'ai moins mal au dos.&#8239;»</p><cite>Edgar</cite></blockquote>
+        <blockquote><p>«&#8239;Le plus grand risque, c'est de ne jamais en prendre. Je ne dis pas qu'il faut prendre des risques absolument, mais il faut le mesurer.&#8239;»</p><cite>Edgar</cite></blockquote>
+      </div>
+    </div>
+    <ul class="sante-rules">
+      <li><b>Ta première décision, ce n'est pas de prendre des produits.</b>C'est ton bilan sanguin et ta stratégie. L'entraînement, la nutrition et le sommeil démarrent tout de suite.</li>
+      <li><b>Les produits arrivent seulement si ton bilan et ton objectif le justifient.</b>Jamais par défaut. Zéro produit fait partie des options.</li>
+      <li><b>Chaque prise de sang de contrôle est lue avec toi.</b>Si un marqueur bouge, on ajuste ou on arrête.</li>
+      <li><b>Ton médecin reste dans la boucle.</b>Je ne suis pas médecin et je ne remplace pas un avis médical : je travaille avec tes analyses.</li>
+    </ul>
   </div>
 </section>
 
