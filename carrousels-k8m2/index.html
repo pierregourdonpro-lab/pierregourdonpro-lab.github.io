@@ -1,0 +1,44 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Carrousels Molécules décodées</title>
+<style>
+:root{--bg:#0E0D0B;--ink:#EFE8DC;--mut:#A89F8F;--or:#C9A45C}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,sans-serif;padding:16px}
+h1{font-size:22px;margin:0 0 4px}p.s{color:var(--mut);margin:0 0 14px;font-size:14px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+select,input{background:#1a1813;color:var(--ink);border:1px solid #3a352b;border-radius:10px;padding:9px 10px;font-size:15px}
+.day{margin:22px 0 8px;color:var(--or);font-weight:700;font-size:15px;letter-spacing:.04em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.card{background:#1a1813;border-radius:12px;overflow:hidden;cursor:pointer;border:1px solid #2a261f}
+.card img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover}
+.card div{padding:7px 9px;font-size:13px}.card b{display:block}.card span{color:var(--mut);font-size:12px}
+.card.done{opacity:.35}
+#v{position:fixed;inset:0;background:var(--bg);overflow:auto;display:none;padding:16px}
+#v .slides{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+#v .slides img{width:min(82vw,420px);flex:none;scroll-snap-align:start;border-radius:10px}
+button{background:var(--or);color:#0E0D0B;border:0;border-radius:10px;padding:11px 14px;font-weight:700;font-size:15px;margin:8px 8px 0 0}
+button.g{background:#2a261f;color:var(--ink)}
+pre{white-space:pre-wrap;background:#1a1813;border-radius:10px;padding:12px;font:14px/1.45 system-ui;border:1px solid #2a261f}
+.tip{color:var(--mut);font-size:13px}
+</style></head><body>
+<h1>Carrousels · Molécules décodées</h1>
+<p class="s">195 carrousels, 7 par jour. Touche un carrousel : slides (appui long = enregistrer) + légende à copier. « Publié » le grise sur ce téléphone.</p>
+<div class="bar"><select id="f"><option value="">Toutes les familles</option></select><input id="q" placeholder="Chercher (code, mot-clé)"></div>
+<div id="list"></div>
+<div id="v"><button class="g" onclick="closeV()">← Retour</button><h2 id="vt"></h2><div class="slides" id="vs"></div>
+<p class="tip">Glisse pour voir les 7 slides. Appui long sur une image → Enregistrer.</p>
+<button onclick="copyCap()">Copier la légende</button><button class="g" id="dn" onclick="toggleDone()">Marquer publié</button>
+<pre id="vc"></pre></div>
+<script>
+let D=[],cur=null;const st=k=>{try{return JSON.parse(localStorage.getItem('pgdone')||'{}')}catch(e){return{}}};
+function save(o){try{localStorage.setItem('pgdone',JSON.stringify(o))}catch(e){}}
+fetch('data.json').then(r=>r.json()).then(d=>{D=d;const fs=[...new Set(d.map(x=>x.fam))].sort();fs.forEach(x=>f.insertAdjacentHTML('beforeend',`<option>${x}</option>`));render()});
+function render(){const fv=f.value,qv=q.value.toLowerCase(),done=st();let h='',day=0;
+D.filter(x=>(!fv||x.fam==fv)&&(!qv||(x.code+x.mot).toLowerCase().includes(qv))).forEach(x=>{
+if(x.jour!=day){if(day)h+='</div>';day=x.jour;h+=`<div class="day">JOUR ${day}</div><div class="grid">`}
+h+=`<div class="card ${done[x.n]?'done':''}" onclick="openV(${x.n})"><img loading="lazy" src="img/${x.dir}/1.jpg" alt=""><div><b>${x.code}</b><span>${x.fam} · ${x.mot}</span></div></div>`});
+list.innerHTML=h+(day?'</div>':'')}
+f.onchange=q.oninput=render;
+function openV(n){cur=D.find(x=>x.n==n);vt.textContent=`${cur.code} · mot-clé ${cur.mot}`;vs.innerHTML=[1,2,3,4,5,6,7].map(i=>`<img src="img/${cur.dir}/${i}.jpg" alt="slide ${i}">`).join('');vc.textContent=cur.cap;dn.textContent=st()[n]?'Publié ✓ (annuler)':'Marquer publié';v.style.display='block';v.scrollTop=0}
+function closeV(){v.style.display='none';render()}
+function copyCap(){navigator.clipboard.writeText(cur.cap).then(()=>alert('Légende copiée'))}
+function toggleDone(){const o=st();o[cur.n]=!o[cur.n];save(o);dn.textContent=o[cur.n]?'Publié ✓ (annuler)':'Marquer publié'}
+</script></body></html>
