@@ -34,10 +34,10 @@ fetch('data.json').then(r=>r.json()).then(d=>{D=d;const fs=[...new Set(d.map(x=>
 function render(){const fv=f.value,qv=q.value.toLowerCase(),done=st();let h='',day=0;
 D.filter(x=>(!fv||x.fam==fv)&&(!qv||(x.code+x.mot).toLowerCase().includes(qv))).forEach(x=>{
 if(x.jour!=day){if(day)h+='</div>';day=x.jour;h+=`<div class="day">JOUR ${day}</div><div class="grid">`}
-h+=`<div class="card ${done[x.n]?'done':''}" onclick="openV(${x.n})"><img loading="lazy" src="img7/${x.dir}/1.jpg" alt=""><div><b>${x.code}</b><span>${x.fam} · ${x.mot}</span></div></div>`});
+h+=`<div class="card ${done[x.n]?'done':''}" onclick="openV(${x.n})"><img loading="lazy" src="img8/${x.dir}/1.jpg" alt=""><div><b>${x.code}</b><span>${x.fam} · ${x.mot}</span></div></div>`});
 list.innerHTML=h+(day?'</div>':'')}
 f.onchange=q.oninput=render;
-function openV(n){cur=D.find(x=>x.n==n);vt.textContent=`${cur.code} · mot-clé ${cur.mot}`;vs.innerHTML=Array.from({length:cur.ns||7},(_,k)=>k+1).map(i=>`<img src="img7/${cur.dir}/${i}.jpg" alt="slide ${i}">`).join('');vc.textContent=cur.cap;dn.textContent=st()[n]?'Publié ✓ (annuler)':'Marquer publié';v.style.display='block';v.scrollTop=0}
+function openV(n){cur=D.find(x=>x.n==n);vt.textContent=`${cur.code} · mot-clé ${cur.mot}`;vs.innerHTML=Array.from({length:cur.ns||7},(_,k)=>k+1).map(i=>`<img src="img8/${cur.dir}/${i}.jpg" alt="slide ${i}">`).join('');vc.textContent=cur.cap;dn.textContent=st()[n]?'Publié ✓ (annuler)':'Marquer publié';v.style.display='block';v.scrollTop=0}
 function closeV(){v.style.display='none';render()}
 function copyCap(){navigator.clipboard.writeText(cur.cap).then(()=>alert('Légende copiée'))}
 function toggleDone(){const o=st();o[cur.n]=!o[cur.n];save(o);dn.textContent=o[cur.n]?'Publié ✓ (annuler)':'Marquer publié'}
