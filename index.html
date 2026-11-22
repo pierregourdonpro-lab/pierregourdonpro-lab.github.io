@@ -287,6 +287,12 @@ html { scroll-behavior: smooth; }
 .sante-lead{font-size:1.25rem;line-height:1.5;margin:0 0 .5rem;color:var(--fg,#EFE8DC)}
 .sante-lead::before{content:"« ";color:var(--gold)}.sante-lead::after{content:" »";color:var(--gold)}
 .sante-cite{display:block;font-family:var(--mono);font-size:.76rem;color:var(--muted);letter-spacing:.04em;margin-bottom:1.4rem}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1.2rem 0}
+.vs>div{border:1px solid var(--line,#2A251C);border-radius:14px;padding:1rem}
+.vs>div.bad{border-color:rgba(214,96,62,.55);background:rgba(214,96,62,.06)}
+.vs h4{margin:0 0 .5rem;font-family:"Archivo",Arial,sans-serif;font-size:1.05rem}
+.vs ul{margin:0;padding-left:1.1rem;font-size:.95rem}.vs li{margin-bottom:.35rem}
+@media(max-width:560px){.vs{grid-template-columns:1fr}}
 .sante-rules{list-style:none;padding:0;margin:1.8rem 0 0;display:grid;gap:.9rem}
 .sante-rules li{padding-left:1.6rem;position:relative}
 .sante-rules li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700}
@@ -484,7 +490,7 @@ html { scroll-behavior: smooth; }
         <blockquote>En t-shirt, je faisais du XL. Je rentre dans du L. J'ai pas le gros ventre qui ressort comme avant.</blockquote>
         <blockquote>Je me sens mieux dans ma peau et même j'ai vu que j'ai pris de la force, et c'est ça qui m'encourage encore plus.</blockquote>
       </article>
-<article class="card">
+<article class="card" id="thomas">
         <header><h3>Thomas</h3></header>
         <button class="yt" type="button" data-yt="zp6zrBKKp6A" aria-label="Lire l'étude de cas complète de Thomas" style="background-image:url('https://i.ytimg.com/vi/zp6zrBKKp6A/maxresdefault.jpg'), url('https://i.ytimg.com/vi/zp6zrBKKp6A/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir l'étude de cas complète</span></button>
         <dl class="lab">
@@ -701,6 +707,18 @@ html { scroll-behavior: smooth; }
       <blockquote><p>«&#8239;Moi tout seul, j'aurais pas vu d'où venait le problème. J'ai besoin d'avoir quelqu'un qui sait lire tout ça.&#8239;»</p><cite>Jean-François · 51 ans</cite></blockquote>
       <blockquote><p>«&#8239;Quand tu découvres que finalement tu peux vivre autrement, tu as envie de continuer.&#8239;»</p><cite>Jean-François · 51 ans</cite></blockquote>
     </div>
+    <div class="sante-box" id="alex" style="margin-top:2.4rem">
+      <span class="eyebrow">Le contre-exemple</span>
+      <h3 style="margin-top:.3rem">Un physique de rêve. Un bilan dans le rouge.</h3>
+      <p class="muted">Alex est venu me voir avec 99 kg à 11 % de masse grasse. Deux ans de produits, 6 en même temps au moment de sa prise de sang, et pour seul conseiller… son revendeur. Son bilan&#8239;: 41 marqueurs hors des plages optimales sur 147. Et le plus touché n'était pas le foie&#8239;: c'était le cœur.</p>
+      <div class="vs">
+        <div class="bad"><h4>Alex · sans suivi</h4><ul><li>6 produits en même temps</li><li>Aucun bilan pendant 2 ans</li><li>41 marqueurs sur 147 hors plage</li><li>Cœur, reins, inflammation touchés</li></ul></div>
+        <div><h4>Thomas · avec le PG Protocol</h4><ul><li>Un protocole léger et réfléchi</li><li>Un bilan à chaque étape</li><li>Une alerte réglée en 2 mois</li><li>83,5 → 97,4 kg en 3 mois et demi · <a href="#thomas">sa fiche</a></li></ul></div>
+      </div>
+      <p><b>Ton physique ne dit rien de ta santé.</b> Le problème d'Alex, ce n'est pas d'avoir mal fait&#8239;: c'est que personne ne mesurait rien. Il a rejoint l'accompagnement, et la première décision a été d'alléger, de stabiliser et de remettre le suivi médical au centre.</p>
+      <button class="yt" type="button" data-yt="ALEXVID" aria-label="Lire la vidéo : analyse du bilan sanguin d'Alex" style="background-image:url('https://i.ytimg.com/vi/ALEXVID/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir l'analyse complète de son bilan</span></button>
+      <p class="muted" style="margin-top:.8rem;font-size:.85rem">Cas réel, anonymisé avec son accord. Contenu éducatif&#8239;: aucune dose, aucun produit recommandé.</p>
+    </div>
     <ul class="sante-rules">
       <li><b>Ta première décision, ce n'est pas de prendre des produits.</b>C'est ton bilan sanguin et ta stratégie. L'entraînement, la nutrition et le sommeil démarrent tout de suite.</li>
       <li><b>Les produits arrivent seulement si ton bilan et ton objectif le justifient.</b>Jamais par défaut. Zéro produit fait partie des options.</li>
@@ -772,6 +790,8 @@ html { scroll-behavior: smooth; }
     <h2>Avant de réserver</h2>
     <details><summary>Je préfère attendre le bon moment pour commencer (rendez-vous médical, retour de voyage, période chargée au travail…).</summary><p>Il n'y a pas de « bon moment », et il n'y en aura jamais : il y aura toujours un voyage, une période chargée, un rendez-vous à venir. C'est pour ça que la méthode est construite autour de ta vie, pas l'inverse : ton plan s'adapte à ton agenda réel, à tes déplacements, à tes imprévus. On démarre avec ta stratégie, tes fondamentaux et ton bilan sanguin, qui n'attendent rien. Si c'est un rendez-vous médical, on avance en parallèle, avec ton médecin. Et soyons honnêtes : « j'attends X » n'est presque jamais le vrai sujet. La seule vraie question, c'est : es-tu décidé à t'y mettre ? Si oui, rien ne t'oblige à attendre.</p></details>
     <details><summary>Combien ça coûte&#8239;?</summary><p>Ça dépend de ton objectif et du niveau de suivi dont tu as besoin. Je préfère te donner un tarif exact plutôt qu'une fourchette&#8239;: on en parle pendant l'appel, une fois qu'on a regardé ton cas.</p></details>
+    <details><summary>Je veux juste un protocole, je peux gérer seul de mon côté.</summary><p>Un protocole, c'est une photo à un instant T. Ce qui protège ta santé, c'est ce qui vient après&#8239;: les bilans de contrôle, la lecture des marqueurs, les ajustements quand quelque chose bouge. Alex avait un physique de rêve et gérait seul depuis deux ans&#8239;: 41 marqueurs hors des plages optimales, le cœur en première ligne, et rien de visible dans le miroir. <a href="#alex">Regarde son cas</a>. C'est exactement ce que le suivi évite.</p></details>
+    <details><summary>Il me faut juste les produits, pas un coach.</summary><p>Je ne vends aucun produit. Et quand le seul conseiller est celui qui vend, son intérêt est que tu en prennes plus, pas que tu en prennes juste ce qu'il faut. Le cas d'Alex le montre&#8239;: plus de produits, ce n'est pas plus de résultats. Thomas a obtenu un physique comparable avec beaucoup moins, parce que les fondations passaient avant les molécules. <a href="#alex">Voir la comparaison</a>.</p></details>
     <details><summary>Les analyses et les produits sont-ils compris&#8239;?</summary><p>Le suivi, c'est ma prestation&#8239;: ta stratégie, le suivi, les visios, ton espace client. Tes analyses et ce que tu décides éventuellement de prendre sont à part. Ce dont tu as besoin, et donc ton budget produits, se décide après ton bilan sanguin, une fois ta stratégie construite&#8239;: avant, ce serait un calcul à l'aveugle.</p></details>
     <details><summary>Ça dure combien de temps&#8239;?</summary><p>La durée dépend de ton objectif et de ton point de départ. On la fixe ensemble à l'appel, avec le temps qu'il faut pour transformer ton physique, puis stabiliser tes résultats pour les garder seul.</p></details>
     <details><summary>Je n'ai pas de bilan sanguin récent. Je peux quand même réserver&#8239;?</summary><p>Oui. Si on travaille ensemble, je te donne la liste exacte des marqueurs à faire, avec une version à montrer à ton médecin. Ta stratégie démarre tout de suite&#8239;; seule la partie produits attend ce bilan.</p></details>
