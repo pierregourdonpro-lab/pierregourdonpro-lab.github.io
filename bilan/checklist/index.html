@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Checklist bilan sanguin · PG Protocol</title>
+<meta name="description" content="Checklist du bilan sanguin : les valeurs à contrôler et comment les interpréter.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root { --bg:#0E0D0B; --surface:#17140F; --line:#2A251C; --fg:#EFE8DC; --muted:#A0978A; --gold:#C9A45C; color-scheme: dark; }
+* { box-sizing: border-box; } html, body { margin: 0; }
+body { background: radial-gradient(ellipse 70% 45% at 72% 0%, rgba(214,150,62,.17), transparent 70%) no-repeat, var(--bg); color: var(--fg); font-family: "Instrument Sans","Helvetica Neue",Arial,sans-serif; font-size: 1.0625rem; line-height: 1.6; }
+.wrap { max-width: 42rem; margin: 0 auto; padding: clamp(2.5rem,8vw,5rem) max(16px, env(safe-area-inset-right,0px)) 4rem max(16px, env(safe-area-inset-left,0px)); }
+.eyebrow { font-family: "IBM Plex Mono",monospace; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 1rem; }
+h1 { font-family: "Archivo",Arial,sans-serif; font-weight: 600; letter-spacing: -.025em; line-height: 1.05; font-size: clamp(2rem,6.5vw,3.1rem); margin: 0 0 1rem; }
+h1 span { color: var(--gold); }
+.lead { color: var(--muted); margin: 0 0 1.4rem; }
+.stats { display: grid; grid-template-columns: repeat(3,1fr); gap: .5rem; margin: 1.4rem 0 2rem; }
+.stats div { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: .8rem .9rem; }
+.stats b { display: block; font-family: "Archivo",Arial,sans-serif; font-size: 1.35rem; color: var(--gold); line-height: 1.1; }
+.stats span { font-size: .82rem; color: var(--muted); }
+section { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.3rem 1.3rem 1rem; margin: 0 0 1rem; break-inside: avoid; }
+h2 { font-family: "Archivo",Arial,sans-serif; font-weight: 600; font-size: 1.25rem; letter-spacing: -.01em; margin: 0 0 .25rem; }
+h2 small { font-family: "IBM Plex Mono",monospace; font-size: .75rem; color: var(--gold); letter-spacing: .1em; display: block; margin-bottom: .3rem; font-weight: 500; }
+.why { color: var(--muted); font-size: .95rem; margin: 0 0 .8rem; font-style: italic; }
+ul.check { list-style: none; padding: 0; margin: 0; }
+ul.check li { position: relative; padding: 0 0 .7rem 2rem; }
+ul.check label { cursor: pointer; display: block; }
+ul.check input { position: absolute; left: 0; top: .2rem; width: 1.15rem; height: 1.15rem; accent-color: var(--gold); margin: 0; }
+ul.check input:checked + span { color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(201,164,92,.6); }
+.alert { border-color: var(--gold); }
+.cta { background: linear-gradient(180deg, rgba(201,164,92,.14), rgba(201,164,92,.04)); border: 1px solid var(--gold); border-radius: 18px; padding: 1.4rem; margin: 1.6rem 0 1rem; }
+.cta h2 { margin-bottom: .5rem; }
+.cta p { color: var(--muted); margin: 0 0 .6rem; }
+.btn { display: inline-flex; align-items: center; gap: .5rem; background: var(--gold); color: #0B0B0B; text-decoration: none; font-weight: 600; padding: .95rem 1.35rem; border-radius: 999px; margin: .3rem .4rem 0 0; }
+.btn.ghost { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
+.btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.ok { display: none; background: var(--surface); border: 1px solid var(--gold); border-radius: 14px; padding: .8rem 1rem; margin: 0 0 1.4rem; font-size: .95rem; }
+.ok.show { display: block; }
+.muted { color: var(--muted); font-size: .85rem; margin-top: 2rem; }
+a { color: var(--gold); }
+@media (max-width: 420px) { .stats b { font-size: 1.1rem; } }
+@media print {
+  :root { --bg:#fff; --surface:#fff; --line:#d9d2c4; --fg:#111; --muted:#4F473B; --gold:#7A5A1C; color-scheme: light; }
+  body { background: #fff; font-size: 10.5pt; }
+  .wrap { padding: 0; max-width: none; }
+  .noprint, .ok { display: none !important; }
+  section { padding: .8rem 1rem .4rem; margin-bottom: .6rem; }
+  ul.check input { -webkit-appearance: none; appearance: none; border: 1.4px solid #7A5A1C; border-radius: 3px; }
+  .btn { border: 1px solid #7A5A1C; background: none; color: #7A5A1C; padding: .3rem .6rem; }
+  @page { size: A4; margin: 14mm 14mm; }
+}
+.ref { display:block; font-family:"IBM Plex Mono",monospace; font-size:.8rem; color:var(--gold); margin-top:.15rem; }
+.ref::before { content:"Repère : "; color:var(--muted); }
+ul.plain { padding-left:1.1rem; margin:0; color:var(--fg); } ul.plain li { margin-bottom:.55rem; }
+ul.plain b { color:var(--gold); font-weight:600; }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="ok" id="ok">✅ C'est envoyé. Tu reçois aussi cette checklist par e-mail (pense à regarder tes spams).</div>
+  <span class="eyebrow">La checklist bilan sanguin</span>
+  <h1>Ton bilan sanguin. <span>Valeur par valeur.</span></h1>
+  <p class="lead">Ce que je regarde quand on m'envoie un bilan : quoi demander au labo, dans quel ordre lire, et comment interpréter sans paniquer ni se rassurer à tort. Coche ce que ton dernier bilan contient.</p>
+  <div class="stats">
+    <div><b>41 / 147</b><span>marqueurs hors plage chez Alex</span></div>
+    <div><b>Le cœur</b><span>le plus touché, pas le foie</span></div>
+    <div><b>8 à 12 sem.</b><span>entre deux contrôles</span></div>
+  </div>
+  <p class="noprint"><a class="btn ghost" href="checklist-bilan-sanguin.pdf" download>Télécharger en PDF</a></p>
+
+  <section>
+    <h2><small>00 · AVANT LA PRISE DE SANG</small>Préparer ta prise de sang</h2>
+    <p class="why">Un bilan mal préparé, c'est des valeurs faussées et des mauvaises décisions.</p>
+    <ul class="check">
+      <li><label><input type="checkbox"><span>À jeun depuis 10 à 12 heures (eau autorisée).</span></label></li>
+      <li><label><input type="checkbox"><span>Pas de séance lourde dans les 48 heures avant : sinon CPK, ASAT et créatinine montent toutes seules.</span></label></li>
+      <li><label><input type="checkbox"><span>Bien hydraté la veille et le matin.</span></label></li>
+      <li><label><input type="checkbox"><span>Prélèvement le matin, entre 7h et 10h (testostérone et cortisol varient dans la journée).</span></label></li>
+      <li><label><input type="checkbox"><span>Même laboratoire et même heure d'une fois sur l'autre, pour comparer ce qui est comparable.</span></label></li>
+      <li><label><input type="checkbox"><span>J'ai noté tout ce que je prends au moment du prélèvement (traitements, compléments, produits) et depuis quand.</span></label></li>
+      <li><label><input type="checkbox"><span>J'ai un calendrier : un bilan de départ, puis un contrôle toutes les 8 à 12 semaines si je change quelque chose.</span></label></li>
+    </ul>
+  </section>
+  <section class="alert">
+    <h2><small>01 · CŒUR ET VAISSEAUX</small>Le vrai danger, celui qu'on ne regarde pas</h2>
+    <p class="why">Le cholestérol total peut être « normal » pendant que tout le reste est dans le rouge. C'était le cas dans la vidéo.</p>
+    <ul class="check">
+      <li><label><input type="checkbox"><span>HDL (le « bon » cholestérol) : celui qui ramène le cholestérol des artères vers le foie.<small class="ref">au-dessus de 0,40 g/L chez l'homme, plus haut = mieux</small></span></label></li>
+      <li><label><input type="checkbox"><span>ApoB : le nombre de particules capables de se loger dans la paroi des artères. Le marqueur le plus parlant.<small class="ref">plus bas = mieux, souvent visé sous 0,90 g/L</small></span></label></li>
+      <li><label><input type="checkbox"><span>ApoA1 : la protéine qui structure le HDL. Elle s'effondre avec lui.</span></label></li>
+      <li><label><input type="checkbox"><span>Cholestérol non-HDL et LDL : tout le cholestérol « à risque ».<small class="ref">non-HDL souvent visé sous 1,30 g/L</small></span></label></li>
+      <li><label><input type="checkbox"><span>Triglycérides.<small class="ref">sous 1,50 g/L</small></span></label></li>
+      <li><label><input type="checkbox"><span>Homocystéine : en excès, elle irrite la paroi des vaisseaux (liée aux vitamines B).<small class="ref">normale sous 15 µmol/L, idéalement plus bas</small></span></label></li>
+      <li><label><input type="checkbox"><span>CRP ultrasensible : l'inflammation qui accélère le processus.<small class="ref">sous 1 mg/L = risque faible, au-dessus de 3 = élevé (hors infection)</small></span></label></li>
+      <li><label><input type="checkbox"><span>Lp(a) : génétique, à doser au moins une fois dans ta vie.<small class="ref">sous 0,50 g/L</small></span></label></li>
+    </ul>
+  </section>
+  <section>
+    <h2><small>02 · REINS ET URINES</small>Les reins s'abîment sans bruit</h2>
+    <p class="why">Avec beaucoup de muscle, la créatinine seule trompe. Les urines, elles, parlent tôt.</p>
+    <ul class="check">
+      <li><label><input type="checkbox"><span>Créatinine et DFG (filtration) : à interpréter avec ta masse musculaire.<small class="ref">DFG au-dessus de 90 mL/min</small></span></label></li>
+      <li><label><input type="checkbox"><span>Cystatine C : à demander si tu es musclé, elle n'est pas faussée par le muscle.</span></label></li>
+      <li><label><input type="checkbox"><span>Rapport albumine / créatinine dans les urines : un signe précoce d'atteinte du filtre rénal.<small class="ref">normal sous 3 mg/mmol</small></span></label></li>
+      <li><label><input type="checkbox"><span>Bandelette ou ECBU : sang dans les urines, même invisible à l'œil nu = contrôle et médecin.</span></label></li>
+    </ul>
+  </section>
+  <section>
+    <h2><small>03 · SANG ET INFLAMMATION</small>La NFS : ton corps sous stress ?</h2>
+    <p class="why">Les globules blancs racontent l'inflammation, l'infection, le manque de sommeil.</p>
+    <ul class="check">
+      <li><label><input type="checkbox"><span>Hématocrite et hémoglobine : le sang trop épais augmente le risque de caillot.<small class="ref">homme : environ 40 à 50 % ; au-dessus de 52 %, ton médecin doit le savoir</small></span></label></li>
+      <li><label><input type="checkbox"><span>Globules blancs, neutrophiles, lymphocytes.</span></label></li>
+      <li><label><input type="checkbox"><span>Rapport neutrophiles / lymphocytes : un marqueur simple de stress inflammatoire.<small class="ref">souvent sous 2 à 3</small></span></label></li>
+      <li><label><input type="checkbox"><span>Plaquettes.<small class="ref">environ 150 à 400 G/L</small></span></label></li>
+    </ul>
+  </section>
+  <section>
+    <h2><small>04 · GLYCÉMIE</small>La glycémie à jeun seule ne suffit pas</h2>
+    <p class="why">Dans la vidéo, la glycémie à jeun était « normale »… et tout le reste dérivait.</p>
+    <ul class="check">
+      <li><label><input type="checkbox"><span>HbA1c : ta glycémie moyenne sur 3 mois.<small class="ref">sous 5,7 % ; de 5,7 à 6,4 % = zone de prédiabète</small></span></label></li>
+      <li><label><input type="checkbox"><span>Glycémie à jeun.<small class="ref">entre 0,70 et 1,00 g/L</small></span></label></li>
+      <li><label><input type="checkbox"><span>Insuline à jeun et indice HOMA : ta sensibilité à l'insuline.<small class="ref">HOMA sous 2, plus bas = mieux</small></span></label></li>
+      <li><label><input type="checkbox"><span>IGF-1 : à doser si tu prends ou envisages de l'hormone de croissance ou des peptides qui la stimulent.<small class="ref">selon ton âge (norme du labo)</small></span></label></li>
+    </ul>
+  </section>
+  <section>
+    <h2><small>05 · HORMONES</small>Plus haut ne veut pas dire en meilleure santé</h2>
+    <p class="why">Une testostérone au plafond dit l'exposition, pas la santé.</p>
+    <ul class="check">
+      <li><label><input type="checkbox"><span>Testostérone totale et libre.</span></label></li>
+      <li><label><input type="checkbox"><span>SHBG : la protéine qui transporte les hormones. Elle s'effondre avec certains produits.</span></label></li>
+      <li><label><input type="checkbox"><span>LH et FSH : les signaux de ton cerveau. Proches de zéro = ta production naturelle (et la fertilité) est à l'arrêt.</span></label></li>
+      <li><label><input type="checkbox"><span>Estradiol.</span></label></li>
+      <li><label><input type="checkbox"><span>Prolactine : à doser surtout avec les produits de la famille de la nandrolone.</span></label></li>
+      <li><label><input type="checkbox"><span>PSA : la prostate. À suivre après 40 ans ou sous androgènes.<small class="ref">selon ton âge</small></span></label></li>
+    </ul>
+  </section>
+  <section>
+    <h2><small>06 · FOIE ET MUSCLES</small>Le foie fait peur à tout le monde</h2>
+    <p class="why">Il est plus résistant qu'on le croit. À surveiller, sans le confondre avec le muscle.</p>
+    <ul class="check">
+      <li><label><input type="checkbox"><span>ALAT, ASAT, GGT, bilirubine.<small class="ref">sous la norme haute du labo ; au-delà de 3 fois la norme = médecin rapidement</small></span></label></li>
+      <li><label><input type="checkbox"><span>CPK : enzyme musculaire. Elle monte après l'entraînement et avec beaucoup de muscle.</span></label></li>
+      <li><label><input type="checkbox"><span>ASAT et CPK hautes ensemble après une grosse séance ? Je refais le contrôle après 48 à 72 heures sans entraînement avant de conclure.</span></label></li>
+    </ul>
+  </section>
+  <section>
+    <h2><small>07 · THYROÏDE ET STRESS</small>Fatigue, sommeil, humeur : ça se mesure aussi</h2>
+    <p class="why">Le mental et le sommeil font partie du bilan.</p>
+    <ul class="check">
+      <li><label><input type="checkbox"><span>TSH, T4 libre, T3 libre.<small class="ref">TSH environ 0,4 à 4 mUI/L</small></span></label></li>
+      <li><label><input type="checkbox"><span>Cortisol du matin : un système de stress qui surréagit.</span></label></li>
+      <li><label><input type="checkbox"><span>J'ai noté mes ressentis : sommeil, énergie, humeur, anxiété, douleurs.</span></label></li>
+    </ul>
+  </section>
+  <section>
+    <h2><small>08 · MICRONUTRITION</small>Le toit sans les murs</h2>
+    <p class="why">Des molécules avancées, et les bases oubliées. C'est le plus facile à corriger.</p>
+    <ul class="check">
+      <li><label><input type="checkbox"><span>Vitamine D.<small class="ref">entre 30 et 60 ng/mL</small></span></label></li>
+      <li><label><input type="checkbox"><span>Ferritine, fer sérique et saturation de la transferrine.<small class="ref">saturation entre 20 et 45 %</small></span></label></li>
+      <li><label><input type="checkbox"><span>Vitamine B12 et folates (liés à l'homocystéine).</span></label></li>
+      <li><label><input type="checkbox"><span>Zinc et magnésium.</span></label></li>
+      <li><label><input type="checkbox"><span>Index oméga-3 (test spécifique).<small class="ref">souvent visé au-dessus de 8 %</small></span></label></li>
+    </ul>
+  </section>
+  <section>
+    <h2><small>09 · HORS PRISE DE SANG</small>Ce que le bilan ne montre pas</h2>
+    <p class="why">Un tensiomètre coûte moins cher qu'un seul flacon.</p>
+    <ul class="check">
+      <li><label><input type="checkbox"><span>Tension artérielle prise à la maison, plusieurs jours de suite.<small class="ref">sous 135/85 à la maison</small></span></label></li>
+      <li><label><input type="checkbox"><span>Électrocardiogramme et échographie du cœur, surtout avec des antécédents familiaux ou sous produits.</span></label></li>
+      <li><label><input type="checkbox"><span>Spermogramme avant de commencer quoi que ce soit, si tu veux des enfants un jour.</span></label></li>
+      <li><label><input type="checkbox"><span>Poids et tour de taille du matin, pour relier ton bilan à ton physique.</span></label></li>
+    </ul>
+  </section>
+  <section>
+    <h2><small>10 · COMMENT INTERPRÉTER</small>8 règles pour lire ton bilan</h2>
+    <ul class="plain">
+      <li><b>Une valeur isolée n'est pas un diagnostic.</b> On regarde l'ensemble et la tendance.</li>
+      <li><b>Compare-toi à toi-même.</b> Ton bilan de départ est ta meilleure référence.</li>
+      <li><b>« Dans la norme » ≠ optimal.</b> Les plages « optimales » sont plus strictes que les normes du labo. Un écart avec l'optimal n'est pas une maladie.</li>
+      <li><b>Lis toujours le cœur en premier :</b> HDL, ApoB, tension. Pas seulement le cholestérol total.</li>
+      <li><b>Le muscle fausse certaines valeurs :</b> créatinine, CPK, ASAT. D'où la cystatine C et le repos avant la prise de sang.</li>
+      <li><b>Si tu cumules plusieurs produits,</b> tu ne sauras pas lequel est responsable. On change une chose à la fois.</li>
+      <li><b>Un marqueur hors norme = un plan :</b> on arrête ce qui peut être en cause, on en parle au médecin, on recontrôle à date fixe.</li>
+      <li><b>Urgence ?</b> Douleur dans la poitrine, essoufflement inhabituel, urines foncées ou sang visible, jaunisse : 15 ou 112, tout de suite. Pas un coach.</li>
+    </ul>
+  </section>
+  <section>
+    <h2><small>11 · TON SCORE</small>Combien de cases cochées ?</h2>
+    <ul class="check">
+      <li><span><b>40 et plus</b> : ton bilan est complet. Le prochain levier, c'est de le faire lire et de suivre la tendance.</span></li>
+      <li><span><b>25 à 39</b> : la base est là, mais il te manque des marqueurs qui peuvent cacher l'essentiel.</span></li>
+      <li><span><b>Moins de 25</b> : tu avances à l'aveugle, comme Alex dans la vidéo avant son bilan.</span></li>
+    </ul>
+  </section>
+
+  <div class="cta noprint">
+    <h2>Tu veux que j'analyse TON bilan ?</h2>
+    <p>On lit ton bilan ligne par ligne, on fixe les priorités et on construit la suite avec ton médecin dans la boucle. Réserve ton appel : on regarde ensemble ta situation, et si je peux t'aider.</p>
+    <a class="btn" href="https://pierregourdonpro-lab.github.io/">Réserver mon appel</a>
+  </div>
+  <p class="muted">Contenu éducatif, réservé aux adultes (18+). Les repères sont indicatifs : la norme de ton laboratoire fait foi et elle varie selon l'âge, le sexe et la méthode. Pierre Gourdon n'est pas médecin : un résultat anormal se discute avec ton médecin. « Alex » est un prénom modifié.</p>
+</main>
+<script>try{if(/[?&]ok=1/.test(location.search))document.getElementById('ok').classList.add('show');var k='pg_bilan_cl';var b=document.querySelectorAll('ul.check input');var s=[];try{s=JSON.parse(localStorage.getItem(k)||'[]')}catch(e){}b.forEach(function(x,i){if(s[i])x.checked=true;x.addEventListener('change',function(){var v=[];b.forEach(function(y){v.push(y.checked)});try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}})})}catch(e){}</script>
+</body>
+</html>

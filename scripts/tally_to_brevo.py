@@ -2,7 +2,7 @@
 import json, os, re, sys, urllib.request, urllib.error
 from datetime import datetime, timedelta, timezone
 
-FORMS = ["QooEAY", "OQlrZ8"]  # Molécules décodées, Checklist Thomas
+FORMS = ["QooEAY", "OQlrZ8", "PRzEv0"]  # Molécules décodées, Checklist Thomas, Checklist bilan sanguin
 if not all(os.environ.get(k) for k in ("TALLY_API_KEY", "BREVO_API_KEY", "BREVO_LIST_ID")):
     print("Secrets manquants : rien à faire.")
     sys.exit(0)
