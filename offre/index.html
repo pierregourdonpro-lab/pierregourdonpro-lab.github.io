@@ -35,6 +35,7 @@ p { margin: 0 0 1rem; }
 .muted { color: var(--muted); }
 .gold { color: var(--gold-hi); }
 .valstack table{width:100%;border-collapse:collapse;font-size:.95rem}
+.valstack tr.grp td{color:var(--gold,#C9A45C);font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;padding-top:1rem}
 .valstack td{padding:.45rem .2rem;border-bottom:1px solid var(--line)}
 .valstack td:last-child{text-align:right;white-space:nowrap;text-decoration:line-through;opacity:.75}
 .valstack tr.tot td{font-weight:700;border-bottom:0;padding-top:.8rem}
@@ -263,14 +264,14 @@ body.show-notes .notes { display: block; }
   </div>
   <div class="grid two" style="margin-top:1rem">
     <div class="card"><span class="who" style="font-family:var(--display);font-weight:600">Edgar · 36 ans</span><p>Infirmier et investisseur, deux boulots, papa.</p><span class="big" style="font-family:var(--display);font-weight:600;font-size:1.3rem;color:var(--gold-hi);display:block;margin:.4rem 0">−12 kg, muscle gardé · Hyrox 1h15 → 1h09</span></div>
-    <div class="card"><span class="who" style="font-family:var(--display);font-weight:600">Jean-François · 51 ans</span><p>Deux tailles en moins, force doublée.</p><span class="big" style="font-family:var(--display);font-weight:600;font-size:1.3rem;color:var(--gold-hi);display:block;margin:.4rem 0">86,7 → 80,9 kg · « une fatigue qui a disparu »</span></div>
+    <div class="card"><span class="who" style="font-family:var(--display);font-weight:600">Jean-François · 51 ans</span><p>Deux tailles en moins, force doublée.</p><span class="big" style="font-family:var(--display);font-weight:600;font-size:1.3rem;color:var(--gold-hi);display:block;margin:.4rem 0">88 → 80 kg · « une fatigue qui a disparu »</span></div>
   </div>
   <p class="muted" style="margin:1.4rem 0 0">Ce que tu sens en premier, souvent avant la balance :</p>
   <div class="signals"><span class="chip on">Énergie</span><span class="chip on">Sommeil</span><span class="chip on">Récupération</span><span class="chip on">Humeur</span><span class="chip">Le miroir</span><span class="chip">La balance</span></div>
   <aside class="notes"><b>Script (≈ 1 min 30)</b><br>
   « Il y a les coachs classiques : entraînement, nutrition, mais pas le biohacking. Il y a les coachs produits et les préparateurs : eux, c'est le bodybuilding.<br>
   Moi, j'accompagne des gens de tous les jours : des entrepreneurs, des cadres, des gens avec une vie de famille et peu de temps. Je travaille tous les aspects de la transformation, avec une vraie expertise du biohacking. Avec moi, rien n'est laissé au hasard.<br>
-  Deux exemples. Edgar, 36 ans, infirmier et investisseur, deux boulots, papa : moins 12 kilos en gardant son muscle, et son Hyrox de 1h15 à 1h09. Jean-François, 51 ans : de 86,7 à 80,9 kilos, deux tailles en moins, et il te dirait lui-même que sa fatigue a disparu.<br>
+  Deux exemples. Edgar, 36 ans, infirmier et investisseur, deux boulots, papa : moins 12 kilos en gardant son muscle, et son Hyrox de 1h15 à 1h09. Jean-François, 51 ans : de 88 à 80 kilos, deux tailles en moins, et il te dirait lui-même que sa fatigue a disparu.<br>
   Et ce que mes clients sentent en premier, souvent avant la balance : l'énergie, le sommeil, la récup, l'humeur. »<br>
   → « Et comme je travaille au résultat, je m'engage dessus. »</aside>
 </div>
@@ -289,30 +290,38 @@ body.show-notes .notes { display: block; }
   </div>
   <p class="muted" style="margin:2rem 0 0">Tout ce que tu as :</p>
   <div class="recap">
-    <span class="chip on">Stratégie et plans sur mesure</span><span class="chip on">Bilan chaque semaine + ajustements</span><span class="chip on">WhatsApp 7 j/7</span><span class="chip on">Visios illimitées dès que c'est utile</span><span class="chip">Espace privé, tracker, protocole à jour</span><span class="chip">Près de 50 fiches + près de 200 fiches molécules</span><span class="chip">Accès à vie</span><span class="chip">Plan d'autonomie à la fin</span>
+    <span class="chip on">16+ documents construits pour toi</span><span class="chip on">Stratégie et plans sur mesure</span><span class="chip on">Bilan chaque semaine + ajustements</span><span class="chip on">WhatsApp 7 j/7</span><span class="chip on">Visios illimitées dès que c'est utile</span><span class="chip">Espace privé, tracker, protocole à jour</span><span class="chip">Près de 50 fiches + près de 200 fiches molécules</span><span class="chip">Accès à vie</span><span class="chip">Plan d'autonomie à la fin</span>
   </div>
   <div class="valstack">
     <p class="muted" style="margin:2rem 0 .6rem">Ce que représente ce travail, élément par élément :</p>
     <table>
-      <tr><td>Analyse complète de ton dossier (questionnaire, bilans, historique)</td><td>3 000 €</td></tr>
-      <tr><td>Visio d'onboarding + stratégie construite sur toi</td><td>7 500 €</td></tr>
-      <tr><td>Plans sur mesure, mis à jour à chaque étape</td><td>9 000 €</td></tr>
-      <tr><td>Suivi direct avec moi sur WhatsApp, réponse en général dans la journée</td><td>15 000 €</td></tr>
-      <tr><td>Ton bilan chaque semaine, lu et ajusté</td><td>7 800 €</td></tr>
-      <tr><td>Visios dès que c'est utile</td><td>5 000 €</td></tr>
-      <tr><td>Lecture de chacun de tes bilans sanguins</td><td>2 500 €</td></tr>
-      <tr><td>Checklist bilan sanguin (48 points) + liste pour ton médecin</td><td>1 500 €</td></tr>
-      <tr><td>Tracker PG (journal, mesures, graphiques)</td><td>6 000 €</td></tr>
-      <tr><td>Espace personnel à vie + protocole toujours à jour</td><td>2 000 €</td></tr>
-      <tr><td>Bibliothèque PG + Molécules décodées</td><td>2 000 €</td></tr>
-      <tr><td>Plan d'autonomie pour la suite</td><td>1 500 €</td></tr>
-      <tr class="tot"><td>Valeur estimée du travail sur ton dossier</td><td>62 800 €</td></tr>
+      <tr class="grp"><td colspan="2">Fait pour toi</td></tr>
+      <tr><td>Analyse complète de ton dossier de départ (questionnaire, photos, bilans, historique)</td><td>2 500 €</td></tr>
+      <tr><td>Visio d'onboarding + stratégie écrite sur les 5 piliers</td><td>5 000 €</td></tr>
+      <tr><td>6 plans sur mesure, mis à jour à chaque étape (entraînement, nutrition, repas et courses, récupération, supplémentation, restaurant et voyages)</td><td>6 000 €</td></tr>
+      <tr><td>Arbitrage biohacking : ce qui a sa place ou non dans ta stratégie, quand, et quand on arrête</td><td>6 000 €</td></tr>
+      <tr class="grp"><td colspan="2">Avec moi, chaque semaine</td></tr>
+      <tr><td>Ton bilan chaque semaine, lu par moi, retour écrit et ajustements</td><td>6 500 €</td></tr>
+      <tr><td>WhatsApp direct avec moi 7 j/7, réponse en général dans la journée</td><td>9 000 €</td></tr>
+      <tr><td>Visios illimitées, dès que c'est utile</td><td>3 500 €</td></tr>
+      <tr><td>Lecture de chacun de tes bilans sanguins</td><td>2 400 €</td></tr>
+      <tr><td>Compte rendu écrit après chaque visio</td><td>1 200 €</td></tr>
+      <tr><td>Garantie : je continue sans surcoût si ton objectif n'est pas atteint</td><td>3 000 €</td></tr>
+      <tr class="grp"><td colspan="2">Tes outils, à vie</td></tr>
+      <tr><td>Sortie accompagnée + plan d'autonomie écrit</td><td>2 000 €</td></tr>
+      <tr><td>Espace personnel à vie + ton protocole toujours à jour</td><td>1 500 €</td></tr>
+      <tr><td>Tracker PG (journal en 30 secondes, mesures, graphiques)</td><td>600 €</td></tr>
+      <tr><td>Bibliothèque PG, près de 50 fiches</td><td>1 000 €</td></tr>
+      <tr><td>Checklist bilan sanguin + liste pour ton médecin</td><td>Inclus</td></tr>
+      <tr><td>Molécules décodées, près de 200 fiches</td><td>Inclus</td></tr>
+      <tr><td>PG Protocol IA · PG Academy</td><td>À venir, offerts</td></tr>
+      <tr class="tot"><td>Valeur estimée du travail sur ton dossier</td><td>50 200 €</td></tr>
     </table>
     <p class="muted" style="margin:.6rem 0 0;font-size:.85rem">Valeurs estimées, ces éléments ne sont pas vendus séparément. Aucun produit n'est vendu : tu paies la stratégie, le suivi et la sécurité.</p>
   </div>
   <aside class="notes"><b>Script (≈ 1 min)</b><br>
   « On écrit ton objectif dans ton contrat : <b>[Y, date]</b>. Si à la fin de l'accompagnement on n'y est pas, alors que tu as fait ta part (tes bilans envoyés, le plan appliqué, tes bilans sanguins faits), je continue à t'accompagner sans surcoût jusqu'à ce qu'on y soit.<br>
-  Je te montre ce que ça représente, élément par élément [faire défiler le tableau] : plus de 60 000 € de travail sur ton dossier. Et je le redis clairement : aucun produit n'est vendu, tu paies la stratégie, le suivi et la sécurité.<br>Pour résumer, tu as : une stratégie et des plans faits pour toi, un bilan chaque semaine avec mes ajustements, WhatsApp avec moi 7 jours sur 7, des visios dès que c'est utile, ton espace avec tout dedans, à vie, et un plan d'autonomie à la fin pour garder tes résultats. »<br>
+  Je te montre ce que ça représente, élément par élément [faire défiler le tableau] : plus de 50 000 € de travail sur ton dossier. Et je le redis clairement : aucun produit n'est vendu, tu paies la stratégie, le suivi et la sécurité.<br>Pour résumer, tu as : une stratégie et des plans faits pour toi, un bilan chaque semaine avec mes ajustements, WhatsApp avec moi 7 jours sur 7, des visios dès que c'est utile, ton espace avec tout dedans, à vie, et un plan d'autonomie à la fin pour garder tes résultats. »<br>
   <b>Puis 2 questions, et tu attends les réponses :</b><br>
   « Est-ce que tu vois comment ça t'amène à <b>[Y]</b> ? » → « Tu veux que je te montre l'investissement ? »</aside>
 </div>
@@ -328,6 +337,7 @@ body.show-notes .notes { display: block; }
       <div class="price main tier">
         <span class="eyebrow">L'accompagnement complet · 6 mois</span>
         <span class="amount">5 000 € <small>en une fois</small></span>
+        <p class="muted" style="margin:.3rem 0 0">L'équivalent de plus de 50 000 € de travail sur ton dossier.</p>
         <ul><li>Suivi complet, ajustements à chaque étape, visios dès que c'est utile</li><li>Garantie : je t'accompagne jusqu'à ton objectif écrit au contrat</li><li>Espace client, tracker et ressources à vie</li></ul>
         <a class="pay" href="https://buy.stripe.com/aFa8wQ89c2kN2U40nVgYU2q" target="_blank" rel="noopener">Je démarre · 5 000 €</a>
         <button class="more" type="button" data-show="t2">Voir le paiement en plusieurs fois</button>
