@@ -35,22 +35,34 @@ ul { padding-left: 1.2rem; color: var(--muted); } li { margin-bottom: .5rem; }
 a { color: var(--gold); }
 .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr)); gap:.5rem; margin:1.4rem 0 0; padding:0; list-style:none; }
 .grid li { background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:.6rem .8rem; font-size:.92rem; color:var(--fg); margin:0; }
-.form { background:var(--surface); border:1px solid var(--gold); border-radius:18px; padding:1.2rem 1rem .6rem; margin:2rem 0 1rem; }
+.form { margin-top:1rem !important; background:var(--surface); border:1px solid var(--gold); border-radius:18px; padding:1.2rem 1rem .6rem; margin:2rem 0 1rem; }
 .form iframe { width:100%; border:0; min-height:330px; }
+
+.sub { color: var(--muted); font-size: 1.08rem; margin: 0 0 1.4rem; }
+.hero { display:block; border-radius:14px; overflow:hidden; border:1px solid var(--line); margin:0 0 .4rem; position:relative; }
+.hero img { display:block; width:100%; height:auto; }
+.hero .play { position:absolute; inset:auto auto .8rem .8rem; background:rgba(14,13,11,.85); color:var(--gold); font-family:"IBM Plex Mono",monospace; font-size:.8rem; padding:.35rem .7rem; border-radius:999px; }
+.cap { color: var(--muted); font-size:.85rem; margin:.2rem 0 0; }
+.why { color: var(--fg); font-weight:500; margin:1.6rem 0 0; }
+.obj { list-style:none; padding:0; margin:1.6rem 0 0; color:var(--fg); }
+.obj li { position:relative; padding-left:1.7rem; margin:0 0 .7rem; }
+.obj li::before { content:"✓"; position:absolute; left:0; color:var(--gold); font-weight:700; }
+.obj b { color:var(--fg); }
 </style>
 </head>
 <body>
 <main class="wrap">
-  <span class="eyebrow">Gratuit · étude de cas Thomas</span>
-  <h1>La checklist de Thomas. <span>31 points à cocher.</span></h1>
-  <p>Thomas s'entraînait 12 fois par semaine sans progresser. En 3 mois et demi, il est passé de 83,5 à 97,4 kg avec seulement 3,5 cm de plus au tour de taille. Voici exactement ce qu'on a mis en place, transformé en checklist.</p>
-  <ul class="grid">
-    <li>Ton point de départ</li><li>Construire avant de sécher</li><li>Entraînement</li><li>Nutrition</li><li>Récupération</li><li>Compléments</li><li>Pilotage par la data</li><li>Ton score</li>
-  </ul>
+  <span class="eyebrow">Gratuit · étude de cas</span>
+  <h1>+13,9 kg en 3 mois et demi. <span>Coche les 31 points qui l'ont permis.</span></h1>
+  <p class="sub">Thomas s'entraînait 12 fois par semaine sans progresser. Voici tout ce qu'on a mis en place, en checklist à cocher : en 10 minutes, tu vois ce qui te bloque.</p>
+  <a class="hero" href="https://youtu.be/zp6zrBKKp6A" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/zp6zrBKKp6A/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/zp6zrBKKp6A/hqdefault.jpg'" width="1280" height="720" alt="Étude de cas Thomas : de 83,5 à 97,4 kg" loading="eager" decoding="async"><span class="play">▶ Voir la vidéo</span></a>
+  <p class="cap">83,5 → 97,4 kg, seulement 3,5 cm de plus au tour de taille.</p>
+  <p class="why">Tu reçois la checklist tout de suite, avec ton score sur 31.</p>
   <div class="form" id="acces">
     <iframe data-tally-src="https://tally.so/embed/OQlrZ8?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&source=page" loading="lazy" title="Recevoir la checklist de Thomas"></iframe>
   </div>
   <p class="muted" style="margin-top:.5rem">Le formulaire ne s'affiche pas ? <a href="https://tally.so/r/OQlrZ8?source=page">Ouvre-le ici</a>. Tu accèdes à la checklist tout de suite, et tu la reçois aussi par e-mail.</p>
+  <ul class="obj"><li><b>Gratuit, accès immédiat.</b> Pas de carte bancaire, pas de piège.</li><li><b>Applicable à ton cas.</b> Chaque point te dit quoi vérifier chez toi, que tu sois en prise de masse ou en sèche.</li><li><b>Pas de spam.</b> Tu reçois ton lien, et tu te désinscris en un clic quand tu veux.</li></ul>
   <p class="muted">Contenu éducatif, réservé aux adultes (18+). Pierre Gourdon n'est pas médecin : parle de ta santé avec ton médecin. « Thomas » est un prénom modifié. Tes données servent uniquement à t'envoyer la checklist et à te recontacter par e-mail ou WhatsApp, désinscription à tout moment.</p>
 </main>
 <script src="https://tally.so/widgets/embed.js"></script>

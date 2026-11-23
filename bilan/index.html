@@ -35,22 +35,34 @@ ul { padding-left: 1.2rem; color: var(--muted); } li { margin-bottom: .5rem; }
 a { color: var(--gold); }
 .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr)); gap:.5rem; margin:1.4rem 0 0; padding:0; list-style:none; }
 .grid li { background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:.6rem .8rem; font-size:.92rem; color:var(--fg); margin:0; }
-.form { background:var(--surface); border:1px solid var(--gold); border-radius:18px; padding:1.2rem 1rem .6rem; margin:2rem 0 1rem; }
+.form { margin-top:1rem !important; background:var(--surface); border:1px solid var(--gold); border-radius:18px; padding:1.2rem 1rem .6rem; margin:2rem 0 1rem; }
 .form iframe { width:100%; border:0; min-height:330px; }
+
+.sub { color: var(--muted); font-size: 1.08rem; margin: 0 0 1.4rem; }
+.hero { display:block; border-radius:14px; overflow:hidden; border:1px solid var(--line); margin:0 0 .4rem; position:relative; }
+.hero img { display:block; width:100%; height:auto; }
+.hero .play { position:absolute; inset:auto auto .8rem .8rem; background:rgba(14,13,11,.85); color:var(--gold); font-family:"IBM Plex Mono",monospace; font-size:.8rem; padding:.35rem .7rem; border-radius:999px; }
+.cap { color: var(--muted); font-size:.85rem; margin:.2rem 0 0; }
+.why { color: var(--fg); font-weight:500; margin:1.6rem 0 0; }
+.obj { list-style:none; padding:0; margin:1.6rem 0 0; color:var(--fg); }
+.obj li { position:relative; padding-left:1.7rem; margin:0 0 .7rem; }
+.obj li::before { content:"✓"; position:absolute; left:0; color:var(--gold); font-weight:700; }
+.obj b { color:var(--fg); }
 </style>
 </head>
 <body>
 <main class="wrap">
   <span class="eyebrow">Gratuit · checklist bilan sanguin</span>
-  <h1>Ton bilan sanguin. <span>Les valeurs qui comptent vraiment.</span></h1>
-  <p>99 kg, 11 % de masse grasse, un physique de rêve… et 41 marqueurs hors des plages optimales. Le plus préoccupant n'était pas le foie. Voici la checklist que j'utilise pour lire un bilan : quoi demander, quoi regarder en premier, et comment ne pas se faire piéger par une valeur « dans la norme ». <a href="https://linktw.in/kwagkb" target="_blank" rel="noopener">▶ Voir la vidéo</a></p>
-  <ul class="grid">
-    <li>Préparer ta prise de sang</li><li>Cœur et vaisseaux</li><li>Reins et urines</li><li>Sang et inflammation</li><li>Glycémie</li><li>Hormones</li><li>Foie et muscles</li><li>Thyroïde et stress</li><li>Micronutrition</li><li>Hors prise de sang</li><li>Comment interpréter</li><li>Ton score</li>
-  </ul>
+  <h1>Un physique de rêve peut cacher 41 marqueurs hors norme. <span>Vérifie les tiens.</span></h1>
+  <p class="sub">La checklist que j'utilise pour lire les bilans de mes clients : quoi demander au labo, quoi regarder en premier, et comment ne pas te faire piéger par une valeur « dans la norme ».</p>
+  <a class="hero" href="https://youtu.be/qiKH8BJspGc" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/qiKH8BJspGc/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/qiKH8BJspGc/hqdefault.jpg'" width="1280" height="720" alt="J'analyse les 147 marqueurs sanguins d'un utilisateur d'anabolisants" loading="eager" decoding="async"><span class="play">▶ Voir la vidéo</span></a>
+  <p class="cap">99 kg, 11 % de masse grasse… et le plus préoccupant n'était pas le foie.</p>
+  <p class="why">Tu reçois la checklist tout de suite : 48 points à cocher, avec ton score.</p>
   <div class="form" id="acces">
     <iframe data-tally-src="https://tally.so/embed/PRzEv0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&source=page" loading="lazy" title="Recevoir la checklist bilan sanguin"></iframe>
   </div>
   <p class="muted" style="margin-top:.5rem">Le formulaire ne s'affiche pas ? <a href="https://tally.so/r/PRzEv0?source=page">Ouvre-le ici</a>. Tu accèdes à la checklist tout de suite, et tu la reçois aussi par e-mail.</p>
+  <ul class="obj"><li><b>Gratuit, accès immédiat.</b> Pas de carte bancaire, pas de piège.</li><li><b>Pas besoin d'y connaître quoi que ce soit.</b> Chaque marqueur est expliqué simplement, avec ce qu'il faut surveiller.</li><li><b>Pas de spam.</b> Tu reçois ton lien, et tu te désinscris en un clic quand tu veux.</li></ul>
   <p class="muted">Contenu éducatif, réservé aux adultes (18+). Pierre Gourdon n'est pas médecin : un résultat anormal se discute avec ton médecin. Tes données servent uniquement à t'envoyer la checklist et à te recontacter par e-mail ou WhatsApp, désinscription à tout moment.</p>
 </main>
 <script src="https://tally.so/widgets/embed.js"></script>

@@ -35,22 +35,34 @@ ul { padding-left: 1.2rem; color: var(--muted); } li { margin-bottom: .5rem; }
 a { color: var(--gold); }
 .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr)); gap:.5rem; margin:1.4rem 0 0; padding:0; list-style:none; }
 .grid li { background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:.6rem .8rem; font-size:.92rem; color:var(--fg); margin:0; }
-.form { background:var(--surface); border:1px solid var(--gold); border-radius:18px; padding:1.2rem 1rem .6rem; margin:2rem 0 1rem; }
+.form { margin-top:1rem !important; background:var(--surface); border:1px solid var(--gold); border-radius:18px; padding:1.2rem 1rem .6rem; margin:2rem 0 1rem; }
 .form iframe { width:100%; border:0; min-height:330px; }
+
+.sub { color: var(--muted); font-size: 1.08rem; margin: 0 0 1.4rem; }
+.hero { display:block; border-radius:14px; overflow:hidden; border:1px solid var(--line); margin:0 0 .4rem; position:relative; }
+.hero img { display:block; width:100%; height:auto; }
+.hero .play { position:absolute; inset:auto auto .8rem .8rem; background:rgba(14,13,11,.85); color:var(--gold); font-family:"IBM Plex Mono",monospace; font-size:.8rem; padding:.35rem .7rem; border-radius:999px; }
+.cap { color: var(--muted); font-size:.85rem; margin:.2rem 0 0; }
+.why { color: var(--fg); font-weight:500; margin:1.6rem 0 0; }
+.obj { list-style:none; padding:0; margin:1.6rem 0 0; color:var(--fg); }
+.obj li { position:relative; padding-left:1.7rem; margin:0 0 .7rem; }
+.obj li::before { content:"✓"; position:absolute; left:0; color:var(--gold); font-weight:700; }
+.obj b { color:var(--fg); }
 </style>
 </head>
 <body>
 <main class="wrap">
   <span class="eyebrow">Gratuit · accès immédiat</span>
-  <h1>Molécules décodées. <span>Près de 200 fiches.</span></h1>
-  <p>Ce que chaque molécule fait vraiment, ses bénéfices, ses risques et le suivi à faire. Basé sur les études et sur le terrain. Sans morale.</p>
-  <ul class="grid">
-    <li>SARMs</li><li>Stéroïdes</li><li>Hormones</li><li>Peptides</li><li>GLP-1 et perte de gras</li><li>Nootropiques</li><li>Ancillaires</li><li>Protection foie et cœur</li><li>Compléments</li>
-  </ul>
+  <h1>Sache ce qu'une molécule fait vraiment, <span>avant de la prendre.</span></h1>
+  <p class="sub">Près de 200 fiches : bénéfices, risques et suivi à faire. Basées sur les études et sur le terrain. Sans morale, sans dose, sans vendeur.</p>
+  <span class="hero"><img src="hero.jpg" width="1172" height="475" alt="Exemples de fiches Molécules décodées" decoding="async"></span>
+  <p class="cap">SARMs, stéroïdes, hormones, peptides, GLP-1, nootropiques, compléments.</p>
+  <p class="why">Tu reçois ton accès par e-mail, tout de suite.</p>
   <div class="form" id="acces">
     <iframe data-tally-src="https://tally.so/embed/QooEAY?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" title="Recevoir l'accès à Molécules décodées"></iframe>
   </div>
   <p class="muted" style="margin-top:.5rem">Le formulaire ne s'affiche pas ? <a href="https://tally.so/r/QooEAY">Ouvre-le ici</a>. Tu reçois le lien par e-mail et tu y accèdes tout de suite après.</p>
+  <ul class="obj"><li><b>Gratuit, accès immédiat.</b> Pas de carte bancaire, pas de piège.</li><li><b>Neutre.</b> Bénéfices et risques à égalité, sans discours moralisateur ni promesse miracle.</li><li><b>Pas de spam.</b> Tu reçois ton lien, et tu te désinscris en un clic quand tu veux.</li></ul>
   <p class="muted">Contenu éducatif, réservé aux adultes (18+). Pierre Gourdon n'est pas médecin : parle de ta santé avec ton médecin. Tes données servent uniquement à t'envoyer l'accès et les e-mails du PG Protocol, désinscription en 1 clic.</p>
 </main>
 <script src="https://tally.so/widgets/embed.js"></script>
