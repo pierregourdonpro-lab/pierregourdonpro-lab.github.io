@@ -51,14 +51,14 @@ footer { margin-top: 3rem; font-size: .85rem; color: var(--muted); }
 
   <ol class="steps">
     <li class="now">
-      <h2>Remplis ton questionnaire d'onboarding</h2>
+      <h2 id="formTitle">Remplis ton questionnaire d'onboarding</h2>
       <p class="muted">Ton corps, ton histoire, ta santé, ton quotidien, ton objectif. Tu peux t'arrêter et reprendre plus tard. Prépare tes derniers résultats d'analyses (PDF) et 4 photos (face, profils, dos) : tu pourras les joindre directement.</p>
       <a class="btn" id="formBtn" href="#">Je remplis mon questionnaire →</a>
       <p class="note" id="formNote">45 à 60 min · confidentiel · lu par Pierre uniquement</p>
     </li>
     <li>
-      <h2>Reçois l'accès à ton espace PG Protocol</h2>
-      <p class="muted">Ton espace personnel se prépare en ce moment. Tu reçois une invitation Notion par e-mail (expéditeur : Notion) dans les 24 h. Pense à regarder tes spams. Tu y trouveras <span id="spaceContent">ta feuille de route, tes documents, ton tracker et la bibliothèque PG Protocol</span>.</p>
+      <h2 id="step2Title">Reçois l'accès à ton espace PG Protocol</h2>
+      <p class="muted" id="step2Text">Ton espace personnel se prépare en ce moment. Tu reçois une invitation Notion par e-mail (expéditeur : Notion) dans les 24 h. Pense à regarder tes spams. Tu y trouveras <span id="spaceContent">ta feuille de route, tes documents, ton tracker et la bibliothèque PG Protocol</span>.</p>
     </li>
     <li>
       <h2 id="step3Title">Ta stratégie, puis ta visio</h2>
@@ -81,7 +81,8 @@ footer { margin-top: 3rem; font-size: .85rem; color: var(--muted); }
   var copy = {
     audit: { t: 'Ton Audit démarre.', s3t: 'Ta visio d\'onboarding, puis ta stratégie', s3: "Dès que ton dossier est complet, on cale ta visio d'onboarding (45 min) pour approfondir ton questionnaire. Ta stratégie écrite et ta feuille de route arrivent dans ton espace quelques jours après. Ensuite, tu as 30 jours pour me poser tes questions par écrit sur WhatsApp, et j'ajuste ton plan si besoin.", sp: 'ta stratégie, ta feuille de route, ton tracker et la bibliothèque PG Protocol (accès 30 jours après la livraison de ta stratégie)' },
     essentiel: { t: 'Ton accompagnement démarre.', s3t: 'Ta visio de lancement', s3: "Dès que ton dossier est complet, je l'analyse en détail et on cale ta visio de lancement. Tu repars avec ta stratégie complète, puis on avance ensemble semaine après semaine.", sp: 'ta feuille de route, tes documents, ton tracker et toute la bibliothèque PG Protocol' },
-    standard: { t: 'Ton accompagnement démarre.', s3t: 'Ta visio de lancement', s3: "Dès que ton dossier est complet, je l'analyse en détail et on cale ta visio de lancement. Tu repars avec ta stratégie complète, puis on avance ensemble semaine après semaine, jusqu'à ton objectif.", sp: 'ta feuille de route, tes documents, ton tracker et toute la bibliothèque PG Protocol' }
+    standard: { t: 'Ton accompagnement démarre.', s3t: 'Ta visio de lancement', s3: "Dès que ton dossier est complet, je l'analyse en détail et on cale ta visio de lancement. Tu repars avec ta stratégie complète, puis on avance ensemble semaine après semaine, jusqu'à ton objectif.", sp: 'ta feuille de route, tes documents, ton tracker et toute la bibliothèque PG Protocol' },
+    continuite: { t: 'Ta Continuité démarre.', s3t: 'Ta stratégie de la phase suivante', s3: "Dès que ton questionnaire est rempli, je prépare ta stratégie pour la phase qui arrive (plans, repères, ce qu'il faut prévoir). Tu la retrouves dans ton espace, et on en parle en visio si c'est utile.", sp: 'ta nouvelle stratégie, tes plans mis à jour, ton tracker et la bibliothèque PG Protocol', h1: 'Remplis ton questionnaire de Continuité', n: '20 à 30 min · confidentiel · lu par Pierre uniquement', s2t: 'Ton espace PG Protocol est mis à jour', s2: "Tu gardes ton espace actuel : je le mets à jour avec ta nouvelle phase dès que ta stratégie est prête.", tally: 'https://tally.so/r/7Xq6XZ' }
   };
   var c = copy[offre];
   if (c) {
@@ -89,6 +90,10 @@ footer { margin-top: 3rem; font-size: .85rem; color: var(--muted); }
     document.getElementById('step3Title').textContent = c.s3t;
     document.getElementById('step3Text').textContent = c.s3;
     document.getElementById('spaceContent').textContent = c.sp;
+    if (c.h1) document.getElementById('formTitle').textContent = c.h1;
+    if (c.n) document.getElementById('formNote').textContent = c.n;
+    if (c.s2t) { document.getElementById('step2Title').textContent = c.s2t; document.getElementById('step2Text').textContent = c.s2; }
+    if (c.tally) TALLY_URL = c.tally;
   }
   if (/^(1|oui|true)$/i.test(q.get('acompte') || '')) {
     document.getElementById('eyebrow').textContent = 'Acompte confirmé';
