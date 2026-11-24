@@ -362,6 +362,51 @@ footer p { color: #A0978A; }
 .yt:hover .yt-play,.yt:focus-visible .yt-play{transform:scale(1.08)}
 .yt-lbl{position:absolute;left:14px;bottom:12px;z-index:1;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#fff}
 .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:2}
+/* Résultats clients + santé (repris de la page de vente, 24/11) */
+.results { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; margin-top: 2rem; align-items: start; }
+@media (max-width: 760px) { .results { grid-template-columns: 1fr; } }
+.card { background: var(--surface); border: 1px solid var(--line); padding: 1.4rem 1.4rem 1.5rem; display: flex; flex-direction: column; gap: 1rem; min-width: 0; }
+.card header { display: flex; justify-content: space-between; align-items: baseline; gap: .8rem; flex-wrap: wrap; }
+.card h3 { font-size: 1.55rem; }
+.card .who { font-family: var(--mono); font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.lab { font-family: var(--mono); font-size: .88rem; font-variant-numeric: tabular-nums; border-top: 1px dashed var(--line); border-bottom: 1px dashed var(--line); padding-block: .6rem; display: grid; gap: .3rem; }
+.lab div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .8rem; }
+.lab dt, .lab dd { margin: 0; }
+.lab dt { color: var(--muted); text-transform: uppercase; font-size: .76rem; letter-spacing: .06em; align-self: center; }
+.lab dd { color: var(--fg); text-align: right; }
+.lab dd em { font-style: normal; color: var(--gold); }
+@media (max-width: 560px) { .lab div { grid-template-columns: 1fr; gap: .05rem; padding-block: .2rem; } .lab dd { text-align: left; } }
+.card blockquote { margin: 0; font-size: 1.02rem; line-height: 1.55; }
+.card blockquote::before { content: "« "; color: var(--gold); }
+.card blockquote::after { content: "\00a0»"; color: var(--gold); }
+.card cite { font-style: normal; font-family: var(--mono); font-size: .74rem; color: var(--muted); letter-spacing: .04em; }
+.card.feature { grid-column: 1 / -1; }
+.ages { margin: 1rem 0 0; padding: .8rem 1rem; border-left: 2px solid var(--gold); font-size: 1.02rem; }
+
+.yt-soon{display:inline-block;width:fit-content;justify-self:start;margin:0 0 .4rem;padding:.3rem .7rem;border:1px solid var(--gold);border-radius:999px;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.sante-box{margin-top:2.2rem;padding:1.6rem 1.4rem;border:1px solid var(--gold);border-radius:16px;background:linear-gradient(180deg,rgba(201,164,92,.10),rgba(201,164,92,.02))}
+.sante-lead{font-size:1.25rem;line-height:1.5;margin:0 0 .5rem;color:var(--fg,#EFE8DC)}
+.sante-lead::before{content:"« ";color:var(--gold)}.sante-lead::after{content:" »";color:var(--gold)}
+.sante-cite{display:block;font-family:var(--mono);font-size:.76rem;color:var(--muted);letter-spacing:.04em;margin-bottom:1.4rem}
+.cmpvs{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1.2rem 0}
+.cmpvs>div{border:1px solid var(--line,#2A251C);border-radius:14px;padding:1rem}
+.cmpvs>div.bad{border-color:rgba(214,96,62,.55);background:rgba(214,96,62,.06)}
+.cmpvs h4{margin:0 0 .5rem;font-family:"Archivo",Arial,sans-serif;font-size:1.05rem}
+.cmpvs ul{margin:0;padding-left:1.1rem;font-size:.95rem}.cmpvs li{margin-bottom:.35rem}
+@media(max-width:560px){.cmpvs{grid-template-columns:1fr}}
+.sante-rules{list-style:none;padding:0;margin:1.8rem 0 0;display:grid;gap:.9rem}
+.sante-rules li{padding-left:1.6rem;position:relative}
+.sante-rules li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700}
+.sante-rules b{display:block}
+.card details.more{margin-top:.2rem}
+.card details.more summary{cursor:pointer;list-style:none;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);padding:.4rem 0}
+.card details.more summary::-webkit-details-marker{display:none}
+.card details.more summary::after{content:" +";}
+.card details.more[open] summary::after{content:" −";}
+.card details.more blockquote{margin-top:.9rem}
+.card .yt{margin:0}
+.results{margin-top:2.4rem}
+
 </style>
 </head>
 <body>
@@ -442,9 +487,10 @@ footer p { color: #A0978A; }
       <li><span class="tag core">Le cœur</span><div><h3>Une visio d'onboarding de 45 minutes</h3><span class="val">Valeur <s>500 €</s> · inclus</span><p>Avant de construire quoi que ce soit, on approfondit ensemble ton questionnaire : ton objectif, ton quotidien, tes contraintes, tes analyses. C'est ce qui rend ta stratégie vraiment juste, pas une copie d'un modèle.</p></div></li>
       <li><span class="tag">Bonus 1</span><div><h3>30 jours de questions sur ton plan, par écrit</h3><span class="val">Valeur <s>3 500 €</s> · inclus</span><p>Une fois ta stratégie livrée, tu m'écris sur WhatsApp dès qu'un point de ton plan n'est pas clair. Je te réponds par écrit pour que tu l'appliques correctement. Ensuite, tu avances en autonomie : le suivi de tes résultats et les ajustements font partie de l'accompagnement.</p></div></li>
       <li><span class="tag">Bonus 2</span><div><h3>Ton espace client personnel pendant 30 jours</h3><span class="val">Valeur <s>497 €</s> · inclus</span><p>Tous tes documents, ta feuille de route et tes prochaines étapes au même endroit, sur ton téléphone.</p></div></li>
-      <li><span class="tag">Bonus 3</span><div><h3>La bibliothèque PG Protocol</h3><span class="val">Valeur <s>1 000 €</s> · inclus</span><p>Plus de 35 fiches pratiques pour chaque situation : ajuster tes calories, quand le poids ne bouge pas, adapter ton entraînement, préparer tes analyses, gérer un imprévu…</p></div></li>
+      <li><span class="tag">Bonus 3</span><div><h3>La bibliothèque PG Protocol</h3><span class="val">Valeur <s>1 000 €</s> · inclus</span><p>Près de 50 fiches pratiques pour chaque situation : ajuster tes calories, quand le poids ne bouge pas, adapter ton entraînement, préparer tes analyses, gérer un imprévu…</p></div></li>
       <li><span class="tag">Bonus 4</span><div><h3>Ton tracker de progression</h3><span class="val">Valeur <s>1 000 €</s> · inclus</span><p>Poids, mesures, séances, sommeil, énergie, bilans : tu suis tes chiffres semaine après semaine et tu vois ta courbe avancer.</p></div></li>
       <li><span class="tag">Bonus 5</span><div><h3>Molécules décodées</h3><span class="val">Inclus</span><p>Près de 200 fiches pour comprendre chaque molécule avant d'en parler avec moi : SARMs, peptides, hormones, GLP-1, nootropiques, compléments. Bénéfices, risques, suivi à faire et idées reçues, en langage clair. Accessibles depuis ton espace.</p></div></li>
+      <li><span class="tag">Bonus 6</span><div><h3>La checklist complète de ton bilan sanguin</h3><span class="val">Inclus</span><p>Les 48 points à vérifier avant, pendant et après ta prise de sang : préparation, marqueurs à demander, repères de lecture et règles d'interprétation. Tu sais quoi demander et quoi regarder.</p></div></li>
     </ul>
     <div class="guarantee">
       <span class="seal">Si tu veux aller plus loin</span>
@@ -484,25 +530,249 @@ footer p { color: #A0978A; }
 </section>
 
 <section>
-  <div class="wrap">
+  <div class="wrap wide">
     <span class="eyebrow">Ils en parlent</span>
-    <h2>Ce qu'en disent mes clients</h2>
+    <h2>Leurs chiffres. Leurs mots.</h2>
     <div class="quotes">
       <blockquote><p>« Sérieux, méticuleux et adapté. »</p><cite>Cliente · Audit PG Protocol</cite></blockquote>
       <blockquote><p>« Ça m'a permis de sortir de la boucle infernale. »</p><cite>Client · Audit PG Protocol</cite></blockquote>
       <blockquote><p>« Moi je suis quelqu'un de très méfiant, et en plus là on joue avec la santé. J'ai beaucoup cherché et je suis revenu à un constat simple : c'était toi le plus expérimenté sur le sujet. »</p><cite>Jonathan · entrepreneur · client accompagné</cite></blockquote>
     </div>
-    <div class="ytgrid">
-      <figure class="ytf"><button class="yt" type="button" data-yt="K8AqpLDQbZk" aria-label="Lire le témoignage vidéo de Kevin" style="background-image:url('https://i.ytimg.com/vi/K8AqpLDQbZk/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir la vidéo</span></button><figcaption><b>Kevin</b> · 35 ans, +10 kg de muscle</figcaption></figure>
-      <figure class="ytf"><button class="yt" type="button" data-yt="Wde0vIMTZ4A" aria-label="Lire le témoignage vidéo de Jean-François" style="background-image:url('https://i.ytimg.com/vi/Wde0vIMTZ4A/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir la vidéo</span></button><figcaption><b>Jean-François</b> · 51 ans, sa transformation</figcaption></figure>
-      <figure class="ytf"><button class="yt" type="button" data-yt="d7djbxG919Y" aria-label="Lire la nouvelle vidéo de Jean-François" style="background-image:url('https://i.ytimg.com/vi/d7djbxG919Y/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir la vidéo</span></button><figcaption><b>Jean-François</b> · 51 ans, sa transformation impressionnante</figcaption></figure>
-      <figure class="ytf"><button class="yt" type="button" data-yt="SIWLD5gcavw" aria-label="Lire le témoignage vidéo de Jonathan" style="background-image:url('https://i.ytimg.com/vi/SIWLD5gcavw/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir la vidéo</span></button><figcaption><b>Jonathan</b> · entrepreneur investisseur</figcaption></figure>
-      <figure class="ytf"><button class="yt" type="button" data-yt="pVwwktBHAAw" aria-label="Lire le témoignage vidéo de Gary" style="background-image:url('https://i.ytimg.com/vi/pVwwktBHAAw/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir la vidéo</span></button><figcaption><b>Gary</b> · 31 ans · aujourd'hui associé de Pierre sur l'app PG Protocol</figcaption></figure>
+    <p class="ages">Ci-dessous, des clients accompagnés&#8239;: ce que donne ta stratégie quand on va jusqu'au bout. Ils ont de 21 à 51 ans&#8239;: étudiants, salariés, sportifs, entrepreneurs.</p>
+    <div class="results">
+<article class="card">
+        <header><h3>Edgar</h3><span class="who">36 ans · Hyrox</span></header>
+        <p class="yt-soon">A commencé par l'Audit</p>
+        <button class="yt" type="button" data-yt="6SNguWBrQ0Y" aria-label="Lire le témoignage vidéo d'Edgar" style="background-image:url('https://i.ytimg.com/vi/6SNguWBrQ0Y/maxresdefault.jpg'), url('https://i.ytimg.com/vi/6SNguWBrQ0Y/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir son témoignage vidéo</span></button>
+        <dl class="lab">
+          <div><dt>Poids</dt><dd><em>−12 kg</em>, muscle préservé</dd></div>
+          <div><dt>Temps Hyrox</dt><dd>1h15 → <em>1h09</em></dd></div>
+          <div><dt>Résultats en</dt><dd>3 mois</dd></div>
+        </dl>
+        <blockquote>J'ai quand même pas mal séché. J'ai gardé de la masse musculaire et perdu pas mal de gras. Je suis vraiment mieux physiquement, je me sens vraiment bien.</blockquote>
+        <blockquote>Avec toi, je pense que j'ai acheté du temps surtout. […] J'achète les erreurs des autres en fait, et du coup ça permet d'avancer plus vite.</blockquote>
+        <details class="more"><summary>Lire ses autres mots (4)</summary>
+        <blockquote>Je ne pensais pas que j'étais capable d'avoir ce niveau physique-là.</blockquote>
+        <blockquote>Dans ma relation de couple, ça va mieux. […] Aujourd'hui, je repartage l'Hyrox avec elle.</blockquote>
+        <blockquote>Ça fait pas trop vendeur. Tu dis les choses en disant les côtés positifs et les côtés négatifs, les choses comme elles sont.</blockquote>
+        <blockquote>Je sais très bien comment maigrir sur le papier. Après, d'être assidu et de respecter un plan, c'est toujours plus facile à dire qu'à faire.</blockquote>
+        </details>
+      </article>
+<article class="card">
+        <header><h3>Thomas</h3></header>
+        <button class="yt" type="button" data-yt="zp6zrBKKp6A" aria-label="Lire l'étude de cas complète de Thomas" style="background-image:url('https://i.ytimg.com/vi/zp6zrBKKp6A/maxresdefault.jpg'), url('https://i.ytimg.com/vi/zp6zrBKKp6A/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir l'étude de cas complète</span></button>
+        <dl class="lab">
+          <div><dt>Prise de masse</dt><dd>83,5 kg → <em>97,4 kg</em></dd></div>
+                    <div><dt>Tour de taille</dt><dd>85 → 88,5 cm</dd></div>
+          <div><dt>Résultats en</dt><dd>3 mois et demi</dd></div>
+          <div><dt>La sèche</dt><dd>étude de cas <em>à venir</em> sur la chaîne</dd></div>
+        </dl>
+        <blockquote>Les prises de sang et tout, si j'ai personne pour les contrôler, il y a moyen que j'arrête. C'est quand même une sécurité.</blockquote>
+        <blockquote>Ça avance vite mais pas trop vite, ça fait un résultat harmonieux.</blockquote>
+        <details class="more"><summary>Lire ses autres mots (2)</summary>
+        <blockquote>En vrai, je maîtrisais pas tant, c'est juste que tu m'as expliqué. Et après, c'est pas compliqué.</blockquote>
+        <blockquote>On a pris ma base et on a tout optimisé au fur et à mesure.</blockquote>
+        </details>
+      </article>
+<article class="card">
+        <header><h3>Nelson</h3><span class="who">27 ans</span></header>
+        <p class="yt-soon">Témoignage ou étude de cas à venir</p>
+        <dl class="lab">
+          <div><dt>Poids</dt><dd>123 kg → <em>103 kg</em></dd></div>
+          <div><dt>Résultats en</dt><dd>3 mois</dd></div>
+        </dl>
+        <blockquote>En t-shirt, je faisais du XL. Je rentre dans du L. J'ai pas le gros ventre qui ressort comme avant.</blockquote>
+        <blockquote>Je me sens mieux dans ma peau et même j'ai vu que j'ai pris de la force, et c'est ça qui m'encourage encore plus.</blockquote>
+      </article>
+<article class="card">
+        <header><h3>Amine</h3><span class="who">Ancien client</span></header>
+        <p class="yt-soon">Témoignage ou étude de cas à venir</p>
+        <dl class="lab">
+          <div><dt>Poids</dt><dd>108 kg → <em>95 kg</em></dd></div>
+          <div><dt>Après la fin</dt><dd><em>0 kg</em> repris en 2 mois</dd></div>
+          <div><dt>Résultats en</dt><dd>4 mois</dd></div>
+        </dl>
+        <blockquote>J'ai perdu 13 kg tranquillement, de 108 à 95 kg. Ça fait 2 mois et j'ai pas repris 1 kg.</blockquote>
+        <blockquote>J'ai déjà eu d'autres coachs, mais toi t'es clairement le plus réactif et y'a un vrai suivi.</blockquote>
+        <details class="more"><summary>Lire ses autres mots (1)</summary>
+        <blockquote>Ce que j'ai le plus apprécié, c'est que tu adaptais le programme au fur et à mesure, selon mon rythme de vie et les changements du quotidien.</blockquote>
+        </details>
+      </article>
+<article class="card">
+        <header><h3>Liam</h3></header>
+        <p class="yt-soon">Témoignage ou étude de cas à venir</p>
+        <dl class="lab">
+          <div><dt>Poids</dt><dd>78,7 kg → <em>89,7 kg</em></dd></div>
+          <div><dt>Objectif de départ</dt><dd>85 kg · <em>dépassé</em></dd></div>
+          <div><dt>Résultats en</dt><dd>4 mois</dd></div>
+        </dl>
+        <blockquote>J'ai passé le step des sèches à répétition avec l'accompagnement. C'est très positif pour moi, même sur plein de choses de la vie de tous les jours.</blockquote>
+        <blockquote>L'accompagnement m'a permis de créer de la masse en me disant que je vais pas retourner en sèche 2-3 mois après.</blockquote>
+        <details class="more"><summary>Lire ses autres mots (4)</summary>
+        <blockquote>Objectif dépassé très vite, et largement : 5 kg de plus que l'objectif de départ. Et sans forcer, en fait.</blockquote>
+        <blockquote>Tout le monde me dit : t'es énorme. Moi, j'arrivais pas à m'en rendre compte. Mais quand je vois comment j'allais dans mes vêtements avant et maintenant, c'est vraiment tout le corps qui a pris.</blockquote>
+        <blockquote>Je me suis dit : je peux te faire confiance à 1000 %. J'ai réussi à évoluer malgré ma blessure au coude. Tu m'avais fait un programme totalement adapté.</blockquote>
+        <blockquote>Je m'attendais à cet accompagnement, je l'ai eu. C'est pas juste un changement physique, c'est plein de choses.</blockquote>
+        </details>
+      </article>
+<article class="card">
+        <header><h3>Sébastien</h3><span class="who">Manager audit en banque</span></header>
+        <p class="yt-soon">Témoignage ou étude de cas à venir</p>
+        <dl class="lab">
+          <div><dt>Poids</dt><dd>94,4 kg → <em>86,0 kg</em></dd></div>
+          <div><dt>Développé incliné haltères</dt><dd>record à <em>110 kg</em></dd></div>
+          <div><dt>Résultats en</dt><dd>4 mois</dd></div>
+        </dl>
+        <blockquote>J'ai perdu 5 kg de gras et j'ai rajouté 40 kg de poids sur mes perfs. La seule remarque physique qu'on m'ait faite, en dehors de tu as pris de la carrure, c'est tu as l'air moins fatigué.</blockquote>
+        <blockquote>Je vois une évolution de carrure. En t-shirt, les épaules commencent à se dessiner, les trapèzes et les pecs sont visibles.</blockquote>
+        <details class="more"><summary>Lire ses autres mots (2)</summary>
+        <blockquote>C'est mon outil de travail, mon cerveau. Je peux pas me permettre, pour être beau, d'abîmer mon outil de travail. L'idée, c'est optimiser au max en restant dans la sécurité.</blockquote>
+        <blockquote>Tout ton discours autour des prises de sang, ça permet aussi d'avoir de la donnée.</blockquote>
+        </details>
+      </article>
+<article class="card">
+        <header><h3>Jean-François</h3><span class="who">51 ans</span></header>
+        <button class="yt" type="button" data-yt="d7djbxG919Y" aria-label="Lire la nouvelle vidéo de Jean-François" style="background-image:url('https://i.ytimg.com/vi/d7djbxG919Y/maxresdefault.jpg'), url('https://i.ytimg.com/vi/d7djbxG919Y/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Sa nouvelle vidéo</span></button>
+        <button class="yt" type="button" data-yt="Wde0vIMTZ4A" aria-label="Lire le témoignage vidéo de Jean-François" style="background-image:url('https://i.ytimg.com/vi/Wde0vIMTZ4A/maxresdefault.jpg'), url('https://i.ytimg.com/vi/Wde0vIMTZ4A/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir son témoignage vidéo</span></button>
+        <dl class="lab">
+          <div><dt>Poids</dt><dd>88 kg → <em>80 kg</em></dd></div>
+          <div><dt>Élévations latérales</dt><dd>10-12 kg → <em>18 kg</em></dd></div>
+          <div><dt>Tour de taille</dt><dd>88 → <em>81 cm</em></dd></div>
+          <div><dt>Résultats en</dt><dd>4 mois et demi</dd></div>
+        </dl>
+        <blockquote>Un bien-être comme j'avais rarement connu. Une fatigue qui a disparu. Et une force doublée.</blockquote>
+        <blockquote>Est-ce qu'il y aura les mêmes résultats que quelqu'un de 20 ans&#8239;? J'en sais rien, mais c'est pas ça qu'il faut voir. Pour moi, c'est pas une question d'âge.</blockquote>
+        <details class="more"><summary>Lire ses autres mots (2)</summary>
+        <blockquote>C'est primordial de se faire accompagner, on peut pas faire n'importe quoi.</blockquote>
+        <blockquote>On est toujours très fort pour voir chez les autres, mais pour voir chez soi c'est toujours un peu plus difficile.</blockquote>
+        </details>
+      </article>
+<article class="card">
+        <header><h3>Kevin</h3><span class="who">35 ans</span></header>
+        <button class="yt" type="button" data-yt="K8AqpLDQbZk" aria-label="Lire le témoignage vidéo de Kevin" style="background-image:url('https://i.ytimg.com/vi/K8AqpLDQbZk/maxresdefault.jpg'), url('https://i.ytimg.com/vi/K8AqpLDQbZk/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir son témoignage vidéo</span></button>
+        <dl class="lab">
+          <div><dt>Poids</dt><dd><em>+10 kg</em></dd></div>
+          <div><dt>Développé couché</dt><dd>80 kg → <em>90 kg</em></dd></div>
+          <div><dt>Résultats en</dt><dd>environ 6 mois</dd></div>
+        </dl>
+        <blockquote>J'oscillais entre 68 kg et le maximum que j'avais atteint, c'était 72. Et les gens me disaient t'es quelqu'un de mince, de maigre. Là, depuis les bientôt 6 mois qu'on a collaboré, j'ai pris 10 kilos, mais 10 kilos de muscles quasiment.</blockquote>
+        <blockquote>J'en ai vraiment pour mon argent. Ils m'ont pas vendu du rêve. C'était tellement bien organisé, tellement bien structuré.</blockquote>
+        <details class="more"><summary>Lire ses autres mots (5)</summary>
+        <blockquote>Je dirais d'appeler Pierre. […] Il faut savoir se faire aider par des gens qui ont les connaissances que l'on n'a pas encore. Et il n'y a pas de honte à se faire aider.</blockquote>
+        <blockquote>Dès que j'avais des questions, tu étais ultra rapide pour y répondre. […] Dès que moi j'en avais le besoin, je t'envoyais un message et dans la foulée j'avais une réponse.</blockquote>
+        <blockquote>À 35 ans, prendre 10 kg de muscle, l'évolution elle est jouissive […] le fait aussi d'avoir un nouveau regard dans le miroir. C'est que du plus.</blockquote>
+        <blockquote>Avant, je pensais vraiment que s'entraîner dur, ça suffisait. […] D'avoir un plan d'entraînement et un plan alimentaire structuré, ça fait toute la diff'.</blockquote>
+        <blockquote>Le bien-être mental, parce que ça t'apporte beaucoup de sérénité, beaucoup de recul sur les choses, sur ton corps, sur toi-même.</blockquote>
+        </details>
+      </article>
+<article class="card">
+        <header><h3>Jonathan</h3><span class="who">Entrepreneur</span></header>
+        <button class="yt" type="button" data-yt="SIWLD5gcavw" aria-label="Lire le témoignage vidéo de Jonathan" style="background-image:url('https://i.ytimg.com/vi/SIWLD5gcavw/maxresdefault.jpg'), url('https://i.ytimg.com/vi/SIWLD5gcavw/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir son témoignage vidéo</span></button>
+        <dl class="lab">
+          <div><dt>Poids</dt><dd>77,5 kg → <em>71,5 kg</em></dd></div>
+          <div><dt>Résultats en</dt><dd>2 mois</dd></div>
+        </dl>
+        <blockquote>Aujourd'hui je porte des t-shirts juste parce que je me sens mieux dans mon corps.</blockquote>
+                <blockquote>Investir sur sa santé, c'est investir presque sur son temps de vie. On achète du temps de vie. Et ça, ça n'a pas de prix.</blockquote>
+        <details class="more"><summary>Lire ses autres mots (3)</summary>
+        <blockquote>Quand on finit notre journée de travail, elle est pas réellement finie, puisque dans notre tête ça tourne toujours.</blockquote>
+        <blockquote>Les recherches seules, ça peut être à double tranchant parce qu'on peut partir dans une mauvaise direction. […] Faut faire plus confiance à l'expérience qu'à l'IA.</blockquote>
+        <blockquote>C'est fait pour les gens qui veulent faire les choses bien et qui veulent atteindre leur objectif avec la meilleure sécurité.</blockquote>
+        </details>
+      </article>
+<article class="card">
+        <header><h3>Gary</h3><span class="who">31 ans · entrepreneur</span></header>
+        <button class="yt" type="button" data-yt="pVwwktBHAAw" aria-label="Lire le témoignage vidéo de Gary" style="background-image:url('https://i.ytimg.com/vi/pVwwktBHAAw/maxresdefault.jpg'), url('https://i.ytimg.com/vi/pVwwktBHAAw/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir son témoignage vidéo</span></button>
+        <dl class="lab">
+          <div><dt>Poids</dt><dd>73,5 kg → <em>78,6 kg</em></dd></div>
+          <div><dt>Développé couché</dt><dd>60 kg → <em>100 kg</em></dd></div>
+          <div><dt>Résultats en</dt><dd>4 mois et demi</dd></div>
+        </dl>
+        <blockquote>C'est vraiment de la satisfaction personnelle, de la confiance en soi. Je me sens mieux à la salle, je me sens mieux chez moi, au travail en général.</blockquote>
+        <blockquote>C'est complet, fluide, documenté. Les feedbacks qu'on se fait entre nous sont clairs et détaillés. En général tu réponds vite.</blockquote>
+        <details class="more"><summary>Lire ses autres mots (3)</summary>
+        <blockquote>Ça a changé mon rythme de vie. Ce qui a impacté positivement mon rythme professionnel aussi.</blockquote>
+        <blockquote>Je suis vite arrivé à des limites où je tournais en rond, ça stagnait. Il m'a fallu un accompagnement plus pro, plus cadré, avec plus d'expérience.</blockquote>
+        <blockquote>Ce que je voulais pas, c'était l'approche poulet haricots créatine, pour faire le cliché.</blockquote>
+        </details>
+      </article>
+<article class="card">
+        <header><h3>Julien</h3></header>
+        <p class="yt-soon">Témoignage ou étude de cas à venir</p>
+        <dl class="lab">
+          <div><dt>Poids</dt><dd>73,0 kg → <em>83,8 kg</em></dd></div>
+          <div><dt>Développé couché haltères</dt><dd>38 kg → <em>46 kg</em></dd></div>
+          <div><dt>Sommeil profond</dt><dd>16 min → <em>1h12</em> par nuit</dd></div>
+          <div><dt>Résultats en</dt><dd>6 mois</dd></div>
+        </dl>
+        <blockquote>Je le sens, je suis beaucoup mieux, j'ai plus de force.</blockquote>
+        <blockquote>J'étais bloqué au développé couché à 38 kg. En très peu de temps, j'ai pu monter à 46 et je sentais que c'était facile.</blockquote>
+      </article>
+<article class="card">
+        <header><h3>Tanguy</h3><span class="who">Policier de nuit</span></header>
+        <p class="yt-soon">Témoignage ou étude de cas à venir</p>
+        <dl class="lab">
+          <div><dt>Poids</dt><dd>70,0 kg → <em>79,2 kg</em></dd></div>
+          <div><dt>Développé incliné</dt><dd>objectif <em>atteint</em></dd></div>
+          <div><dt>Résultats en</dt><dd>11 semaines</dd></div>
+        </dl>
+        <blockquote>Depuis le début de l'accompagnement, j'en ai aucune, mais vraiment aucune [douleur], que ce soit au cou, aux épaules. Physiquement, je me sens vraiment bien et fort.</blockquote>
+        <blockquote>Passer de 71 à 79 en quelques semaines, ça se voit tout de suite. Au niveau des bras, je vois que j'ai énormément pris.</blockquote>
+        <details class="more"><summary>Lire ses autres mots (2)</summary>
+        <blockquote>Vu que j'avais du souci à prendre du poids, rien que mentalement, voir que je prends bien, ça motive encore plus.</blockquote>
+        <blockquote>Je retourne voir et en fait c'est complet. Très souvent, j'ai même pas besoin de t'envoyer un message, j'ai ma réponse directement.</blockquote>
+        </details>
+      </article>
+<article class="card">
+        <header><h3>Alexandre</h3></header>
+        <p class="yt-soon">Témoignage ou étude de cas à venir</p>
+        <dl class="lab">
+          <div><dt>Poids</dt><dd>99 kg → <em>88,9 kg</em></dd></div>
+          <div><dt>Tour de taille</dt><dd>101 → <em>89 cm</em></dd></div>
+          <div><dt>Résultats en</dt><dd>6 mois</dd></div>
+        </dl>
+        <blockquote>Le contact rapide avec toi, un problème ou une question, tu réponds rapidement et c'est très satisfaisant et simple de communiquer.</blockquote>
+      </article>
     </div>
-    <p class="disclaim">Témoignages vidéo de clients accompagnés sur plusieurs mois.</p>
-    <p class="disclaim">Résultats et ressentis individuels. Chaque corps réagit différemment.</p>
+    <p class="disclaim">Résultats individuels, obtenus avec un suivi complet. Chaque corps réagit différemment.</p>
   </div>
 </section>
+
+<section id="sante">
+  <div class="wrap">
+    <span class="eyebrow">La question que tout le monde se pose</span>
+    <h2>«&#8239;Et ma santé dans tout ça&#8239;?&#8239;»</h2>
+    <p class="muted">Edgar, 36 ans, infirmier et investisseur, a commencé par l'Audit. Il avait la même peur.</p>
+    <div class="sante-box">
+      <p class="sante-lead">Il y a toujours une part de risque à prendre, mais le risque, il se mesure, et il se corrige au fil du temps. Tu fais une prise de sang, tu vois si ça marche, si tu as des effets secondaires.</p>
+      <span class="sante-cite">Edgar · 36 ans · −12 kg en 3 mois</span>
+      <div class="quotes" style="margin-top:1rem">
+        <blockquote><p>«&#8239;Ce qui m'a surpris en positif, c'est que tu demandes les prises de sang, le suivi. J'avais peur que ce ne soit pas fait et de devoir le faire seul de mon côté. Ça achète une sécurité.&#8239;»</p><cite>Edgar</cite></blockquote>
+        <blockquote><p>«&#8239;Aujourd'hui, je fais les choses avec plus de plaisir, moins d'angoisse, moins de rumination. Et puis j'ai moins mal au dos.&#8239;»</p><cite>Edgar</cite></blockquote>
+      </div>
+    </div>
+    <div class="sante-box" id="alex" style="margin-top:2.4rem">
+      <span class="eyebrow">Le contre-exemple</span>
+      <h3 style="margin-top:.3rem">Un physique de rêve. Un bilan dans le rouge.</h3>
+      <p class="muted">Alex est venu me voir avec 99 kg à 11 % de masse grasse. Deux ans de produits, 6 en même temps au moment de sa prise de sang, et pour seul conseiller… son revendeur. Son bilan&#8239;: 41 marqueurs hors des plages optimales sur 147. Et le plus touché n'était pas le foie&#8239;: c'était le cœur.</p>
+      <div class="cmpvs">
+        <div class="bad"><h4>Alex · sans suivi</h4><ul><li>6 produits en même temps</li><li>Aucun bilan pendant 2 ans</li><li>41 marqueurs sur 147 hors plage</li><li>Cœur, reins, inflammation touchés</li></ul></div>
+        <div><h4>Thomas · avec le PG Protocol</h4><ul><li>Un protocole léger et réfléchi</li><li>Un bilan à chaque étape</li><li>Une alerte réglée en 2 mois</li><li>83,5 → 97,4 kg en 3 mois et demi · sa fiche plus haut</li></ul></div>
+      </div>
+      <p><b>Ton physique ne dit rien de ta santé.</b> Le problème d'Alex, ce n'est pas d'avoir mal fait&#8239;: c'est que personne ne mesurait rien. Il a rejoint l'accompagnement, et la première décision a été d'alléger, de stabiliser et de remettre le suivi médical au centre.</p>
+      <button class="yt" type="button" data-yt="qiKH8BJspGc" aria-label="Lire la vidéo : analyse du bilan sanguin d'Alex" style="background-image:url('https://i.ytimg.com/vi/qiKH8BJspGc/hqdefault.jpg')"><span class="yt-play" aria-hidden="true"></span><span class="yt-lbl">Voir l'analyse complète de son bilan</span></button>
+      <p class="muted" style="margin-top:.8rem;font-size:.85rem">Cas réel, anonymisé avec son accord. Contenu éducatif&#8239;: aucune dose, aucun produit recommandé.</p>
+    </div>
+    <ul class="sante-rules">
+      <li><b>Ta stratégie part de ton bilan sanguin.</b>Pas d'un modèle, pas d'un protocole copié sur Internet : de tes chiffres à toi.</li>
+      <li><b>Les produits n'arrivent que si ton bilan et ton objectif le justifient.</b>Jamais par défaut. Zéro produit fait partie des options.</li>
+      <li><b>Ta feuille de route te dit quand faire tes contrôles.</b>Si tu veux que je lise tes contrôles et que j'ajuste avec toi, c'est l'accompagnement, et ton Audit est déduit.</li>
+      <li><b>Ton médecin reste dans la boucle.</b>Je ne suis pas médecin et je ne remplace pas un avis médical : je travaille avec tes analyses.</li>
+    </ul>
+  </div>
+</section>
+
+
 
 <section class="cmp-sec">
   <div class="wrap">
