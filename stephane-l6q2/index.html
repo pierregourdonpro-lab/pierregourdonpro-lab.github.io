@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Stéphane · ton accompagnement · PG Protocol</title>
+<link rel="icon" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#0E0D0B;--card:#17150F;--line:#2A261D;--tx:#F2EDE3;--mu:#A89F8E;--gold:#C9A45C;--goldhi:#E2C281}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 17px/1.6 'Instrument Sans',system-ui,sans-serif;background-image:radial-gradient(1100px 600px at 80% -10%,rgba(201,164,92,.16),transparent 60%)}
+.w{max-width:980px;margin:0 auto;padding:0 20px}
+header{padding:48px 0 28px;border-bottom:1px solid var(--line)}
+.k{font:500 12px/1 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+h1{font:700 clamp(32px,5vw,52px)/1.08 'Archivo',sans-serif;margin:14px 0 14px;letter-spacing:-.01em}
+h1 em{font-style:normal;color:var(--gold)}
+h2{font:700 clamp(24px,3.2vw,32px)/1.15 'Archivo',sans-serif;margin:0 0 18px}
+h3{font:600 18px/1.3 'Archivo',sans-serif;margin:0 0 6px;color:var(--goldhi)}
+.lead{color:var(--mu);font-size:19px;max-width:760px;margin:0}
+section{padding:46px 0;border-bottom:1px solid var(--line)}
+.n{display:block;margin-bottom:10px}
+.res{background:linear-gradient(135deg,rgba(201,164,92,.16),rgba(201,164,92,.04));border:1px solid rgba(201,164,92,.45);border-radius:18px;padding:26px}
+.res p{margin:0;font:600 clamp(19px,2.4vw,24px)/1.4 'Archivo',sans-serif}
+.res .row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.res label{display:block;font:500 11px/1 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);margin-bottom:6px}
+.res input{width:100%;background:#0E0D0B;border:1px solid var(--line);border-radius:10px;color:var(--tx);font:600 18px 'Archivo',sans-serif;padding:10px 12px}
+.g{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.c{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.c p{margin:0;color:var(--mu);font-size:15.5px}
+.c .b{color:var(--tx);font-size:15.5px;margin-top:8px}
+.num{font:500 12px 'IBM Plex Mono',monospace;color:var(--gold);letter-spacing:.1em}
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:52px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
+ol.steps li:first-child{border-top:0}
+ol.steps li::before{content:counter(s,decimal-leading-zero);font:700 22px 'Archivo',sans-serif;color:var(--gold)}
+ol.steps b{display:block;font:600 18px 'Archivo',sans-serif}
+ol.steps span{color:var(--mu);font-size:15.5px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#0E0D0B;font:700 17px 'Archivo',sans-serif;padding:16px 26px;border-radius:999px;text-decoration:none}
+.btn:hover{background:var(--goldhi)}
+.gar{border:1px solid rgba(201,164,92,.5);border-radius:18px;padding:26px;background:var(--card)}
+.gar p{margin:8px 0 0;color:var(--mu)}
+.tag{display:inline-block;font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:var(--gold);border:1px solid rgba(201,164,92,.4);border-radius:999px;padding:3px 9px;margin-left:6px;vertical-align:middle}
+.nav{position:sticky;top:0;z-index:5;background:rgba(14,13,11,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .w{display:flex;gap:18px;overflow-x:auto;padding-top:12px;padding-bottom:12px;white-space:nowrap}
+.nav a{color:var(--mu);text-decoration:none;font:500 13px 'IBM Plex Mono',monospace;letter-spacing:.06em}
+.nav a:hover{color:var(--gold)}
+footer{padding:36px 0 60px;color:var(--mu);font-size:14px}
+@media(max-width:720px){.g,.res .row{grid-template-columns:1fr}}
+
+.yv{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:18px 0}
+.vid{display:block;position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000 center/cover no-repeat;border:1px solid var(--line);text-decoration:none}
+.vid::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.75))}
+.vid .pl{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:var(--gold);z-index:2}
+.vid .pl::before{content:"";position:absolute;left:26px;top:20px;border-left:18px solid #0E0D0B;border-top:12px solid transparent;border-bottom:12px solid transparent}
+.vid .lb{position:absolute;left:14px;bottom:12px;z-index:2;color:#fff;font:600 15px 'Archivo',sans-serif}
+.who{border-top:1px solid var(--line);padding-top:26px;margin-top:26px}
+.who:first-of-type{border-top:0;margin-top:0;padding-top:0}
+.why{color:var(--goldhi);font:600 16px 'Archivo',sans-serif;margin:4px 0 0}
+blockquote{margin:12px 0;padding:0 0 0 16px;border-left:2px solid var(--gold);font:500 17px/1.5 'Archivo',sans-serif}
+.alert{background:linear-gradient(135deg,rgba(201,164,92,.22),rgba(201,164,92,.06));border:1px solid var(--gold);border-radius:16px;padding:18px 22px;margin:0 0 6px;font:600 17px/1.45 'Archivo',sans-serif}
+ul.cr{margin:0;padding-left:20px;color:var(--tx)} ul.cr li{margin:6px 0}
+video{width:100%;border-radius:14px;border:1px solid var(--line);margin-bottom:18px}
+@media(max-width:720px){.yv{grid-template-columns:1fr}}
+</style></head><body>
+<header><div class="w">
+ <span class="k">Pierre Gourdon · PG Protocol · page préparée pour Stéphane</span>
+ <h1>Stéphane,<br>ton accompagnement <em>PG Protocol</em>.</h1>
+ <p class="lead">Un système construit sur toi : entraînement, nutrition, récupération, compléments, protocole et bilans sanguins. On adapte le système à ta vie, pas l'inverse.</p>
+</div></header>
+<nav class="nav"><div class="w">
+ <a href="#cr">Notre échange</a><a href="#temoignages">À regarder</a><a href="#resultat">00 · Ton résultat</a><a href="#livrables">01 · Ce que tu reçois</a><a href="#suivi">02 · Le suivi</a><a href="#deroule">03 · Le déroulé</a><a href="#bonus">04 · Les bonus</a><a href="#garantie">05 · La garantie</a><a href="#espace">06 · Ton espace</a>
+</div></nav>
+<main class="w">
+
+<section id="cr">
+ <span class="k n">Notre échange du 25/11</span>
+ <h2>Ce qu'on s'est dit</h2>
+ <div class="g">
+  <div class="c"><h3>Où tu en es</h3><ul class="cr">
+   <li>Musculation depuis tes 17 ans, toujours en naturel, 4 séances de 1h30 par semaine</li>
+   <li>86 kg pour 1,71 m, 140 kg au développé couché (ton pic : 200 au squat, 160 au bench)</li>
+   <li>Tu progresses encore, mais plus lentement depuis tes opérations (épaules, genou, biceps), et tu as du mal à perdre du gras</li>
+   <li>Des années à 1 700 kcal : depuis une semaine à 2 400, tu sors déjà moins fatigué de l'entraînement</li></ul></div>
+  <div class="c"><h3>Ton bilan et ton suivi médical</h3><ul class="cr">
+   <li>Testostérone totale correcte, testostérone biodisponible un peu basse, depuis 4 à 5 ans</li>
+   <li>La valeur clé à regarder : la SHBG (c'est le « TEBG » sur ta feuille). Envoie-la-moi</li>
+   <li>Endocrinologue mi-février, avec une prise de sang en janvier</li>
+   <li>Le médical reste au médecin : je ne m'en mêle pas, je construis tout le reste autour</li></ul></div>
+  <div class="c"><h3>Ton objectif</h3><ul class="cr">
+   <li>Retrouver de la force et te rapprocher de ton meilleur niveau</li>
+   <li>Baisser un peu la masse grasse, sans viser le « super sec »</li>
+   <li>Durer : « soulever encore mes 100 kg dans 10 ans »</li>
+   <li>On le chiffre et on le date ensemble au lancement</li></ul></div>
+  <div class="c"><h3>Ce que je vois pour toi</h3><ul class="cr">
+   <li>Pas une révolution : on part de ce que tu fais déjà, et on optimise</li>
+   <li>Les calories, remontées progressivement, avec le suivi de tes bilans</li>
+   <li>Un entraînement calé par phases, sur ton profil très force, en protégeant tes articulations</li>
+   <li>Tout se décide sur tes chiffres, avec un objectif de longévité</li></ul></div>
+ </div>
+</section>
+
+<section id="temoignages">
+ <span class="k n">D'ici mercredi 2/12, 9h</span>
+ <h2>Ils étaient dans ton cas : regarde leurs témoignages</h2>
+ <p class="alert">Prends le temps de regarder ces vidéos avant notre appel de mercredi. Ce sont des profils proches du tien : plus de 50 ans, la santé avant tout, ou qui pensaient que s'entraîner dur suffisait.</p>
+
+ <div class="who">
+  <h3>Jean-François · 51 ans</h3>
+  <p class="why">Pourquoi lui : même tranche d'âge que toi, et la même question « est-ce qu'il n'est pas trop tard ? »</p>
+  <div class="yv"><a class="vid" href="https://www.youtube.com/watch?v=Wde0vIMTZ4A" target="_blank" rel="noopener" style="background-image:url(https://i.ytimg.com/vi/Wde0vIMTZ4A/hqdefault.jpg)"><span class="pl"></span><span class="lb">Son témoignage</span></a><a class="vid" href="https://www.youtube.com/watch?v=d7djbxG919Y" target="_blank" rel="noopener" style="background-image:url(https://i.ytimg.com/vi/d7djbxG919Y/hqdefault.jpg)"><span class="pl"></span><span class="lb">Sa nouvelle vidéo</span></a></div>
+  <p class="muted" style="color:var(--mu);margin:0 0 6px">88 → 80 kg · tour de taille 88 → 81 cm · élévations latérales 10-12 → 18 kg · en 4 mois et demi</p>
+  <blockquote>« Un bien-être comme j'avais rarement connu. Une fatigue qui a disparu. Et une force doublée. »</blockquote>
+  <blockquote>« Est-ce qu'il y aura les mêmes résultats que quelqu'un de 20 ans ? J'en sais rien, mais c'est pas ça qu'il faut voir. Pour moi, c'est pas une question d'âge. »</blockquote>
+  <blockquote>« Moi tout seul, j'aurais pas vu d'où venait le problème. J'ai besoin d'avoir quelqu'un qui sait lire tout ça. »</blockquote>
+ </div>
+
+ <div class="who">
+  <h3>Edgar · 36 ans · infirmier et investisseur</h3>
+  <p class="why">Pourquoi lui : la santé passait avant tout pour lui, et c'est le suivi des prises de sang qui l'a rassuré</p>
+  <div class="yv"><a class="vid" href="https://www.youtube.com/watch?v=6SNguWBrQ0Y" target="_blank" rel="noopener" style="background-image:url(https://i.ytimg.com/vi/6SNguWBrQ0Y/hqdefault.jpg)"><span class="pl"></span><span class="lb">Son témoignage</span></a></div>
+  <p class="muted" style="color:var(--mu);margin:0 0 6px">−12 kg, muscle préservé · Hyrox 1h15 → 1h09 · en 3 mois</p>
+  <blockquote>« Ce qui m'a surpris en positif, c'est que tu demandes les prises de sang, le suivi. J'avais peur que ce ne soit pas fait et de devoir le faire seul de mon côté. Ça achète une sécurité. »</blockquote>
+  <blockquote>« Avec toi, je pense que j'ai acheté du temps surtout. J'achète les erreurs des autres en fait, et du coup ça permet d'avancer plus vite. »</blockquote>
+ </div>
+
+ <div class="who">
+  <h3>Kevin · 35 ans</h3>
+  <p class="why">Pourquoi lui : il s'entraînait dur depuis des années sans passer de cap, jusqu'à ce qu'on structure tout</p>
+  <div class="yv"><a class="vid" href="https://www.youtube.com/watch?v=K8AqpLDQbZk" target="_blank" rel="noopener" style="background-image:url(https://i.ytimg.com/vi/K8AqpLDQbZk/hqdefault.jpg)"><span class="pl"></span><span class="lb">Son témoignage</span></a></div>
+  <p class="muted" style="color:var(--mu);margin:0 0 6px">+10 kg · développé couché 80 → 90 kg · en environ 6 mois</p>
+  <blockquote>« Avant, je pensais vraiment que s'entraîner dur, ça suffisait. D'avoir un plan d'entraînement et un plan alimentaire structuré, ça fait toute la diff'. »</blockquote>
+  <blockquote>« J'en ai vraiment pour mon argent. Ils m'ont pas vendu du rêve. C'était tellement bien organisé, tellement bien structuré. »</blockquote>
+ </div>
+</section>
+
+<section id="resultat">
+ <span class="k n">00 · Ton résultat</span>
+ <div class="res">
+  <p>T'amener de là où tu es à ton objectif, le plus vite possible, le plus sûrement possible, et de façon à le garder dans le temps.</p>
+  <div class="row">
+   <div><label for="now">Aujourd'hui</label><input id="now" value="86 kg · 140 kg au bench"></div>
+   <div><label for="goal">Ton objectif</label><input id="goal" placeholder="à fixer ensemble"></div>
+   <div><label for="date">Pour quand</label><input id="date" placeholder="au lancement"></div>
+  </div>
+ </div>
+</section>
+
+<section id="livrables">
+ <span class="k n">01 · Ce que tu reçois</span>
+ <h2>Une stratégie sur mesure, qui évolue avec toi</h2>
+ <div class="g">
+  <div class="c"><span class="num">01</span><h3>Ton analyse de départ</h3><p>Ton questionnaire détaillé, tes bilans sanguins, ton historique et ta vie réelle (travail, famille, horaires).</p><p class="b">→ On part de toi, pas d'un modèle.</p></div>
+  <div class="c"><span class="num">02</span><h3>Ta stratégie et ta feuille de route</h3><p>Ton objectif chiffré et daté, découpé en phases, avec les points de contrôle.</p><p class="b">→ Tu sais toujours où tu en es et ce qui vient ensuite.</p></div>
+  <div class="c"><span class="num">03</span><h3>Tes plans personnalisés</h3><p>Entraînement, nutrition, repas et courses, récupération et sommeil, compléments, protocole, restaurant, voyages et imprévus.</p><p class="b">→ 16 documents et plus, mis à jour à chaque étape.</p></div>
+  <div class="c"><span class="num">04</span><h3>Le pilotage par la data</h3><p>Poids, mensurations, photos, charges, sommeil, énergie, ressentis et bilans sanguins, lus ensemble.</p><p class="b">→ Chaque décision repose sur tes chiffres, rien n'est laissé au hasard.</p></div>
+  <div class="c"><span class="num">05</span><h3>Le suivi de tes bilans sanguins</h3><p>Ce qu'il faut faire, quand, et la lecture de chaque contrôle, avec ton médecin dans la boucle.</p><p class="b">→ Tu avances en gardant ta santé sous contrôle.</p></div>
+  <div class="c"><span class="num">06</span><h3>Les comptes rendus</h3><p>Après chaque visio, un compte rendu écrit avec les décisions et ce que tu fais la semaine suivante.</p><p class="b">→ Rien ne se perd, tout est dans ton espace.</p></div>
+ </div>
+</section>
+
+<section id="suivi">
+ <span class="k n">02 · Le suivi</span>
+ <h2>100 % avec moi, Pierre</h2>
+ <div class="g">
+  <div class="c"><h3>WhatsApp en direct, 7 jours sur 7</h3><p>Tu m'écris dès que quelque chose bloque. Réponse en général dans la journée.</p></div>
+  <div class="c"><h3>Ton bilan de la semaine</h3><p>Depuis ton téléphone. Je le lis et je te réponds avec les ajustements de la semaine.</p></div>
+  <div class="c"><h3>Visios illimitées, dès que c'est utile</h3><p>Lancement, lecture de chaque bilan sanguin, changement de phase, bilan de fin, et dès que tu bloques ou qu'il faut revoir la stratégie.</p></div>
+  <div class="c"><h3>Ton espace client</h3><p>Tout au même endroit : tes plans, ton protocole à jour, tes chiffres, mes retours, ta feuille de route.</p></div>
+ </div>
+</section>
+
+<section id="deroule">
+ <span class="k n">03 · Le déroulé</span>
+ <h2>Comment ça se passe, étape par étape</h2>
+ <ol class="steps">
+  <li><div><b>Ton questionnaire d'onboarding</b><span>Ton historique, ton entraînement, ta nutrition, ta santé, tes contraintes.</span></div></li>
+  <li><div><b>Ton bilan sanguin de départ</b><span>La liste des marqueurs à faire, prête à montrer à ton médecin.</span></div></li>
+  <li><div><b>Ta visio de lancement</b><span>On approfondit ton dossier et on fixe ton objectif chiffré.</span></div></li>
+  <li><div><b>Ta stratégie et tes plans</b><span>Livrés dans ton espace, avec ce que tu fais dès la première semaine.</span></div></li>
+  <li><div><b>Le suivi, semaine après semaine</b><span>Bilans, ajustements, contrôles sanguins, visios aux moments clés.</span></div></li>
+  <li><div><b>Ta fin d'accompagnement</b><span>Bilan de transformation et plan d'autonomie, pour garder tes résultats.</span></div></li>
+ </ol>
+</section>
+
+<section id="bonus">
+ <span class="k n">04 · Les bonus</span>
+ <h2>Inclus dans ton accompagnement</h2>
+ <div class="g">
+  <div class="c"><h3>La Bibliothèque PG</h3><p>Près de 50 fiches pour chaque situation : calories, plateau, sommeil, prise de sang, imprévus.</p></div>
+  <div class="c"><h3>Molécules décodées</h3><p>Près de 200 fiches : bénéfices, risques et suivi à faire, en toute transparence.</p></div>
+  <div class="c"><h3>Ton Tracker PG</h3><p>Ta journée en 30 secondes, tes graphiques de progression.</p></div>
+  <div class="c"><h3>La checklist bilan sanguin</h3><p>48 points pour comprendre chaque valeur de ton bilan.</p></div>
+  <div class="c"><h3>PG Academy <span class="tag">À venir · offerte</span></h3><p>La formation vidéo, ajoutée à ton espace dès sa sortie.</p></div>
+  <div class="c"><h3>PG Protocol IA <span class="tag">À venir · offerte</span></h3><p>Ton assistant pour tes questions du quotidien, nourri par la méthode.</p></div>
+ </div>
+</section>
+
+<section id="garantie">
+ <span class="k n">05 · La garantie</span>
+ <div class="gar">
+  <h2 style="margin:0">Je t'accompagne jusqu'au résultat</h2>
+  <p>Ton objectif chiffré est écrit dès le départ. Si tu as fait ta part (bilans, plan appliqué, contrôles sanguins) et qu'il n'est pas atteint à la fin de ton accompagnement, je continue à t'accompagner sans surcoût. Les modalités sont précisées dans ton contrat.</p>
+ </div>
+</section>
+
+<section id="espace" style="border-bottom:0">
+ <span class="k n">06 · Ton espace</span>
+ <h2>À quoi ressemble ton espace client</h2>
+ <p class="lead" style="margin-bottom:22px">Un exemple réel (client fictif, Alex) : tes plans, ton protocole, tes chiffres, mes retours.</p>
+ <video controls playsinline preload="metadata" poster="../motion/poster-visite-16x9-v8.jpg"><source src="../motion/pg-visite-16x9-web-v8.mp4" type="video/mp4"></video>
+ <a class="btn" href="https://www.notion.so/3fd461f779be81a3826ee2743e039b10" target="_blank" rel="noopener">Ouvrir l'exemple d'espace client →</a>
+</section>
+
+</main>
+<footer><div class="w">Une question d'ici mercredi ? Écris-moi sur WhatsApp. On se retrouve le mercredi 2/12 à 9h : <a style="color:var(--gold)" href="https://meet.google.com/xzn-apgd-jkp">lien de l'appel</a>.<br><br>Pierre Gourdon · PG Protocol · Je ne suis pas médecin : ton médecin reste ton référent santé.</div></footer>
+<script>
+const q=new URLSearchParams(location.search);
+[['now','now'],['goal','goal'],['date','date']].forEach(([id,k])=>{if(q.get(k))document.getElementById(id).value=q.get(k)});
+</script>
+</body></html>
