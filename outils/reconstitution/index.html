@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Calculateur de reconstitution · PG Protocol</title>
+<link rel="icon" href="/favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{--bg:#0E0D0B;--card:#17150F;--line:#2A261D;--tx:#F2EDE3;--mu:#A89F8E;--gold:#C9A45C;--goldhi:#E2C281;--red:#E07A5F;
+--display:'Archivo',system-ui,sans-serif;--body:'Instrument Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 17px/1.55 var(--body);background-image:radial-gradient(900px 500px at 85% -10%,rgba(201,164,92,.15),transparent 60%)}
+.w{max-width:760px;margin:0 auto;padding:36px max(16px,env(safe-area-inset-left,0px)) 56px}
+.k{font:500 12px/1.3 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+h1{font:700 clamp(28px,5vw,42px)/1.1 var(--display);margin:12px 0 10px}
+h1 em{font-style:normal;color:var(--gold)}
+.lead{color:var(--mu);margin:0 0 26px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:16px}
+.tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.tabs button{flex:1;min-width:200px;background:transparent;border:1px solid var(--line);color:var(--mu);border-radius:12px;padding:12px;font:600 15px var(--body);cursor:pointer}
+.tabs button[aria-pressed=true]{border-color:var(--gold);color:var(--tx);background:rgba(201,164,92,.08)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:block;font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.f{display:flex;gap:8px}
+input,select{width:100%;background:#0E0D0B;border:1px solid var(--line);color:var(--tx);border-radius:10px;padding:12px;font:500 17px var(--body)}
+input:focus,select:focus{outline:2px solid var(--gold);outline-offset:1px}
+.f select{width:auto;min-width:86px}
+select:disabled{appearance:none;-webkit-appearance:none;color:var(--mu);text-align:center}
+.hint{color:var(--mu);font-size:13.5px;margin-top:5px}
+.res{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.res div{background:#0E0D0B;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.res b{display:block;font:700 26px var(--display);color:var(--gold);font-variant-numeric:tabular-nums}
+.res span{color:var(--mu);font-size:14px}
+.big{grid-column:1/-1;border-color:rgba(201,164,92,.6)!important}
+.big b{font-size:38px}
+.syr{margin:18px 0 4px}
+.syr svg{width:100%;height:auto;display:block}
+.warn{border-left:3px solid var(--red);padding:10px 14px;background:rgba(224,122,95,.08);border-radius:8px;margin-top:14px;font-size:15px;display:none}
+.ok{color:var(--mu);font-size:14px;margin-top:12px}
+.note{color:var(--mu);font-size:14.5px}
+.note b{color:var(--tx)}
+ul{margin:8px 0 0;padding-left:20px} li{margin:5px 0}
+[hidden]{display:none!important}
+@media(max-width:600px){.row{grid-template-columns:1fr}.res{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class="w">
+ <span class="k">PG Protocol · Mes outils</span>
+ <h1>Calculateur de <em>reconstitution</em></h1>
+ <p class="lead">Tu entres ton flacon, ton eau et la dose écrite dans « Mon protocole ». Le calcul te donne le nombre d'unités à lire sur ta seringue.</p>
+
+ <div class="card">
+  <div class="tabs" role="group" aria-label="Mode de calcul">
+   <button id="m1" aria-pressed="true">J'ai déjà mis mon eau</button>
+   <button id="m2" aria-pressed="false">Combien d'eau mettre ?</button>
+  </div>
+
+  <div class="row">
+   <div>
+    <label for="powder">Poudre dans le flacon</label>
+    <div class="f"><input id="powder" type="number" inputmode="decimal" min="0" step="any" value="5"><select id="powderU"><option value="mg">mg</option><option value="iu">UI</option></select></div>
+    <div class="hint">Écrit sur l'étiquette ou dans le mail de ta commande.</div>
+   </div>
+   <div>
+    <label for="dose">Ta dose par prise</label>
+    <div class="f"><input id="dose" type="number" inputmode="decimal" min="0" step="any" value="250"><select id="doseU"><option value="mcg">mcg</option><option value="mg">mg</option><option value="iu" hidden>UI</option></select></div>
+    <div class="hint">Celle écrite par Pierre dans « Mon protocole ».</div>
+   </div>
+   <div id="waterBox">
+    <label for="water">Eau bactériostatique ajoutée</label>
+    <div class="f"><input id="water" type="number" inputmode="decimal" min="0" step="any" value="2"><select disabled><option>mL</option></select></div>
+   </div>
+   <div id="targetBox" hidden>
+    <label for="target">Unités voulues par prise</label>
+    <div class="f"><input id="target" type="number" inputmode="decimal" min="1" step="1" value="10"><select disabled><option>unités</option></select></div>
+    <div class="hint">Un chiffre rond, facile à lire (10, 20…).</div>
+   </div>
+   <div>
+    <label for="syringe">Ta seringue (U-100)</label>
+    <select id="syringe"><option value="100">1 mL · 100 unités</option><option value="50">0,5 mL · 50 unités</option><option value="30">0,3 mL · 30 unités</option></select>
+   </div>
+  </div>
+ </div>
+
+ <div class="card" aria-live="polite">
+  <div class="res">
+   <div class="big"><b id="rUnits">–</b><span id="rUnitsLbl">unités à lire sur ta seringue</span></div>
+   <div id="rWaterBox" hidden><b id="rWater">–</b><span>d'eau bactériostatique à mettre</span></div>
+   <div><b id="rVol">–</b><span>volume par prise</span></div>
+   <div><b id="rConc">–</b><span>concentration du flacon</span></div>
+   <div><b id="rDoses">–</b><span>prises dans le flacon</span></div>
+  </div>
+  <div class="syr" aria-hidden="true"><svg id="svg" viewBox="0 0 640 90"></svg></div>
+  <div class="warn" id="warn"></div>
+  <p class="ok">1 unité = 0,01 mL sur une seringue U-100.</p>
+ </div>
+
+ <div class="card note">
+  <b>À savoir</b>
+  <ul>
+   <li>Ce calcul ne remplace pas la dose écrite par Pierre dans « Mon protocole ». Il fait juste le calcul à ta place.</li>
+   <li>Refais le calcul à chaque nouveau flacon : la quantité de poudre peut changer d'une commande à l'autre.</li>
+   <li>Un doute sur un chiffre, une étiquette ou un résultat qui te paraît bizarre : tu n'injectes pas, tu m'écris sur WhatsApp avant.</li>
+  </ul>
+ </div>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+let mode=1;
+const fmt=(n,d=2)=>Number.isFinite(n)?n.toLocaleString('fr-FR',{maximumFractionDigits:d}):'–';
+function setMode(m){mode=m;$('m1').setAttribute('aria-pressed',m===1);$('m2').setAttribute('aria-pressed',m===2);
+ $('waterBox').hidden=m!==1;$('targetBox').hidden=m!==2;$('rWaterBox').hidden=m!==2;calc();}
+$('m1').onclick=()=>setMode(1);$('m2').onclick=()=>setMode(2);
+function syncUnits(){const iu=$('powderU').value==='iu';
+ [...$('doseU').options].forEach(o=>{o.hidden=iu?o.value!=='iu':o.value==='iu'});
+ if(iu)$('doseU').value='iu';else if($('doseU').value==='iu')$('doseU').value='mcg';}
+$('powderU').onchange=()=>{syncUnits();calc();};
+document.querySelectorAll('input,select').forEach(e=>e.addEventListener('input',calc));
+function drawSyringe(units,cap){
+ const x0=40,len=520,y=30,h=30,fill=Math.max(0,Math.min(units,cap))/cap*len;
+ let s=`<rect x="${x0}" y="${y}" width="${len}" height="${h}" rx="6" fill="#0E0D0B" stroke="#2A261D" stroke-width="2"/>`;
+ s+=`<rect x="${x0}" y="${y}" width="${fill}" height="${h}" rx="6" fill="#C9A45C" opacity=".85"/>`;
+ const step=cap===100?10:(cap===50?5:5);
+ for(let u=0;u<=cap;u+=step){const xx=x0+u/cap*len;s+=`<line x1="${xx}" y1="${y}" x2="${xx}" y2="${y+10}" stroke="#A89F8E" stroke-width="1.5"/><text x="${xx}" y="${y+h+18}" fill="#A89F8E" font-size="12" font-family="IBM Plex Mono" text-anchor="middle">${u}</text>`;}
+ s+=`<rect x="${x0+len}" y="${y+8}" width="50" height="${h-16}" fill="#2A261D"/><rect x="10" y="${y+11}" width="30" height="8" fill="#2A261D"/>`;
+ $('svg').innerHTML=s;}
+function calc(){
+ const P=+$('powder').value,pu=$('powderU').value,D=+$('dose').value,du=$('doseU').value,cap=+$('syringe').value;
+ // tout en mcg (ou UI)
+ const powder=pu==='iu'?P:P*1000, dose=du==='iu'?D:(du==='mg'?D*1000:D);
+ let water;
+ if(mode===1){water=+$('water').value;}
+ else{const T=+$('target').value; water=(T/100)*powder/dose;}
+ const warn=[];
+ if(!(powder>0&&dose>0&&water>0)){['rUnits','rVol','rConc','rDoses','rWater'].forEach(i=>$(i).textContent='–');drawSyringe(0,cap);$('warn').style.display='none';return;}
+ const conc=powder/water, vol=dose/conc, units=vol*100, doses=powder/dose;
+ const unitLbl=pu==='iu'?'UI':'mcg';
+ $('rUnits').textContent=fmt(units,1);
+ $('rVol').textContent=fmt(vol,3)+' mL';
+ $('rConc').textContent=pu==='iu'?fmt(conc,2)+' UI/mL':(conc>=1000?fmt(conc/1000,2)+' mg/mL':fmt(conc,0)+' mcg/mL');
+ $('rDoses').textContent=fmt(Math.floor(doses+1e-9),0);
+ $('rWater').textContent=fmt(water,2)+' mL';
+ if(units>cap)warn.push(`La prise (${fmt(units,1)} unités) dépasse ta seringue de ${cap} unités : prends une seringue plus grande ou ${mode===1?'mets moins d\'eau':'vise moins d\'unités'}.`);
+ if(units<3)warn.push('Moins de 3 unités : difficile à lire avec précision. Mets plus d\'eau pour avoir un volume plus facile à mesurer.');
+ if(mode===2&&water>5)warn.push('Plus de 5 mL d\'eau : vérifie que ton flacon peut contenir ce volume.');
+ if(mode===1&&water>5)warn.push('Plus de 5 mL d\'eau : vérifie que ton flacon peut contenir ce volume.');
+ if(Math.abs(units-Math.round(units))>0.05&&units>=3)warn.push(`${fmt(units,1)} unités ne tombe pas sur une graduation : arrondis à la graduation la plus proche, ou passe en mode « Combien d'eau mettre ? » pour viser un chiffre rond.`);
+ $('warn').innerHTML=warn.join('<br>');$('warn').style.display=warn.length?'block':'none';
+ drawSyringe(units,cap);}
+syncUnits();calc();
+</script>
+</body>
+</html>
