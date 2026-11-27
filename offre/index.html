@@ -340,30 +340,20 @@ body.show-notes .notes { display: block; }
         <p class="muted" style="margin:.3rem 0 0">L'équivalent de plus de 50 000 € de travail sur ton dossier.</p>
         <ul><li>Suivi complet, ajustements à chaque étape, visios dès que c'est utile</li><li>Garantie : je t'accompagne jusqu'à ton objectif écrit au contrat</li><li>Espace client, tracker et ressources à vie</li></ul>
         <a class="pay" href="https://buy.stripe.com/aFa8wQ89c2kN2U40nVgYU2q" target="_blank" rel="noopener">Je démarre · 5 000 €</a>
-        <button class="more" type="button" data-show="t2">Voir le paiement en plusieurs fois</button>
       </div>
 
       <div class="price tier hidden" id="t2">
         <span class="eyebrow">Le même accompagnement, en plusieurs fois</span>
-        <span class="amount">2 × 3 000 € <small>chaque partie payable en 3 × 1 000 € sans frais avec Klarna</small></span>
-        <ul><li>1re partie au démarrage, 2e partie à mi-parcours</li><li>Soit environ 1 000 € par mois pendant 6 mois</li><li>Klarna, si tu es éligible au moment du paiement</li></ul>
-        <a class="pay" href="https://buy.stripe.com/14A8wQ6146B3bqA6MjgYU2r" target="_blank" rel="noopener">Je démarre · 1re partie 3 000 €</a>
-        <button class="more" type="button" data-show="t3">Voir une formule plus courte</button>
+        <span class="amount">2 × 2 500 € <small>chaque partie payable en 3 fois sans frais avec Klarna</small></span>
+        <ul><li>Les 2 parties se règlent maintenant, au même prix</li><li>Soit environ 1 667 € aujourd'hui, à 30 jours et à 60 jours</li><li>Klarna, si tu es éligible au moment du paiement</li></ul>
+        <a class="pay" href="https://buy.stripe.com/3cIcN6exA7F7amwgmTgYU2A" target="_blank" rel="noopener">Je démarre · 2 500 € (×2)</a>
       </div>
 
       <div class="price tier hidden" id="t3">
-        <span class="eyebrow">Essentiel · 3 mois</span>
-        <span class="amount">3 000 € <small>ou 3 × 1 000 € sans frais avec Klarna</small></span>
-        <table class="cmp">
-          <tr><th></th><th>Essentiel</th><th>Complet</th></tr>
-          <tr><td>Durée</td><td>3 mois</td><td>6 mois</td></tr>
-          <tr><td>Suivi, bilans et ajustements</td><td>Oui</td><td>Oui</td></tr>
-          <tr><td>WhatsApp direct, visios dès que c'est utile</td><td>Oui</td><td>Oui</td></tr>
-          <tr><td>Garantie jusqu'à ton objectif</td><td>Non</td><td>Oui</td></tr>
-        </table>
-        <p class="note">Tu testes la stratégie sur 3 mois. Si tu continues ensuite avec l'accompagnement complet, ce que tu as payé est déduit.</p>
-        <a class="pay" href="https://buy.stripe.com/aFadRa1KO5wZ8eo6MjgYU2p" target="_blank" rel="noopener">Je démarre l'Essentiel · 3 000 €</a>
-        <button class="more" type="button" data-show="t4">Voir l'option en autonomie</button>
+        <span class="eyebrow">Le même accompagnement, sur 6 mois</span>
+        <span class="amount">2 × 3 000 € <small>chaque partie payable en 3 × 1 000 € sans frais avec Klarna</small></span>
+        <ul><li>1re partie au démarrage, 2e partie à mi-parcours</li><li>Soit environ 1 000 € par mois pendant 6 mois</li><li>Klarna, si tu es éligible au moment du paiement</li></ul>
+        <a class="pay" href="https://buy.stripe.com/14A8wQ6146B3bqA6MjgYU2r" target="_blank" rel="noopener">Je démarre · 1re partie 3 000 €</a>
       </div>
 
       <div class="price tier hidden" id="t4">
@@ -387,10 +377,10 @@ body.show-notes .notes { display: block; }
 
   <aside class="notes"><b>Script</b><br>
   « L'accompagnement complet, c'est 5 000 €. » <b>Puis silence.</b> C'est lui qui parle en premier.<br>
-  · « En plusieurs fois ? » → bouton suivant : 2 × 3 000 € avec Klarna.<br>
+  · Options cachées, rien à l'écran : touche <b>2</b> = 2 × 2 500 € Klarna (payés maintenant) · <b>3</b> = 2 × 3 000 € (dernier recours) · <b>4</b> = Audit (seulement après un non clair).<br>
   · « Devis / contrat / virement » → « Tu auras ton contrat et ta facture. Je t'envoie le RIB maintenant, tu programmes le virement pendant qu'on est ensemble, et je t'envoie le contrat dans l'heure. »<br>
   · « Je pense que oui » → « Sur 10, tu en es où pour démarrer ? Qu'est-ce qui manque pour être à 10 ? »<br>
-  · Essentiel puis Audit : seulement après un non clair.</aside>
+  · Plus d'Essentiel (gamme à 3 offres depuis le 27/11).</aside>
 </div>
 </section>
 
@@ -438,6 +428,7 @@ body.show-notes .notes { display: block; }
     if (e.target.tagName === 'INPUT') return;
     if (e.key === 'p' || e.key === 'P') document.body.classList.toggle('show-price');
     else if (e.key === 'n' || e.key === 'N') document.body.classList.toggle('show-notes');
+    else if (e.key === '2' || e.key === '3' || e.key === '4') { document.body.classList.add('show-price'); var t = document.getElementById('t' + e.key); if (t) { t.classList.remove('hidden'); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }
     else if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown') { e.preventDefault(); go(1); }
     else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') { e.preventDefault(); go(-1); }
   });
