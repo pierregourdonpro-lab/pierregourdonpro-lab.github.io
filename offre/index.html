@@ -109,6 +109,14 @@ body.show-price #reveal { display: none; }
   .grid, .grid.two, .goal, .price-grid { grid-template-columns: 1fr; }
   section { padding: 3rem 0; }
 }
+.fitpair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin:1.2rem 0 1.6rem}
+.fitpair h3{font-size:1.05rem;margin:0 0 .6rem}
+.fitpair ul{list-style:none;padding:0;margin:0;display:grid;gap:.5rem}
+.fitpair li{padding-left:1.4rem;position:relative}
+.fitpair .fy li::before{content:"+";position:absolute;left:0;color:var(--gold)}
+.fitpair .fn li::before{content:"–";position:absolute;left:0;opacity:.6}
+.fitpair .fn li{opacity:.75}
+@media (max-width:640px){.fitpair{grid-template-columns:1fr}}
 </style>
 <style>
 /* V2 · présentation en écrans */
@@ -332,6 +340,16 @@ body.show-notes .notes { display: block; }
 <div class="wrap">
   <span class="eyebrow">07 · Ton investissement</span>
   <h2>L'accompagnement PG Protocol · 6 mois</h2>
+  <div class="fitpair">
+    <div><h3>C'est pour toi si</h3><ul class="fy">
+      <li>tu veux un résultat visible et durable, piloté par tes bilans&#8239;;</li>
+      <li>tu es prêt à suivre le protocole et à faire tes check-ins chaque semaine&#8239;;</li>
+      <li>tu veux quelqu'un qui lit tes chiffres et ajuste, pas un programme générique.</li></ul></div>
+    <div><h3>Ce n'est pas pour toi si</h3><ul class="fn">
+      <li>tu cherches une solution miracle ou un programme à petit prix&#8239;;</li>
+      <li>tu ne veux pas faire de bilan sanguin&#8239;;</li>
+      <li>tu n'es pas prêt à t'engager 6 mois.</li></ul></div>
+  </div>
   <div id="reveal"><button class="reveal-btn" type="button" onclick="document.body.classList.add('show-price')">Voir l'investissement</button></div>
     <div id="prix">
       <div class="price main tier">
@@ -356,13 +374,6 @@ body.show-notes .notes { display: block; }
         <a class="pay" href="https://buy.stripe.com/14A8wQ6146B3bqA6MjgYU2r" target="_blank" rel="noopener">Je démarre · 1re partie 3 000 €</a>
       </div>
 
-      <div class="price tier hidden" id="t4">
-        <span class="eyebrow">Audit stratégique · en autonomie</span>
-        <span class="amount">1 497 € <small>ou 3 × 499 € sans frais avec Klarna</small></span>
-        <ul><li>Analyse de ton dossier et de ton bilan sanguin</li><li>Une visio d'onboarding de 45 minutes</li><li>Ta stratégie écrite et ta feuille de route sur 6 mois</li><li>30 jours de questions par écrit sur ton plan</li></ul>
-        <p class="note">Pas de suivi ni d'ajustements ensuite : tu appliques seul. Si tu passes à l'accompagnement dans les 30 jours, l'Audit est déduit.</p>
-        <a class="pay" href="https://buy.stripe.com/bJedRacps0cFdyIeeLgYU2o" target="_blank" rel="noopener">Je prends l'Audit · 1 497 €</a>
-      </div>
 
       <div class="after">
         <span class="eyebrow">Ce qui se passe juste après</span>
@@ -377,7 +388,8 @@ body.show-notes .notes { display: block; }
 
   <aside class="notes"><b>Script</b><br>
   « L'accompagnement complet, c'est 5 000 €. » <b>Puis silence.</b> C'est lui qui parle en premier.<br>
-  · Options cachées, rien à l'écran : touche <b>2</b> = 2 × 2 500 € Klarna (payés maintenant) · <b>3</b> = 2 × 3 000 € (dernier recours) · <b>4</b> = Audit (seulement après un non clair).<br>
+  · Options cachées, rien à l'écran : touche <b>2</b> = 2 × 2 500 € Klarna (payés maintenant) · <b>3</b> = 2 × 3 000 € (dernier recours).<br>
+  · Audit retiré de cette page (28/11) : s'il faut le repli après un non clair, envoie le lien Stripe Audit sur WhatsApp.<br>
   · « Devis / contrat / virement » → « Tu auras ton contrat et ta facture. Je t'envoie le RIB maintenant, tu programmes le virement pendant qu'on est ensemble, et je t'envoie le contrat dans l'heure. »<br>
   · « Je pense que oui » → « Sur 10, tu en es où pour démarrer ? Qu'est-ce qui manque pour être à 10 ? »<br>
   · Plus d'Essentiel (gamme à 3 offres depuis le 27/11).</aside>
@@ -428,7 +440,7 @@ body.show-notes .notes { display: block; }
     if (e.target.tagName === 'INPUT') return;
     if (e.key === 'p' || e.key === 'P') document.body.classList.toggle('show-price');
     else if (e.key === 'n' || e.key === 'N') document.body.classList.toggle('show-notes');
-    else if (e.key === '2' || e.key === '3' || e.key === '4') { document.body.classList.add('show-price'); var t = document.getElementById('t' + e.key); if (t) { t.classList.remove('hidden'); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }
+    else if (e.key === '2' || e.key === '3') { document.body.classList.add('show-price'); var t = document.getElementById('t' + e.key); if (t) { t.classList.remove('hidden'); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }
     else if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown') { e.preventDefault(); go(1); }
     else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') { e.preventDefault(); go(-1); }
   });
